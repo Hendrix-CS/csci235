@@ -29,42 +29,30 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-<table border cellspacing="2" cellpadding="3">
+<table cellspacing="2" cellpadding="3">
 <tbody>
 <tr><th>Date</th><th>Day</th><th>Topic/Activity</th><th>Reading</th><th>Assigned</th><th>Due</th></tr>
-<tr><td>1/19</td><td>Tue</td><td>Overview<br>Robots in Science Fiction</td><td>Short Stories</td><td>Project 1a: Short Story Assignmen
-t #1</td><td>None</td></tr>
-<tr><td>1/21</td><td>Thu</td><td>Discussion of Short Stories</td><td>Short Stories<br>Self-Driving Cars</td><td>Project 1b: Short Stor
-y Assignment #2</td><td>Project 1a: Short Story Assignment #1</td></tr>
-<tr><td>1/26</td><td>Tue</td><td>Discussion of Self-Driving Cars</td><td>Intelligence Without Robots</td><td>Project 1c: Contemporary
-Robots Assignment</td><td>Project 1b: Short Story Assignment #2</td></tr>
-<tr><td>1/28</td><td>Thu</td><td>Discussion of Intelligence Without Robots</td><td>Something about Arduino</td><td>Project 1c: Contemp
-orary Robots Assignment</td><td>None</td></tr>
-<tr><td>2/2</td><td>Tue</td><td>Building and Programming the Robot</td><td>None</td><td>Project 2a: Build Robot</td><td>None</td></tr>
-<tr><td>2/4</td><td>Thu</td><td>Driving in Patterns</td><td>None</td><td>Project 2b: Driving in Patterns</td><td>Project 2a: Build Rob
-ot</td></tr>
-<tr><td>2/9</td><td>Tue</td><td>kNN Image Classifiers<br>Color Histograms</td><td>None</td><td>Project 3: Reactive Behaviors 1</td><td
->Project 2b: Driving in Patterns</td></tr>
+<tr><td>1/19</td><td>Tue</td><td>Overview<br>Robots in Science Fiction</td><td>None</td><td>Project 1a: Short Story Assignment #1</td><td>None</td></tr>
+<tr><td>1/21</td><td>Thu</td><td>Discussion of Short Stories</td><td>Short Stories</td><td>Project 1b: Short Story Assignment #2</td><td>Project 1a: Short Story Assignment #1</td></tr>
+<tr><td>1/26</td><td>Tue</td><td>Discussion of Self-Driving Cars</td><td>Self-Driving Cars</td><td>Project 1c: Contemporary Robots Assignment</td><td>Project 1b: Short Story Assignment #2</td></tr>
+<tr><td>1/28</td><td>Thu</td><td>Discussion of Intelligence Without Robots</td><td>Intelligence Without Robots</td><td>None</td><td>Project 1c: Contemporary Robots Assignment</td></tr>
+<tr><td>2/2</td><td>Tue</td><td>Building and Programming the Robot</td><td>Something about Arduino</td><td>Project 2a: Build Robot</td><td>None</td></tr>
+<tr><td>2/4</td><td>Thu</td><td>Driving in Patterns</td><td>None</td><td>Project 2b: Driving in Patterns</td><td>Project 2a: Build Robot</td></tr>
+<tr><td>2/9</td><td>Tue</td><td>kNN Image Classifiers<br>Color Histograms</td><td>None</td><td>Project 3: Reactive Behaviors 1</td><td>Project 2b: Driving in Patterns</td></tr>
 <tr><td>2/11</td><td>Thu</td><td>kNN continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>2/16</td><td>Tue</td><td>kNN with K-means<br>Edge Detection</td><td>None</td><td>Project 4: Reactive Behaviors 2</td><td>Proje
-ct 3: Reactive Behaviors 1</td></tr>
+<tr><td>2/16</td><td>Tue</td><td>kNN with K-means<br>Edge Detection</td><td>None</td><td>Project 4: Reactive Behaviors 2</td><td>Project 3: Reactive Behaviors 1</td></tr>
 <tr><td>2/18</td><td>Thu</td><td>Edge Detection continued</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>2/23</td><td>Tue</td><td>Break: no class</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>2/25</td><td>Thu</td><td>Edge Detection continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>3/2</td><td>Tue</td><td>Tracking and PID control</td><td>None</td><td>Project 5: Tracking 1</td><td>Project 4: Reactive Behavi
-ors 2</td></tr>
+<tr><td>3/2</td><td>Tue</td><td>Tracking and PID control</td><td>None</td><td>Project 5: Tracking 1</td><td>Project 4: Reactive Behaviors 2</td></tr>
 <tr><td>3/4</td><td>Thu</td><td>Tracking/PID continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>3/9</td><td>Tue</td><td>Tracking and Fuzzy Logic</td><td>None</td><td>Project 6: Tracking 2</td><td>Project 5: Tracking 1</td>
-</tr>
+<tr><td>3/9</td><td>Tue</td><td>Tracking and Fuzzy Logic</td><td>None</td><td>Project 6: Tracking 2</td><td>Project 5: Tracking 1</td></tr>
 <tr><td>3/11</td><td>Thu</td><td>Tracking/Fuzzy continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>3/16</td><td>Tue</td><td>Reinforcement Learning</td><td>None</td><td>Project 7: Reinforcement Learning</td><td>Project 6: Trac
-king 2</td></tr>
+<tr><td>3/16</td><td>Tue</td><td>Reinforcement Learning</td><td>None</td><td>Project 7: Reinforcement Learning</td><td>Project 6: Tracking 2</td></tr>
 <tr><td>3/18</td><td>Thu</td><td>Reinforcement Learning continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>3/23</td><td>Tue</td><td>Neural Networks</td><td>None</td><td>Project 8: Neural Networks</td><td>Project 7: Reinforcement Lear
-ning</td></tr>
+<tr><td>3/23</td><td>Tue</td><td>Neural Networks</td><td>None</td><td>Project 8: Neural Networks</td><td>Project 7: Reinforcement Learning</td></tr>
 <tr><td>3/25</td><td>Thu</td><td>Neural Networks continued</td><td>None</td><td>None</td><td>None</td></tr>
-<tr><td>3/30</td><td>Tue</td><td>Landmarks<br>Combining Reactive Behaviors</td><td>None</td><td>Project 9: Landmarks</td><td>Project 8
-: Neural Networks</td></tr>
+<tr><td>3/30</td><td>Tue</td><td>Landmarks<br>Combining Reactive Behaviors</td><td>None</td><td>Project 9: Landmarks</td><td>Project 8: Neural Networks</td></tr>
 <tr><td>4/1</td><td>Thu</td><td>Break: no class</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>4/6</td><td>Tue</td><td>Landmarks continued</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>4/8</td><td>Thu</td><td>Landmarks continued</td><td>None</td><td>None</td><td>None</td></tr>
@@ -76,6 +64,7 @@ ning</td></tr>
 <tr><td>4/29</td><td>Thu</td><td>Final Project work</td><td>None</td><td>None</td><td>None</td></tr>
 </tbody>
 </table>
+
 
 
 <hr>
