@@ -13,29 +13,17 @@ layout: course-multi
 
 Upon completing this course, our goal is for you to be able to:
 
-* Build computer programs to:
-  * Effectively solve realistic problems.
-  * Organize, analyze, and summarize realistic data sets.
-* Read, understand, and explain a computer program.
-* Understand and explain computation through:
-  * Thinking logically and precisely.
-  * Making and testing hypotheses.
-* Use modular components to decompose problems and assemble solutions.
-* Create abstract, generalized models from specific, complex examples.
+* Program a mobile robot to interact with a realistic environment with natural timing.
+* Write programs that control motors and process sensor information.
+* Quantitatively assess the performance of a mobile robot for a given task.
+* Describe both orally and in writing:
+  * The design and performance of a mobile robot.
+  * Assessments of deployed and fictional robots.
+* Apply supervised machine learning algorithms for image classification.
 
 ## <a name="resources">Resources</a>
 
 {% include resources.html content=site.resources %}
-
-## <a name="additional-resources">Optional Resources</a>
-
-{% include resources.html content=site.extra-resources %}
-
-## Laptop Policy
-
-Please **do not bring laptops to lecture**. This may seem strange in a computer science class. But lab is the place where you will get plenty of experience working on the computer; lecture is a time for thinking and learning without the distraction of a computer.
-
-Exceptions may be made on a case-by-case basis if you can prove to me that you really do benefit from using your laptop to take notes.
 
 <hr>
 
@@ -45,9 +33,6 @@ When we write code together in class, it will be posted here!
 
 | Date | Topic | Code |
 |:----:|------||-----||
-| F 30 Aug | Intro to Python | [Intro Notebook](https://pythonintro-yorgey.notebooks.azure.com/j/notebooks/PythonIntro.ipynb) |
-| W 4 Sep | More Math and Functions | [Box Math](https://boxmath-yorgey.notebooks.azure.com/j/notebooks/BoxMath.ipynb) |
-| F 6 Sep | Strings and Booleans | [Booleans](https://booleans-yorgey.notebooks.azure.com/j/notebooks/Strings%20and%20Booleans.ipynb)
 
 <hr>
 # Coursework

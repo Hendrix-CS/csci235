@@ -14,7 +14,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 description: >- # this means to ignore newlines until "baseurl:"
-  A study of the application of artificial intelligence to solving problems in robotics. Topics include subsumption, planning, machine learning, vision, neural networks, localization, and mapping. Students configure provided implementations of algorithms to control physical robots.
+  A study of the application of artificial intelligence to solving problems in robotics. 
+  Topics include subsumption, planning, machine learning, vision, neural networks, 
+  localization, and mapping. Students configure provided implementations of algorithms 
+  to control physical robots.
 baseurl: "/csci235" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -58,7 +61,7 @@ instructors:
 
 offerings:
   - name: LECTURE 01
-    loc: MCREY 110
+    loc: MCREY 115
     time: TR 8:15am - 9:30am
     instructor: ferrer
 
