@@ -109,7 +109,7 @@ Special Project guidelines, the project will require at least 30 hours of work. 
 the other course projects, final projects may be undertaken either individually or in 
 teams of two.
 
-## <a name="participation>Class Participation</a>
+## <a name="participation">Class Participation</a>
 
 ### Presentation Questions
 * Students should be prepared to answer questions after their video presentation concludes. 
@@ -166,6 +166,9 @@ Each student will be issued the following equipment:
 * One breadboard
 * One motor control chip
 * One Arduino board
+
+This equipment should be returned to the instructor at the end of the semester. Students will
+be billed for any unreturned equipment.
 
 Each student will need to supply a smartphone or tablet running the Android operating system.
 Students for whom this presents a difficulty should contact the instructor, who will investigate
