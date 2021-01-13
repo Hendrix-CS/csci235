@@ -36,18 +36,20 @@ navigation:
         url: '#resources'
   - page: Calendar
     url: '#calendar'
-  - title: Coursework
+  - title: Assessment
     subfolderitems:
-      - page: Homework and Quizzes
-        url: '#hwqz'
-      - page: Labs
-        url: '#labs'
-      - page: Projects
-        url: '#projects'
-      - page: Exams
-        url: '#exams'
-      - page: Scale
-        url: '#scale'
+    - page: Projects
+      url: '#projects'
+    - page: Final Project
+      url: '#finalproject'
+    - page: Participation
+      url: '#participation'
+    - page: Specifications Grading
+      url: '#grading'
+    - page: Late Days
+      url: '#latedays'
+  - page: Equipment
+    url: '#equipment'
   - page: Commitments
     url: '#commitments'
 

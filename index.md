@@ -32,10 +32,10 @@ Upon completing this course, our goal is for you to be able to:
 <table cellspacing="2" cellpadding="3">
 <tbody>
 <tr><th>Date</th><th>Day</th><th>Topic/Activity</th><th>Reading</th><th>Assigned</th><th>Due</th></tr>
-<tr><td>1/19</td><td>Tue</td><td>Overview<br>Robots in Science Fiction</td><td>None</td><td>Project 1a: Short Story Assignment #1</td><td>None</td></tr>
-<tr><td>1/21</td><td>Thu</td><td>Discussion of Short Stories</td><td>Short Stories</td><td>Project 1b: Short Story Assignment #2</td><td>Project 1a: Short Story Assignment #1</td></tr>
-<tr><td>1/26</td><td>Tue</td><td>Discussion of Self-Driving Cars</td><td>Self-Driving Cars</td><td>Project 1c: Contemporary Robots Assignment</td><td>Project 1b: Short Story Assignment #2</td></tr>
-<tr><td>1/28</td><td>Thu</td><td>Discussion of Intelligence Without Robots</td><td>Intelligence Without Robots</td><td>None</td><td>Project 1c: Contemporary Robots Assignment</td></tr>
+<tr><td>1/19</td><td>Tue</td><td>Overview<br>Robots in Science Fiction</td><td>None</td><td>Project 1: Robot Concepts</td><td>None</td></tr>
+<tr><td>1/21</td><td>Thu</td><td>Discussion of Short Stories</td><td>Short Stories</td><td>None</td><td>None</td></tr>
+<tr><td>1/26</td><td>Tue</td><td>Discussion of Intelligence Without Robots</td><td>Intelligence Without Robots<br>Robust Layered Control System<br>Elephants Don't Play Chess</td><td>None</td><td>None</td></tr>
+<tr><td>1/28</td><td>Thu</td><td>Discussion of Practical Robots</td><td>None</td><td>None</td><td>Project 1: Robot Concepts</td></tr>
 <tr><td>2/2</td><td>Tue</td><td>Building and Programming the Robot</td><td>Something about Arduino</td><td>Project 2a: Build Robot</td><td>None</td></tr>
 <tr><td>2/4</td><td>Thu</td><td>Driving in Patterns</td><td>None</td><td>Project 2b: Driving in Patterns</td><td>Project 2a: Build Robot</td></tr>
 <tr><td>2/9</td><td>Tue</td><td>kNN Image Classifiers<br>Color Histograms</td><td>None</td><td>Project 3: Reactive Behaviors 1</td><td>Project 2b: Driving in Patterns</td></tr>
@@ -62,80 +62,111 @@ Upon completing this course, our goal is for you to be able to:
 <tr><td>4/22</td><td>Thu</td><td>Final Project work</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>4/27</td><td>Tue</td><td>Final Project Progress Reports</td><td>None</td><td>None</td><td>None</td></tr>
 <tr><td>4/29</td><td>Thu</td><td>Final Project work</td><td>None</td><td>None</td><td>None</td></tr>
+<tr><td>5/5</td><td>Wed 2-5 pm</td><td>None</td><td>None</td><td>None</td><td>Final project presentations</td></tr>
 </tbody>
 </table>
 
 
 
 <hr>
-# Coursework
+# <a name="assessment">Assessment</a>
 
-Each student has **four late days** to spend throughout the semester as they wish.
-Simply inform the instructor any time *prior* to the due date for an assignment
-that you wish to use a late day; you may then turn in the assignment up to 24
-hours late. Multiple late days may be used on the same assignment. There are no
-partial late days; turning in an assignment 2 hours late or 20 hours late will
-both use 1 late day. Note that late days are intended to cover both normal
-circumstances (you simply want more time to work on the assignment) and
-exceptional circumstances (you get sick, travel for a game or family
-obligation, *etc.*). After you have used up your late days, late assignments
-will receive at most half credit.
+## <a name="projects">Projects</a>
 
-## <a name="hwqz">Homework and Quizzes</a>: 140 points
+Every Tuesday, a project will be assigned. Students may complete projects individually or 
+in teams of two. In most projects, students will program their robots to perform a task using
+a new concept introduced that week, potentially incorporating other concepts covered in 
+previous weeks. Each project will typically be due the following Tuesday, with a brief
+video presentation given in class. Some time will typically be available every Thursday
+during the class period for work on that week's project.
 
-| #  | Name | Assigned | Due |
-|:--:|-----||:--------:|:---:|
-|0 | [Info Sheet](https://docs.google.com/forms/d/e/1FAIpQLSdtxgmw2tL6IzzK0qq3Fw2h2FTFmGHoTRs8p6wTfTToUn7pZg/viewform?usp=sf_link) | W Aug 28 | F Aug 30 |
-|1 | [Sample Homework]({{site.baseurl}}/homework/function-reading.pdf) | F Sep 27 | W Oct 2 |
-|2 | [Sample Homework]({{site.baseurl}}/homework/function-reading.pdf) | F Sep 27 | W Oct 2 |
-|3 | [Sample Homework]({{site.baseurl}}/homework/function-reading.pdf) | F Sep 27 | W Oct 2 |
+### Project Reports
+For each project, each student (even if part of a team) should submit an individual project
+report. Each report includes the following:
+* A project log, which includes the following for every work session:
+  * Date of the work session, including start and end times.
+  * Goals for the session.
+  * Brief descriptions of activities undertaken.
+  * Observations of activities.
+  * Assessment of the degree to which session goals were met.
+* Answers to project-specific questions.
+* A conclusion detailing the degree of success of the project.
 
-There will often be short homework assignments to be completed over the weekend, assigned on Friday and due Wednesday, sometimes with a corresponding quiz at the beginning of class on Wednesday.
+### Project Presentations
 
-## <a name="labs">Labs</a>: 260 points
+On the due date of each project, each team will play a video in class. The video should meet the following constraints:
+* It must be between 80 and 90 seconds in duration.
+  * For team projects, the video should be 160 to 180 seconds in duration.
+* It should include brief narration of the strategy for the project.
+* It should demonstrate the student's robots performing the required tasks for the week's project. Narration should contextualize each demonstrated activity.
 
-| #  | Name | Assigned | Due |
-|:--:|-----||:--------:|:---:|
-|1 | [Sample Lab]({{site.baseurl}}/labs/sample-lab.html) | Aug 28-29 | Sep 4-5 |
-|2 | [Sample Lab]({{site.baseurl}}/labs/sample-lab.html) | Sep 4-5 | Sep 11-12 |
-|3 | [Sample Lab]({{site.baseurl}}/labs/sample-lab.html) | Sep 11-12 | Sep 18-19 |
+## <a name="finalproject">Final Project</a>
+In the last three weeks of the semester, each student will undertake a final project. 
+In this final project, you will build and program a robot that fulfills a contextualized 
+purpose. A public demonstration will be made of the robot's capabilities, and a paper 
+reflecting upon lessons learned will be submitted as well. In keeping with the Odyssey 
+Special Project guidelines, the project will require at least 30 hours of work. As with 
+the other course projects, final projects may be undertaken either individually or in 
+teams of two.
 
-Much of your experience with programming in this course will be through weekly labs. Each lab will be assigned in lab with time allotted to work through the materials, and will be due **by the start of the following lab**. All labs are weighted equally within the lab portion of your final grade.
+## <a name="participation>Class Participation</a>
 
-On these labs, you will work with a partner on the lab assignments. Their name must be listed on any code you hand in as joint work. A partnership should only turn in a **single copy** of the assignment. If students working as partners wish to turn in a lab late, both students must use a late day.
+### Presentation Questions
+* Students should be prepared to answer questions after their video presentation concludes. 
+* Each student is expected to ask one question on each class day that includes presentations.
 
-**Lab attendance is required**. Labs take place in the **Snoddy Computer Lab**, in the Bailey Library. As you go through the exterior door of the library, turn immediately to your left and enter the Snoddy Academic Resource Center. Continue through the door at the far end of the hall into the first computer lab, and then enter the second lab at the back.
+### Office Hours
+* Each student should schedule and attend at least two online Office Hour meetings with the instructor at some point during the semester.
 
-## <a name="projects">Projects</a>: 350 points
 
-| #  | Name | Points | Assigned | Due |
-|:--:|-----||:------:|:--------:|:---:|
-|1 | [Sample Project]({{site.baseurl}}/projects/sample-project.html)  | 50  | Sep 21 | Sep 30 |
-|2 | [Sample Project]({{site.baseurl}}/projects/sample-project.html) | 100 | Oct 16 | Nov 1 |
-|3 | [Sample Project]({{site.baseurl}}/projects/sample-project.html) | 200 | Nov 18 | Final Exam Day |
+## <a name="grading">Specifications Grading</a>
+Each assignment is graded on a pass-fail basis. To earn a passing grade, the assignment
+must be substantively complete; minor imperfections are perfectly acceptable. Final course
+grades are earned based on completed passing assignments, as follows:
 
-You will have three projects in this course, one about every five weeks. These projects will cover concepts we have discussed in class and in labs, and will be due approximately one week after they are assigned.
+* To earn an A in the course, a student will:
+  * Complete all nine projects
+  * Complete the final project
+  * Submit a course feedback form
+  * Ask six presentation questions
+  * Schedule and attend at least two Office Hours meetings
+* To earn a B in the course, a student will: 
+  * Complete any seven projects
+  * Complete the final project
+  * Submit a course feedback form
+  * Ask four presentation questions
+  * Schedule and attend at least one Office Hours meeting
+* To earn a C in the course, a student will:
+  * Complete any five projects
+  * Complete the final project
+  * Submit a course feedback form
+  * Ask two presentation questions
+  * Schedule and attend Office Hours at least once
+* To earn a D in the course, a student will:
+  * Complete any four projects
 
-**You must work individually on the first two projects.** You may discuss concepts and ideas with your classmates, but the code you turn in must be your own. You will be graded not only on correctness, but also technique, documentation and evaluation of your solution. Further details on the grading standards and handin instructions for each project will be given when they are assigned.
+### Revising submitted work
+If a submitted project is not of sufficient quality to receive a passing grade:
+* The instructor will give feedback identifying revisions that, if applied, would result in a passing grade.
+* The student will schedule and attend an Office Hours meeting to discuss the necessary revisions and establish a deadline for their submission.
+* If the student submits the revisions by the agreed deadline, the revised project will receive a passing grade.
 
-## <a name="exams">Exams</a>: 250 points
+## <a name="latedays">Late Policy</a>
+If a student needs an extension, the instructor must be notified by email by 4 pm on the 
+day prior to the due date. This notification email must state the duration of the requested 
+extension. The instructor reserves the right to decline a request for an extension, but 
+the intention is that most requests for extensions will be granted.
 
-There will be three in-class exams, the first worth 50 points and the second and
-third worth 100 of your final grade. They will consist of short answer
-questions along with writing and debugging code.
+## <a name="equipment">Equipment</a>
+Each student will be issued the following equipment:
+* One robot kit, containing:
+  * Two motors and wheels
+  * A battery case
+  * A plexiglas chassis
+* One breadboard
+* One motor control chip
+* One Arduino board
 
-* Exam 1: Sep 20, covering functions, math, numerical data, conditionals, and binary encoding
-* Exam 2: Oct 16, covering input/output, while loops, lists, and strings
-* Exam 3: Nov 25, covering for loops, dictionaries, classes and objects
-
-There is no final exam; you will complete a final project instead, as described above under Projects.
-
-## <a name="scale">Grading Scale</a>
-
-| Score  | Grade  |
-|:------:|:------:|
-| 900-1000  | A   |
-| 800-899   | B   |
-| 700-799   | C   |
-| 600-699   | D   |
-| 0-599     | F   |
+Each student will need to supply a smartphone or tablet running the Android operating system.
+Students for whom this presents a difficulty should contact the instructor, who will investigate
+possible arrangements.
