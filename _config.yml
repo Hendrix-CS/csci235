@@ -34,8 +34,8 @@ navigation:
         url: '#goals'
       - page: Resources
         url: '#resources'
-  - page: In-Class Code
-    url: '#inclasscode'
+  - page: Calendar
+    url: '#calendar'
   - title: Coursework
     subfolderitems:
       - page: Homework and Quizzes
