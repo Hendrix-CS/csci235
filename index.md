@@ -116,7 +116,7 @@ teams of two.
 * Each student is expected to ask one question on each class day that includes presentations.
 
 ### Office Hours
-* Each student should schedule and attend at least two online Office Hour meetings with the instructor at some point during the semester.
+* Each student should schedule and attend at least three online Office Hour meetings with the instructor at some point during the semester.
 
 
 ## <a name="grading">Specifications Grading</a>
@@ -129,19 +129,19 @@ grades are earned based on completed passing assignments, as follows:
   * Complete the final project
   * Submit a course feedback form
   * Ask six presentation questions
-  * Schedule and attend at least two Office Hours meetings
+  * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
   * Complete any seven projects
   * Complete the final project
   * Submit a course feedback form
   * Ask four presentation questions
-  * Schedule and attend at least one Office Hours meeting
+  * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
   * Complete any five projects
   * Complete the final project
   * Submit a course feedback form
   * Ask two presentation questions
-  * Schedule and attend Office Hours at least once
+  * Schedule and attend at least one Office Hours meeting
 * To earn a D in the course, a student will:
   * Complete any four projects
 
