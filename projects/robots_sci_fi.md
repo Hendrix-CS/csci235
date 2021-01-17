@@ -29,7 +29,7 @@ Select two types of robot from the list below:
   [Opportunity](https://www.jpl.nasa.gov/missions/mars-exploration-rover-opportunity-mer/), 
   [Curiosity](https://mars.nasa.gov/msl/home/))
 * Warehouse robots (e.g. [Locus](https://locusrobotics.com/about-us/), [Kiva](https://www.youtube.com/watch?v=6KRjuuEVEZs))
-* [Roomba](https://www.irobot.com/roomba)
+* Household robots (e.g. [Roomba](https://www.irobot.com/roomba))
 * Telepresence robots (e.g. [Ava](https://www.avarobotics.com/))
 * Security robots (e.g. [Vigilus](https://www.youtube.com/watch?v=jedkNzsT9f4), [Knightscope](https://www.knightscope.com/))
 
@@ -43,5 +43,9 @@ Drawing upon your earlier answers, answer the following questions:
 * What aspects uniquely define what it means to be a robot?
 * Under what circumstances are robots useful?
 * When *should* robots be used?
+
+## Details
+* Submit in PDF format via Microsoft Teams in MLA format, 12 point font.
+* Minimum 3 full pages in length.
 
 ------------------------------------------------------------------------
