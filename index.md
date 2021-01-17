@@ -31,31 +31,31 @@ Upon completing this course, our goal is for you to be able to:
 
 |Date|Day|Topic/Activity|Reading|Assigned|Due|
 | --- | --- | --- | --- | --- | --- |
-| 1/19 | Tue | Overview<br>Robots in Science Fiction |  | Project 1: Robot Concepts |  |
-| 1/21 | Thu | Discussion of Short Stories | Short Stories |  |  |
-| 1/26 | Tue | Discussion of Intelligence Without Robots | Intelligence Without Robots<br>Robust Layered Control System<br>Elephants Don't Play Chess |  |  |
-| 1/28 | Thu | Discussion of Practical Robots |  |  | Project 1: Robot Concepts |
-| 2/2 | Tue | Building and Programming the Robot | Something about Arduino | Project 2a: Build Robot |  |
-| 2/4 | Thu | Driving in Patterns |  | Project 2b: Driving in Patterns | Project 2a: Build Robot |
-| 2/9 | Tue | kNN Image Classifiers<br>Color Histograms |  | Project 3: Reactive Behaviors 1 | Project 2b: Driving in Patterns |
+| 1/19 | Tue | Overview<br>Robots in Science Fiction |  | [Robots in Fiction]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
+| 1/21 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox) |  |  |
+| 1/26 | Tue | Symbolic vs Physical AI<br>HTN Planning | [Elephants Don't Play Chess](http://ozark.hendrix.edu/~ferrer/courses/235/f18/readings/Brooks1990.pdf) | Planning | Robots in Fiction |
+| 1/28 | Thu | HTN Planning |  |  |  |
+| 2/2 | Tue | Building and Programming the Robot | Something about Arduino | Build Robot | Planning |
+| 2/4 | Thu | Driving in Patterns |  | Driving in Patterns | Build Robot |
+| 2/9 | Tue | kNN Image Classifiers<br>Color Histograms |  | Reactive Behaviors 1 | Driving in Patterns |
 | 2/11 | Thu | kNN continued |  |  |  |
-| 2/16 | Tue | kNN with K-means<br>Edge Detection |  | Project 4: Reactive Behaviors 2 | Project 3: Reactive Behaviors 1 |
+| 2/16 | Tue | kNN with K-means<br>Edge Detection |  | Reactive Behaviors 2 | Reactive Behaviors 1 |
 | 2/18 | Thu | Edge Detection continued |  |  |  |
 | 2/23 | Tue | Break: no class |  |  |  |
 | 2/25 | Thu | Edge Detection continued |  |  |  |
-| 3/2 | Tue | Tracking and PID control |  | Project 5: Tracking 1 | Project 4: Reactive Behaviors 2 |
+| 3/2 | Tue | Tracking and PID control |  | Tracking 1 | Reactive Behaviors 2 |
 | 3/4 | Thu | Tracking/PID continued |  |  |  |
-| 3/9 | Tue | Tracking and Fuzzy Logic |  | Project 6: Tracking 2 | Project 5: Tracking 1 |
+| 3/9 | Tue | Tracking and Fuzzy Logic |  | Tracking 2 | Tracking 1 |
 | 3/11 | Thu | Tracking/Fuzzy continued |  |  |  |
-| 3/16 | Tue | Reinforcement Learning |  | Project 7: Reinforcement Learning | Project 6: Tracking 2 |
+| 3/16 | Tue | Reinforcement Learning |  | Reinforcement Learning | Tracking 2 |
 | 3/18 | Thu | Reinforcement Learning continued |  |  |  |
-| 3/23 | Tue | Neural Networks |  | Project 8: Neural Networks | Project 7: Reinforcement Learning |
+| 3/23 | Tue | Neural Networks |  | Neural Networks | Reinforcement Learning |
 | 3/25 | Thu | Neural Networks continued |  |  |  |
-| 3/30 | Tue | Landmarks<br>Combining Reactive Behaviors |  | Project 9: Landmarks | Project 8: Neural Networks |
+| 3/30 | Tue | Landmarks<br>Combining Reactive Behaviors |  | Landmarks | Neural Networks |
 | 4/1 | Thu | Break: no class |  |  |  |
 | 4/6 | Tue | Landmarks continued |  |  |  |
 | 4/8 | Thu | Landmarks continued |  |  |  |
-| 4/13 | Tue | Final Project |  | Final Project Proposal | Project 9: Landmarks |
+| 4/13 | Tue | Final Project |  | Final Project Proposal | Landmarks |
 | 4/15 | Thu | Final Project work |  |  |  |
 | 4/20 | Tue | Final Project Progress Reports |  |  |  |
 | 4/22 | Thu | Final Project work |  |  |  |
