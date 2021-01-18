@@ -29,7 +29,7 @@ First, start with the two yellow DC motors. In your kit, there should be two alu
  
 Make sure these are in the correct orientation, meaning the bolt side will be pointing to the center of the chassis with the mounting block and connectors pointing towards the center as well. Also, make sure the mounting bracket screw holes at the up towards the bottom of the chassis. If it is in the wrong orientation, then the block and bolts will interfere with the wheels and not connect to the chassis correctly. 
 
-<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/SoloMotor.jpg" width=100></img>
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/SoloMotor.jpg" width=500>
 
 ### Step 2
 
