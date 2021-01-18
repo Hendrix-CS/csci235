@@ -121,7 +121,7 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all nine projects
+  * Complete all ten projects
   * Complete the final project
   * Submit a course feedback form
   * Ask six presentation questions
