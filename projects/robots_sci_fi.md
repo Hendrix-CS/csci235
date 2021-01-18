@@ -2,7 +2,7 @@
 layout: work
 type: Project
 num: 1
-worktitle: Robots: Fiction and Reality
+worktitle: Robots Fiction and Reality
 ---
 
 ## Description
