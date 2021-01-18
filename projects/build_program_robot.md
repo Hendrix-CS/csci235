@@ -25,9 +25,15 @@ To begin, the parts you will need for this robot are found in the list below:
 
 ### Step 1
 
-First, start with the two yellow DC motors. In your kit, there should be two aluminum mounting brackets with multiple holes drilled out. There will also be four long screws. To attach the aluminum block to the DC motor, align it with the holes on the side of the DC motor where the connectors are and push the screw through the opposite side and tighten with a bolt. Place the black disk on the same side as the mounting bracket.
+First, start with the two yellow DC motors. In your kit, there should be two aluminum mounting brackets with 
+multiple holes drilled out. There will also be four long screws. To attach the aluminum block to the DC motor, 
+align it with the holes on the side of the DC motor where the connectors are and push the screw through the 
+opposite side and tighten with a bolt. Place the black disk on the same side as the mounting bracket.
  
-Make sure these are in the correct orientation, meaning the bolt side will be pointing to the center of the chassis with the mounting block and connectors pointing towards the center as well. Also, make sure the mounting bracket screw holes at the up towards the bottom of the chassis. If it is in the wrong orientation, then the block and bolts will interfere with the wheels and not connect to the chassis correctly. 
+Make sure these are in the correct orientation, meaning the bolt side will be pointing to the center of the 
+chassis with the mounting block and connectors pointing towards the center as well. Also, make sure the mounting 
+bracket screw holes at the up towards the bottom of the chassis. If it is in the wrong orientation, then the 
+block and bolts will interfere with the wheels and not connect to the chassis correctly. 
 
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/SoloMotor.jpg" width=500>
 
@@ -45,5 +51,22 @@ Then, feed the wires from under the chassis to the top through the T-shaped hole
 
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/ChasisTopSide.jpg" width=500>
 
+### Step 3
+
+Next, attach the caster wheel to the bottom of the chassis. Using 1cm screws and the appropriate bolts, there are 
+four holes on the back of the chassis plate to use.
+
+### Step 4
+
+Next, push the wheels onto the axis. Make sure to align the hole on the wheel to the shape of the axis and it is 
+pushed as far as possible.
+
+Here is how your robot should look from the bottom:
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/CasterWheelBottom.jpg" width=500>
+
+Here is how your robot should look from the top:
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/CasterWheelTop.jpg" width=500>
 
 ------------------------------------------------------------------------
