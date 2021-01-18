@@ -29,11 +29,22 @@ First, start with the two yellow DC motors. In your kit, there should be two alu
  
 Make sure these are in the correct orientation, meaning the bolt side will be pointing to the center of the chassis with the mounting block and connectors pointing towards the center as well. Also, make sure the mounting bracket screw holes at the up towards the bottom of the chassis. If it is in the wrong orientation, then the block and bolts will interfere with the wheels and not connect to the chassis correctly. 
 
-![Solo Motor]({{site.baseurl}}/assets/images/SoloMotor.jpg?s=100)
+![Solo Motor]({{site.baseurl}}/assets/images/SoloMotor.jpg?s=10)
 
 ### Step 2
 
-Now attach the DC motors to the chassis, where the connectors are pointed toward the front of the chassis. This will require 1cm screws and bolts. Put the screws through the top side of the chassis plate and bolts in the bottom. Then attach the mounting bracket to the end of the screws with the bolts still in place. The bolts act as spacers to make sure there is clearance for the disk, so it doesn't conflict with the chassis. Then connect positive and negative wires to the connectors on the DC motors. Reference \textbf{Figure \ref{chasismotor}} to double check you have done this correctly. Then, feed the wires from under the chassis to the top through the T-shaped holes. 
+Now attach the DC motors to the chassis, where the connectors are pointed toward the front of the chassis. 
+This will require 1cm screws and bolts. Put the screws through the top side of the chassis plate and bolts in the 
+bottom. Then attach the mounting bracket to the end of the screws with the bolts still in place. The bolts act as 
+spacers to make sure there is clearance for the disk, so it doesn't conflict with the chassis. Then connect positive 
+and negative wires to the connectors on the DC motors. 
+
+
+
+Reference \textbf{Figure \ref{chasismotor}} to double check you have done this correctly. 
+
+
+Then, feed the wires from under the chassis to the top through the T-shaped holes. 
 
 
 
