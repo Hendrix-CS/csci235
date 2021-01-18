@@ -29,7 +29,7 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-**Note:** Topics starting from 
+**Note:** Topics are tentative and subject to change.
 
 |Date|Day|Topic/Activity|Reading|Assigned|Due|
 | --- | --- | --- | --- | --- | --- |
@@ -39,24 +39,24 @@ Upon completing this course, our goal is for you to be able to:
 | 1/28 | Thu | HTN Planning |  |  |  |
 | 2/2 | Tue | Building and Programming the Robot | Something about Arduino | Build Robot | Planning |
 | 2/4 | Thu | Driving in Patterns |  | Driving in Patterns | Build Robot |
-| 2/9 | Tue | kNN Image Classifiers<br>Color Histograms |  | Reactive Behaviors 1 | Driving in Patterns |
-| 2/11 | Thu | kNN continued |  |  |  |
-| 2/16 | Tue | kNN with K-means<br>Edge Detection |  | Reactive Behaviors 2 | Reactive Behaviors 1 |
-| 2/18 | Thu | Edge Detection continued |  |  |  |
+| 2/9 | Tue | Sonar |  | Reactive Behaviors 1 | Driving in Patterns |
+| 2/11 | Thu | Sonar |  |  |  |
+| 2/16 | Tue | Computer Vision |  | Reactive Behaviors 2 | Reactive Behaviors 1 |
+| 2/18 | Thu | Computer Vision |  |  |  |
 | 2/23 | Tue | Break: no class |  |  |  |
-| 2/25 | Thu | Edge Detection continued |  |  |  |
-| 3/2 | Tue | Tracking and PID control |  | Tracking 1 | Reactive Behaviors 2 |
-| 3/4 | Thu | Tracking/PID continued |  |  |  |
-| 3/9 | Tue | Tracking and Fuzzy Logic |  | Tracking 2 | Tracking 1 |
-| 3/11 | Thu | Tracking/Fuzzy continued |  |  |  |
-| 3/16 | Tue | Reinforcement Learning |  | Reinforcement Learning | Tracking 2 |
-| 3/18 | Thu | Reinforcement Learning continued |  |  |  |
-| 3/23 | Tue | Neural Networks |  | Neural Networks | Reinforcement Learning |
+| 2/25 | Thu | Computer Vision |  |  |  |
+| 3/2 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
+| 3/4 | Thu | Tracking  |  |  |  |
+| 3/9 | Tue | Reinforcement Learning |  | Reinforcement Learning | Tracking |
+| 3/11 | Thu | Reinforcement Learning |  |  |  |
+| 3/16 | Tue | Combining Reactive Behaviors |  | Combining Behaviors | Reinforcement Learning |
+| 3/18 | Thu | Combining Reactive Behaviors |  |  |  |
+| 3/23 | Tue | Neural Networks |  | Neural Networks | Combining Reactive Behaviors |
 | 3/25 | Thu | Neural Networks continued |  |  |  |
-| 3/30 | Tue | Landmarks<br>Combining Reactive Behaviors |  | Landmarks | Neural Networks |
+| 3/30 | Tue | Landmarks |  | Landmarks | Neural Networks |
 | 4/1 | Thu | Break: no class |  |  |  |
-| 4/6 | Tue | Landmarks continued |  |  |  |
-| 4/8 | Thu | Landmarks continued |  |  |  |
+| 4/6 | Tue | Landmarks |  |  |  |
+| 4/8 | Thu | Landmarks |  |  |  |
 | 4/13 | Tue | Final Project |  | Final Project Proposal | Landmarks |
 | 4/15 | Thu | Final Project work |  |  |  |
 | 4/20 | Tue | Final Project Progress Reports |  |  |  |
