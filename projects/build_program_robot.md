@@ -39,13 +39,11 @@ bottom. Then attach the mounting bracket to the end of the screws with the bolts
 spacers to make sure there is clearance for the disk, so it doesn't conflict with the chassis. Then connect positive 
 and negative wires to the connectors on the DC motors. 
 
-
-
-Reference \textbf{Figure \ref{chasismotor}} to double check you have done this correctly. 
-
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/ChasisPlateWithSpacers.jpg" width=500>
 
 Then, feed the wires from under the chassis to the top through the T-shaped holes. 
 
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/ChasisTopSide.jpg" width=500>
 
 
 ------------------------------------------------------------------------
