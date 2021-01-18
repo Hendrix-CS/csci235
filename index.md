@@ -33,7 +33,7 @@ Upon completing this course, our goal is for you to be able to:
 | --- | --- | --- | --- | --- | --- |
 | 1/19 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/21 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox) |  |  |
-| 1/26 | Tue | Symbolic vs Physical AI<br>HTN Planning | [Elephants Don't Play Chess](http://ozark.hendrix.edu/~ferrer/courses/235/f18/readings/Brooks1990.pdf) | [Planning]({{site.baseurl}}/projects/planning.html) | Robots: Fiction and Reality |
+| 1/26 | Tue | Symbolic vs Physical AI<br>HTN Planning | [Elephants Don't Play Chess]({{site.baseurl}}/Brooks1990.pdf) | [Planning]({{site.baseurl}}/projects/planning.html) | Robots: Fiction and Reality |
 | 1/28 | Thu | HTN Planning |  |  |  |
 | 2/2 | Tue | Building and Programming the Robot | Something about Arduino | Build Robot | Planning |
 | 2/4 | Thu | Driving in Patterns |  | Driving in Patterns | Build Robot |
