@@ -153,7 +153,7 @@ If a submitted project is not of sufficient quality to receive a passing grade:
 * If the student submits the revisions by the agreed deadline, the revised project will receive a passing grade.
 
 ## <a name="latedays">Late Policy</a>
-If a student needs an extension, the instructor must be notified by email by 4 pm on the 
+If a student needs an extension, the instructor must be notified by email or Microsoft Teams message by 4 pm on the 
 day prior to the due date. This notification email must state the duration of the requested 
 extension. The instructor reserves the right to decline a request for an extension, but 
 the intention is that most requests for extensions will be granted.
