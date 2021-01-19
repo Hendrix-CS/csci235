@@ -69,4 +69,69 @@ Here is how your robot should look from the top:
 
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/CasterWheelTop.jpg" width=500>
 
+### Step 5
+
+Please refer to the image below for the circuit diagram.
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/WiringDiagram.png" width=500>
+
+The only pieces that may require soldering are the DC motor driver and the connections to the DC motors. 
+There can be faulty connections if not secure. Faulty connections will cause the motors to function 
+improperly and provide incorrect results.
+
+## <a name="programming">Programming the Robot</a>
+
+[Download](https://www.arduino.cc/en/software) and install the 
+[Arduino IDE](https://www.arduino.cc/en/Guide/Environment) for your computer.
+
+Each Arduino program is called a *sketch*. The code in each sketch is written in the
+Arduino programming language. 
+
+We will begin by initializing some variables. When we declare a new variable, we 
+begin by designating its *type*. We then give its name, an `=` sign, and then the
+value with which we intend to initialize that variable.
+
+Finally, every statement in the Arduino language ends with a semicolon (`;`).
+
+The following block of code sets up variables corresponding to the motor pins:
+
+```
+int spd_A  = 11;
+int A_in_1 = 12;
+int A_in_2 = 13;
+
+int spd_B  = 10;
+int B_in_1 =  9;
+int B_in_2 =  8;
+```
+
+The next two lines of code set up some useful speed values:
+
+```
+int fwd_speed = 200;
+int trn_speed = 255;
+```
+
+Each Arduino sketch has a special `setup` function that is called when the program starts. As 
+with all Arduino functions, this function has a return type. The return type `void` signifies 
+that it does not return a value. Curly braces (`{` and `}`) specify where the function's code
+begins and ends.
+
+```
+void setup() {
+  Serial.begin(9600);
+  
+  move(1, fwd_speed, 0);
+  move(2, fwd_speed, 0);
+  
+  delay(1000);
+}
+```
+
+Let's explore each line in turn:
+* `Serial.begin(9600);` This sets the communication speed for the cable from the Arduino back to 
+  your computer. In future weeks, this will be the connection to your Android device.
+* `move()` These two lines are calls to a function we will define shortly.
+* `delay(1000);` This tells the Arduino to pause for 1000 milliseconds.
+
 ------------------------------------------------------------------------

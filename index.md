@@ -98,6 +98,9 @@ On the due date of each project, each team will play a video in class. The video
 * It should include brief narration of the strategy for the project.
 * It should demonstrate the student's robots performing the required tasks for the week's project. Narration should contextualize each demonstrated activity.
 
+**Note:** Presentations will only be given when the project actively involves robot programming.
+There will be no presentations following the first two projects, as they do not involve robot programming.
+
 ## <a name="finalproject">Final Project</a>
 In the last three weeks of the semester, each student will undertake a final project. 
 In this final project, you will build and program a robot that fulfills a contextualized 
