@@ -93,9 +93,14 @@ power through the 5V pin or 3.3V pin. (We will be using the 5V pin.) When it is 
 receives that power from that same pin.
 
 Wire: 
-* The 5V pin on the Arduino to the `+` column.
-* The `GND` pin to the `-` column. 
-* Wire the two `-` columns together.
+
+| Arduino | Breadboard | 
+| ------- | ---------- |
+| 5V Pin  | `+` column |
+| GND Pin | `-` column |
+
+**Note**: Also wire the two `-` columns together, so that both provide grounding. This will be helpful when we
+wire the motors. There is no need to wire the `+` columns together, as we only need to use one of them.
 
 #### Step 5.2
 
@@ -104,9 +109,12 @@ between the motors, power and ground, and the Arduino. We will begin by connecti
 and ground. 
 
 Wire: 
-* The Power pin atop the motor driver chip to the `+` column.
-* The Ground pin atop the motor driver chip to the `-` column.
-* The Ground pin at the bottom edge of the chip to the `-` column.
+
+| Motor Driver Pin | Breadboard |
+| ---------------- | ---------- |
+| Top Power pin    | `+` column |
+| Top Ground pin   | `-` column |
+| Bottom edge Ground pin | `-` column |
 
 Each motor has two wires. The direction of current flow through those wires determines the direction
 the motor spins. By sending electricity in one direction through the
@@ -115,10 +123,13 @@ The direction of flow will be controlled by the motor driver chip, through the m
 its bottom edge.
 
 Wire: 
-* The left motor's red wire to Motor A output 1.
-* The left motor's black wire to Motor A output 2.
-* The right motor's red wire to Motor B output 1.
-* The right motor's black wire to Motor B output 2.
+
+| Motor Driver Pin | Motor Wire |
+| ---------------- | ---------- |
+| Motor A Out 1    | Left Motor Red |
+| Motor A Out 2    | Left Motor Black |
+| Motor B Out 1    | Right Motor Red |
+| Motor B Out 2    | Right Motor Black |
 
 #### Step 5.3 
 
