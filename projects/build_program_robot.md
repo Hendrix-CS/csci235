@@ -71,9 +71,77 @@ Here is how your robot should look from the top:
 
 ### Step 5
 
-Please refer to the image below for the circuit diagram.
+The Arduino board runs computer programs that send and receive signals to and from electrical devices.
+We will connect the Arduino with these devices by using a breadboard. Here is a diagram of our circuit.
+We will explore each element of this circuit in the sections below.
 
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/WiringDiagram.png" width=500>
+
+#### Step 5.1
+
+Each numbered row of the breadboard
+electrically connects all devices wired to it. The `+` and `-` columns of the breadboard represent **Power**
+and **Ground** respectively. The power source of each circuit will be wired to the `+` column, and the `-` column
+will direct electricity to ground once it completes its traversal of the circuit.
+
+There are two possible power sources for the Arduino and its connected devices:
+* The Arduino receives power through its USB port, and sends power to other devices.
+* The Arduino and other devices receive power from batteries. 
+
+In both cases, the power pins on the Arduino are extremely important. When it is powered by USB, it conveys
+power through the 5V pin or 3.3V pin. (We will be using the 5V pin.) When it is receiving power from a battery, it
+receives that power from that same pin.
+
+Wire: 
+* The 5V pin on the Arduino to the `+` column.
+* The `GND` pin to the `-` column. 
+* Wire the two `-` columns together.
+
+#### Step 5.2
+
+The motor driver chip enables us to regulate the direction and voltage for each motor. It is an intermediary
+between the motors, power and ground, and the Arduino. We will begin by connecting the driver chip to power
+and ground. 
+
+Wire: 
+* The Power pin atop the motor driver chip to the `+` column.
+* The Ground pin atop the motor driver chip to the `-` column.
+* The Ground pin at the bottom edge of the chip to the `-` column.
+
+Each motor has two wires. The direction of current flow through those wires determines the direction
+the motor spins. By sending electricity in one direction through the
+motors, they turn forwards. Sending electricity the other direction turns the motors backwards.
+The direction of flow will be controlled by the motor driver chip, through the motor outputs on
+its bottom edge.
+
+Wire: 
+* The left motor's red wire to Motor A output 1.
+* The left motor's black wire to Motor A output 2.
+* The right motor's red wire to Motor B output 1.
+* The right motor's black wire to Motor B output 2.
+
+#### Step 5.3 
+
+Each motor is controlled by three input pins on the motor driver. The motor speed level is controlled by
+a **Pulse-Width Modulation** (PWM) pin. Pulse-Width Modulation reduces electrical current by periodically stopping
+the flow of electricity. We will send analog signals to those pins to indicate how fast we want the motors to 
+turn.
+
+The other two pins for each motor control the input direction through a circuit known as an **H-Bridge**. 
+These are digital pins. Setting pin 1 high and pin 2 low spins the motor in one direction, and setting
+pin 1 low and pin 2 high spins the motor in the other direction. The direction it spins depends on how the 
+two motor wires are connected to the motor outputs.
+
+We use six Arduino outputs to control these pins - three for each motor. Wire the pins as follows:
+
+| Arduino Pin | Motor Driver Pin |
+| ----------- | ---------------- |
+|           8 | BIN2             | 
+|           9 | BIN1             |
+|          10 | PWMB             |
+|          11 | PWMA             | 
+|          12 | AIN1             |
+|          13 | AIN2             |
 
 The only pieces that may require soldering are the DC motor driver and the connections to the DC motors. 
 There can be faulty connections if not secure. Faulty connections will cause the motors to function 

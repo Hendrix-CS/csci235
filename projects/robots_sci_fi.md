@@ -21,6 +21,10 @@ For each work, answer the following questions:
 * In what ways do the robots:
   * Fulfill that purpose? 
   * Introduce unexpected complications?
+  
+Then for all three works, answer the following questions:
+* What are the similarities and differences between the settings?
+* How do those similarities and differences impact how humans envision robots in that setting?
 
 ## Deployed Robots
 
@@ -39,7 +43,7 @@ Answer the following questions:
 
 ## Analysis
 
-Drawing upon your earlier answers, answer the following questions:
+Drawing upon your earlier answers with regard to both the fictional and deployed robots, answer the following questions:
 * What aspects uniquely define what it means to be a robot?
 * Under what circumstances are robots useful?
 * When *should* robots be used?

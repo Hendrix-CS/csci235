@@ -165,7 +165,7 @@ Each student will be issued the following equipment:
   * A battery case
   * A plexiglas chassis
 * One breadboard
-* One motor control chip
+* One motor driver chip
 * One Arduino board
 
 This equipment should be returned to the instructor at the end of the semester. Students will

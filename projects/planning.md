@@ -113,13 +113,19 @@ The other domain must include the following as a minimum:
 After completing your domains, write a short paper (2-3 pages) containing the following:
 
 * An introductory paragraph or two describing your target domains and why you initially believed that they were suitable for planning.
-* For each domain, one to two paragraphs describing how you encoded that domain. Pay particular attention to discussing the tradeoffs involved in the encoding. What domain features are represented explicitly? What domain features have been abstracted away? Why did you perform those abstractions? How good were the plans that were produced? What criteria do you have for "a good plan"?
+* For each domain, one to two paragraphs describing how you encoded that domain. 
+  Pay particular attention to discussing the tradeoffs involved in the encoding. 
+  * What domain features are represented explicitly? 
+  * What domain features have been abstracted away? 
+  * Why did you perform those abstractions? 
+  * How good were the plans that were produced? 
+  * What criteria do you have for "a good plan"?
 * Planning is a quintessential example of classical AI as Brooks discussed in 
   [Elephants Don't Play Chess]({{site.baseurl}}/readings/Brooks1990.pdf).
   Now that you have hands-on experience with implementing a classical AI system, what is your view of the criticism
   that Brooks levels at classical AI?
 * Write a concluding paragraph discussing the utility of planning in general. Under what circumstances is it worthwhile to build and use a planner? When is it not appropriate? Justify your answers based on the experiences in this project you described earlier in the paper.
-* Submit each of your Python files and your paper in PDF format.
+* Submit each of your Python files via Teams. Also submit your paper in PDF format.
 
 
 ------------------------------------------------------------------------
