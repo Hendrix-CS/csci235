@@ -99,8 +99,8 @@ Wire:
 | 5V Pin  | `+` column |
 | GND Pin | `-` column |
 
-**Note**: Also wire the two `-` columns together, so that both provide grounding. This will be helpful when we
-wire the motors. There is no need to wire the `+` columns together, as we only need to use one of them.
+**Note:** Wire the two `-` columns together so that they both provide grounding. Also wire the
+two `+` columns together so that they both provide power.
 
 #### Step 5.2
 
@@ -110,10 +110,10 @@ and ground.
 
 Wire: 
 
-| Motor Driver Pin | Breadboard |
-| ---------------- | ---------- |
-| Top Power pin    | `+` column |
-| Top Ground pin   | `-` column |
+| Motor Driver Pin       | Breadboard |
+| ---------------------- | ---------- |
+| Top `+` pin            | `+` column |
+| Top `-` pin            | `-` column |
 | Bottom edge Ground pin | `-` column |
 
 Each motor has two wires. The direction of current flow through those wires determines the direction
@@ -143,7 +143,9 @@ These are digital pins. Setting pin 1 high and pin 2 low spins the motor in one 
 pin 1 low and pin 2 high spins the motor in the other direction. The direction it spins depends on how the 
 two motor wires are connected to the motor outputs.
 
-We use six Arduino outputs to control these pins - three for each motor. Wire the pins as follows:
+We use six Arduino outputs to control these pins - three for each motor. A major constraint on the 
+assignment of Arduino pins to motor driver pins is that only Arduino pins 3, 5, 6, 9, 10, and 11 are 
+able to send PWM signals. Wire the pins as follows:
 
 | Arduino Pin | Motor Driver Pin |
 | ----------- | ---------------- |
@@ -154,10 +156,6 @@ We use six Arduino outputs to control these pins - three for each motor. Wire th
 |          12 | AIN1             |
 |          13 | AIN2             |
 
-The only pieces that may require soldering are the DC motor driver and the connections to the DC motors. 
-There can be faulty connections if not secure. Faulty connections will cause the motors to function 
-improperly and provide incorrect results.
-
 ## <a name="programming">Programming the Robot</a>
 
 [Download](https://www.arduino.cc/en/software) and install the 
@@ -166,22 +164,23 @@ improperly and provide incorrect results.
 Each Arduino program is called a *sketch*. The code in each sketch is written in the
 Arduino programming language. 
 
-We will begin by initializing some variables. When we declare a new variable, we 
-begin by designating its *type*. We then give its name, an `=` sign, and then the
-value with which we intend to initialize that variable.
+We will begin by initializing some constants.  As each Arduino pin is connected to one 
+of the motor control pins, we name the constant after the pin label on the motor driver chip.
+When we declare a new constant, we begin with the `const` keyword, followed by its **type**. 
+We then give its name, an `=` sign, and then the value which we assign to that constant.
 
 Finally, every statement in the Arduino language ends with a semicolon (`;`).
 
-The following block of code sets up variables corresponding to the motor pins:
+The following block of code sets up the constants corresponding to the motor pins:
 
 ```
-int spd_A  = 11;
-int A_in_1 = 12;
-int A_in_2 = 13;
+const int PWMA = 11;
+const int AIN1 = 12;
+const int AIN2 = 13;
 
-int spd_B  = 10;
-int B_in_1 =  9;
-int B_in_2 =  8;
+const int PWMB = 10;
+const int BIN1 =  9;
+const int BIN2 =  8;
 ```
 
 The next two lines of code set up some useful speed values:

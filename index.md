@@ -166,7 +166,7 @@ Each student will be issued the following equipment:
   * A plexiglas chassis
 * One breadboard
 * One motor driver chip
-* One Arduino board
+* One Arduino board with A-B USB Cable
 
 This equipment should be returned to the instructor at the end of the semester. Students will
 be billed for any unreturned equipment.

@@ -95,17 +95,17 @@ Create two distinct planning domains using Pyhop and the Python programming lang
 following as a minimum:
 
 * Two distinct types of objects.
-* Three operators.
+* Two operators.
 * Two methods.
 * Two distinct starting states, at least one of which yields a plan containing at least five steps.
 
 The other domain must include the following as a minimum:
-* Four distinct types of objects.
-* Five operators.
+* As before, two distinct types of objects.
+* Three operators.
 * Three methods.
   * At least one of these methods must have another method in its task decomposition.
   * Either that method or a different method must also have a nondeterministic choice in its task decomposition.
-* Three distinct starting states, at least one of which yields a plan containing at least ten steps.
+* Two distinct starting states, at least one of which yields a plan containing at least ten steps.
 
 
 ## Details
