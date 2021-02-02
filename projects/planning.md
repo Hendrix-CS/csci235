@@ -107,6 +107,8 @@ The other domain must include the following as a minimum:
   * Either that method or a different method must also have a nondeterministic choice in its task decomposition.
 * Two distinct starting states, at least one of which yields a plan containing at least ten steps.
 
+The intention is for the first domain to be relatively easy to construct. It is acceptable for the second domain
+to be a more complex variation of the first domain.
 
 ## Details
 

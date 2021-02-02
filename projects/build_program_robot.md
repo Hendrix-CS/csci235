@@ -126,10 +126,10 @@ Wire:
 
 | Motor Driver Pin | Motor Wire |
 | ---------------- | ---------- |
-| Motor A Out 1    | Left Motor Red |
-| Motor A Out 2    | Left Motor Black |
-| Motor B Out 1    | Right Motor Red |
-| Motor B Out 2    | Right Motor Black |
+| Motor A Out 1    | Left Motor 1 |
+| Motor A Out 2    | Left Motor 2 |
+| Motor B Out 1    | Right Motor 1 |
+| Motor B Out 2    | Right Motor 2 |
 
 #### Step 5.3 
 
@@ -183,33 +183,98 @@ const int BIN1 =  9;
 const int BIN2 =  8;
 ```
 
-The next two lines of code set up some useful speed values:
+Note that if we were to choose to wire these pins differently, we would want to redefine
+our constants accordingly.
+
+Next, we create two `enum` types: one to enumerate the motors, and the other to enumerate the
+spin directions:
 
 ```
-int fwd_speed = 200;
-int trn_speed = 255;
+enum motor {
+  A, B
+};
+
+enum spindir {
+  FORWARD, REVERSE
+};
 ```
 
-Each Arduino sketch has a special `setup` function that is called when the program starts. As 
+Having created these constants and data types, we are ready to write some functions. We will
+write a series of small functions to control the motors. 
+
+The `spin()` function is the primary function you will call to spin a motor. As 
 with all Arduino functions, this function has a return type. The return type `void` signifies 
 that it does not return a value. Curly braces (`{` and `}`) specify where the function's code
-begins and ends.
+begins and ends. Each parameter has its type listed first, followed by its name.
+
+The `spin()` function determines whether motor A or motor B is to be spun, and calls `spin_help` 
+with the appropriate pins.
 
 ```
-void setup() {
-  Serial.begin(9600);
-  
-  move(1, fwd_speed, 0);
-  move(2, fwd_speed, 0);
-  
-  delay(1000);
+void spin(motor mot, int speed, spindir dir) {
+  if (mot == A) {
+    spin_help(PWMA, AIN1, AIN2, speed, dir);
+  } else {
+    spin_help(PWMB, BIN1, BIN2, speed, dir);
+  }
 }
 ```
 
-Let's explore each line in turn:
-* `Serial.begin(9600);` This sets the communication speed for the cable from the Arduino back to 
-  your computer. In future weeks, this will be the connection to your Android device.
-* `move()` These two lines are calls to a function we will define shortly.
-* `delay(1000);` This tells the Arduino to pause for 1000 milliseconds.
+The `spin_help()` function receives the specific pins to control as its parameters, in addition
+to the motor speed and direction. It uses the built-in `analogWrite()` function to send the
+speed level to the PWM pin. Depending on the direction of spin, it calls `write_dir()` with 
+the input pins in the desired order.
+
+```
+void spin_help(int pwm, int in1, int in2, int speed, spindir dir) {
+  if (dir == FORWARD) {
+    write_dir(in1, in2);
+  } else {
+    write_dir(in2, in1);
+  }
+  analogWrite(pwm, speed);
+}
+```
+
+The `write_dir()` function uses the built-in `digitalWrite()` function to send signals to the
+input pins. The motor will spin one direction if the first pin is high and the second one low,
+and the other direction if they are reversed. If the wiring of your motors is not consistent
+with what you want "forward" to signify, you can switch the AIN1 and AIN2 (or BIN1 and BIN2) 
+wires on your Arduino.
+
+```
+void write_dir(int hi, int lo) {
+  digitalWrite(hi, HIGH);
+  digitalWrite(lo, LOW);
+}
+```
+
+The `setup()` function is the starting point for the Arduino program when the power comes on.
+We begin by specifying the communcation rate over the USB cable using the `Serial.begin(9600)`
+function. Next, we use the built-in `delay()` function to pause for 2000 milliseconds (2 seconds)
+before doing anything else. Then, we call the `spin()` function we wrote earlier to start up each motor.
+For convenience, we define a constant `FULL_SPEED` representing the highest value we can use for the 
+motor speed. We then pause for 10 seconds before stopping both motors.
+
+```
+const int FULL_SPEED = 255;
+
+void setup() {
+  // put your setup code here, to run once:
+  Serial.begin(9600);
+  delay(2000);
+  spin(A, FULL_SPEED, FORWARD);
+  spin(B, FULL_SPEED, FORWARD);
+  delay(10000);
+  spin(A, 0, FORWARD);
+  spin(B, 0, FORWARD);
+}
+
+```
+
+## <a name="assignment">Assignment</a>
+
+Once you have built your robot, write the following programs:
+* 
 
 ------------------------------------------------------------------------
