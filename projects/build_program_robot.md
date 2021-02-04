@@ -274,7 +274,22 @@ void setup() {
 
 ## <a name="assignment">Assignment</a>
 
-Once you have built your robot, write the following programs:
-* 
+Once you have built your robot, answer the following questions:
+* What is the robot's speed at the full 255 level? What is its speed at the 200, 150, and 100 levels? To measure
+  its speed, determine the time it takes to drive five meters. For each speed, run your program five times, and 
+  record all of your measurements.
+* When the robot drives five meters, how far off from a straight line does it drive? Run your program five times and
+  record those measurements.
+* Write a program to drive the robot one meter, turn 90 degrees, and drive one more meter. How close can you get to
+  a perfect 90 degree turn? How repeatable is it? How about a 45 degree turn?
+* Devise three driving patterns for your robot. Each driving pattern should include at least three alternations of
+  driving and turning. How accurately can you make the robot follow each pattern?
+* Based on the above experiments, how well does your robot follow directions in the absence of sensor input?
+  
+## Submission
+
+Submit a paper containing the following:
+* Answers to the questions above.
+* Source code for the three driving patterns.
 
 ------------------------------------------------------------------------

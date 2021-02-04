@@ -37,12 +37,12 @@ Upon completing this course, our goal is for you to be able to:
 | 1/21 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox) |  |  |
 | 1/26 | Tue | Symbolic vs Physical AI<br>HTN Planning | [Elephants Don't Play Chess]({{site.baseurl}}/readings/Brooks1990.pdf) | [Planning]({{site.baseurl}}/projects/planning.html) | Robots: Fiction and Reality |
 | 1/28 | Thu | HTN Planning |  |  |  |
-| 2/2 | Tue | Building and Programming the Robot |  | Build Robot | Planning |
-| 2/4 | Thu | Driving in Patterns |  | Driving in Patterns | Build Robot |
-| 2/9 | Tue | Sonar |  | Reactive Behaviors 1 | Driving in Patterns |
-| 2/11 | Thu | Sonar |  |  |  |
-| 2/16 | Tue | Computer Vision |  | Reactive Behaviors 2 | Reactive Behaviors 1 |
-| 2/18 | Thu | Computer Vision |  |  |  |
+| 2/2 | Tue | HTN Planning |  |  |  |
+| 2/4 | Thu | Building and Programming the Robot |  | [Build and Program Robot]({{site.baseurl}}/projects/build_program_robot.html) | Planning |
+| 2/9 | Tue | Driving in Patterns |  |  |  |
+| 2/11 | Thu | Sonar |  |  Reactive Behaviors 1 | Build and Program Robot |
+| 2/16 | Tue | Sonar |  |  |  |
+| 2/18 | Thu | Computer Vision |  |  Reactive Behaviors 2 | Reactive Behaviors 1 |
 | 2/23 | Tue | Break: no class |  |  |  |
 | 2/25 | Thu | Computer Vision |  |  |  |
 | 3/2 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
