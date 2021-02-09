@@ -162,7 +162,7 @@ able to send PWM signals. Wire the pins as follows:
 [Arduino IDE](https://www.arduino.cc/en/Guide/Environment) for your computer.
 
 Each Arduino program is called a *sketch*. The code in each sketch is written in the
-Arduino programming language. 
+[Arduino programming language](https://www.arduino.cc/reference/en/). 
 
 We will begin by initializing some constants.  As each Arduino pin is connected to one 
 of the motor control pins, we name the constant after the pin label on the motor driver chip.
