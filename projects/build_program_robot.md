@@ -289,7 +289,7 @@ Submit a paper containing the following:
 
 Also submit a [link to a video of your robot in action](https://docs.google.com/forms/d/e/1FAIpQLSclzFbU1iCMsCVzT3jQBo3wyyRbUzYsfY7FxJcqNPbm5ONo-Q/viewform?usp=sf_link).
 
-## Appendix: Mounting a Tablet
+## <a name="tablet">Appendix: Mounting a Tablet</a>
 
 Here are some photos showing how I mounted a Kindle Fire 7 tablet aboard the robot:
 
