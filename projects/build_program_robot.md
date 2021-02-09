@@ -186,16 +186,11 @@ const int BIN2 =  8;
 Note that if we were to choose to wire these pins differently, we would want to redefine
 our constants accordingly.
 
-Next, we create two `enum` types: one to enumerate the motors, and the other to enumerate the
-spin directions:
+Next, we create an `enum` type to enumerate the motors:
 
 ```
 enum motor {
   A, B
-};
-
-enum spindir {
-  FORWARD, REVERSE
 };
 ```
 
@@ -211,11 +206,11 @@ The `spin()` function determines whether motor A or motor B is to be spun, and c
 with the appropriate pins.
 
 ```
-void spin(motor mot, int speed, spindir dir) {
+void spin(motor mot, int speed) {
   if (mot == A) {
-    spin_help(PWMA, AIN1, AIN2, speed, dir);
+    spin_help(PWMA, AIN1, AIN2, speed);
   } else {
-    spin_help(PWMB, BIN1, BIN2, speed, dir);
+    spin_help(PWMB, BIN1, BIN2, speed);
   }
 }
 ```
@@ -226,13 +221,13 @@ speed level to the PWM pin. Depending on the direction of spin, it calls `write_
 the input pins in the desired order.
 
 ```
-void spin_help(int pwm, int in1, int in2, int speed, spindir dir) {
-  if (dir == FORWARD) {
+void spin_help(int pwm, int in1, int in2, int speed) {
+  if (speed >= 0) {
     write_dir(in1, in2);
   } else {
     write_dir(in2, in1);
   }
-  analogWrite(pwm, speed);
+  analogWrite(pwm, abs(speed));
 }
 ```
 
@@ -263,11 +258,11 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   delay(2000);
-  spin(A, FULL_SPEED, FORWARD);
-  spin(B, FULL_SPEED, FORWARD);
+  spin(A, FULL_SPEED);
+  spin(B, FULL_SPEED);
   delay(10000);
-  spin(A, 0, FORWARD);
-  spin(B, 0, FORWARD);
+  spin(A, 0);
+  spin(B, 0);
 }
 
 ```
@@ -291,5 +286,7 @@ Once you have built your robot, answer the following questions:
 Submit a paper containing the following:
 * Answers to the questions above.
 * Source code for the three driving patterns.
+
+Also submit a [link to a video of your robot in action](https://docs.google.com/forms/d/e/1FAIpQLSclzFbU1iCMsCVzT3jQBo3wyyRbUzYsfY7FxJcqNPbm5ONo-Q/viewform?usp=sf_link).
 
 ------------------------------------------------------------------------
