@@ -289,4 +289,14 @@ Submit a paper containing the following:
 
 Also submit a [link to a video of your robot in action](https://docs.google.com/forms/d/e/1FAIpQLSclzFbU1iCMsCVzT3jQBo3wyyRbUzYsfY7FxJcqNPbm5ONo-Q/viewform?usp=sf_link).
 
+## Appendix: Mounting a Tablet
+
+Here are some photos showing how I mounted a Kindle Fire 7 tablet aboard the robot:
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/wrapusb.jpg" width=500>
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/tabletscrews.jpg" width=500>
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/tabletinplace.jpg" width=500>
+
 ------------------------------------------------------------------------
