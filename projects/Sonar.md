@@ -101,8 +101,9 @@ and experiment with the program, work towards answering the following questions:
    1. How are they measured? 
    2. How do they conform with our intuitions?
 4. How did you employ your metrics to iteratively create your best obstacle-avoiding robot?
-5. Is your best obstacle-avoiding robot intelligent? Why or why not?
+5. Is your best obstacle-avoiding robot *intelligent*? Why or why not?
 
 Record a video of your robot driving around and avoiding obstacles. Include several different shots of the 
 robot that highlight its behavior in different situations.
+
 ------------------------------------------------------------------------
