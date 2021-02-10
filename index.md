@@ -40,7 +40,7 @@ Upon completing this course, our goal is for you to be able to:
 | 2/2 | Tue | HTN Planning |  |  |  |
 | 2/4 | Thu | Building and Programming the Robot |  | [Build and Program Robot]({{site.baseurl}}/projects/build_program_robot.html) | Planning |
 | 2/9 | Tue | Driving in Patterns |  |  |  |
-| 2/11 | Thu | Sonar |  |  Reactive Behaviors 1 | Build and Program Robot |
+| 2/11 | Thu | Sonar |  |  [Reactive Behaviors 1]({{site.baseurl}}/projects/Sonar.html) | Build and Program Robot |
 | 2/16 | Tue | Sonar |  |  |  |
 | 2/18 | Thu | Computer Vision |  |  Reactive Behaviors 2 | Reactive Behaviors 1 |
 | 2/23 | Tue | Break: no class |  |  |  |

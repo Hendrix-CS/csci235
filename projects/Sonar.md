@@ -81,4 +81,26 @@ void loop() {
 }
 ```
 
+## Understanding the Sonar
+
+Upload the above program to the Arduino. Grab a book or similar object, and position it in front of the sonar.
+* What is the **shortest** distance from the sonar that it reliably detects the object?
+* What is the **longest** distance from the sonar that it reliably detects the object?
+
+## Employing the Sonar
+
+Write an Arduino program that enables the robot to drive forward while avoiding obstacles. As you construct
+and experiment with the program, work towards answering the following questions:
+
+1. With a two-wheeled robot, three different styles of turns are possible. 
+   1. What are the three styles? 
+   2. For each style, in what situations is it beneficial? Detrimental? Support your answers with evidence from experimenting with your robot.
+2. When creating an obstacle-avoiding robot that uses the sonar, what is the minimum distance at which to begin a safe turn? 
+   This value may vary depending upon the turning style; be sure to specify a value for each of the three styles.
+3. What numerical metrics are appropriate for quantifying the performance of an obstacle-avoiding robot? 
+   1. How are they measured? 
+   2. How do they conform with our intuitions?
+4. How did you employ your metrics to iteratively create your best obstacle-avoiding robot?
+5. Is your best obstacle-avoiding robot intelligent? Why or why not?
+
 ------------------------------------------------------------------------
