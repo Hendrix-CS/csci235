@@ -7,6 +7,8 @@ worktitle: Sonar
 
 ## Sonar
 
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/sonar.jpg" width=500>
+
 The sonar sensor emits an ultrasonic ping and listens for its return. By multiplying the 
 time it takes to hear the returned ping by the speed of sound, we can compute the distance to an object.
 
@@ -103,7 +105,8 @@ and experiment with the program, work towards answering the following questions:
 4. How did you employ your metrics to iteratively create your best obstacle-avoiding robot?
 5. Is your best obstacle-avoiding robot *intelligent*? Why or why not?
 
-Record a video of your robot driving around and avoiding obstacles. Include several different shots of the 
+[Record a video](https://docs.google.com/forms/d/e/1FAIpQLSdOhoNctoprb8qkhFf1LMAhfe7fxLxZL5AhssO90eCUriKZjw/viewform?usp=sf_link) 
+of your robot driving around and avoiding obstacles. Include several different shots of the 
 robot that highlight its behavior in different situations.
 
 ------------------------------------------------------------------------
