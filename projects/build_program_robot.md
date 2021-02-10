@@ -216,7 +216,8 @@ void spin(motor mot, int speed) {
 ```
 
 The `spin_help()` function receives the specific pins to control as its parameters, in addition
-to the motor speed and direction. It uses the built-in `analogWrite()` function to send the
+to the motor speed and direction. It uses the built-in 
+[`analogWrite()`](https://www.arduino.cc/reference/en/language/functions/analog-io/analogwrite/) function to send the
 speed level to the PWM pin. Depending on the direction of spin, it calls `write_dir()` with 
 the input pins in the desired order.
 
@@ -231,7 +232,9 @@ void spin_help(int pwm, int in1, int in2, int speed) {
 }
 ```
 
-The `write_dir()` function uses the built-in `digitalWrite()` function to send signals to the
+The `write_dir()` function uses the built-in 
+[`digitalWrite()`](https://www.arduino.cc/reference/en/language/functions/digital-io/digitalwrite/) 
+function to send signals to the
 input pins. The motor will spin one direction if the first pin is high and the second one low,
 and the other direction if they are reversed. If the wiring of your motors is not consistent
 with what you want "forward" to signify, you can switch the AIN1 and AIN2 (or BIN1 and BIN2) 
@@ -246,7 +249,9 @@ void write_dir(int hi, int lo) {
 
 The `setup()` function is the starting point for the Arduino program when the power comes on.
 We begin by specifying the communcation rate over the USB cable using the `Serial.begin(9600)`
-function. Next, we use the built-in `delay()` function to pause for 2000 milliseconds (2 seconds)
+function. Next, we use the built-in 
+[`delay()`](https://www.arduino.cc/reference/en/language/functions/time/delay/) 
+function to pause for 2000 milliseconds (2 seconds)
 before doing anything else. Then, we call the `spin()` function we wrote earlier to start up each motor.
 For convenience, we define a constant `FULL_SPEED` representing the highest value we can use for the 
 motor speed. We then pause for 10 seconds before stopping both motors.
