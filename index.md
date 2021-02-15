@@ -42,14 +42,14 @@ Upon completing this course, our goal is for you to be able to:
 | 2/9 | Tue | Driving in Patterns |  |  |  |
 | 2/11 | Thu | Sonar |  |  [Reactive Behaviors 1]({{site.baseurl}}/projects/Sonar.html) | Build and Program Robot |
 | 2/16 | Tue | Sonar |  |  |  |
-| 2/18 | Thu | Computer Vision |  |  Reactive Behaviors 2 | Reactive Behaviors 1 |
+| 2/18 | Thu | Sonar again (snow day) |  |  |  |
 | 2/23 | Tue | Break: no class |  |  |  |
-| 2/25 | Thu | Computer Vision |  |  |  |
-| 3/2 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
-| 3/4 | Thu | Tracking  |  |  |  |
-| 3/9 | Tue | Reinforcement Learning |  | Reinforcement Learning | Tracking |
-| 3/11 | Thu | Reinforcement Learning |  |  |  |
-| 3/16 | Tue | Combining Reactive Behaviors |  | Combining Behaviors | Reinforcement Learning |
+| 2/25 | Thu | Computer Vision |  |  Reactive Behaviors 2 | Reactive Behaviors 1 |
+| 3/2  | Tue | Computer Vision |  |  |  |
+| 3/4  | Thu | Computer Vision |  |  |  |
+| 3/9 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
+| 3/11 | Thu | Tracking  |  |  |  |
+| 3/16 | Tue | Combining Reactive Behaviors |  | Combining Behaviors | Reactive Behaviors 2 |
 | 3/18 | Thu | Combining Reactive Behaviors |  |  |  |
 | 3/23 | Tue | Neural Networks |  | Neural Networks | Combining Reactive Behaviors |
 | 3/25 | Thu | Neural Networks continued |  |  |  |
@@ -126,19 +126,19 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all ten projects
+  * Complete all nine projects
   * Complete the final project
   * Submit a course feedback form
   * Ask six presentation questions
   * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
-  * Complete any eight projects
+  * Complete any seven projects
   * Complete the final project
   * Submit a course feedback form
   * Ask four presentation questions
   * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
-  * Complete any six projects
+  * Complete any five projects
   * Complete the final project
   * Submit a course feedback form
   * Ask two presentation questions
@@ -167,6 +167,7 @@ Each student will be issued the following equipment:
 * One breadboard
 * One motor driver chip
 * One Arduino board with A-B USB Cable
+* One sonar sensor
 
 This equipment should be returned to the instructor at the end of the semester. Students will
 be billed for any unreturned equipment.
