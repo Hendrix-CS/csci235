@@ -175,3 +175,7 @@ be billed for any unreturned equipment.
 Each student will need to supply a smartphone or tablet running the Android operating system.
 Students for whom this presents a difficulty should contact the instructor, who will investigate
 possible arrangements.
+
+## App Download Link
+
+[Download App]({{site.baseurl}}/assets/apps/app-release.apk)
