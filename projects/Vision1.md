@@ -161,6 +161,12 @@ Be sure to record both the original and adjusted criteria.
    
 3. Answer question 2 for the third task.
 
+4. For each of the three tasks, how many images did you employ for each label? What
+  image resolution did you use? What frame rates did your robot obtain?
+  
+5. Based on your answers to the above questions, what does it take to create an 
+   effective vision-based robot behavior?
+
 ## Video
 
 Submit videos of the robot performing each of the three tasks.
