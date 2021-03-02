@@ -57,3 +57,110 @@ From the Robot View Screen, you can:
 * Start the robot.
 * Stop the robot.
 * Go back to the Manager Screen.
+
+## Arduino App Interaction
+
+The Arduino program below shows how to communicate with the app to control the robot.
+
+	const int PWMA = 11;
+	const int AIN1 = 12;
+	const int AIN2 = 13;
+
+	const int PWMB = 10;
+	const int BIN1 =  9;
+	const int BIN2 =  8;
+
+	const int SPEED = 220;
+	const int TURN = 150;
+
+	enum motor {
+	  A, B
+	};
+
+	void spin(motor mot, int speed) {
+	  if (mot == A) {
+		spin_help(PWMA, AIN1, AIN2, speed);
+	  } else {
+		spin_help(PWMB, BIN1, BIN2, speed);
+	  }
+	}
+
+	void spin_help(int pwm, int in1, int in2, int speed) {
+	  if (speed >= 0) {
+		write_dir(in1, in2);
+	  } else {
+		write_dir(in2, in1);
+	  }
+	  analogWrite(pwm, abs(speed));
+	}
+
+	void write_dir(int hi, int lo) {
+	  digitalWrite(hi, HIGH);
+	  digitalWrite(lo, LOW);
+	}
+
+	bool running = false;
+
+	void setup() {
+	  Serial.begin(9600);
+	  // Start a knn classifier with k=3, image width=20, image height=15
+	  Serial.println("cv knn 3 Gameroom 20 15");
+	}
+
+	void loop() {
+	  if (Serial.available() > 0) {
+		String message = Serial.readStringUntil('\n');
+		if (message == "start") {
+		  Serial.println("cv resume 1");
+		  running = true;
+		} 
+		if (message == "stop") {
+		  spin(A, 0);
+		  spin(B, 0);
+		  Serial.println("cv pause");
+		  running = false;
+		}
+		
+		if (running) {
+		  if (message == "Turn") {
+			spin(A, -TURN);
+			spin(B, TURN);
+		  } else if (message == "Go") {
+			spin(A, SPEED);
+			spin(B, SPEED);
+		  }
+		}
+	  }
+	}
+	
+## Project 
+
+Devise three vision-based controllers for your robot:
+1. The first controller should avoid obstacles along the lines of the Arduino 
+   example above. Use the example program in conjunction with your own collection
+   of labeled photographs. Adjust speeds as necessary.
+
+2. The second controller may be for any task you like. It should use a knn classifier
+   with two labels.
+
+3. The third controller may also be for any task you like. It should use a knn classifier
+   with three or more labels. You may optionally also incorporate sonar.   
+   
+For tasks 2 and 3, be sure to describe criteria for good performance on the task
+prior to testing the robot the first time. Include both quantitative and qualitative 
+criteria. After gaining experience with the robot, you may want to adjust your criteria.
+Be sure to record both the original and adjusted criteria.
+
+## Writeup
+
+1. How did the robot perform on the obstacle-avoidance task in comparison to the 
+   sonar-based robot? 
+   
+2. How did the robot perform on the second task, in light of your criteria? What were 
+   the original criteria? How did they change? Why?
+   
+3. Answer question 2 for the third task.
+
+## Video
+
+Submit videos of the robot performing each of the three tasks.
