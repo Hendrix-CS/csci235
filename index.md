@@ -44,8 +44,8 @@ Upon completing this course, our goal is for you to be able to:
 | 2/16 | Tue | Sonar |  |  |  |
 | 2/18 | Thu | Sonar again (snow day) |  |  |  |
 | 2/23 | Tue | Break: no class |  |  |  |
-| 2/25 | Thu | Computer Vision |  |  Reactive Behaviors 2 | Reactive Behaviors 1 |
-| 3/2  | Tue | Computer Vision |  |  |  |
+| 2/25 | Thu | Sonar presentations; brief Vision intro |  |  | Reactive Behaviors 1 |
+| 3/2  | Tue | Computer Vision |  |  [Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html) |  |
 | 3/4  | Thu | Computer Vision |  |  |  |
 | 3/9 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
 | 3/11 | Thu | Tracking  |  |  |  |
