@@ -19,7 +19,7 @@ To create a vision-based controller:
 ## Vision App
 
 For this and all future projects, you will need to install the 
-[Tracker2]({{site.baseurl}}/assets/apps/app-release.apk) app on your Android device.
+[Tracker2](https://github.com/gjf2a/Tracker2/releases/download/0.1.0/app-release.apk) app on your Android device.
 
 ### Manager Screen
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/App_Manager_View.png" width=500>
