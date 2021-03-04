@@ -47,17 +47,17 @@ Upon completing this course, our goal is for you to be able to:
 | 2/25 | Thu | Sonar presentations; brief Vision intro |  |  | Reactive Behaviors 1 |
 | 3/2  | Tue | Computer Vision |  |  [Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html) |  |
 | 3/4  | Thu | Computer Vision |  |  |  |
-| 3/9 | Tue | Tracking  |  | Tracking | Reactive Behaviors 2 |
-| 3/11 | Thu | Tracking  |  |  |  |
-| 3/16 | Tue | Combining Reactive Behaviors |  | Combining Behaviors | Reactive Behaviors 2 |
-| 3/18 | Thu | Combining Reactive Behaviors |  |  |  |
-| 3/23 | Tue | Neural Networks |  | Neural Networks | Combining Reactive Behaviors |
-| 3/25 | Thu | Neural Networks continued |  |  |  |
-| 3/30 | Tue | Landmarks |  | Landmarks | Neural Networks |
+| 3/9 | Tue | Computer Vision  |  |  | |
+| 3/11 | Thu | Tracking  |  | Tracking | Reactive Behaviors 2  |
+| 3/16 | Tue | Tracking |  |  |  |
+| 3/18 | Thu | Tracking |  |  |  |
+| 3/23 | Tue | Landmarks |  | Landmarks | Tracking |
+| 3/25 | Thu | Interlude: Other Supervised Learning Algorithms |  |  |  |
+| 3/30 | Tue | Landmarks |  |  |  |
 | 4/1 | Thu | Break: no class |  |  |  |
-| 4/6 | Tue | Landmarks |  |  |  |
-| 4/8 | Thu | Landmarks |  |  |  |
-| 4/13 | Tue | Final Project |  | Final Project Proposal | Landmarks |
+| 4/6 | Tue | Combining Behaviors |  |  | Landmarks |
+| 4/8 | Thu | Combining Behaviors |  |  |  |
+| 4/13 | Tue | Final Project |  | Final Project Proposal | Combining Behaviors |
 | 4/15 | Thu | Final Project work |  |  |  |
 | 4/20 | Tue | Final Project Progress Reports |  |  |  |
 | 4/22 | Thu | Final Project work |  |  |  |
@@ -126,19 +126,19 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all nine projects
+  * Complete all eight projects
   * Complete the final project
   * Submit a course feedback form
   * Ask six presentation questions
   * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
-  * Complete any seven projects
+  * Complete any six projects
   * Complete the final project
   * Submit a course feedback form
   * Ask four presentation questions
   * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
-  * Complete any five projects
+  * Complete any four projects
   * Complete the final project
   * Submit a course feedback form
   * Ask two presentation questions
