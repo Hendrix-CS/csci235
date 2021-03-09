@@ -48,11 +48,11 @@ Upon completing this course, our goal is for you to be able to:
 | 3/2  | Tue | Computer Vision |  |  [Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html) |  |
 | 3/4  | Thu | Computer Vision |  |  |  |
 | 3/9 | Tue | Computer Vision  |  |  | |
-| 3/11 | Thu | Tracking  |  | Tracking | Reactive Behaviors 2  |
-| 3/16 | Tue | Tracking |  |  |  |
+| 3/11 | Thu | Tracking  |  |  | Reactive Behaviors 2  |
+| 3/16 | Tue | Tracking |  | Tracking |  |
 | 3/18 | Thu | Tracking |  |  |  |
-| 3/23 | Tue | Landmarks |  | Landmarks | Tracking |
-| 3/25 | Thu | Interlude: Other Supervised Learning Algorithms |  |  |  |
+| 3/23 | Tue | Interlude: Other Supervised Learning Algorithms |  |  |  |
+| 3/25 | Thu | Landmarks |  | Landmarks | Tracking |
 | 3/30 | Tue | Landmarks |  |  |  |
 | 4/1 | Thu | Break: no class |  |  |  |
 | 4/6 | Tue | Combining Behaviors |  |  | Landmarks |
