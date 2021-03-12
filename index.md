@@ -178,4 +178,4 @@ possible arrangements.
 
 ## App Download Link
 
-[Download App](https://github.com/gjf2a/Tracker2/releases/download/0.2.1/app-release.apk)
+[Download App](https://github.com/gjf2a/Tracker2/releases/download/0.3.0/app-release.apk)
