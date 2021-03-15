@@ -55,7 +55,7 @@ from the previous two steps.
 ## Vision App
 
 For this and all future projects, you will need to install the 
-[Tracker2](https://github.com/gjf2a/Tracker2/releases/download/0.3.0/app-release.apk) app on your Android device.
+[Tracker2](https://github.com/gjf2a/Tracker2/releases) app on your Android device.
 
 <img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/Groundline1.png" width=500>
 
