@@ -156,7 +156,7 @@ void loop() {
   if (Serial.available() > 0) {
     String message = Serial.readStringUntil('\n');
     if (message == "start") {
-      Serial.println("cv groundline 30 4 Office " + String(WIDTH) + " " + String(HEIGHT));
+      Serial.println("cv groundline 30 4 Office Carpet " + String(WIDTH) + " " + String(HEIGHT));
       running = true;
     } 
     if (message == "stop") {
