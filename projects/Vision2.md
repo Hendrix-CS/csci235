@@ -85,7 +85,7 @@ const int MIN_SPEED = 120;
 const int MAX_SPEED = 255;
 const int SPEED_RANGE = MAX_SPEED - MIN_SPEED;
 
-const float P = 1.0;
+const float P = 1.0 / (WIDTH / 2);
 const float I = 0.0;
 const float D = 0.0;
 
@@ -127,12 +127,13 @@ void setup() {
 float getAdjustment(long x) {
   long error = x - (WIDTH / 2);
   long diff = error - lastError;
+  lastError = error;
   totalError += error;
   float adjustment = error * P + totalError * I + diff * D;
 }
 
 void adjustMotors(float adjustment) {
-  int offset = int(adjustment * SPEED_RANGE) + MIN_SPEED;
+  int offset = MAX_SPEED - int(adjustment * SPEED_RANGE);
   if (offset < 0) {
     spin(A, -offset);
     spin(B, MAX_SPEED);
