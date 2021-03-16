@@ -186,6 +186,7 @@ two different areas. Examples:
 * A hallway
 * A room strewn with obstacles
 
+<!--
 The robot should continue to seek open space as it drives around until it arrives
 at a known location, recognized using a kNN or kmeans classifier. At that point, it 
 should stop moving. 
@@ -198,7 +199,7 @@ one sent will be `2`. The second one will be active initially.
 * When the counter hits a certain value, send `cv resume 1`. That will pause the current `cv` command and 
   restart the other command.
 * Reset the counter. When it hits a target value, send `cv resume 2` to restart the original `cv` command.
-
+-->
 ## Writeup
 
 1. What quantitative and qualitative criteria did you use for assessing the quality of your PID controllers?
