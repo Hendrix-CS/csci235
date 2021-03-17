@@ -150,13 +150,8 @@ void pidController(String message) {
   int space = message.indexOf(' ');
   long x = message.substring(0, space).toInt();
   long y = message.substring(space + 1).toInt();
-  if (y > 2 * HEIGHT / 3) {
-    spin(A, MIN_SPEED);
-    spin(B, -MIN_SPEED);
-  } else {
-    float adjustment = getAdjustment(x);
-    adjustMotors(adjustment);
-  }
+  float adjustment = getAdjustment(x);
+  adjustMotors(adjustment);
 }
 
 void loop() {
