@@ -129,7 +129,7 @@ float getAdjustment(long x) {
   long diff = error - lastError;
   lastError = error;
   totalError += error;
-  float adjustment = error * P + totalError * I + diff * D;
+  return error * P + totalError * I + diff * D;
 }
 
 void assignSpeeds(motor slower, motor faster, float adjustment) {
@@ -140,9 +140,9 @@ void assignSpeeds(motor slower, motor faster, float adjustment) {
 
 void adjustMotors(float adjustment) {
   if (adjustment < 0) {
-    assignSpeeds(B, A, -adjustment);
+    assignSpeeds(A, B, -adjustment);
   } else {
-    assignSpeeds(A, B, adjustment);
+    assignSpeeds(B, A, adjustment);
   }
 }
 
