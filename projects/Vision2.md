@@ -132,14 +132,17 @@ float getAdjustment(long x) {
   float adjustment = error * P + totalError * I + diff * D;
 }
 
-void adjustMotors(float adjustment) {
+void assignSpeeds(motor slower, motor faster, float adjustment) {
   int offset = MAX_SPEED - int(adjustment * SPEED_RANGE);
-  if (offset < 0) {
-    spin(A, -offset);
-    spin(B, MAX_SPEED);
+  spin(slower, offset);
+  spin(faster, MAX_SPEED);
+}
+
+void adjustMotors(float adjustment) {
+  if (adjustment < 0) {
+    assignSpeeds(B, A, -adjustment);
   } else {
-    spin(A, MAX_SPEED);
-    spin(B, offset);
+    assignSpeeds(A, B, adjustment);
   }
 }
 
@@ -147,8 +150,13 @@ void pidController(String message) {
   int space = message.indexOf(' ');
   long x = message.substring(0, space).toInt();
   long y = message.substring(space + 1).toInt();
-  float adjustment = getAdjustment(x);
-  adjustMotors(adjustment);
+  if (y > 2 * HEIGHT / 3) {
+    spin(A, MIN_SPEED);
+    spin(B, -MIN_SPEED);
+  } else {
+    float adjustment = getAdjustment(x);
+    adjustMotors(adjustment);
+  }
 }
 
 void loop() {
@@ -156,7 +164,7 @@ void loop() {
   if (Serial.available() > 0) {
     String message = Serial.readStringUntil('\n');
     if (message == "start") {
-      Serial.println("cv groundline 30 4 Office Carpet " + String(WIDTH) + " " + String(HEIGHT));
+      Serial.println("cv groundline 30 2 Office Carpet " + String(WIDTH) + " " + String(HEIGHT) + " 1 2");
       running = true;
     } 
     if (message == "stop") {
