@@ -51,13 +51,13 @@ Upon completing this course, our goal is for you to be able to:
 | 3/11 | Thu | Groundline  |  | [Groundline]({{site.baseurl}}/projects/Vision2.html) | Reactive Behaviors 2  |
 | 3/16 | Tue | Groundline |  |  |  |
 | 3/18 | Thu | Groundline |  |  |  |
-| 3/23 | Tue | Interlude: Other Supervised Learning Algorithms |  |  |  |
-| 3/25 | Thu | Landmarks |  | Landmarks | Groundline |
-| 3/30 | Tue | Landmarks |  |  |  |
+| 3/23 | Tue | Project Work |  |  |  |
+| 3/25 | Thu | Interlude: Other Supervised Learning Algorithms |  |  |  |
+| 3/30 | Tue | Maps |  | Maps | Groundline |
 | 4/1 | Thu | Break: no class |  |  |  |
-| 4/6 | Tue | Combining Behaviors |  |  | Landmarks |
-| 4/8 | Thu | Combining Behaviors |  |  |  |
-| 4/13 | Tue | Final Project |  | Final Project Proposal | Combining Behaviors |
+| 4/6 | Tue | Maps |  |  |  |
+| 4/8 | Thu | Maps |  |  |  |
+| 4/13 | Tue | Final Project |  | Final Project Proposal | Maps |
 | 4/15 | Thu | Final Project work |  |  |  |
 | 4/20 | Tue | Final Project Progress Reports |  |  |  |
 | 4/22 | Thu | Final Project work |  |  |  |
@@ -73,10 +73,8 @@ Upon completing this course, our goal is for you to be able to:
 
 Every Tuesday, a project will be assigned. Students may complete projects individually or 
 in teams of two. In most projects, students will program their robots to perform a task using
-a new concept introduced that week, potentially incorporating other concepts covered in 
-previous weeks. Each project will typically be due the following Tuesday, with a brief
-video presentation given in class. Some time will typically be available every Thursday
-during the class period for work on that week's project.
+a newly introduced concept, potentially incorporating other concepts covered previously. Some time 
+will typically be available during some class periods for work on the current project.
 
 ### Project Reports
 For each project, each student (even if part of a team) should submit an individual project
@@ -126,7 +124,7 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all eight projects
+  * Complete all seven projects
   * Complete the final project
   * Submit a course feedback form
   * Ask six presentation questions
@@ -138,7 +136,7 @@ grades are earned based on completed passing assignments, as follows:
   * Ask four presentation questions
   * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
-  * Complete any four projects
+  * Complete any five projects
   * Complete the final project
   * Submit a course feedback form
   * Ask two presentation questions
