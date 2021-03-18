@@ -52,7 +52,7 @@ Upon completing this course, our goal is for you to be able to:
 | 3/16 | Tue | Groundline |  |  |  |
 | 3/18 | Thu | Groundline |  |  |  |
 | 3/23 | Tue | Project Work |  |  |  |
-| 3/25 | Thu | Interlude: Other Supervised Learning Algorithms |  |  |  |
+| 3/25 | Thu | Human vs. Computer Vision |  |  |  |
 | 3/30 | Tue | Maps |  | Maps | Groundline |
 | 4/1 | Thu | Break: no class |  |  |  |
 | 4/6 | Tue | Maps |  |  |  |
