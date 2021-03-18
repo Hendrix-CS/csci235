@@ -81,7 +81,7 @@ const int BIN2 =  8;
 const long WIDTH = 40;
 const long HEIGHT = 30;
 
-const int MIN_SPEED = 120;
+const int MIN_SPEED = 180;
 const int MAX_SPEED = 255;
 const int SPEED_RANGE = MAX_SPEED - MIN_SPEED;
 
