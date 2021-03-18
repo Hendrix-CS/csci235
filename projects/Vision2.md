@@ -81,11 +81,11 @@ const int BIN2 =  8;
 const long WIDTH = 40;
 const long HEIGHT = 30;
 
-const int MIN_SPEED = 180;
+const int MIN_SPEED = 200;
 const int MAX_SPEED = 255;
 const int SPEED_RANGE = MAX_SPEED - MIN_SPEED;
 
-const float P = 1.0 / (WIDTH / 2);
+const float P = 1.0 / float(WIDTH / 2);
 const float I = 0.0;
 const float D = 0.0;
 
@@ -129,7 +129,7 @@ float getAdjustment(long x) {
   long diff = error - lastError;
   lastError = error;
   totalError += error;
-  return error * P + totalError * I + diff * D;
+  return float(error) * P + float(totalError) * I + float(diff) * D;
 }
 
 void assignSpeeds(motor slower, motor faster, float adjustment) {
@@ -161,15 +161,12 @@ void loop() {
     if (message == "start") {
       Serial.println("cv groundline 30 2 Office Carpet " + String(WIDTH) + " " + String(HEIGHT) + " 1 2");
       running = true;
-    } 
-    if (message == "stop") {
+    } else if (message == "stop") {
       spin(A, 0);
       spin(B, 0);
       Serial.println("cv pause");
       running = false;
-    }
-
-    if (running) {
+    } else if (running) {
       pidController(message);
     }
   }
@@ -189,6 +186,11 @@ Use the Groundline feature to program a PID controlled robot that navigates thro
 two different areas. Examples:
 * A hallway
 * A room strewn with obstacles
+
+Note that PID control might not be sufficient by itself for the task. If the robot gets too close to an
+obstacle, it may be necessary to undertake more extreme adjustments than the relatively gentle adjustments
+of the PID controller. The above code example is a guideline as to how to create the controller. Feel free
+to modify it extensively for your own purposes.
 
 <!--
 The robot should continue to seek open space as it drives around until it arrives
