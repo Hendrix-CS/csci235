@@ -53,7 +53,7 @@ Upon completing this course, our goal is for you to be able to:
 | 3/18 | Thu | Groundline |  |  |  |
 | 3/23 | Tue | Project Work |  |  |  |
 | 3/25 | Thu | Human vs. Computer Vision |  |  |  |
-| 3/30 | Tue | Maps |  | Maps | Groundline |
+| 3/30 | Tue | Maps |  | [Maps]({{site.baseurl}}/projects/Maps.html) | Groundline |
 | 4/1 | Thu | Break: no class |  |  |  |
 | 4/6 | Tue | Maps |  |  |  |
 | 4/8 | Thu | Maps |  |  |  |
