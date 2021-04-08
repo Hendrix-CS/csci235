@@ -41,5 +41,69 @@ an "L" shape:
   
 ## Part 2: Metric Maps
 
-*TBA*
+A **metric map** is a data structure that represents positions in terms of
+specific measured quantities. The simplest form of a metric map (which is what
+we will employ) is an **occupancy grid**. Each cell in the grid represents a 
+certain fixed distance, and is either marked **filled** or **clear**. 
+
+Groundline points can be used to fill in an occupancy grid. To do so requires
+calibrating the relationship between `x` and `y` values and metric distances. 
+The Calibration screen enables you to do so as follows:
+* Place a meter stick one meter away from your robot.
+* Place another meter stick two meters away from your robot.
+* Take a photo of the scene.
+* Go to the Calibration screen.
+* Adjust the red and cyan meter lines so that they overlap with the meter sticks in your image.
+* Record the `width` and `height` values for each meter stick for later use.
+
+<img src="https://hendrix-cs.github.io{{site.baseurl}}/assets/images/Calibration.png" width=500>
+
+A **particle filter** represents a set of guesses ("particles") about the robot's 
+location and surroundings. Each particle contains the following data:
+* Estimated (x, y) distance from starting position
+* Estimated heading
+* Estimated occupancy grid
+
+To set up a particle filter that derives its occupancy grid points from the 
+groundline:
+
+    cv particle maxColors minNotFloor maxJump numParticles minR minTheta maxR maxTheta cellsPerMeter width height meter1height meter1width meter2height meter2width project label [photoNums]
+
+The following parameters configure the groundline, and work the same way:
+* `maxColors`
+* `minNotFloor`
+* `maxJump`
+* `width`
+* `height`
+* `project`
+* `label`
+* `photoNums`
+
+Here is a guide to the remaining parameters:
+* `numParticles`: The total number of particles in the filter.
+* `cellsPerMeter`: The number of occupancy grid cells per meter.
+* `minR`, `minTheta`, `maxR`, `maxTheta`: When the robot reports an estimate of its
+  movement, these values indicate the expected precision of that estimate. 
+  When creating a particle, it will add `minR` and `minTheta` to the estimate, and
+  then add a random value (uniformly scaled between `min` and `max`) to that sum.
+* `meter1width`, `meter1height`, `meter2width`, `meter2height`: Calibration values from above.
+
+To send a motion estimate to the app:
+
+    msg r theta
+    
+The app sends back two different types of messages to the Arduino:
+* `heading x y`: The same message as the groundline.
+* `pos x y theta`: Position estimate from the particle filter, using the best particle.
+  It only sends this message in response to the sending of a motion estimate.
+  
+## Assignment
+
+* Select to implement either a metric map or a topological map. If you select a 
+metric map, the robot task is the same as for the topological map.
+* Try your best to get it to complete the localization task. Have the robot speak a
+message out loud whenever it reaches a destination.
+* In your writeup, discuss how you configured your robot and describe in detail
+  how it performed.
+* As always, submit representative videos to document its performance.
 
