@@ -106,4 +106,5 @@ message out loud whenever it reaches a destination.
 * In your writeup, discuss how you configured your robot and describe in detail
   how it performed.
 * As always, submit representative videos to document its performance.
+* Also in your writeup, discuss why you chose the topological or metric approach.
 
