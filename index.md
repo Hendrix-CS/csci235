@@ -57,13 +57,13 @@ Upon completing this course, our goal is for you to be able to:
 | 4/1 | Thu | Break: no class |  |  |  |
 | 4/6 | Tue | Maps |  |  |  |
 | 4/8 | Thu | Maps |  |  |  |
-| 4/13 | Tue | Final Project |  | Final Project Proposal | Maps |
+| 4/13 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | Final Project Proposal | Maps |
 | 4/15 | Thu | Final Project work |  |  |  |
 | 4/20 | Tue | Final Project Progress Reports |  |  |  |
 | 4/22 | Thu | Final Project work |  |  |  |
 | 4/27 | Tue | Final Project Progress Reports |  |  |  |
 | 4/29 | Thu | Final Project work |  |  |  |
-| 5/5 | Wed | Final Project Presentations | | | Final Projects |
+| 5/5 | Wed | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>

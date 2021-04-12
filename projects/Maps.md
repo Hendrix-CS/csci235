@@ -5,7 +5,7 @@ num: 7
 worktitle: Maps
 ---
 
-## Part 1: Topological Maps
+## Option 1: Topological Maps
 
 A **topological map** is a data structure that represents locations and 
 routes between them. 
@@ -14,7 +14,7 @@ The robot can recognize if it has reached a location using a **knn** or **kmeans
 classifier. It can transit between locations either also using the same classifier
 or using a groundline finder.
 
-### Part 1A: Traveling to a target
+### 1A: Traveling to a target
 
 Write a program to drive your robot towards a target as follows:
 * At the start of the program, the robot should be placed several meters from
@@ -25,7 +25,7 @@ Write a program to drive your robot towards a target as follows:
   groundline to using a **knn**/**kmeans** classifier to determine if it has
   reached the target. If so, it should stop moving.
   
-### Part 1B: Multiple targets
+### 1B: Multiple targets
 
 Write a program that enables your robot to navigate among three corners of 
 an "L" shape:
@@ -39,7 +39,7 @@ an "L" shape:
 * Once it reaches the second vertex, it should turn back towards the starting
   vertex and drive towards it. Once it reaches that vertex, it should stop.
   
-## Part 2: Metric Maps
+## Option 2: Metric Maps
 
 A **metric map** is a data structure that represents positions in terms of
 specific measured quantities. The simplest form of a metric map (which is what
