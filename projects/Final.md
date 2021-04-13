@@ -64,4 +64,10 @@ student/team will deliver an oral presentation as follows:
   * Project work time during class
 * Wednesday, May 5
   * Final project presentations
+  * Final papers due
+* Friday, May 7
+  * Feedback on Final papers
+* Wednesday, May 12
+  * Revised final papers due
+  * All makeup work due
   
