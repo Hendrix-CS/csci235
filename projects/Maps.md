@@ -19,11 +19,13 @@ or using a groundline finder.
 Write a program to drive your robot towards a target as follows:
 * At the start of the program, the robot should be placed several meters from
   the target, aimed in its general direction.
-* Once the program starts, the robot should use a groundline to drive towards
-  the target.
-* The robot should periodically (every few seconds) switch from using the 
-  groundline to using a **knn**/**kmeans** classifier to determine if it has
-  reached the target. If so, it should stop moving.
+* Once the program starts, the robot should drive towards the target, either by 
+  using a groundline or a kmeans/knn classifier.
+  * If using a groundline, the robot should periodically (every few seconds) switch 
+    from using the groundline to using a **knn**/**kmeans** classifier to determine 
+	if it has reached the target. If so, it should stop moving.
+  * If using a knn/kmeans classifier, there should be separate classifications for
+    adjusting left, adjusting right, and recognizing the goal area.
   
 ### 1B: Multiple targets
 
