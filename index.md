@@ -130,13 +130,13 @@ grades are earned based on completed passing assignments, as follows:
   * Ask six presentation questions
   * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
-  * Complete any six projects
+  * Complete any five projects
   * Complete the final project
   * Submit a course feedback form
   * Ask four presentation questions
   * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
-  * Complete any five projects
+  * Complete any four projects
   * Complete the final project
   * Submit a course feedback form
   * Ask two presentation questions
