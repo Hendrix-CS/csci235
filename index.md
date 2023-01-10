@@ -68,7 +68,7 @@ Upon completing this course, our goal is for you to be able to:
 | 4/20 | Thu | Final Project work |  |  |  |
 | 4/25 | Tue | Final Project Progress Reports |  |  |  |
 | 4/27 | Thu | Final Project work |  |  |  |
-| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+#| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>
