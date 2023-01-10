@@ -69,7 +69,7 @@ offerings:
 
 resources:
   - name: Mindstorms Education EV3 MicroPython
-  image: assets/images/Lego_education.png
+    image: assets/images/Lego_education.png
     url: https://pybricks.com/ev3-micropython/
     
 extra-resources:

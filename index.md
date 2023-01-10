@@ -40,7 +40,7 @@ Upon completing this course, our goal is for you to be able to:
 | --- | --- | --- | --- | --- | --- |
 | 1/17 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/19 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox)<br>[Remote](https://dailysciencefiction.com/science-fiction/virtual-reality/kaoru-sakasaki-translated-by-toshiya-kamei/remote) |  |  |
-| 1/24 | Tue |  |  |  | Robots: Fiction and Reality |
+| 1/24 | Tue | Introduction to kits/motors/sensors |  |  | Robots: Fiction and Reality |
 | 1/26 | Thu |  |  |  |  |
 | 1/31 | Tue |  |  |  |  |
 | 2/2 | Thu |  |  |  |  |
@@ -68,7 +68,7 @@ Upon completing this course, our goal is for you to be able to:
 | 4/20 | Thu | Final Project work |  |  |  |
 | 4/25 | Tue | Final Project Progress Reports |  |  |  |
 | 4/27 | Thu | Final Project work |  |  |  |
-#| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>
