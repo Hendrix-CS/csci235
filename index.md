@@ -40,25 +40,25 @@ Upon completing this course, our goal is for you to be able to:
 | --- | --- | --- | --- | --- | --- |
 | 1/17 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/19 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox)<br>[Remote](https://dailysciencefiction.com/science-fiction/virtual-reality/kaoru-sakasaki-translated-by-toshiya-kamei/remote) |  |  |
-| 1/24 | Tue | Introduction to kits/motors/sensors |  |  | Robots: Fiction and Reality |
+| 1/24 | Tue | Introduction to EV3 Kits | [MicroPython](https://pybricks.com/ev3-micropython/) |  | Robots: Fiction and Reality |
 | 1/26 | Thu |  |  |  |  |
-| 1/31 | Tue |  |  |  |  |
+| 1/31 | Tue | Mode Selection |  |  |  |
 | 2/2 | Thu |  |  |  |  |
 | 2/7 | Tue |  |  |  |  |
-| 2/9 | Thu |  |  |   |  |
+| 2/9 | Thu | Fuzzy Logic Behavior |  |   |  |
 | 2/14 | Tue |  |  |  |  |
 | 2/16 | Thu |  |  |  |  |
-| 2/21 | Tue | |  |  |  |
+| 2/21 | Tue | Reacting to Images |  |  |  |
 | 2/23 | Thu | |  |  |  |
-| 2/28  | Tue | |  |   |  |
+| 2/28  | Tue | Mode Selection with Images |  |   |  |
 | 3/2  | Thu | |  |  |  |
 | 3/7 | Tue |  |  |  | |
-| 3/9 | Thu |   |  |  |   |
+| 3/9 | Thu | Fuzzy Behavior with Images |  |  |   |
 | 3/14 | Tue |  |  |  |  |
 | 3/16 | Thu |  |  |  |  |
 | 3/21 | Tue | Spring Break |  |  |  |
 | 3/23 | Thu | Spring Break |  |  |  |
-| 3/28 | Tue |  |  |  |  |
+| 3/28 | Tue | Maps |  |  |  |
 | 3/30 | Thu |  |  |  |  |
 | 4/4 | Tue |  |  |  |  |
 | 4/6 | Thu |  |  |  |  |
@@ -76,7 +76,7 @@ Upon completing this course, our goal is for you to be able to:
 
 ## <a name="projects">Projects</a>
 
-Every Tuesday, a project will be assigned. Students may complete projects individually or 
+Every 2-3 class periods, a project will be assigned. Students will complete each project
 in teams of two. In most projects, students will program their robots to perform a task using
 a newly introduced concept, potentially incorporating other concepts covered previously. Some time 
 will typically be available during some class periods for work on the current project.
@@ -96,13 +96,13 @@ report. Each report includes the following:
 ### Project Presentations
 
 On the due date of each project, each team will play a video in class. The video should meet the following constraints:
-* It must be between 80 and 90 seconds in duration.
-  * For team projects, the video should be 160 to 180 seconds in duration.
+* It must be between 60 and 120 seconds in duration.
 * It should include brief narration of the strategy for the project.
+  * Narration may be pre-recorded or provided live as the video runs.
 * It should demonstrate the student's robots performing the required tasks for the week's project. Narration should contextualize each demonstrated activity.
 
 **Note:** Presentations will only be given when the project actively involves robot programming.
-There will be no presentations following the first two projects, as they do not involve robot programming.
+There will be no presentations following the first project, as it does not involve robot programming.
 
 ## <a name="finalproject">Final Project</a>
 In the last three weeks of the semester, each student will undertake a final project. 
@@ -110,8 +110,7 @@ In this final project, you will build and program a robot that fulfills a contex
 purpose. A public demonstration will be made of the robot's capabilities, and a paper 
 reflecting upon lessons learned will be submitted as well. In keeping with the Odyssey 
 Special Project guidelines, the project will require at least 30 hours of work. As with 
-the other course projects, final projects may be undertaken either individually or in 
-teams of two.
+the other course projects, final projects will be undertaken in teams of two.
 
 ## <a name="participation">Class Participation</a>
 
@@ -120,7 +119,7 @@ teams of two.
 * Each student is expected to ask one question on each class day that includes presentations.
 
 ### Office Hours
-* Each student should schedule and attend at least three online Office Hour meetings with the instructor at some point during the semester.
+* Each student should schedule and attend at least three Office Hour meetings with the instructor at some point during the semester.
 
 
 ## <a name="grading">Specifications Grading</a>
@@ -129,22 +128,21 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all seven projects
+  * Complete all eight projects
   * Complete the final project
-  * Submit a course feedback form
-  * Ask six presentation questions
+  * Ask seven presentation questions
   * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
-  * Complete any five projects
+  * Complete any six projects
   * Complete the final project
   * Submit a course feedback form
-  * Ask four presentation questions
+  * Ask five presentation questions
   * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
   * Complete any four projects
   * Complete the final project
   * Submit a course feedback form
-  * Ask two presentation questions
+  * Ask three presentation questions
   * Schedule and attend at least one Office Hours meeting
 * To earn a D in the course, a student will:
   * Complete any four projects
@@ -163,6 +161,7 @@ the intention is that most requests for extensions will be granted.
 
 ## <a name="equipment">Equipment</a>
 Each student will be issued the following equipment:
+<!--
 * One robot kit, containing:
   * Two motors and wheels
   * A battery case
@@ -174,7 +173,9 @@ Each student will be issued the following equipment:
 
 This equipment should be returned to the instructor at the end of the semester. Students will
 be billed for any unreturned equipment.
+-->
 
+<!--
 Each student will need to supply a smartphone or tablet running the Android operating system.
 Students for whom this presents a difficulty should contact the instructor, who will investigate
 possible arrangements.
@@ -182,3 +183,4 @@ possible arrangements.
 ## App Download Link
 
 [Download App](https://github.com/gjf2a/Tracker2/releases)
+-->
