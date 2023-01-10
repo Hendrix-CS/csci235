@@ -68,10 +68,10 @@ offerings:
     instructor: ferrer
 
 resources:
-  - name: Arduino
-    image: assets/images/Arduino_Logo.svg
-    url: https://www.arduino.cc/reference/en/
-
+  - name: Mindstorms Education EV3 MicroPython
+  image: assets/images/Lego_education.png
+    url: https://pybricks.com/ev3-micropython/
+    
 extra-resources:
   - name: "How to Think Like a Computer Scientist: Interactive Edition"
     image: assets/images/runestone_logo.png

@@ -28,42 +28,47 @@ Upon completing this course, our goal is for you to be able to:
 <hr>
 
 # <a name="calendar">Calendar</a>
-
+<!--
+[Elephants Don't Play Chess]({{site.baseurl}}/readings/Brooks1990.pdf)
 **Note:** Topics are tentative and subject to change.
+[Reactive Behaviors 1]({{site.baseurl}}/projects/Sonar.html)
+[Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html)
+[Maps]({{site.baseurl}}/projects/Maps.html)
+-->
 
 |Date|Day|Topic/Activity|Reading|Assigned|Due|
 | --- | --- | --- | --- | --- | --- |
-| 1/19 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
-| 1/21 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox)<br>[Remote](https://dailysciencefiction.com/science-fiction/virtual-reality/kaoru-sakasaki-translated-by-toshiya-kamei/remote) |  |  |
-| 1/26 | Tue | Symbolic vs Physical AI<br>HTN Planning | [Elephants Don't Play Chess]({{site.baseurl}}/readings/Brooks1990.pdf) | [Planning]({{site.baseurl}}/projects/planning.html) | Robots: Fiction and Reality |
-| 1/28 | Thu | HTN Planning |  |  |  |
-| 2/2 | Tue | HTN Planning |  |  |  |
-| 2/4 | Thu | Building and Programming the Robot |  | [Build and Program Robot]({{site.baseurl}}/projects/build_program_robot.html) | Planning |
-| 2/9 | Tue | Driving in Patterns |  |  |  |
-| 2/11 | Thu | Sonar |  |  [Reactive Behaviors 1]({{site.baseurl}}/projects/Sonar.html) | Build and Program Robot |
-| 2/16 | Tue | Sonar |  |  |  |
-| 2/18 | Thu | Sonar again (snow day) |  |  |  |
-| 2/23 | Tue | Break: no class |  |  |  |
-| 2/25 | Thu | Sonar presentations; brief Vision intro |  |  | Reactive Behaviors 1 |
-| 3/2  | Tue | Computer Vision |  |  [Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html) |  |
-| 3/4  | Thu | Computer Vision |  |  |  |
-| 3/9 | Tue | Computer Vision  |  |  | |
-| 3/11 | Thu | Groundline  |  | [Groundline]({{site.baseurl}}/projects/Vision2.html) | Reactive Behaviors 2  |
-| 3/16 | Tue | Groundline |  |  |  |
-| 3/18 | Thu | Groundline |  |  |  |
-| 3/23 | Tue | Project Work |  |  |  |
-| 3/25 | Thu | Human vs. Computer Vision |  |  |  |
-| 3/30 | Tue | Maps |  | [Maps]({{site.baseurl}}/projects/Maps.html) | Groundline |
-| 4/1 | Thu | Break: no class |  |  |  |
-| 4/6 | Tue | Maps |  |  |  |
-| 4/8 | Thu | Maps |  |  |  |
-| 4/13 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) | Maps |
-| 4/15 | Thu | Final Project work |  |  |  |
-| 4/20 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
-| 4/22 | Thu | Final Project work |  |  |  |
-| 4/27 | Tue | Final Project Progress Reports |  |  |  |
-| 4/29 | Thu | Final Project work |  |  |  |
-| 5/5 | Wed | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 1/17 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
+| 1/19 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox)<br>[Remote](https://dailysciencefiction.com/science-fiction/virtual-reality/kaoru-sakasaki-translated-by-toshiya-kamei/remote) |  |  |
+| 1/24 | Tue |  |  |  | Robots: Fiction and Reality |
+| 1/26 | Thu |  |  |  |  |
+| 1/31 | Tue |  |  |  |  |
+| 2/2 | Thu |  |  |  |  |
+| 2/7 | Tue |  |  |  |  |
+| 2/9 | Thu |  |  |   |  |
+| 2/14 | Tue |  |  |  |  |
+| 2/16 | Thu |  |  |  |  |
+| 2/21 | Tue | |  |  |  |
+| 2/23 | Thu | |  |  |  |
+| 2/28  | Tue | |  |   |  |
+| 3/2  | Thu | |  |  |  |
+| 3/7 | Tue |  |  |  | |
+| 3/9 | Thu |   |  |  |   |
+| 3/14 | Tue |  |  |  |  |
+| 3/16 | Thu |  |  |  |  |
+| 3/21 | Tue | Spring Break |  |  |  |
+| 3/23 | Thu | Spring Break |  |  |  |
+| 3/28 | Tue |  |  |  |  |
+| 3/30 | Thu |  |  |  |  |
+| 4/4 | Tue |  |  |  |  |
+| 4/6 | Thu |  |  |  |  |
+| 4/11 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
+| 4/13 | Thu | Final Project work |  |  |  |
+| 4/18 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
+| 4/20 | Thu | Final Project work |  |  |  |
+| 4/25 | Tue | Final Project Progress Reports |  |  |  |
+| 4/27 | Thu | Final Project work |  |  |  |
+| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>
@@ -151,8 +156,8 @@ If a submitted project is not of sufficient quality to receive a passing grade:
 * If the student submits the revisions by the agreed deadline, the revised project will receive a passing grade.
 
 ## <a name="latedays">Late Policy</a>
-If a student needs an extension, the instructor must be notified by email or Microsoft Teams message by 4 pm on the 
-day prior to the due date. This notification email must state the duration of the requested 
+If a student needs an extension, the instructor must be notified by email or Microsoft Teams message prior to the 
+deadline. This notification email must state the duration of the requested 
 extension. The instructor reserves the right to decline a request for an extension, but 
 the intention is that most requests for extensions will be granted.
 
