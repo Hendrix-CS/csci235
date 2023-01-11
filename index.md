@@ -40,35 +40,50 @@ Upon completing this course, our goal is for you to be able to:
 | --- | --- | --- | --- | --- | --- |
 | 1/17 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/19 | Thu | Discussion of Short Stories<br>Overview of Symbolic AI | [Domotica Berserker](https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[Audit's Abacus](https://dailysciencefiction.com/science-fiction/robots-and-computers/robert-bagnall/audits-abacus)<br>[Care Robot](https://dailysciencefiction.com/science-fiction/robots-and-computers/eric-s-fomley/care-robot)<br>[Call Center Blues](https://dailysciencefiction.com/science-fiction/robots-and-computers/carrie-cuinn/call-center-blues)<br>[The Laughing Paradox](https://dailysciencefiction.com/science-fiction/robots-and-computers/dylan-otto-krider/the-laughing-paradox)<br>[Remote](https://dailysciencefiction.com/science-fiction/virtual-reality/kaoru-sakasaki-translated-by-toshiya-kamei/remote) |  |  |
+|      |
 | 1/24 | Tue | Introduction to EV3 Kits | [MicroPython](https://pybricks.com/ev3-micropython/) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Robots: Fiction and Reality |
 | 1/26 | Thu |  |  |  |  |
+|      |
 | 1/31 | Tue | Mode Selection |  |  |  |
-| 2/2 | Thu |  |  |  |  |
-| 2/7 | Tue |  |  |  |  |
-| 2/9 | Thu | Fuzzy Logic Behavior |  |   |  |
+| 2/2  | Thu |  |  |  |  |
+|      |
+| 2/7  | Tue |  |  |  |  |
+| 2/9  | Thu | Fuzzy Logic Behavior |  |   |  |
+|      |
 | 2/14 | Tue |  |  |  |  |
 | 2/16 | Thu |  |  |  |  |
+|      |
 | 2/21 | Tue | Reacting to Images |  |  |  |
 | 2/23 | Thu | |  |  |  |
-| 2/28  | Tue | Mode Selection with Images |  |   |  |
+|      |
+| 2/28 | Tue | Mode Selection with Images |  |   |  |
 | 3/2  | Thu | |  |  |  |
-| 3/7 | Tue |  |  |  | |
-| 3/9 | Thu | Fuzzy Behavior with Images |  |  |   |
+|      |
+| 3/7  | Tue |  |  |  | |
+| 3/9  | Thu | Fuzzy Behavior with Images |  |  |   |
+|      |
 | 3/14 | Tue |  |  |  |  |
 | 3/16 | Thu |  |  |  |  |
+|      |
 | 3/21 | Tue | Spring Break |  |  |  |
 | 3/23 | Thu | Spring Break |  |  |  |
+|      |
 | 3/28 | Tue | Maps |  |  |  |
 | 3/30 | Thu |  |  |  |  |
-| 4/4 | Tue |  |  |  |  |
-| 4/6 | Thu |  |  |  |  |
+|      |
+| 4/4  | Tue |  |  |  |  |
+| 4/6  | Thu |  |  |  |  |
+|      |
 | 4/11 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
 | 4/13 | Thu | Final Project work |  |  |  |
+|      |
 | 4/18 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
 | 4/20 | Thu | Final Project work |  |  |  |
+|      |
 | 4/25 | Tue | Final Project Progress Reports |  |  |  |
 | 4/27 | Thu | Final Project work |  |  |  |
-| 5/2 | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+|      |
+| 5/2  | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>
