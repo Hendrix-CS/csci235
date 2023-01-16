@@ -153,7 +153,7 @@ grades are earned based on completed passing assignments, as follows:
 * To earn a D in the course, a student will:
   * Complete any four projects
 
-## <a name="tokens>Tokens</a>
+## <a name="tokens">Tokens</a>
 * Each student starts the semester with three **tokens**.
   * Send Dr. Ferrer a message on Teams to spend a token.
   * A student may spend one token in order to:
