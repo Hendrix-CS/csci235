@@ -71,6 +71,9 @@ resources:
   - name: Mindstorms Education EV3 MicroPython
     image: assets/images/Lego_education.PNG
     url: https://pybricks.com/ev3-micropython/
+  - name: Visual Studio Code
+    image: assets/images/vscode.svg
+    url: https://code.visualstudio.com
     
 extra-resources:
   - name: "How to Think Like a Computer Scientist: Interactive Edition"
