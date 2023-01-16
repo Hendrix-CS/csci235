@@ -133,10 +133,6 @@ the other course projects, final projects will be undertaken in teams of two.
 * Students should be prepared to answer questions after their video presentation concludes. 
 * Each student is expected to ask one question on each class day that includes presentations.
 
-### Office Hours
-* Each student should schedule and attend at least three Office Hour meetings with the instructor at some point during the semester.
-
-
 ## <a name="grading">Specifications Grading</a>
 Each assignment is graded on a pass-fail basis. To earn a passing grade, the assignment
 must be substantively complete; minor imperfections are perfectly acceptable. Final course
@@ -146,50 +142,36 @@ grades are earned based on completed passing assignments, as follows:
   * Complete all eight projects
   * Complete the final project
   * Ask seven presentation questions
-  * Schedule and attend at least three Office Hours meetings
 * To earn a B in the course, a student will: 
   * Complete any six projects
   * Complete the final project
-  * Submit a course feedback form
   * Ask five presentation questions
-  * Schedule and attend at least two Office Hours meetings
 * To earn a C in the course, a student will:
   * Complete any four projects
   * Complete the final project
-  * Submit a course feedback form
   * Ask three presentation questions
-  * Schedule and attend at least one Office Hours meeting
 * To earn a D in the course, a student will:
   * Complete any four projects
 
-### Revising submitted work
-If a submitted project is not of sufficient quality to receive a passing grade:
-* The instructor will give feedback identifying revisions that, if applied, would result in a passing grade.
-* The student will schedule and attend an Office Hours meeting to discuss the necessary revisions and establish a deadline for their submission.
-* If the student submits the revisions by the agreed deadline, the revised project will receive a passing grade.
-
-## <a name="latedays">Late Policy</a>
-If a student needs an extension, the instructor must be notified by email or Microsoft Teams message prior to the 
-deadline. This notification email must state the duration of the requested 
-extension. The instructor reserves the right to decline a request for an extension, but 
-the intention is that most requests for extensions will be granted.
+## Tokens
+* Each student starts the semester with four **tokens**.
+  * A student may spend one token in order to:
+    * Submit a project after the posted deadline.
+    * Submit a revised version of a project in the event the submission is not
+      of sufficient quality to receive a passing grade.
+* Scheduling and attending an [office hours meeting](https://drferrer.youcanbook.me)
+  with Dr. Ferrer earns one additional token.
+* **Note**: All late submissions/revisions must be received before 5 pm on Tuesday, 
+  May 9, the last day of the semester.
 
 ## <a name="equipment">Equipment</a>
-Each student will be issued the following equipment:
-<!--
-* One robot kit, containing:
-  * Two motors and wheels
-  * A battery case
-  * A plexiglas chassis
-* One breadboard
-* One motor driver chip
-* One Arduino board with A-B USB Cable
-* One sonar sensor
+During the second week of the semester, each student team will be assigned
+a Lego Mindstorms EV3 robot kit. Later in the semester, each team will also be
+assigned a Kindle Fire tablet to augment the robot with computer vision 
+capabilities. 
 
-This equipment should be returned to the instructor at the end of the semester. Students will
-be billed for any unreturned equipment.
--->
-
+The equipment should be returned to the instructor at the end of the semester.
+Students will be billed for any unreturned equipment.
 <!--
 Each student will need to supply a smartphone or tablet running the Android operating system.
 Students for whom this presents a difficulty should contact the instructor, who will investigate
