@@ -155,11 +155,11 @@ grades are earned based on completed passing assignments, as follows:
 
 ## <a name="tokens">Tokens</a>
 * Each student starts the semester with three **tokens**.
-  * Send Dr. Ferrer a message on Teams to spend a token.
-  * A student may spend one token in order to:
-    * Submit a project after the posted deadline.
-    * Submit a revised version of a project in the event the submission is not
-      of sufficient quality to receive a passing grade.
+* Send Dr. Ferrer a message on Teams to spend a token.
+* A student may spend one token in order to:
+  * Submit a project after the posted deadline.
+  * Submit a revised version of a project in the event the submission is not
+    of sufficient quality to receive a passing grade.
 * Scheduling and attending an [office hours meeting](https://drferrer.youcanbook.me)
   with Dr. Ferrer earns one additional token.
 * **Note**: All late submissions/revisions must be received before 5 pm on Tuesday, 
