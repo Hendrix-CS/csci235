@@ -28,7 +28,7 @@ Then for all three works, answer the following questions:
 
 ## Deployed Robots
 
-Select two robots from the list below. Each robot should be from a different category:
+Select two robots from the categories in the list below. Each robot should be from a different category:
 * Mars Rovers (e.g. [Spirit](https://www.jpl.nasa.gov/missions/mars-exploration-rover-spirit-mer-spirit/), 
   [Opportunity](https://www.jpl.nasa.gov/missions/mars-exploration-rover-opportunity-mer/), 
   [Curiosity](https://mars.nasa.gov/msl/home/))
