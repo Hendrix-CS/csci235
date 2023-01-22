@@ -53,10 +53,10 @@ Upon completing this course, our goal is for you to be able to:
 | 2/14 | Tue |  |  |  |  |
 | 2/16 | Thu |  |  |  |  |
 |      |
-| 2/21 | Tue | Reacting to Images |  |  |  |
+| 2/21 | Tue | Reinforcement Learning for Behavior |  |  |  |
 | 2/23 | Thu | |  |  |  |
 |      |
-| 2/28 | Tue | Mode Selection with Images |  |   |  |
+| 2/28 | Tue | Action Selection with Images |  |   |  |
 | 3/2  | Thu | |  |  |  |
 |      |
 | 3/7  | Tue |  |  |  | |
