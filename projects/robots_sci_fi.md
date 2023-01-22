@@ -36,6 +36,7 @@ Select two robots from the categories in the list below. Each robot should be fr
 * Household robots (e.g. [Roomba](https://www.irobot.com/roomba))
 * Telepresence robots (e.g. [Ava](https://www.avarobotics.com/))
 * Security robots (e.g. [Vigilus](https://www.youtube.com/watch?v=jedkNzsT9f4), [Knightscope](https://www.knightscope.com/))
+* Humanoid robots (e.g. [Atlas](https://www.youtube.com/watch?v=XPVC4IyRTG8))
 
 Answer the following questions:
 * For each robot, what is its purpose and what are its capabilities?
