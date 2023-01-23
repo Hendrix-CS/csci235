@@ -5,6 +5,16 @@ num: 2
 worktitle: Avoiding Obstacles
 ---
 
+## Sample Programs
+* [`hello_world.py`]({{site.baseurl}}assets\programs\hello_world.py)
+* [`button_demo.py`]({{site.baseurl}}assets\programs\button_demo.py)
+* [`sensor_demo.py`]({{site.baseurl}}assets\programs\sensor_demo.py)
+* [`motor_demo_1.py`]({{site.baseurl}}assets\programs\motor_demo_1.py)
+* [`motor_demo_2.py`]({{site.baseurl}}assets\programs\motor_demo_2.py)
+* [`motor_demo_3.py`]({{site.baseurl}}assets\programs\motor_demo_3.py)
+
+## Assignment
+
 * Be sure to wire up the motors.
 * Attach and wire the ultrasonic sensor and two touch sensors.
 * Implement the following programs. All programs should end when the Escape button is pressed.
