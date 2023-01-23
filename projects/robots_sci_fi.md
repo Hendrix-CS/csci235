@@ -50,7 +50,7 @@ Drawing upon your earlier answers with regard to both the fictional and deployed
 * When *should* robots be used?
 
 ## Details
-* Submit in PDF format via Microsoft Teams in MLA format, 12 point font.
+* Submit in PDF format via Microsoft Teams in MLA format, 12 point font, double-spaced.
 * Minimum 3 full pages in length.
 
 ------------------------------------------------------------------------
