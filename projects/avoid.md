@@ -18,7 +18,6 @@ worktitle: Avoiding Obstacles
 * Be sure to wire up the motors.
 * Attach and wire the ultrasonic sensor and two touch sensors.
 * Implement the following programs. All programs should end when the Escape button is pressed.
-  * ButtonMotor: Drives the robot forward when the Up button is pressed. Turns left when the Left button is pressed. Turns right when the Right button is pressed. Stops when the Enter button is pressed. Drives backward when the Down button is pressed.
   * ForwardBump: Drives forward unless a front-mounted bump sensor is hit. When it is hit, it stops moving. If the button is released, forward motion resumes.
   * BumpAvoid: Drives forward. When the left bump sensor is pressed, it turns left. When the right bump sensor is pressed, it turns right.
   * UltrasonicAvoid: Drives forward. When the ultrasonic value is too low, it turns left.
