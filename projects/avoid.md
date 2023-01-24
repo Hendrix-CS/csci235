@@ -17,11 +17,11 @@ worktitle: Avoiding Obstacles
 
 * Be sure to wire up the motors.
 * Attach and wire the ultrasonic sensor and two touch sensors.
-* Implement the following programs. All programs should end when the Escape button is pressed.
-  * ForwardBump: Drives forward unless a front-mounted bump sensor is hit. When it is hit, it stops moving. If the button is released, forward motion resumes.
-  * BumpAvoid: Drives forward. When the left bump sensor is pressed, it turns left. When the right bump sensor is pressed, it turns right.
-  * UltrasonicAvoid: Drives forward. When the ultrasonic value is too low, it turns left.
-  * CombinedAvoid: Drives forward. Uses both the bump sensors and the ultrasonic sensor to help it decide when to turn.
+* Implement the following programs: 
+  * `ForwardBump`: Drives forward unless a front-mounted bump sensor is hit. When it is hit, it stops moving. If the button is released, forward motion resumes.
+  * `BumpAvoid`: Drives forward. When the left bump sensor is pressed, it turns left. When the right bump sensor is pressed, it turns right.
+  * `UltrasonicAvoid`: Drives forward. When the ultrasonic value is too low, it turns left.
+  * `CombinedAvoid`: Drives forward. Uses both the bump sensors and the ultrasonic sensor to help it decide when to turn.
   * For the last three programs, experiment with them until, in your opinion, they work as well as they possibly can. Be sure to document this in terms of a performance metric, as discussed in the questions below.
 
 ## Questions
@@ -33,4 +33,4 @@ worktitle: Avoiding Obstacles
 5. What numerical metrics are appropriate for quantifying the performance of an obstacle-avoiding robot? How are they measured? How do they conform with our intuitions?
 6. How did you employ your metrics to iteratively create your best obstacle-avoiding robot?
 7. Is your best obstacle-avoiding robot *intelligent*? Why or why not?
-------------------------------------------------------------------------
+
