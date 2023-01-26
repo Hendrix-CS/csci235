@@ -48,12 +48,12 @@ Upon completing this course, our goal is for you to be able to:
 | 2/2  | Thu |  |  |  |  |
 |      |
 | 2/7  | Tue |  |  |  |  |
-| 2/9  | Thu | Fuzzy Logic Behavior |  |   | Mode Selection |
+| 2/9  | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |   | Mode Selection |
 |      |
 | 2/14 | Tue |  |  |  |  |
 | 2/16 | Thu |  |  |  |  |
 |      |
-| 2/21 | Tue | Reinforcement Learning for Behavior |  |  |  |
+| 2/21 | Tue | Reinforcement Learning for Behavior |  |  | Fuzzy Logic Behavior |
 | 2/23 | Thu | |  |  |  |
 |      |
 | 2/28 | Tue | Action Selection with Images |  |   |  |
