@@ -7,10 +7,11 @@ worktitle: Mode Selection
 
 ## Sample Programs
 
-* [`main.py`]({{site.baseurl}}/assets/programs/mode_selection/main.py)
-* [`sonar_demo.py`]({{site.baseurl}}/assets/programs/mode_selection/sonar_demo.py)
-* [`rotation_demo.py`]({{site.baseurl}}/assets/programs/mode_selection/rotation_demo.py)
-* [`demo3.py`]({{site.baseurl}}/assets/programs/mode_selection/demo3.py)
+* [`main.py`]({{site.baseurl}}/assets/programs/mode_selection_2/main.py)
+* [`sonar_demo.py`]({{site.baseurl}}/assets/programs/mode_selection_2/sonar_demo.py)
+* [`multi_sonar.py`]({{site.baseurl}}/assets/programs/mode_selection_2/multi_sonar.py)
+* [`rotation_demo.py`]({{site.baseurl}}/assets/programs/mode_selection_2/rotation_demo.py)
+* [`demo3.py`]({{site.baseurl}}/assets/programs/mode_selection_2/demo3.py)
 
 ## Assignment
 
@@ -33,17 +34,14 @@ worktitle: Mode Selection
 * Experiment with different turn durations until you find one that performs well.
  
 ### `Patrol1`
-* The robot should patrol alog a line.
+* The robot should patrol along a line.
 * It should drive for two meters, followed by a 180 degree turn.
 * This behavior will repeat indefinitely.
 
 ### `Patrol2`
-* Some paper will be provided for you to create a patrol track.
-  * Use a blue marker to create a left boundary for the track.
-  * Use a red marker to create a right boundary for the track.
-  * Use a green marker to create turnaround points at the ends of the track.
-* The robot should patrol along the track. It will drive for two meters, followed
-  by a 180 degree turn. If it wanders out of bounds, as determined by the color
+* Some cardboard will be provided for you to create a patrol track.
+* The robot should patrol along the track. It will drive forthe length of the track, followed
+  by a 180 degree turn. If it wanders off the track, as determined by the color
   it scans, it will realign itself to be back on course.
 
 ### `Patrol3`
