@@ -158,6 +158,8 @@ grades are earned based on completed passing assignments, as follows:
 * Send Dr. Ferrer a message on Teams to spend a token.
 * A student may spend one token in order to:
   * Submit a project after the posted deadline.
+      * When you send the message to spend the token, specify a new
+      deadline for that project that you plan to meet.
   * Submit a revised version of a project in the event the submission is not
     of sufficient quality to receive a passing grade.
 * Scheduling and attending an [office hours meeting](https://drferrer.youcanbook.me)
