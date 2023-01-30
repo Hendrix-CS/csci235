@@ -77,4 +77,3 @@ approach.
    quantitative metrics and qualitative analysis to discuss its performance.
 7. From your experience of this lab, what advantages and disadvantages did you find for the state-machine approach to programming?
 
-
