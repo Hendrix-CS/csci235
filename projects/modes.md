@@ -13,7 +13,7 @@ worktitle: Mode Selection
 * [`rotation_demo.py`]({{site.baseurl}}/assets/programs/mode_selection_2/rotation_demo.py)
 * [`demo3.py`]({{site.baseurl}}/assets/programs/mode_selection_2/demo3.py)
 
-## Assignment
+## Part 1: Obstacle Avoidance
 
 * In addition to the ultrasonic sensor and two touch sensors, attach and wire the color sensor
   pointed toward the ground.
@@ -33,6 +33,9 @@ worktitle: Mode Selection
   encoders to enable it to take a longer turn. 
 * Experiment with different turn durations until you find one that performs well.
  
+ 
+## Part 2: Patrol
+ 
 ### `Patrol1`
 * The robot should patrol along a line.
 * It should drive for two meters, followed by a 180 degree turn.
@@ -47,6 +50,14 @@ worktitle: Mode Selection
 ### `Patrol3`
 * Similar to `Patrol2`, except that the robot will begin its turn early if it senses an 
   obstacle (with either bumpers or sonar).
+  
+## Part 3: Your choice
+* Devise a task for your robot that is amenable to being solved by using the state machine
+approach.
+* The solution to the task should employ at least three distinct states.
+* At least one of the states should have the possibility of transitioning to at least
+  two possible destination states, depending on sensory conditions.
+* Implement a state-machine program that performs the task.
 
 ## Questions
 
@@ -57,7 +68,13 @@ worktitle: Mode Selection
    * 1
    * 2
    * 4
-3. What might be an application of the concept of the `Patrol3` robot?
-4. From your experience of this lab, what advantages and disadvantages did you find for the state-machine approach to programming?
+3. What are some appropriate quantitative metrics for the patrol task? With regard to those
+   metrics, how did your `Patrol1`, `Patrol2`, and `Patrol3` robots perform? 
+4. What qualitative performance aspects of the patrol task are not captured by your 
+   quantitative metrics? How did your robot perform with respect to those aspects?
+5. What might be an application of the concept of the `Patrol3` robot?
+6. Describe your customized task. How well did the robot perform on the task? As before, use both 
+   quantitative metrics and qualitative analysis to discuss its performance.
+7. From your experience of this lab, what advantages and disadvantages did you find for the state-machine approach to programming?
 
 
