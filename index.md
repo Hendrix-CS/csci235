@@ -28,13 +28,6 @@ Upon completing this course, our goal is for you to be able to:
 <hr>
 
 # <a name="calendar">Calendar</a>
-<!--
-[Elephants Don't Play Chess]({{site.baseurl}}/readings/Brooks1990.pdf)
-**Note:** Topics are tentative and subject to change.
-[Reactive Behaviors 1]({{site.baseurl}}/projects/Sonar.html)
-[Reactive Behaviors 2]({{site.baseurl}}/projects/Vision1.html)
-[Maps]({{site.baseurl}}/projects/Maps.html)
--->
 
 |Date|Day|Topic/Activity|Reading|Assigned|Due|
 | --- | --- | --- | --- | --- | --- |
