@@ -43,6 +43,9 @@ worktitle: Fuzzy Logic Behaviors
   use fuzzy logic to slow the robot down as it approaches the obstacle.
 * If the robot gets too close to the obstacle, it should then turn around.
 
+### Your choice
+* Devise a task for your robot that is amenable to being solved by using fuzzy logic.
+
 
 ## Questions
 
