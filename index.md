@@ -37,8 +37,8 @@ Upon completing this course, our goal is for you to be able to:
 | 1/24 | Tue | [Introduction to EV3 Kits]({{site.baseurl}}/projects/avoid.html) | [MicroPython](https://pybricks.com/ev3-micropython/) <br> [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
 | 1/26 | Thu |  |  |  |  |
 |      |
-| 1/31 | Tue | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
-| 2/2  | Thu |  |  |  |  |
+| 1/31 | Tue | Ice-Pocalypse: No class |
+| 2/2  | Thu | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
 |      |
 | 2/7  | Tue |  |  |  |  |
 | 2/9  | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |   | Mode Selection |

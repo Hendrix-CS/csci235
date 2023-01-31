@@ -29,8 +29,8 @@ worktitle: Mode Selection
   it chooses does not matter.)
   
 ### `Avoid2WayDelay`
-* Similar to `Avoid2Way`, except that when turning the robot **should** monitor the motor 
-  encoders to enable it to take a longer turn. 
+* Similar to `Avoid2Way`, except that when turning the robot **should** monitor 
+  the motor encoders to enable it to take a longer turn. 
 * Experiment with different turn durations until you find one that performs well.
  
 ### `Patrol1`
@@ -40,13 +40,13 @@ worktitle: Mode Selection
 
 ### `Patrol2`
 * Some cardboard will be provided for you to create a patrol track.
-* The robot should patrol along the track. It will drive forthe length of the track, followed
-  by a 180 degree turn. If it wanders off the track, as determined by the color
-  it scans, it will realign itself to be back on course.
+* The robot should patrol along the track. It will drive forthe length of the track, 
+  followed by a 180 degree turn. If it wanders off the track, as determined by the 
+  color it scans, it will realign itself to be back on course.
 
 ### `Patrol3`
-* Similar to `Patrol2`, except that the robot will begin its turn early if it senses an 
-  obstacle (with either bumpers or sonar).
+* Similar to `Patrol2`, except that the robot will begin its turn early if it 
+  senses an obstacle (with either bumpers or sonar).
 
 ## Questions
 
