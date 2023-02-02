@@ -5,7 +5,12 @@ num: 4
 worktitle: Fuzzy Logic Behaviors
 ---
 
-## Sample Programs
+## Sample Program
+
+* [`main.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/main.py)
+* [`lib.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/lib.py)
+* [`sonar3demo.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/sonar3demo.py)
+
 
 
 ## Assignment
