@@ -7,9 +7,9 @@ worktitle: Fuzzy Logic Behaviors
 
 ## Sample Program
 
-* [`main.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/main.py)
-* [`lib.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/lib.py)
-* [`sonar3demo.py`]({{site.baseurl}}/assets/programs/fuzzy_demo/sonar3demo.py)
+* [`main.py`]({{site.baseurl}}/assets/programs/fuzzy/main.py)
+* [`lib.py`]({{site.baseurl}}/assets/programs/fuzzy/lib.py)
+* [`sonar3demo.py`]({{site.baseurl}}/assets/programs/fuzzy/sonar3demo.py)
 
 
 
