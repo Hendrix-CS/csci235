@@ -15,10 +15,10 @@ worktitle: Mode Selection
 * [`demo3.py`]({{site.baseurl}}/assets/programs/mode_selection_2/demo3.py)
 
 ## Part 1: Obstacle Avoidance
+In addition to the ultrasonic sensor and two touch sensors, attach and wire the 
+color sensor pointed toward the ground. Then implement the following programs:
 
-* In addition to the ultrasonic sensor and two touch sensors, attach and wire the color sensor
-  pointed toward the ground.
-* Implement the following programs: 
+## Part 1: Obstacle Avoidance
 
 ### `Avoid2Way`
 * An obstacle avoider that uses both the bumpers and the sonar.
