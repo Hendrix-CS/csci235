@@ -14,7 +14,6 @@ worktitle: Mode Selection
 * [`rotation_demo.py`]({{site.baseurl}}/assets/programs/mode_selection_2/rotation_demo.py)
 * [`demo3.py`]({{site.baseurl}}/assets/programs/mode_selection_2/demo3.py)
 
-## Part 1: Obstacle Avoidance
 In addition to the ultrasonic sensor and two touch sensors, attach and wire the 
 color sensor pointed toward the ground. Then implement the following programs:
 
