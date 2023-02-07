@@ -41,22 +41,22 @@ Upon completing this course, our goal is for you to be able to:
 | 2/2  | Thu | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
 |      |
 | 2/7  | Tue |  |  |  |  |
-| 2/9  | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |   | Mode Selection |
+| 2/9  | Thu |  |  |  |  |
 |      |
-| 2/14 | Tue |  |  |  |  |
+| 2/14 | Tue |  [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |   | Mode Selection |
 | 2/16 | Thu |  |  |  |  |
 |      |
 | 2/21 | Tue | Reinforcement Learning for Behavior |  |  | Fuzzy Logic Behavior |
 | 2/23 | Thu | |  |  |  |
 |      |
-| 2/28 | Tue | Action Selection with Images |  |   |  |
+| 2/28 | Tue | Action Selection with Images |  |   | Reinforcement Learning for Behavior |
 | 3/2  | Thu | |  |  |  |
 |      |
 | 3/7  | Tue |  |  |  | |
-| 3/9  | Thu | Fuzzy Behavior with Images |  |  |   |
+| 3/9  | Thu | Fuzzy Behavior with Images |  |  |  Action Selection with Images |
 |      |
 | 3/14 | Tue |  |  |  |  |
-| 3/16 | Thu |  |  |  |  |
+| 3/16 | Thu |  |  |  |  Fuzzy Behavior with Images |
 |      |
 | 3/21 | Tue | Spring Break |  |  |  |
 | 3/23 | Thu | Spring Break |  |  |  |
@@ -65,7 +65,7 @@ Upon completing this course, our goal is for you to be able to:
 | 3/30 | Thu |  |  |  |  |
 |      |
 | 4/4  | Tue |  |  |  |  |
-| 4/6  | Thu |  |  |  |  |
+| 4/6  | Thu |  |  |  | Maps |
 |      |
 | 4/11 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
 | 4/13 | Thu | Final Project work |  |  |  |
