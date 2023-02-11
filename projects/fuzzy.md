@@ -1,7 +1,7 @@
 ---
 layout: work
 type: Project
-num: 4
+num: 5
 worktitle: Fuzzy Logic Behaviors
 ---
 

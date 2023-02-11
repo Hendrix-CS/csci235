@@ -43,13 +43,13 @@ Upon completing this course, our goal is for you to be able to:
 | 2/7  | Tue |  |  |  |  |
 | 2/9  | Thu |  |  |  |  |
 |      |
-| 2/14 | Tue |  [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |   | Mode Selection |
+| 2/14 | Tue | [Reinforcement Learning of Behavior]({{site.baseurl}}/projects/qlearning.html) |  |   | Mode Selection |
 | 2/16 | Thu |  |  |  |  |
 |      |
-| 2/21 | Tue | Reinforcement Learning for Behavior |  |  | Fuzzy Logic Behavior |
+| 2/21 | Tue | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  | Reinforcement Learning of Behavior |
 | 2/23 | Thu | |  |  |  |
 |      |
-| 2/28 | Tue | Action Selection with Images |  |   | Reinforcement Learning for Behavior |
+| 2/28 | Tue | Action Selection with Images |  |   | Fuzzy Logic Behavior |
 | 3/2  | Thu | |  |  |  |
 |      |
 | 3/7  | Tue |  |  |  | |
