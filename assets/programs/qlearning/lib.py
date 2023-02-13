@@ -10,14 +10,15 @@ class QParameters:
         self.target_visits = 1
         self.discount = 0.5
         self.rate_constant = 10
+        self.max_steps = None
 
 
-def run_q(robot, params, max_steps=None):
+def run_q(robot, params):
     qs = QTable(params)
     loops = 0
     total_reward = 0
     action = 0
-    while max_steps is None or loops < max_steps:
+    while params.max_steps is None or loops < params.max_steps:
         params.actions[action](robot)
         wait(params.pause_ms)
         state = params.state_func(robot)

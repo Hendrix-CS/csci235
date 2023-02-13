@@ -52,9 +52,11 @@ For your third learning robot:
   * `BOTH_BUMP`
 * Modify `find_state()` to return the correct state for each of
   the given bump sensor configurations.
+* Update `num_states` in the parameters to be `5`.
+* Modify `reward()` accordingly as well.
 * The `actions` should include a forward move, a left turn, and a 
   right turn. The forward move should be first.
-* Run three experiments for 300 iterations each, recording the total
+* Run three experiments for 200 iterations each, recording the total
   reward the robot earns.
 
 For your fourth learning robot:
@@ -64,14 +66,15 @@ For your fourth learning robot:
   * `MID_OBJECT` (200-400 mm)
   * `FAR_OBJECT` (400-600 mm)
 * `actions` should include a forward move and one turn.
-* Run three experiments for 300 iterations each, recording the total
+* Run three experiments for 200 iterations each, recording the total
   reward the robot earns.
   
 For your fifth learning robot:
-* Put together any combination of ideas that you hypothesize will result 
+* Put together any combination of ideas, either from the above variations or
+  your own new ideas, that you hypothesize will result 
   in an effective obstacle avoider.
 * Draw whatever inspiration you like from the previous four versions.
-* Run three experiments for 300 iterations each, recording the total
+* Run three experiments for 200 iterations each, recording the total
   reward the robot earns.
 
 ### Your choice
@@ -96,11 +99,13 @@ the turn?
 separately?
 4. What impact did you observe from considering different sonar 
 distances separately?
-5. How suitable was Q-Learning for your chosen task? Support your answer
+5. In general, is the total reward a useful metric for the effectiveness
+of an obstacle avoider? If not, should the reward function be modified?
+6. How suitable was Q-Learning for your chosen task? Support your answer
 with observations of its performance, including its total reward.
-6. What variations of parameters did you attempt for your chosen task?
+7. What variations of parameters did you attempt for your chosen task?
 What was the impact of those variations?
-7. Generally speaking, when do you think Q-Learning would be preferable
+8. Generally speaking, when do you think Q-Learning would be preferable
 to hand-coding a robot's behavior? When would hand-coding behavior
 be preferable? Support your answer with observations from your
 experiments.

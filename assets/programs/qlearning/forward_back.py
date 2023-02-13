@@ -4,12 +4,11 @@ CLEAR = 0
 BUMPED = 1
 OBJECT = 2
 
-SEES_OBJECT = 400
-
 def find_state(bot):
+    distance = bot.sonar.distance()
     if bot.bump_left.pressed() or bot.bump_right.pressed():
         return BUMPED
-    elif bot.sonar.distance() < SEES_OBJECT:
+    elif distance < 400:
         return OBJECT
     else:
         return CLEAR
@@ -32,4 +31,4 @@ params.reward_func = reward
 params.target_visits = 5
 params.discount = 0.5
 params.rate_constant = 10
-
+params.max_steps = 200
