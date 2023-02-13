@@ -65,6 +65,7 @@ For your fourth learning robot:
   * `CLOSE_OBJECT` (0-200 mm)
   * `MID_OBJECT` (200-400 mm)
   * `FAR_OBJECT` (400-600 mm)
+* Update `num_states` in the parameters to be `5`.
 * `actions` should include a forward move and one turn.
 * Run three experiments for 200 iterations each, recording the total
   reward the robot earns.
