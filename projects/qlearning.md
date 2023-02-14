@@ -126,5 +126,8 @@ What was the impact of those variations?
 to hand-coding a robot's behavior? When would hand-coding behavior
 be preferable? Support your answer with observations from your
 experiments.
+9. In comparison to our earlier implementations, to what extent does a 
+Q-Learning robot exhibit intelligence? Support your answer with observations
+of your experiments.
 
 
