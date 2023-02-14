@@ -1,4 +1,5 @@
 from pybricks.tools import wait, StopWatch, DataLog
+import random
 
 class QParameters:
     def __init__(self):
@@ -8,6 +9,7 @@ class QParameters:
         self.state_func = lambda r: 0
         self.reward_func = lambda r, state, action: 0
         self.target_visits = 1
+        self.epsilon = 0.0
         self.discount = 0.5
         self.rate_constant = 10
         self.max_steps = None
@@ -37,6 +39,7 @@ class QTable:
         self.q = [[0.0] * len(params.actions) for i in range(params.num_states)]
         self.visits = [[0] * len(params.actions) for i in range(params.num_states)]
         self.target_visits = params.target_visits
+        self.epsilon = params.epsilon
         self.discount = params.discount
         self.rate_constant = params.rate_constant
         self.last_state = 0
@@ -66,7 +69,7 @@ class QTable:
         return new_action
 
     def learning_rate(self, state, action):
-        return 1.0 / (1.0 + self.visits[state][action] / self.rate_constant)
+        return self.rate_constant / (self.rate_constant + self.visits[state][action])
 
     def best_action(self, state):
         best = 0
@@ -76,7 +79,7 @@ class QTable:
         return best
 
     def is_exploring(self, state):
-        return min(self.visits[state]) < self.target_visits
+        return min(self.visits[state]) < self.target_visits or random.random() < self.epsilon
 
     def least_visited_action(self, state):
         least_visited = 0

@@ -22,6 +22,7 @@ until the state is updated.
 * `num_states` - Number of distinct states assigned by `state_func`
 * `target_visits` - Number of visits to a state/action pair required
 to complete the exploration phase
+* `epsilon` - Probability of exploring during the exploitation phase
 * `discount` - Ranges from 0.0 to 1.0, representing how much anticipated
 future rewards are used in updating Q values
 * `rate_constant` - Determines how quickly the learning rate decreases
@@ -59,16 +60,18 @@ For your second learning robot:
   the total reward the robot earns.
   
 For your third learning robot:
-* Replace the `BUMPED` state with three distinct alternatives:
+* Replace the `BUMPED` state with two distinct alternatives:
   * `LEFT_BUMP`
   * `RIGHT_BUMP`
-  * `BOTH_BUMP`
 * Modify `find_state()` to return the correct state for each of
   the given bump sensor configurations.
-* Update `num_states` in the parameters to be `5`.
+* Update `num_states` in the parameters to be `4`.
 * Modify `reward()` accordingly as well.
 * The `actions` should include a forward move, a left turn, and a 
   right turn. The forward move should be first.
+* Consider setting `epsilon` to a positive value, perhaps `0.05` or `0.1`.
+  It is easy for the robot to get "stuck" on a suboptimal action in this
+  task.
 * Run three experiments for 200 iterations each, recording the total
   reward the robot earns.
 
