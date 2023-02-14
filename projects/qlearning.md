@@ -13,6 +13,19 @@ worktitle: Reinforcement Learning of Behavior
 * [`forward_back.py`]({{site.baseurl}}/assets/programs/qlearning/forward_back.py)
 * [`leave_alone.py`]({{site.baseurl}}/assets/programs/qlearning/leave_alone.py)
 
+## Q-Learning Parameters
+* `pause_ms` - Number of milliseconds from the start of an action
+until the state is updated.
+* `actions` - List of possible actions
+* `state_func` - Encodes sensor values into discrete states
+* `reward_func` - Determines the robot's reward
+* `num_states` - Number of distinct states assigned by `state_func`
+* `target_visits` - Number of visits to a state/action pair required
+to complete the exploration phase
+* `discount` - Ranges from 0.0 to 1.0, representing how much anticipated
+future rewards are used in updating Q values
+* `rate_constant` - Determines how quickly the learning rate decreases
+* `max_steps` - Number of steps the robot will run until it stops
 
 ## Assignment
 
