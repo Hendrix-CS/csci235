@@ -46,17 +46,17 @@ Upon completing this course, our goal is for you to be able to:
 | 2/14 | Tue | [Reinforcement Learning of Behavior]({{site.baseurl}}/projects/qlearning.html) |  |   | Mode Selection |
 | 2/16 | Thu |  |  |  |  |
 |      |
-| 2/21 | Tue | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  | Reinforcement Learning of Behavior |
-| 2/23 | Thu | |  |  |  |
+| 2/21 | Tue | |  |  | Reinforcement Learning of Behavior |
+| 2/23 | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  |  |
 |      |
-| 2/28 | Tue | Action Selection with Images |  |   | Fuzzy Logic Behavior |
+| 2/28 | Tue | |  |  | |
 | 3/2  | Thu | |  |  |  |
 |      |
-| 3/7  | Tue |  |  |  | |
-| 3/9  | Thu | Fuzzy Behavior with Images |  |  |  Action Selection with Images |
+| 3/7  | Tue | Action Selection with Images  |  |  | Fuzzy Logic Behavior  |
+| 3/9  | Thu |  |  |  |   |
 |      |
 | 3/14 | Tue |  |  |  |  |
-| 3/16 | Thu |  |  |  |  Fuzzy Behavior with Images |
+| 3/16 | Thu |  |  |  |  Action Selection with Images  |
 |      |
 | 3/21 | Tue | Spring Break |  |  |  |
 | 3/23 | Thu | Spring Break |  |  |  |
@@ -132,7 +132,7 @@ must be substantively complete; minor imperfections are perfectly acceptable. Fi
 grades are earned based on completed passing assignments, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all eight projects
+  * Complete all seven projects
   * Complete the final project
   * Ask seven presentation questions
 * To earn a B in the course, a student will: 
