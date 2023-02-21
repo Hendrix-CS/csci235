@@ -53,5 +53,13 @@ worktitle: Fuzzy Logic Behaviors
 
 
 ## Questions
-
+1. How did you go about creating effective fuzzy behaviors for each of
+the above tasks?
+2. How did you structure states and mode-selection to successfully 
+incorporate fuzzy behaviors?
+3. How did the fuzzy-logic robots perform in comparison to the non-fuzzy
+versions on each of the tasks that were implemented both ways?
+4. Why did you choose the task you chose for the free-choice part of the
+project? How suitable did it prove to be in practice? How well did the 
+system work?
 
