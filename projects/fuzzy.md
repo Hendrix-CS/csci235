@@ -50,6 +50,8 @@ worktitle: Fuzzy Logic Behaviors
 
 ### Your choice
 * Devise a task for your robot that is amenable to being solved by using fuzzy logic.
+* Your task should involve the robot switching between at least three distinct modes,
+  at least two of which should be fuzzy.
 
 
 ## Questions
