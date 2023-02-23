@@ -5,6 +5,9 @@ FAR = 500
 SPEED = 500
 
 def fuzzy_condition(robot):
+    if robot.control.pressed():
+        return lib.go_forward, open_condition
+
     front_close = lib.falling(robot.front_sonar.distance(), CLOSE, FAR)
     left_close  = lib.falling(robot.left_sonar.distance(),  CLOSE, FAR)
     right_close = lib.falling(robot.right_sonar.distance(), CLOSE, FAR)
@@ -14,3 +17,8 @@ def fuzzy_condition(robot):
 
     robot.left.run(left_wheel)
     robot.right.run(right_wheel)
+
+
+def open_condition(robot):
+    if not robot.control.pressed():
+        return lib.empty_action, fuzzy_condition
