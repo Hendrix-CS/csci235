@@ -52,7 +52,7 @@ Upon completing this course, our goal is for you to be able to:
 | 2/28 | Tue | |  |  | |
 | 3/2  | Thu | |  |  |  |
 |      |
-| 3/7  | Tue | Action Selection with Images  |  |  | Fuzzy Logic Behavior  |
+| 3/7  | Tue | [Action Selection with Images]({{site.baseurl}}/projects/vision1.html) |  |  | Fuzzy Logic Behavior  |
 | 3/9  | Thu |  |  |  |   |
 |      |
 | 3/14 | Tue |  |  |  |  |
@@ -136,15 +136,21 @@ grades are earned based on completed passing assignments, as follows:
   * Complete the final project
   * Ask seven presentation questions
 * To earn a B in the course, a student will: 
-  * Complete any six projects
+  * One of the following:
+    * Complete any six projects
+    * Complete at least five projects and partially complete two more projects.
   * Complete the final project
   * Ask five presentation questions
 * To earn a C in the course, a student will:
-  * Complete any four projects
+  * One of the following:
+    * Complete any four projects
+    * Complete at least two projects and partially complete at least three more.
   * Complete the final project
   * Ask three presentation questions
 * To earn a D in the course, a student will:
-  * Complete any four projects
+  * One of the following:
+    * Complete any four projects
+    * Complete at least two projects and partially complete at least three more.
 
 ## <a name="tokens">Tokens</a>
 * Each student starts the semester with three **tokens**.
@@ -154,7 +160,7 @@ grades are earned based on completed passing assignments, as follows:
       * When you send the message to spend the token, specify a new
       deadline for that project that you plan to meet.
   * Submit a revised version of a project in the event the submission is not
-    of sufficient quality to receive a passing grade.
+    of sufficient quality to receive a grade of Complete.
 * Scheduling and attending an [office hours meeting](https://drferrer.youcanbook.me)
   with Dr. Ferrer earns one additional token.
 * **Note**: All late submissions/revisions must be received before 5 pm on Tuesday, 
