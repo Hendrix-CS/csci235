@@ -61,7 +61,7 @@ Upon completing this course, our goal is for you to be able to:
 | 3/21 | Tue | Spring Break |  |  |  |
 | 3/23 | Thu | Spring Break |  |  |  |
 |      |
-| 3/28 | Tue | Maps |  |  |  |
+| 3/28 | Tue | [Maps]({{site.baseurl}}/projects/vision2.html) |  |  |  |
 | 3/30 | Thu |  |  |  |  |
 |      |
 | 4/4  | Tue |  |  |  |  |
