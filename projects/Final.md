@@ -58,22 +58,22 @@ student/team will deliver an oral presentation as follows:
 * Conclusion summarizing the project.
 
 ## Timeline
-* Tuesday, April 20
+* Tuesday, April 18
   * Project proposal due
-  * Oral presentation of proposal by each student/team
-  * Written proposal submitted by each student/team
-* Thursday, April 22
+  * Oral presentation of proposal by each /team
+  * Written proposal submitted by each team
+* Thursday, April 20
   * Project work time during class
-* Tuesday, April 27
+* Tuesday, April 25
   * Each student/team orally presents progress during class
-* Thursday, April 29
+* Thursday, April 27
   * Project work time during class
-* Wednesday, May 5
+* Tuesday, May 2
   * Final project presentations
   * Final papers due
-* Friday, May 7
+* Thursday, May 4
   * Feedback on Final papers
-* Wednesday, May 12
+* Tuesday, May 9
   * Revised final papers due
   * All makeup work due
   
