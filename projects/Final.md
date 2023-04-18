@@ -49,7 +49,7 @@ Each team submits **one** final project paper. It should include the following:
 
 ## Final Presentation
 
-During the final exam period for the course (Wednesday, May 5, 2-5 pm) each 
+During the final exam period for the course (Tuesday, May 2, 2-5 pm) each 
 student/team will deliver an oral presentation as follows:
 * Project goals
 * Degree of completion of goals
