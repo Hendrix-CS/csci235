@@ -23,7 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 number: CSCI 235
 title: Intelligent Robotics
-semester: Spring 2023
+semester: Spring 2025
 
 navigation:
   - title: Overview
@@ -62,14 +62,20 @@ instructors:
 
 offerings:
   - name: LECTURE 01
-    loc: MCREY 315
-    time: TR 8:15am - 9:30am
+    loc: MCREY 314
+    time: TR 9:45am - 11:00am
     instructor: ferrer
 
 resources:
-  - name: Mindstorms Education EV3 MicroPython
-    image: assets/images/Lego_education.PNG
-    url: https://pybricks.com/ev3-micropython/
+  - name: iRobot Create3
+    image: assets/images/create3.png
+    url: https://iroboteducation.github.io/create3_docs/
+  - name: ROS2 Humble Hawksbill
+    image: assets/images/humble_hawksbill.png
+    url: https://docs.ros.org/en/humble/index.html
+  - name: Python 3
+    image: assets/images/pythonlogo.png
+    url: http://python.org
   - name: Visual Studio Code
     image: assets/images/vscode.png
     url: https://code.visualstudio.com
