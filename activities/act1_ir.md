@@ -2,7 +2,7 @@
 layout: work
 type: Activity
 num: 1
-worktitle: The Infrared Sensors
+worktitle: Sensors
 ---
 
 Exploration
@@ -61,15 +61,15 @@ def main():
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
-        print("Usage: python3 ir_viewer.py node_name robot_name")
+        print("Usage: python3 sensor_viewer.py node_name robot_name")
     else:
         main()
 
 ```
 
-Run the program as described in the `Usage` message. Use `IrNode` followed by your first
+Run the program as described in the `Usage` message. Use `SensorNode` followed by your first
 and last name for the `node_name`. (For example, Mickey Mouse would use the node name 
-`IrNodeMickeyMouse`.)
+`SensorNodeMickeyMouse`.)
 
 While the program is running, open a second shell on your machine. Type `ros2 node list` in 
 that shell. After doing so, use Control-C to halt your program. Then answer the following 
@@ -135,10 +135,43 @@ ir_intensity_front_right                 3
 ir_intensity_right                       1
 ```
 
-TODO: More fun things:
-* Calculate and display IR update rate per second
-* Perform experiments to test IR values against a range of different surfaces
-* Subscribe to battery and display level
-* Subscribe to hazards
+Next, let's explore some more sensors. Run `ros2 topic list` and examine the output. Then 
+answer the following questions:
+* What topic is likely to give information about the amount of battery power remaining?
+* Use `ros2 topic echo` to explore that topic. What information about the battery does the
+  topic provide?
+* What topic publishes messages more frequently: the IR topic or the battery topic?
+* Modify `sensor_viewer.py` to also display the current battery power level. Store the data from
+  the less frequently encountered topic in an attribute of your `Node`. Then display the stored
+  data alongside the most recently acquired data in the callback for your more frequently 
+  encountered topic. Your output should look like the following:
+```
+**IR timestamp: 11.875711328s
+ir_intensity_side_left                   1
+ir_intensity_left                        4
+ir_intensity_front_left                 14
+ir_intensity_front_center_left          78
+ir_intensity_front_center_right          4
+ir_intensity_front_right                 7
+ir_intensity_right                       0
+**Battery timestamp: 9.750165617s
+Battery level: 100.00%
+```
+* The following imports may be useful to add to `sensor_viewer.py`:
+```
+from rclpy.time import Time
+from sensor_msgs.msg import BatteryState
+```
+* Extend `sensor_viewer.py` to display update frequencies for these sensors. 
+  Frequencies are expressed in units of Hertz (Hz), where 1 Hz represents one 
+  occurrence per second, 2 Hz represents 2 occurrences per second, 0.5 Hz represents
+  one occurrence every two seconds, and so forth. Your output should look like the
+  following:
+```
+INSERT OUTPUT HERE
+```
+* Add a subscription to the `hazard_detection` topic. Add `from irobot_create_msgs.msg import HazardDetectionVector`
+  to your imports. Then DO STUFF.
 
-* Display 
+TODO: More fun things:
+* Perform experiments to test IR values against a range of different surfaces
