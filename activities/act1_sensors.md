@@ -106,14 +106,14 @@ Programming activities
   to achieve this appearance:
   
 ```
-builtin_interfaces.msg.Time(sec=23639456, nanosec=40284135)
-ir_intensity_side_left                   2
-ir_intensity_left                        6
-ir_intensity_front_left                 21
-ir_intensity_front_center_left          74
-ir_intensity_front_center_right          6
-ir_intensity_front_right                 9
-ir_intensity_right                       2
+builtin_interfaces.msg.Time(sec=23718998, nanosec=222784006)
+ir_intensity_side_left              0
+ir_intensity_left                   5
+ir_intensity_front_left           167
+ir_intensity_front_center_left    104
+ir_intensity_front_center_right     3
+ir_intensity_front_right            6
+ir_intensity_right                  0
 ```
 * The time gives the number of seconds since January 1, 1970. 
   * Modify the `SensorNode` class so that it has an attribute storing the earliest timestamp it encounters.
