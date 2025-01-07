@@ -123,16 +123,17 @@ ir_intensity_right                  0
     number of seconds.
   * The resulting output messages should be formatted as follows. Be sure to use Python's format
     string feature to ensure the resulting number of seconds goes out to exactly 9 decimal places.
-
+  * If you wish to reference the data type for timestamps, use the following import
+    * `from rclpy.time import Time`
 ```
-12.862000815
-ir_intensity_side_left                   2
-ir_intensity_left                        4
-ir_intensity_front_left                 19
-ir_intensity_front_center_left          74
-ir_intensity_front_center_right          5
-ir_intensity_front_right                 3
-ir_intensity_right                       1
+11.785712313s
+ir_intensity_side_left              0
+ir_intensity_left                   2
+ir_intensity_front_left           164
+ir_intensity_front_center_left    106
+ir_intensity_front_center_right     3
+ir_intensity_front_right            3
+ir_intensity_right                  0
 ```
 
 Next, let's explore some more sensors. Run `ros2 topic list` and examine the output. Then 
@@ -141,34 +142,98 @@ answer the following questions:
 * Use `ros2 topic echo` to explore that topic. What information about the battery does the
   topic provide?
 * What topic publishes messages more frequently: the IR topic or the battery topic?
-* Modify `sensor_viewer.py` to also display the current battery power level. Store the data from
-  the less frequently encountered topic in an attribute of your `Node`. Then display the stored
-  data alongside the most recently acquired data in the callback for your more frequently 
-  encountered topic. Your output should look like the following:
+* Modify `sensor_viewer.py` to also display the current battery power level. 
+  * Add the following import to `sensor_viewer.py`:
+    * `from sensor_msgs.msg import BatteryState`
+  * Create a subscription to the topic. 
+    * Be sure to create a callback method to handle each message that arrives.
+  * Store the data from the less frequently encountered topic in an attribute of your 
+    `SensorNode`. Then display the stored data alongside the most recently acquired data 
+    in the callback for your more frequently encountered topic. 
+  * Your output should look like the following:
 ```
-**IR timestamp: 11.875711328s
-ir_intensity_side_left                   1
-ir_intensity_left                        4
-ir_intensity_front_left                 14
-ir_intensity_front_center_left          78
-ir_intensity_front_center_right          4
-ir_intensity_front_right                 7
-ir_intensity_right                       0
-**Battery timestamp: 9.750165617s
+** IR timestamp: 16.265703198s
+ir_intensity_side_left              2
+ir_intensity_left                   3
+ir_intensity_front_left           168
+ir_intensity_front_center_left    105
+ir_intensity_front_center_right     5
+ir_intensity_front_right            5
+ir_intensity_right                  1
+** Battery timestamp: 14.931958523s
 Battery level: 100.00%
 ```
-* The following imports may be useful to add to `sensor_viewer.py`:
+* Create a frequency tracker. In a new file called `frequency.py` (in the same directory as
+  `sensor_viewer.py`), paste the following code:
 ```
-from rclpy.time import Time
-from sensor_msgs.msg import BatteryState
+import unittest
+
+
+class Frequency:
+    def __init__(self, count=0, timestamp=1):
+        self.count = count
+        self.timestamp = timestamp
+
+    def record(self, timestamp: float):
+        pass # Your code here
+
+    def hz(self) -> float:
+        pass # Your code here
+
+
+class FrequencyTest(unittest.TestCase):
+    def test1(self):
+        f = Frequency()
+        self.assertEqual(None, f.hz())
+        for time, expected in [(0.5, 1 / 0.5), (1.0, 2 / 1.0), (2.0, 3 / 2.0)]:
+            f.record(time)
+            self.assertEqual(expected, f.hz())
+
+    def test2(self):
+        f = Frequency(10, 4)
+        self.assertEqual(2.5, f.hz())
+        for time, expected in [(5.5, 11 / 5.5), (6.0, 12 / 6.0), (7.0, 13 / 7.0)]:
+            f.record(time)
+            self.assertEqual(expected, f.hz())
+
+
+if __name__ == '__main__':
+    unittest.main()
 ```
+* Implement the methods `record()` and `hz()` so that the unit tests pass.
+* Frequencies are expressed in units of Hertz (Hz). Based on the unit tests and your 
+  method implementations, give a one-sentence definition of Hz.
+* Under what circumstances would Hz be undefined?
+* Why might it be useful, as we did here, to define some of our code in a separate file
+  outside our `Node` definition file?
 * Extend `sensor_viewer.py` to display update frequencies for these sensors. 
-  Frequencies are expressed in units of Hertz (Hz), where 1 Hz represents one 
-  occurrence per second, 2 Hz represents 2 occurrences per second, 0.5 Hz represents
-  one occurrence every two seconds, and so forth. Your output should look like the
-  following:
+  * To access the `Frequency` class, add the following `import` line:
+    * `from frequency import Frequency`
+  * Your output should look like the following. (**Note**: If `hz` is undefined, it should
+    simply not appear in the output.)
 ```
-INSERT OUTPUT HERE
+** IR timestamp: 12.745317869 (62.5 hz)
+ir_intensity_side_left              0
+ir_intensity_left                   2
+ir_intensity_front_left           169
+ir_intensity_front_center_left    103
+ir_intensity_front_center_right     6
+ir_intensity_front_right            1
+ir_intensity_right                  2
+** Battery timestamp: 8.642997608 (0.2 hz)
+Battery level: 96.00%
+```
+* Note that if `hz` is undefined, it should not appear in the output. Here is a sample output
+  for that situation:
+```
+** IR timestamp: 0.000000000
+ir_intensity_side_left              0
+ir_intensity_left                   4
+ir_intensity_front_left           163
+ir_intensity_front_center_left    106
+ir_intensity_front_center_right     0
+ir_intensity_front_right            4
+ir_intensity_right                  0
 ```
 * Add a subscription to the `hazard_detection` topic. Add `from irobot_create_msgs.msg import HazardDetectionVector`
   to your imports. Then DO STUFF.
