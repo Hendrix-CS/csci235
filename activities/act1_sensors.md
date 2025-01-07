@@ -38,7 +38,7 @@ from rclpy.qos import qos_profile_sensor_data
 from irobot_create_msgs.msg import IrIntensityVector
 
 
-class IrNode(Node):
+class SensorNode(Node):
     def __init__(self, node_name: str, namespace: str):
         super().__init__(node_name)
         if len(namespace) > 0 and not namespace.startswith('/'):
@@ -54,7 +54,7 @@ def main():
     rclpy.init()
     node_name = sys.argv[1]
     robot = sys.argv[2]
-    node = IrNode(node_name, robot)
+    node = SensorNode(node_name, robot)
     rclpy.spin(node)
     rclpy.shutdown()
 
@@ -116,7 +116,7 @@ ir_intensity_front_right                 9
 ir_intensity_right                       2
 ```
 * The time gives the number of seconds since January 1, 1970. 
-  * Modify the `IrNode` class so that it has an attribute storing the earliest timestamp it encounters.
+  * Modify the `SensorNode` class so that it has an attribute storing the earliest timestamp it encounters.
   * Using this attribute, modify your output message to display the number of seconds since
     the first message was received, rather than since January 1, 1970. 
   * Once this version is working, divide the nanoseconds by 10^9, and add them to the 

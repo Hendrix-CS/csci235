@@ -12,14 +12,17 @@ layout: course-single
 ## <a name="goals">Learning Goals</a>
 
 Upon completing this course, our goal is for you to be able to:
-
 * Program a mobile robot to interact with a realistic environment with natural timing.
-* Write programs that control motors and process sensor information.
-* Quantitatively assess the performance of a mobile robot for a given task.
+* Create ROS2 nodes that: 
+  * Control motors and process sensor information by publishing and subscribing to topics.
+  * Create new topics and publish to them to enable building robust, modular controllers.
+* Quantitatively and qualitatively assess the performance of a mobile robot for a given task.
 * Describe both orally and in writing:
   * The design and performance of a mobile robot.
   * Assessments of deployed and fictional robots.
-* Apply supervised machine learning algorithms for image classification.
+* Employ computer vision techniques to inform the behavior of a mobile robot.
+* Employ appropriate machine learning algorithms to improve the performance of a mobile robot.
+* Employ planning and odometry to navigate a mobile robot.
 
 ## <a name="resources">Resources</a>
 
@@ -29,54 +32,54 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-|Date|Day|Topic/Activity|Reading|Assigned|Due|
-| --- | --- | --- | --- | --- | --- |
-| 1/17 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
-| 1/19 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |  |
+|Date  |Day  |Topic/Activity |Reading |Assigned |Due |
+| ---  | --- | --- | --- | --- | --- |
+| 1/21 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
+| 1/23 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |  |
 |      |
-| 1/24 | Tue | [Introduction to EV3 Kits]({{site.baseurl}}/projects/avoid.html) | [MicroPython](https://pybricks.com/ev3-micropython/) <br> [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
-| 1/26 | Thu |  |  |  |  |
+| 1/28 | Tue | [Activity 1: Sensors]({{site.baseurl}}/activities/act1_sensors.html) | [MicroPython](https://pybricks.com/ev3-micropython/) <br> [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
+| 1/30 | Thu | [Activity 2: Motors]({{site.baseurl}}/activities/act2_motors.html) |  |  |  |
 |      |
-| 1/31 | Tue | Ice-Pocalypse: No class |
-| 2/2  | Thu | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
+| 2/4  | Tue | Ice-Pocalypse: No class |
+| 2/6  | Thu | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
 |      |
-| 2/7  | Tue |  |  |  |  |
-| 2/9  | Thu |  |  |  |  |
+| 2/11 | Tue |  |  |  |  |
+| 2/13 | Thu |  |  |  |  |
 |      |
-| 2/14 | Tue | [Reinforcement Learning of Behavior]({{site.baseurl}}/projects/qlearning.html) |  |   | Mode Selection |
-| 2/16 | Thu |  |  |  |  |
+| 2/18 | Tue | [Reinforcement Learning of Behavior]({{site.baseurl}}/projects/qlearning.html) |  |   | Mode Selection |
+| 2/20 | Thu |  |  |  |  |
 |      |
-| 2/21 | Tue | |  |  | Reinforcement Learning of Behavior |
-| 2/23 | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  |  |
+| 2/25 | Tue | |  |  | Reinforcement Learning of Behavior |
+| 2/27 | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  |  |
 |      |
-| 2/28 | Tue | |  |  | |
-| 3/2  | Thu | |  |  |  |
+| 3/4 | Tue | |  |  | |
+| 3/6  | Thu | |  |  |  |
 |      |
-| 3/7  | Tue | [Action Selection with Images]({{site.baseurl}}/projects/vision1.html) |  |  | Fuzzy Logic Behavior  |
-| 3/9  | Thu |  |  |  |   |
+| 3/11  | Tue | [Action Selection with Images]({{site.baseurl}}/projects/vision1.html) |  |  | Fuzzy Logic Behavior  |
+| 3/13 | Thu |  |  |  |   |
 |      |
-| 3/14 | Tue |  |  |  |  |
-| 3/16 | Thu |  |  |  |  Action Selection with Images  |
+| 3/18 | Tue |  |  |  |  |
+| 3/20 | Thu |  |  |  |  Action Selection with Images  |
 |      |
-| 3/21 | Tue | Spring Break |  |  |  |
-| 3/23 | Thu | Spring Break |  |  |  |
+| 3/25 | Tue | Spring Break |  |  |  |
+| 3/27 | Thu | Spring Break |  |  |  |
 |      |
-| 3/28 | Tue | [Maps]({{site.baseurl}}/projects/vision2.html) |  |  |  |
-| 3/30 | Thu |  |  |  |  |
+| 4/1  | Tue | [Maps]({{site.baseurl}}/projects/vision2.html) |  |  |  |
+| 4/3  | Thu |  |  |  |  |
 |      |
-| 4/4  | Tue |  |  |  |  |
-| 4/6  | Thu |  |  |  | Maps |
+| 4/8  | Tue |  |  |  |  |
+| 4/10 | Thu |  |  |  | Maps |
 |      |
-| 4/11 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
-| 4/13 | Thu | Final Project work |  |  |  |
+| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
+| 4/17 | Thu | Final Project work |  |  |  |
 |      |
-| 4/18 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
-| 4/20 | Thu | Final Project work |  |  |  |
+| 4/22 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
+| 4/24 | Thu | Final Project work |  |  |  |
 |      |
-| 4/25 | Tue | Final Project Progress Reports |  |  |  |
-| 4/27 | Thu | Final Project work |  |  |  |
+| 4/29 | Tue | Final Project Progress Reports |  |  |  |
+| 5/1  | Thu | Final Project work |  |  |  |
 |      |
-| 5/2  | Tue 2-5 pm | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 
 <hr>
