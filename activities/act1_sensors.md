@@ -236,8 +236,11 @@ ir_intensity_front_center_right     0
 ir_intensity_front_right            4
 ir_intensity_right                  0
 ```
-* Add a subscription to the `hazard_detection` topic. Add `from irobot_create_msgs.msg import HazardDetectionVector`
-  to your imports. Then DO STUFF.
 
-TODO: More fun things:
-* Perform experiments to test IR values against a range of different surfaces
+* Select at least five different surfaces to assess the IR sensor values. For each surface:
+  * Discuss why it is likely to be encountered by the robot.
+  * Describe the surface. What color is it? Include photographs.
+  * Record IR readings for the surface at distances 1 cm, 5 cm, 10 cm, 20 cm, and 50 cm from 
+    the sensor.
+* Which surfaces are easiest to detect? Hardest to detect?
+* For each surface, what is the farthest distance at which it is arguably "detected"?
