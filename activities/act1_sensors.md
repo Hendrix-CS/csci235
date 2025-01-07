@@ -121,10 +121,10 @@ ir_intensity_right                  0
     the first message was received, rather than since January 1, 1970. 
   * Once this version is working, divide the nanoseconds by 10^9, and add them to the 
     number of seconds.
-  * The resulting output messages should be formatted as follows. Be sure to use Python's format
-    string feature to ensure the resulting number of seconds goes out to exactly 9 decimal places.
   * If you wish to reference the data type for timestamps, use the following import
     * `from rclpy.time import Time`
+  * The resulting output messages should be formatted as follows. Be sure to use Python's format
+    string feature to ensure the resulting number of seconds goes out to exactly 9 decimal places.
 ```
 11.785712313s
 ir_intensity_side_left              0
@@ -165,6 +165,7 @@ Battery level: 100.00%
 ```
 * Create a frequency tracker. In a new file called `frequency.py` (in the same directory as
   `sensor_viewer.py`), paste the following code:
+  
 ```
 import unittest
 
