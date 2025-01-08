@@ -230,3 +230,10 @@ Answer the following questions:
   `sensor_printer.py`. Which of them is a more usable user interface? Why?
 
 ## Publishing motor commands
+
+<!-- Exploration: cmd_vel from the command line -->
+<!-- Exploration: Twist examples -->
+<!-- Exploration: cmd_vel from Python -->
+<!-- Concept formation: Understanding Twists -->
+<!-- Application: Integrating motor commands -->
+
