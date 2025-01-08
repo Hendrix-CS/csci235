@@ -232,6 +232,20 @@ Answer the following questions:
 ## Publishing motor commands
 
 <!-- Exploration: cmd_vel from the command line -->
+Type the command below into the command line:
+```
+ros2 topic pub -r 1 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
+```
+
+* What happens when you run this command?
+  * To stop, use Control-C
+* Try `-r 2` instead of `-r 1`. How does its behavior differ?
+  * Also try `-r 4`. What impact does it have?
+* Change the angular z value from 0.5 to 2.5. What happens?
+  * Now try 3.5, 4.5, and 5.5. What happens with each value?
+* Now try a negative value for angular z. What happens?
+* Change the angular z value to 0.0, and the linear x value to 0.1. What happens?
+* Now try linear x at 0.3, then 0.5, then 0.7. What happens with each of these changes?
 <!-- Exploration: Twist examples -->
 <!-- Exploration: cmd_vel from Python -->
 <!-- Concept formation: Understanding Twists -->
