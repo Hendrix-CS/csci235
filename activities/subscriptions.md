@@ -72,8 +72,7 @@ class SensorNode(Node):
 def main():
     rclpy.init()
     robot = sys.argv[1]
-    node_name = f"{robot}_SensorNode"
-    node = SensorNode(node_name, robot)
+    node = SensorNode(f'{robot}_SensorNode', robot)
     rclpy.spin(node)
     rclpy.shutdown()
 

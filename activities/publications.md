@@ -204,8 +204,8 @@ from curses_runner import curses_runner, CursesNode
 def main(stdscr):
     rclpy.init()
     robot = sys.argv[1]
-    node = IrCounterNode(f'{robot_name}_IrCounterNode', robot)
-    printer = CursesNode(f'{robot_name}_CursesNode', node.topic_name, 2, stdscr)
+    node = IrCounterNode(f'{robot}_IrCounterNode', robot)
+    printer = CursesNode(f'{robot}_CursesNode', node.topic_name, 2, stdscr)
     curses_runner([node, printer], stdscr)
     rclpy.shutdown()
 
