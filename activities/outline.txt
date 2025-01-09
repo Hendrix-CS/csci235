@@ -1,0 +1,41 @@
+Possible outline of activities
+
+Activity 1: Subscription
+- IR, Battery, Python
+
+Activity 2: Publication
+- Communication via topics
+- Curses UI
+- Publishing to cmd_vel
+- Hazards
+- Building an obstacle avoider
+
+Activity 3: Fuzzy Logic
+- Odometry
+- Aim and drive to point
+- Fuzzy with IR
+
+Activity 4: Mode selection/State machines
+- See https://hendrix-cs.github.io/csci235/projects/modes.html
+- Avoid2Way
+  - When IR senses an obstacle, move away from it based on last bump sensor
+  - Now that we've done fuzzy logic, we can incorporate that based on
+    which bumper was last hit.
+- Avoid2WayDelay
+  - Longer turns using odometry
+- Patrol1
+  - Patrol along a line
+    - Maybe along a wall
+  - 2 meters, 180 degree turn, indefinitely
+- Patrol2
+  - Can't really do the track
+- Patrol3
+  - Turn early if obstacle detected
+- Additional patrols
+  - 2D area
+
+Other ideas
+- Q-learning
+- Trajectory-based SLAM
+- HTN Planning
+- Vision projects
