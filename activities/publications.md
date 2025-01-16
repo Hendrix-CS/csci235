@@ -33,7 +33,7 @@ class IrCounterNode(Node):
         self.topic.publish(output)
 ```
 
-<!-- Concept Formation: Publishing Topics -->
+<!-- Concept Invention: Publishing Topics -->
 What do you think `IrCounterNode` will do when it spins?
 
 Create a file named `ir_count_printer.py`, and copy the following code into it:
@@ -82,7 +82,7 @@ if __name__ == '__main__':
         main()
 ```
 
-<!-- Concept Formation: Publishing to a topic -->
+<!-- Concept Invention: Publishing to a topic -->
 Run the `ir_count_printer.py` program. While it is running, open a second 
 shell and type `ros2 topic list`. Then answer the following questions:
 * What did the program do when it ran?
@@ -135,12 +135,12 @@ if __name__ == '__main__':
 
 Run the program. Then answer the following questions:
 * What does the program do?
-<!-- Concept Formation: Curses -->
+<!-- Concept Invention: Curses -->
 * What is the purpose of the `curses` library?
 * How might the `curses` library be useful for our ROS2 programs? In 
   particular, what advantages might it have over our previous approach to I/O?
 
-<!-- Concept Formation: Example Console UI for ROS2 -->
+<!-- Concept Invention: Example Console UI for ROS2 -->
 Create a file called `curses_runner.py` and copy and paste the code below into 
 it:
 ```
@@ -234,7 +234,7 @@ Answer the following questions:
 <!-- Exploration: cmd_vel from the command line -->
 Type the command below into the command line:
 ```
-ros2 topic pub -r 1 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}"
+ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
 ```
 
 * What happens when you run this command?
@@ -246,8 +246,13 @@ ros2 topic pub -r 1 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, 
 * Now try a negative value for angular z. What happens?
 * Change the angular z value to 0.0, and the linear x value to 0.1. What happens?
 * Now try linear x at 0.3, then 0.5, then 0.7. What happens with each of these changes?
+* Next, try linear x at 0.3 and angular z at 0.5. What happens?
+<!-- Concept Invention: Create your own Twists -->
+* Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
+  of two meters.
+
 <!-- Exploration: Twist examples -->
 <!-- Exploration: cmd_vel from Python -->
-<!-- Concept formation: Understanding Twists -->
+<!-- Concept Invention: Understanding Twists -->
 <!-- Application: Integrating motor commands -->
 

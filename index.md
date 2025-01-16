@@ -37,44 +37,44 @@ Upon completing this course, our goal is for you to be able to:
 | 1/21 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/23 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |  |
 |      |
-| 1/28 | Tue | [Activity 1: Sensors]({{site.baseurl}}/activities/subscriptions.html) | [MicroPython](https://pybricks.com/ev3-micropython/) <br> [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
-| 1/30 | Thu | [Activity 2: Motors]({{site.baseurl}}/activities/publications.html) |  |  |  |
+| 1/28 | Tue | [Activity 1: ROS2 Subscriptions]({{site.baseurl}}/activities/subscriptions.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
+| 1/30 | Thu | [Activity 2: ROS2 Publications]({{site.baseurl}}/activities/publications.html) |  |  |  |
 |      |
-| 2/4  | Tue | Ice-Pocalypse: No class |
-| 2/6  | Thu | [Mode Selection]({{site.baseurl}}/projects/modes.html) |  |  | Introduction to EV3 Kits |
+| 2/4  | Tue | Activity 3: Fuzzy Logic |
+| 2/6  | Thu | Activity 4: State Machines |
 |      |
-| 2/11 | Tue |  |  |  |  |
-| 2/13 | Thu |  |  |  |  |
+| 2/11 | Tue | Project 1 |  |  |  |
+| 2/13 | Thu | Project 1 |  |  |  |
 |      |
-| 2/18 | Tue | [Reinforcement Learning of Behavior]({{site.baseurl}}/projects/qlearning.html) |  |   | Mode Selection |
-| 2/20 | Thu |  |  |  |  |
+| 2/18 | Tue | Project 1 Presentations |  |  |  |
+| 2/20 | Thu | In-Class Essay 1  |  |  |  |
 |      |
-| 2/25 | Tue | |  |  | Reinforcement Learning of Behavior |
-| 2/27 | Thu | [Fuzzy Logic Behavior]({{site.baseurl}}/projects/fuzzy.html) |  |  |  |
+| 2/25 | Tue | Activity 5: Reinforcement Learning  |  |  |  |
+| 2/27 | Thu | Activity 6: Vision 1: Motion |  |  |  |
 |      |
-| 3/4 | Tue | |  |  | |
-| 3/6  | Thu | |  |  |  |
+| 3/4  | Tue | Activity 7: Vision 2: Recognition |  |  | |
+| 3/6  | Thu | Project 2  |  |  |  |
 |      |
-| 3/11  | Tue | [Action Selection with Images]({{site.baseurl}}/projects/vision1.html) |  |  | Fuzzy Logic Behavior  |
-| 3/13 | Thu |  |  |  |   |
+| 3/11 | Tue | Project 2 |  |  | |
+| 3/13 | Thu | Project 2 Presentations |  |  |   |
 |      |
-| 3/18 | Tue |  |  |  |  |
-| 3/20 | Thu |  |  |  |  Action Selection with Images  |
+| 3/18 | Tue | In-Class Essay 2 |  |  |  |
+| 3/20 | Thu | Activity 9: Planning |  |  | |
 |      |
 | 3/25 | Tue | Spring Break |  |  |  |
 | 3/27 | Thu | Spring Break |  |  |  |
 |      |
-| 4/1  | Tue | [Maps]({{site.baseurl}}/projects/vision2.html) |  |  |  |
-| 4/3  | Thu |  |  |  |  |
+| 4/1  | Tue | Activity 10: Mapping |  |  |  |
+| 4/3  | Thu | Project 3 |  |  |  |
 |      |
-| 4/8  | Tue |  |  |  |  |
-| 4/10 | Thu |  |  |  | Maps |
+| 4/8  | Tue | Project 3 |  |  |  |
+| 4/10 | Thu | Project 3 Presentations |  |  |  |
 |      |
 | 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
 | 4/17 | Thu | Final Project work |  |  |  |
 |      |
 | 4/22 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
-| 4/24 | Thu | Final Project work |  |  |  |
+| 4/24 | Thu | In-Class Essay 3 |  |  |  |
 |      |
 | 4/29 | Tue | Final Project Progress Reports |  |  |  |
 | 5/1  | Thu | Final Project work |  |  |  |

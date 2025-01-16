@@ -34,7 +34,7 @@ Now run the same line again:
 * Hold it close to the robot, then move it further away slowly.
 * How do the `value` entries change in response to motion?
 
-<!-- Concept Formation: Topic Messages -->
+<!-- Concept Invention: Topic Messages -->
 Open a text editor. Copy and paste one message (starting and ending with `---`) into it.
 * What are the fields of this message?
 * What is the meaning of each field?
@@ -89,7 +89,7 @@ Run the program as described in the `Usage` message.  While the program is
 running, open a second shell on your machine. Type `ros2 node list` in 
 that shell. After doing so, use Control-C to halt your program. Then answer 
 the following questions:
-<!-- Concept Formation: ROS2 Topics -->
+<!-- Concept Invention: ROS2 Topics -->
 * What is a `Node`?
 * What does it mean to "spin" a `Node`?
 * What is a subscription?
@@ -111,7 +111,7 @@ data structure output to a text file. Then rewrite the
 <!-- Exploration: Topic messages in Python -->
 Again, copy and paste one instance of output to a text file. Then answer the following questions:
 * Why did the second version of the Python code result in more readable output?
-<!-- Concept Formation: Understanding topic messages -->
+<!-- Concept Invention: Understanding topic messages -->
 * How did it achieve this? Carefully examine both the command-line output and 
 the previous `ir_callback()` output for clues. 
 * Are the timestamps for the header and the individual sensors identical? 
@@ -229,11 +229,11 @@ if __name__ == '__main__':
     unittest.main()
 ```
 * Implement the methods `record()` and `hz()` so that the unit tests pass.
-<!-- Concept Formation: Hertz -->
+<!-- Concept Invention: Hertz -->
 * Frequencies are expressed in units of Hertz (Hz). Based on the unit tests and your 
   method implementations, give a one-sentence definition of Hz.
 * Under what circumstances would Hz be undefined?
-<!-- Concept Formation: Modules -->
+<!-- Concept Invention: Modules -->
 * Why might it be useful, as we did here, to define some of our code in a 
 separate file outside our `Node` definition file?
 <!-- Application: Frequency/Hertz -->
@@ -275,6 +275,6 @@ For each surface:
   * Describe the surface. What color is it? Include photographs.
   * Record IR readings for the surface at distances 1 cm, 5 cm, 10 cm, 20 cm, 
 and 50 cm from the sensor.
-<!-- Concept Formation: IR Values and Surfaces -->
+<!-- Concept Invention: IR Values and Surfaces -->
 * Which surfaces are easiest to detect? Hardest to detect?
 * For each surface, what is the farthest distance at which it is arguably "detected"?
