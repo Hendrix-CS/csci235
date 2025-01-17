@@ -1,7 +1,7 @@
 ---
 layout: work
-type: Project
-num: 1
+type: Essay
+num: 0
 worktitle: Robots - Fiction and Reality
 ---
 
