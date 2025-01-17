@@ -255,7 +255,10 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 * Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
   of two meters.
 
+## Writing a motor publisher
+
 <!-- Exploration: cmd_vel from Python -->
+
 <!-- Concept Invention: Understanding Twists -->
 <!-- Application: Integrating motor commands -->
 
