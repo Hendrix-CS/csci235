@@ -32,16 +32,16 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-|Date  |Day  |Topic/Activity |Reading |Assigned |Due |
+|Date  |Day  |Topic/Module |Reading |Assigned |Due |
 | ---  | --- | --- | --- | --- | --- |
 | 1/21 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/projects/robots_sci_fi.html) |  |
 | 1/23 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |  |
 |      |
-| 1/28 | Tue | [Activity 1: ROS2 Subscriptions]({{site.baseurl}}/activities/subscriptions.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
-| 1/30 | Thu | [Activity 2: ROS2 Publications]({{site.baseurl}}/activities/publications.html) |  |  |  |
+| 1/28 | Tue | [Module 1: ROS2 Subscriptions]({{site.baseurl}}/modules/subscriptions.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
+| 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  |  |  |
 |      |
-| 2/4  | Tue | Activity 3: Fuzzy Logic |
-| 2/6  | Thu | Activity 4: State Machines |
+| 2/4  | Tue | Module 3: Fuzzy Logic |
+| 2/6  | Thu | Module 4: State Machines |
 |      |
 | 2/11 | Tue | Project 1 |  |  |  |
 | 2/13 | Thu | Project 1 |  |  |  |
@@ -49,22 +49,22 @@ Upon completing this course, our goal is for you to be able to:
 | 2/18 | Tue | Project 1 Presentations |  |  |  |
 | 2/20 | Thu | In-Class Essay 1  |  |  |  |
 |      |
-| 2/25 | Tue | Activity 5: Reinforcement Learning  |  |  |  |
-| 2/27 | Thu | Activity 6: Vision 1: Motion |  |  |  |
+| 2/25 | Tue | Module 5: Reinforcement Learning  |  |  |  |
+| 2/27 | Thu | Module 6: Vision 1: Motion |  |  |  |
 |      |
-| 3/4  | Tue | Activity 7: Vision 2: Recognition |  |  | |
+| 3/4  | Tue | Module 7: Vision 2: Recognition |  |  | |
 | 3/6  | Thu | Project 2  |  |  |  |
 |      |
 | 3/11 | Tue | Project 2 |  |  | |
 | 3/13 | Thu | Project 2 Presentations |  |  |   |
 |      |
 | 3/18 | Tue | In-Class Essay 2 |  |  |  |
-| 3/20 | Thu | Activity 9: Planning |  |  | |
+| 3/20 | Thu | Module 8: Planning |  |  | |
 |      |
 | 3/25 | Tue | Spring Break |  |  |  |
 | 3/27 | Thu | Spring Break |  |  |  |
 |      |
-| 4/1  | Tue | Activity 10: Mapping |  |  |  |
+| 4/1  | Tue | Module 9: Mapping |  |  |  |
 | 4/3  | Thu | Project 3 |  |  |  |
 |      |
 | 4/8  | Tue | Project 3 |  |  |  |
@@ -81,27 +81,42 @@ Upon completing this course, our goal is for you to be able to:
 |      |
 | 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
-
 <hr>
 # <a name="assessment">Assessment</a>
 
-## <a name="projects">Projects</a>
+## <a name="modules">Modules</a>
+The primary means by which you be introduced to the course material is through nine 
+**modules**. Each module will be started during class time in teams of 2 or 3. Each module 
+will guide you through a learning process on a particular topic. Modules not completed during 
+class time should be completed with your group outside of class. 
 
-Every 2-3 class periods, a project will be assigned. Students will complete each project
-in teams of two. In most projects, students will program their robots to perform a task using
-a newly introduced concept, potentially incorporating other concepts covered previously. Some time 
-will typically be available during some class periods for work on the current project.
+Modules submitted by the start of the next class period will receive one robot credit for a
+sincere, on-time attempt. Submissions which are complete and correct will receive two
+robot credits. Modules not deemed complete and correct may be revised and resubmitted after a 
+conversation with the professor to address the issues of concern, whereupon they will
+receive the second robot credit. Modules submitted for the first time after the deadline
+will receive at most one robot credit.
+
+## <a name="projects">Projects</a>
+The modules are grouped into three **units**. At the completion of each unit, a project
+will be assigned. In each project, students will devise a creative robotics project applying
+the ideas investigated in the just-completed unit.
+
+The first class day for each project will be a brainstorming session in which students devise
+topics, select project partners, and establish project goals. The second class day will be a 
+working session for the project. On the third class day, each group will give a presentation 
+about their project.
 
 ### Project Reports
 For each project, each student (even if part of a team) should submit an individual project
 report. Each report includes the following:
+* Description of the project goals
 * A project log, which includes the following for every work session:
   * Date of the work session, including start and end times.
   * Goals for the session.
   * Brief descriptions of activities undertaken.
   * Observations of activities.
   * Assessment of the degree to which session goals were met.
-* Answers to project-specific questions.
 * A conclusion detailing the degree of success of the project.
 
 ### Project Presentations
@@ -110,79 +125,89 @@ On the due date of each project, each team will play a video in class. The video
 * It must be between 60 and 120 seconds in duration.
 * It should include brief narration of the strategy for the project.
   * Narration may be pre-recorded or provided live as the video runs.
-* It should demonstrate the student's robots performing the required tasks for the week's project. Narration should contextualize each demonstrated activity.
+* It should demonstrate the student's robots fulfilling the goals for the project. 
+  * Narration should contextualize each demonstrated activity.
+  
+### Presentation Questions
+* Students should be prepared to answer questions after their video presentation concludes. 
+* Each student is expected to ask one substantive question on each class day that includes presentations.
+  
+### Project Credits
+Robot credits for projects will be awarded as follows:
+* Achieving all agreed-upon project goals: 2 robot credits
+  * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
+    and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
+* Achieving some agreed-upon project goals: 1 robot credit
+* Submitting a satsifactory project report: 1 robot credit
+* Delivering a satisfactory project presentation: 1 robot credit
+* Asking questions during presentations:
+  * Ask at least one question in every presentation: 2 robot credits
+  * Ask at least one question in two presentations: 1 robot credit
 
-**Note:** Presentations will only be given when the project actively involves robot programming.
-There will be no presentations following the first project, as it does not involve robot programming.
+Each student who asks a substantive question in at least three of the four project presentation days 
+(including the final project presentation) will receive one additional robot credit.
+  
+## <a name="essays">Essays</a>
+A total of three in-class essays and one take-home essay will be assigned over the course of the semester. 
+Each essay topic is posted on the course web page. In preparing for each in-class essay, each student may
+make use of whatever resources they would like - readings, assignments, classmates, anything on
+the Internet, or any other resource. 
+
+Each in-class essay itself is closed-book, closed-note, and closed-device. Paper will be provided
+for writing the essay, which must be submitted at the end of the class period. 
+
+The essays will be commented upon by the instructor and returned. Each student should then
+revise their essay, taking into account the instructor comments. The revised essay should be 
+typed and submitted electronically. The original handwritten essay should also be resubmitted. 
+The revised essay will be due one week after the original essays are returned. 
+
+Students are welcome to make use of additional resources when revising their essays; proper
+citation should be included for each resource. Plagiarism, including submitting an essay 
+rewritten by a generative AI, is strictly prohibited. Each revised essay will then be 
+assessed as **Level 1** or **Level 2**, depending on the quality of the essay. Quality will 
+be assessed according to the following criteria:
+* Writing quality, including proper spelling, usage, and grammar.
+* Demonstrated depth of understanding the essay topic.
+* Appropriate use of examples from course projects.
+ 
+### Essay Credits 
+* One essay credit will be awarded per level.
+* One additional essay credit will be awarded for on-time submissions of the final essays.
 
 ## <a name="finalproject">Final Project</a>
 In the last three weeks of the semester, each student will undertake a final project. 
-In this final project, you will build and program a robot that fulfills a contextualized 
-purpose. A public demonstration will be made of the robot's capabilities, and a paper 
+In this final project, you will program a robot that fulfills a contextualized 
+purpose. A demonstration will be made of the robot's capabilities, and a paper 
 reflecting upon lessons learned will be submitted as well. In keeping with the Odyssey 
 Special Project guidelines, the project will require at least 30 hours of work. As with 
-the other course projects, final projects will be undertaken in teams of two.
+the other course projects, final projects will be undertaken in teams of two or three.
 
-## <a name="participation">Class Participation</a>
-
-### Presentation Questions
-* Students should be prepared to answer questions after their video presentation concludes. 
-* Each student is expected to ask one question on each class day that includes presentations.
+<hr>
 
 ## <a name="grading">Specifications Grading</a>
-Each assignment is graded on a pass-fail basis. To earn a passing grade, the assignment
-must be substantively complete; minor imperfections are perfectly acceptable. Final course
-grades are earned based on completed passing assignments, as follows:
+Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Complete all seven projects
-  * Complete the final project
-  * Ask seven presentation questions
+  * Earn at least 32 out of 35 possible robot credits
+  * Earn at least 11 out of 12 possible essay credits
+  * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * One of the following:
-    * Complete any six projects
-    * Complete at least five projects and partially complete two more projects.
-  * Complete the final project
-  * Ask five presentation questions
+  * Earn at least 25 robot credits
+  * Earn at least 9 essay credits
+  * Complete and present the final project
 * To earn a C in the course, a student will:
-  * One of the following:
-    * Complete any four projects
-    * Complete at least two projects and partially complete at least three more.
-  * Complete the final project
-  * Ask three presentation questions
+  * Earn at least 18 robot credits
+  * Earn at least 7 essay credits
+  * Complete and present the final project
 * To earn a D in the course, a student will:
-  * One of the following:
-    * Complete any four projects
-    * Complete at least two projects and partially complete at least three more.
-
-## <a name="tokens">Tokens</a>
-* Each student starts the semester with three **tokens**.
-* Send Dr. Ferrer a message on Teams to spend a token.
-* A student may spend one token in order to:
-  * Submit a project after the posted deadline.
-      * When you send the message to spend the token, specify a new
-      deadline for that project that you plan to meet.
-  * Submit a revised version of a project in the event the submission is not
-    of sufficient quality to receive a grade of Complete.
-* Scheduling and attending an [office hours meeting](https://drferrer.youcanbook.me)
-  with Dr. Ferrer earns one additional token.
-* **Note**: All late submissions/revisions must be received before 5 pm on Tuesday, 
-  May 9, the last day of the semester.
+  * Earn at least 13 robot credits
+  * Earn at least 4 essay credits
 
 ## <a name="equipment">Equipment</a>
 During the second week of the semester, each student team will be assigned
-a Lego Mindstorms EV3 robot kit. Later in the semester, each team will also be
-assigned a Kindle Fire tablet to augment the robot with computer vision 
-capabilities. 
+an iRobot Create3 robot and a Raspberry Pi controller for that robot. As 
+teams shift over the course of the semester, robots will be reassigned to the 
+new teams.
 
-The equipment should be returned to the instructor at the end of the semester.
+The robots should be returned to the instructor at the end of the semester.
 Students will be billed for any unreturned equipment.
-<!--
-Each student will need to supply a smartphone or tablet running the Android operating system.
-Students for whom this presents a difficulty should contact the instructor, who will investigate
-possible arrangements.
-
-## App Download Link
-
-[Download App](https://github.com/gjf2a/Tracker2/releases)
--->

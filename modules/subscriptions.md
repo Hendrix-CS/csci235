@@ -1,6 +1,6 @@
 ---
 layout: work
-type: Activity
+type: Module
 num: 1
 worktitle: ROS2 Subscriptions
 ---

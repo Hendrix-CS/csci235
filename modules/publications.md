@@ -1,6 +1,6 @@
 ---
 layout: work
-type: Activity
+type: Module
 num: 2
 worktitle: ROS2 Publications
 ---
