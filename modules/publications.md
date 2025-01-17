@@ -101,7 +101,7 @@ the subscriber.
 ## Console User Interfaces
 
 <!-- Exploration: Curses UI -->
-Examine the following program:
+Create a file called `curses_demo.py` and copy and paste the code below into it:
 ```
 import curses
 
@@ -167,7 +167,7 @@ class CursesNode(Node):
             self.stdscr.addstr(i + self.first_line, 0, line)
 
 
-def curses_runner(nodes: List[Node], stdscr):
+def run_curses_nodes(nodes: List[Node], stdscr):
     curses.cbreak()
     stdscr.nodelay(True)
     stdscr.clear()
@@ -198,7 +198,7 @@ import curses, sys
 
 import rclpy
 from ir_counter import IrCounterNode
-from curses_runner import curses_runner, CursesNode
+from curses_runner import run_curses_nodes, CursesNode
 
 
 def main(stdscr):
@@ -206,7 +206,7 @@ def main(stdscr):
     robot = sys.argv[1]
     node = IrCounterNode(f'{robot}_IrCounterNode', robot)
     printer = CursesNode(f'{robot}_CursesNode', node.topic_name, 2, stdscr)
-    curses_runner([node, printer], stdscr)
+    run_curses_nodes([node, printer], stdscr)
     rclpy.shutdown()
 
 
@@ -218,8 +218,12 @@ if __name__ == '__main__':
 ```
 
 Answer the following questions:
-* What do you think these two programs will do?
-* How does the `CursesNode` work?
+* Carefully examine `curses_runner.py`:
+  * How is it similar to `curses_demo.py`? 
+  * How does the `CursesNode` work?
+* Now examine `curses_printer.py`:
+  * How does it interact with `curses_runner.py`?
+  * It creates two ROS2 nodes. How do they interact with each other and with `curses`?
 <!-- Application: Curses Console UI for sensor values -->
 <!-- Application: Modules -->
 * What modifications need to be made to `curses_printer.py` to display 
@@ -251,7 +255,6 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 * Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
   of two meters.
 
-<!-- Exploration: Twist examples -->
 <!-- Exploration: cmd_vel from Python -->
 <!-- Concept Invention: Understanding Twists -->
 <!-- Application: Integrating motor commands -->
