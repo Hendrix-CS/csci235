@@ -167,7 +167,7 @@ class CursesNode(Node):
             self.stdscr.addstr(i + self.first_line, 0, line)
 
 
-def run_curses_nodes(nodes: List[Node], stdscr):
+def run_curses_nodes(stdscr, nodes: List[Node]):
     curses.cbreak()
     stdscr.nodelay(True)
     stdscr.clear()
@@ -189,6 +189,10 @@ def run_curses_nodes(nodes: List[Node], stdscr):
     executor.shutdown()
     for n in nodes:
         n.destroy_node()    
+
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
 ```
 
 Then create `curses_printer.py` and copy and paste the code below into it:
@@ -206,7 +210,7 @@ def main(stdscr):
     robot = sys.argv[1]
     node = IrCounterNode(f'{robot}_IrCounterNode', robot)
     printer = CursesNode(f'{robot}_CursesNode', node.topic_name, 2, stdscr)
-    run_curses_nodes([node, printer], stdscr)
+    run_curses_nodes(stdscr, [node, printer])
     rclpy.shutdown()
 
 
