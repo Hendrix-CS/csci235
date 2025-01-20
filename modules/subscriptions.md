@@ -158,6 +158,7 @@ ir_intensity_front_right            3
 ir_intensity_right                  0
 ```
 
+## Battery State
 <!-- Exploration: Battery State Topic -->
 Next, let's explore some more sensors. Run `ros2 topic list` and examine the 
 output. Then answer the following questions:
@@ -190,6 +191,7 @@ ir_intensity_right                  1
 Battery level: 100.00%
 ```
 
+## Frequencies
 <!-- Exploration: Frequency -->
 <!-- Exploration: Modules -->
 * In a new file called `frequency.py` (in the same directory as 
@@ -268,6 +270,57 @@ ir_intensity_front_center_right     0
 ir_intensity_front_right            4
 ir_intensity_right                  0
 ```
+
+## Time-based Callbacks
+
+Copy and paste the code below into a new file called `timer_demo.py`:
+```
+import sys
+import rclpy
+from rclpy.node import Node
+
+class TimedNode(Node):
+    def __init__(self, node_name: str):
+        super().__init__(node_name)
+        self.counter = 0
+        self.create_timer(0.5, self.timer_callback)
+
+    def timer_callback(self):
+        self.counter += 1
+        print(f"count: {self.counter}")
+
+
+def main():
+    rclpy.init()
+    robot = sys.argv[1]
+    node = TimedNode(f'{robot}_TimedNode')
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python3 timer_demo.py robot_name")
+    else:
+        main()
+```
+
+<!-- Exploration: Timer callbacks -->
+<!-- Application: Creating ROS2 nodes in Python -->
+* What do you expect the program to do when it runs?
+<!-- Concept formation: Timer callbacks -->
+* Run the program. How frequently did it print the count?
+* How would you modify the program so that it prints the count twice as often?
+  * Implement and test your modification. Did it work as you predicted?
+* How would you modify the program so that it prints the count half as often?
+  * Implement and test your modification. Did it work as you predicted?
+<!-- Application: Timer callbacks -->
+* Create a copy of `sensor_viewer.py` called `timed_sensor_viewer.py`. Modify
+  `timed_sensor_viewer.py` as follows:
+  * Add a timer callback, set for executing twice per second.
+  * Modify the IR callback so that it records the message rather than printing it.
+  * Print both the IR message and the battery state message in the timer callback.
+    * The format should be identical to the original.
 
 <!-- Exploration: IR Values -->
 * Select at least five different surfaces to assess the IR sensor values. 
