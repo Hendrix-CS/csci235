@@ -46,17 +46,17 @@ Upon completing this course, our goal is for you to be able to:
 | 2/11 | Tue | Project 1 |  |  Module 4 |
 | 2/13 | Thu | Project 1 |  |  |  
 |      |
-| 2/18 | Tue | Project 1 Presentations |  |  |
+| 2/18 | Tue | Project 1 Presentations |  | Project 1 |
 | 2/20 | Thu | In-Class Essay 1  |  |  |  
 |      |
 | 2/25 | Tue | Module 5: Reinforcement Learning  |  |  |
-| 2/27 | Thu | Module 6: Vision 1: Motion |  |  |  
+| 2/27 | Thu | Module 6: Vision 1: Motion |  | Module 5 |  
 |      |
-| 3/4  | Tue | Module 7: Vision 2: Recognition |  |  | 
-| 3/6  | Thu | Project 2  |  |  |  
+| 3/4  | Tue | Module 7: Vision 2: Recognition |  | Module 6 | 
+| 3/6  | Thu | Project 2  |  | Module 7 |  
 |      |
 | 3/11 | Tue | Project 2 |  |  | 
-| 3/13 | Thu | Project 2 Presentations |  |  |   
+| 3/13 | Thu | Project 2 Presentations |  | Project 2 |   
 |      |
 | 3/18 | Tue | In-Class Essay 2 |  |  |  
 | 3/20 | Thu | Module 8: Planning |  |  | 
@@ -64,11 +64,11 @@ Upon completing this course, our goal is for you to be able to:
 | 3/25 | Tue | Spring Break |  |  |  
 | 3/27 | Thu | Spring Break |  |  |  
 |      |
-| 4/1  | Tue | Module 9: Mapping |  |  |  
-| 4/3  | Thu | Project 3 |  |  |  
+| 4/1  | Tue | Module 9: Mapping |  | Module 8 |  
+| 4/3  | Thu | Project 3 |  | Module 9 |  
 |      
 | 4/8  | Tue | Project 3 |  |  |  
-| 4/10 | Thu | Project 3 Presentations |  |  |  
+| 4/10 | Thu | Project 3 Presentations |  | Project 3 |  
 |      |
 | 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  |  
 | 4/17 | Thu | Final Project work |  |  |
