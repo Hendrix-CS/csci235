@@ -32,54 +32,54 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-|Date  |Day  |Topic/Module |Reading |Assigned |Due |
-| ---  | --- | --- | --- | --- | --- |
-| 1/21 | Tue | Overview<br>Robots in Science Fiction |  | [Robots: Fiction and Reality]({{site.baseurl}}/essays/robots_sci_fi.html) |  |
-| 1/23 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |  |
+|Date  |Day  |Topic/Module |Reading |Due |
+| ---  | --- | ---         | ---    | --- |
+| 1/21 | Tue | Overview<br>Robots in Science Fiction<br> [Robots: Fiction and Reality]({{site.baseurl}}/essays/robots_sci_fi.html) |  |
+| 1/23 | Thu | Discussion of Short Stories | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |
 |      |
-| 1/28 | Tue | [Module 1: ROS2 Subscriptions]({{site.baseurl}}/modules/subscriptions.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | | Robots: Fiction and Reality |
-| 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  |  |  |
+| 1/28 | Tue | [Module 1: ROS2 Subscriptions]({{site.baseurl}}/modules/subscriptions.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Robots: Fiction and Reality |
+| 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
 |      |
-| 2/4  | Tue | Module 3: Fuzzy Logic |
-| 2/6  | Thu | Module 4: State Machines |
+| 2/4  | Tue | Module 3: Fuzzy Logic | | Module 2 |
+| 2/6  | Thu | Module 4: State Machines | | Module 3 |
 |      |
-| 2/11 | Tue | Project 1 |  |  |  |
-| 2/13 | Thu | Project 1 |  |  |  |
+| 2/11 | Tue | Project 1 |  |  Module 4 |
+| 2/13 | Thu | Project 1 |  |  |  
 |      |
-| 2/18 | Tue | Project 1 Presentations |  |  |  |
-| 2/20 | Thu | In-Class Essay 1  |  |  |  |
+| 2/18 | Tue | Project 1 Presentations |  |  |
+| 2/20 | Thu | In-Class Essay 1  |  |  |  
 |      |
-| 2/25 | Tue | Module 5: Reinforcement Learning  |  |  |  |
-| 2/27 | Thu | Module 6: Vision 1: Motion |  |  |  |
+| 2/25 | Tue | Module 5: Reinforcement Learning  |  |  |
+| 2/27 | Thu | Module 6: Vision 1: Motion |  |  |  
 |      |
-| 3/4  | Tue | Module 7: Vision 2: Recognition |  |  | |
-| 3/6  | Thu | Project 2  |  |  |  |
+| 3/4  | Tue | Module 7: Vision 2: Recognition |  |  | 
+| 3/6  | Thu | Project 2  |  |  |  
 |      |
-| 3/11 | Tue | Project 2 |  |  | |
-| 3/13 | Thu | Project 2 Presentations |  |  |   |
+| 3/11 | Tue | Project 2 |  |  | 
+| 3/13 | Thu | Project 2 Presentations |  |  |   
 |      |
-| 3/18 | Tue | In-Class Essay 2 |  |  |  |
-| 3/20 | Thu | Module 8: Planning |  |  | |
+| 3/18 | Tue | In-Class Essay 2 |  |  |  
+| 3/20 | Thu | Module 8: Planning |  |  | 
 |      |
-| 3/25 | Tue | Spring Break |  |  |  |
-| 3/27 | Thu | Spring Break |  |  |  |
+| 3/25 | Tue | Spring Break |  |  |  
+| 3/27 | Thu | Spring Break |  |  |  
 |      |
-| 4/1  | Tue | Module 9: Mapping |  |  |  |
-| 4/3  | Thu | Project 3 |  |  |  |
+| 4/1  | Tue | Module 9: Mapping |  |  |  
+| 4/3  | Thu | Project 3 |  |  |  
+|      
+| 4/8  | Tue | Project 3 |  |  |  
+| 4/10 | Thu | Project 3 Presentations |  |  |  
 |      |
-| 4/8  | Tue | Project 3 |  |  |  |
-| 4/10 | Thu | Project 3 Presentations |  |  |  |
+| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  |  
+| 4/17 | Thu | Final Project work |  |  |
 |      |
-| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | [Final Project Proposal]({{site.baseurl}}/projects/Final.html) |  |
-| 4/17 | Thu | Final Project work |  |  |  |
+| 4/22 | Tue | Final Project proposal presentations |  | Final Project Proposal |
+| 4/24 | Thu | In-Class Essay 3 |  |  |  
 |      |
-| 4/22 | Tue | Final Project proposal presentations |  |  | Final Project Proposal |
-| 4/24 | Thu | In-Class Essay 3 |  |  |  |
+| 4/29 | Tue | Final Project Progress Reports |  |  |  
+| 5/1  | Thu | Final Project work |  |  |  
 |      |
-| 4/29 | Tue | Final Project Progress Reports |  |  |  |
-| 5/1  | Thu | Final Project work |  |  |  |
-|      |
-| 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 <hr>
 # <a name="assessment">Assessment</a>
