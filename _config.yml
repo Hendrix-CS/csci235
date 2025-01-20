@@ -70,9 +70,9 @@ resources:
   - name: iRobot Create3
     image: assets/images/create3.png
     url: https://iroboteducation.github.io/create3_docs/
-  - name: ROS2 Humble Hawksbill
-    image: assets/images/humble_hawksbill.png
-    url: https://docs.ros.org/en/humble/index.html
+  - name: ROS2 Iron Irwini
+    image: assets/images/iron_irwini.png
+    url: https://docs.ros.org/en/iron/index.html
   - name: Python 3
     image: assets/images/pythonlogo.png
     url: http://python.org
