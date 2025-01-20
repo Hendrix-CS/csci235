@@ -17,13 +17,13 @@ from std_msgs.msg import String
 
 
 class IrCounterNode(Node):
-    def __init__(self, node_name: str, namespace: str):
+    def __init__(self, node_name: str, robot_name: str):
         super().__init__(node_name)
-        if len(namespace) > 0 and not namespace.startswith('/'):
-            namespace = f"/{namespace}"
-        self.create_subscription(IrIntensityVector, f"{namespace}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
+        if len(robot_name) > 0 and not robot_name.startswith('/'):
+            robot_name = f"/{robot_name}"
+        self.create_subscription(IrIntensityVector, f"{robot_name}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
         self.counter = 0
-        self.topic_name = f'{namespace}_msgs'
+        self.topic_name = f'{robot_name}_msgs'
         self.topic = self.create_publisher(String, self.topic_name, qos_profile_sensor_data)
 
     def ir_callback(self, msg: IrIntensityVector):
@@ -168,27 +168,36 @@ class CursesNode(Node):
 
 
 def run_curses_nodes(stdscr, nodes: List[Node]):
+    executor = MultiThreadedExecutor()
+    startup(stdscr, executor, nodes)
+    run_loop(executor)
+    shutdown(stdscr, executor, nodes)
+
+
+def startup(stdscr, executor: MultiThreadedExecutor, nodes: List[Node]):
     curses.cbreak()
     stdscr.nodelay(True)
     stdscr.clear()
-    executor = MultiThreadedExecutor()
     for n in nodes:
         executor.add_node(n)
-    
-    running = True
-    while running:
+
+
+def run_loop(executor: MultiThreadedExecutor):
+    while True:
         try:
             executor.spin_once()
             k = stdscr.getch()
             if k != -1 and chr(k) == 'q':
-                running = False
+                return
         except curses.error as e:
             if str(e) != 'no input':
                 stdscr.addstr(0, 0, traceback.format_exc())
 
+
+def shutdown(stdscr, executor: MultiThreadedExecutor, nodes: List[Node]):
     executor.shutdown()
     for n in nodes:
-        n.destroy_node()    
+        n.destroy_node()   
 
     curses.nocbreak()
     curses.echo()
@@ -224,7 +233,10 @@ if __name__ == '__main__':
 Answer the following questions:
 * Carefully examine `curses_runner.py`:
   * How is it similar to `curses_demo.py`? 
-  * How does the `CursesNode` work?
+  * How do objects of the `CursesNode` class work?
+  * What does the `startup()` function do?
+  * What does the `run_loop()` function do?
+  * What does the `shutdown()` function do?
 * Now examine `curses_printer.py`:
   * How does it interact with `curses_runner.py`?
   * It creates two ROS2 nodes. How do they interact with each other and with `curses`?
@@ -258,6 +270,127 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 <!-- Concept Invention: Create your own Twists -->
 * Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
   of two meters.
+
+## Processing Keystrokes in `curses`
+
+A **thread** represents a distinct stream of execution. Each ROS2 node runs in its own
+thread in parallel with the other nodes. This enables them to handle their callbacks
+immediately when events happen, regardless of what else is happening in the rest of
+the program.
+* Go back and examine the `startup()` function in `curses_runner.py`. By what
+mechanism are the nodes placed into separate threads?
+
+Because code in different threads can run in an unpredictable order, one must be careful
+when communicating between threads. We will use the 
+[`Queue`](https://docs.python.org/3/library/queue.html) class for this purpose.
+Add the following `import` to `curses_runner.py`:
+```
+from queue import Queue
+```
+
+The `put()` method adds an item to a `Queue`. The `get()` method removes the oldest item
+from the queue. The `empty()` method returns `True` if there is nothing in the `Queue`, 
+and `False` otherwise.
+
+As `curses` is running in its own thread, we will use `Queue` objects to send keyboard
+inputs to nodes that are intended to respond to them.
+
+Copy and paste into `curses_runner.py` this modified version of `startup()`:
+```
+def startup(stdscr, executor: MultiThreadedExecutor, nodes: List[Node], key_nodes: List[Node]):
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.clear()
+    for n in nodes:
+        executor.add_node(n)
+        if hasattr(n, 'key_queue') and type(n.key_queue) == Queue:
+            key_nodes.append(n)
+```
+
+Next, copy and paste into `curses_runner.py` this modified version of `run_loop()`:
+```    
+def run_loop(executor: MultiThreadedExecutor, key_nodes: List[Node]):
+    while True:
+        try:
+            executor.spin_once()
+            k = stdscr.getch()
+            if k != -1 and chr(k) == 'q':
+                return
+            else:
+                for key_node in key_nodes:
+                    key_node.key_queue.put(k)
+        except curses.error as e:
+            if str(e) != 'no input':
+                stdscr.addstr(0, 0, traceback.format_exc())
+```
+
+Finally, copy and paste into `curses_runner.py` this modified version of `run_curses_nodes()`:
+```
+def run_curses_nodes(stdscr, nodes: List[Node]):
+    executor = MultiThreadedExecutor()
+    key_nodes = []
+    startup(stdscr, executor, nodes, key_nodes)
+    run_loop(executor, key_nodes)
+    shutdown(stdscr, executor, nodes)
+```
+
+Answer the following questions:
+* What do you think the `hasattr()` function does?
+* What is the overall effect of the `if` statement containing `hasattr()`?
+* What would you need to do when designing a class to ensure it is included in the 
+  `key_nodes` list?
+* What is the purpose of the `key_nodes` list?
+* How is that purpose achieved?
+
+Create a new Python program named `timer_demo.py`. Copy and paste the following code into it:
+```
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from std_msgs.msg import String
+
+import curses
+from queue import Queue
+from curses_runner import run_curses_nodes, CursesNode
+
+class KeyNode(Node):
+    def __init__(self, node_name: str, print_topic: str):
+        super().__init__(node_name)
+        self.topic = self.create_publisher(String, print_topic, qos_profile_sensor_data)
+        self.create_timer(0.25, self.timer_callback)
+        self.key_queue = Queue()
+
+    def timer_callback(self):
+        if not self.key_queue.empty():
+            msg = self.key_queue.get()
+            key = chr(msg)
+            output = String()
+            output.data = f"Received key {key}"
+            self.topic.publish(output)
+
+
+def main(stdscr):
+    rclpy.init()
+    robot = sys.argv[1]
+    topic = f"/{robot}_keys"
+    curses_node = CursesNode(f'{robot}_CursesNode', topic, 2, stdscr)
+    key_node = KeyNode(f'{robot}_KeyNode', topic)
+    run_curses_nodes(stdscr, [curses_node, key_node])
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python3 timer_demo.py robot_name")
+    else:
+        curses.wrapper(main)
+```
+
+Examine the program. Then answer the following questions:
+* How often do you expect `timer_callback()` to run?
+* How will `key_node` interact with `curses_node`?
+* Based on that interaction, how do you expect the program to behave?
+* Run the program. Was your previous answer correct? If not, elaborate.
 
 ## Writing a motor publisher
 

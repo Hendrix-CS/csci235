@@ -20,8 +20,10 @@ window, then use ssh to open the remote shell.
 <!-- Exploration: IR Topic, Topics in general -->
 * From the shell on your robot's Raspberry Pi, type `ros2 topic list`
   * If it displays just two lines, type it again until you see a longer list
+* Each robot has a distinct name. When you see the longer topic list, look for a topic
+  ending with `ir_intensity`. What is the name that appears before `ir_intensity`?
 * Once the full list of topics appears, type 
-  `ros2 topic echo /archangel/ir_intensity`
+  `ros2 topic echo /[your robot name]/ir_intensity`
 * After running a few seconds, type Control-C. It should stop.
 * Examine the output
   * What information is contained in the output?
@@ -58,11 +60,11 @@ from irobot_create_msgs.msg import IrIntensityVector
 
 
 class SensorNode(Node):
-    def __init__(self, node_name: str, namespace: str):
+    def __init__(self, node_name: str, robot_name: str):
         super().__init__(node_name)
-        if len(namespace) > 0 and not namespace.startswith('/'):
-            namespace = f"/{namespace}"
-        self.create_subscription(IrIntensityVector, f"{namespace}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
+        if len(robot_name) > 0 and not robot_name.startswith('/'):
+            robot_name = f"/{robot_name}"
+        self.create_subscription(IrIntensityVector, f"{robot_name}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
 
     def ir_callback(self, msg: IrIntensityVector):
         print(msg)
@@ -241,8 +243,7 @@ separate file outside our `Node` definition file?
 * Extend `sensor_viewer.py` to display update frequencies for these sensors. 
   * To access the `Frequency` class, add the following `import` line:
     * `from frequency import Frequency`
-  * Your output should look like the following. (**Note**: If `hz` is undefined, it should
-    simply not appear in the output.)
+  * Your output should look like the following. 
 ```
 ** IR timestamp: 12.745317869 (62.5 hz)
 ir_intensity_side_left              0
@@ -255,8 +256,8 @@ ir_intensity_right                  2
 ** Battery timestamp: 8.642997608 (0.2 hz)
 Battery level: 96.00%
 ```
-* Note that if `hz` is undefined, it should not appear in the output. Here is a sample output
-  for that situation:
+* Note that if `hz` is undefined, **it should not appear in the output**. Here is a sample 
+output for that situation:
 ```
 ** IR timestamp: 0.000000000
 ir_intensity_side_left              0
