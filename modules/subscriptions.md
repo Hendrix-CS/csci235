@@ -403,8 +403,8 @@ shell and type `ros2 topic list`. Then answer the following questions:
 * What have you learned about ROS2 topics from this exercise?
 
 <!-- Application: Separating modules from sensor_viewer.py -->
-Using these two programs and `sensor_viewer.py` as resources, recreate 
-`sensor_viewer.py` as two nodes: a publisher (in `sensor_messenger.py`) and a 
+Using these two programs and `timed_sensor_viewer.py` as resources, recreate 
+`timed_sensor_viewer.py` as two nodes: a publisher (in `sensor_messenger.py`) and a 
 subscriber (in `sensor_printer.py`). Rather than directly printing the 
 IR and battery messages straight to the console, it should instead create a 
 string containing that message and publish it. Printing will be handled by 
