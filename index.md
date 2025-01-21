@@ -125,7 +125,15 @@ report. Each report includes the following:
   * Brief descriptions of activities undertaken.
   * Observations of activities.
   * Assessment of the degree to which session goals were met.
-* A conclusion detailing the degree of success of the project.
+* A discussion of each ROS2 node created for the project.
+  * For each node, discuss the following:
+    * To what does it subscribe?
+    * To where does it publish?
+    * How does it determine what to publish?
+    * What other interactions with the environment does it have?
+* A conclusion detailing the degree of success of the project and
+  describing future work, that is, the next steps to take if the
+  project were to continue.
 
 ### Project Presentations
 
