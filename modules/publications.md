@@ -26,6 +26,7 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 <!-- Concept Invention: Create your own Twists -->
 * Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
   of 50 centimeters.
+* What tactics did you employ to determine the radius of the circle the robot traversed?
 
 ## Motor commands in Python
 
