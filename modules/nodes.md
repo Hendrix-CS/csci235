@@ -335,7 +335,7 @@ class IrCounterNode(Node):
         super().__init__(f"{robot_name}_IrCounterNode")
         self.create_subscription(IrIntensityVector, f"{robot_name}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
         self.counter = 0
-        self.topic_name = f'{robot_name}_msgs'
+        self.topic_name = f'{robot_name}_ir_counts'
         self.topic = self.create_publisher(String, self.topic_name, qos_profile_sensor_data)
 
     def ir_callback(self, msg: IrIntensityVector):
