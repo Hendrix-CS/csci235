@@ -111,9 +111,9 @@ will be assigned. In each project, students will devise a creative robotics proj
 the ideas investigated in the just-completed unit.
 
 The first class day for each project will be a brainstorming session in which students devise
-topics, select project partners, and establish project goals. The second class day will be a 
-working session for the project. On the third class day, each group will give a presentation 
-about their project.
+topics, select project partners, establish project goals, and begin work on the project. The 
+second class day will be a working session for the project. On the third class day, each group 
+will give a presentation to the class about their project.
 
 ### Project Reports
 For each project, each student (even if part of a team) should submit an individual project
@@ -129,12 +129,26 @@ report. Each report includes the following:
 
 ### Project Presentations
 
-On the due date of each project, each team will play a video in class. The video should meet the following constraints:
-* It must be between 60 and 120 seconds in duration.
-* It should include brief narration of the strategy for the project.
-  * Narration may be pre-recorded or provided live as the video runs.
-* It should demonstrate the student's robots fulfilling the goals for the project. 
-  * Narration should contextualize each demonstrated activity.
+On the due date of each project, each team will give a presentation about their project.
+The presentation should include the following:
+* Five to seven slides:
+  * A title slide, including the name of the project and team participants.
+  * A slide describing the project goals.
+  * 1-3 slides describing the ROS2 nodes created for the project.
+    * For each node, discuss the following:
+      * To what does it subscribe?
+      * To where does it publish?
+      * How does it determine what to publish?
+      * What other interactions with the environment does it have?
+  * An assessment of the degree to which project goals were met.
+  * Future work
+    * If one were to continue the project, what would be the next things to address?
+* A video of the robot in action. The video should meet the following constraints:
+  * It must be between 60 and 120 seconds in duration.
+  * It should include brief narration of the strategy for the project.
+    * Narration may be pre-recorded or provided live as the video runs.
+  * It should demonstrate the student's robots fulfilling the goals for the project. 
+    * Narration should contextualize each demonstrated activity.
   
 ### Presentation Questions
 * Students should be prepared to answer questions after their video presentation concludes. 
@@ -142,18 +156,16 @@ On the due date of each project, each team will play a video in class. The video
   
 ### Project Credits
 Robot credits for projects will be awarded as follows:
-* Achieving all agreed-upon project goals: 2 robot credits
-  * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
-    and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
-* Achieving some agreed-upon project goals: 1 robot credit
-* Submitting a satsifactory project report: 1 robot credit
-* Delivering a satisfactory project presentation: 1 robot credit
+* For each project:
+    * Achieving all agreed-upon project goals: 2 robot credits
+      * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
+        and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
+    * Achieving some but not all of the agreed-upon project goals: 1 robot credit
+    * Submitting a satsifactory project report: 1 robot credit
+    * Delivering a satisfactory project presentation: 1 robot credit
 * Asking questions during presentations:
   * Ask at least one question in every presentation: 2 robot credits
   * Ask at least one question in two presentations: 1 robot credit
-
-Each student who asks a substantive question in at least three of the four project presentation days 
-(including the final project presentation) will receive one additional robot credit.
   
 ## <a name="essays">Essays</a>
 A total of three in-class essays and one take-home essay will be assigned over the course of the semester. 
