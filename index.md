@@ -90,6 +90,14 @@ The primary means by which you be introduced to the course material is through n
 will guide you through a learning process on a particular topic. Modules not completed during 
 class time should be completed with your group outside of class. 
 
+Module submissions consist of two parts:
+* Short answers to questions posed within the module.
+* Python programs to modify or write.
+
+Each student will submit both their answers and the Python programs **individually** via Teams.
+As the modules are a key aspect of how students learn the course material, this ensures that
+every student has a record of what was learned.
+
 Modules submitted by the start of the next class period will receive one robot credit for a
 sincere, on-time attempt. Submissions which are complete and correct will receive two
 robot credits. Modules not deemed complete and correct may be revised and resubmitted after a 
