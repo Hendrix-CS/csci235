@@ -25,7 +25,7 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 * Next, try linear x at 0.3 and angular z at 0.5. What happens?
 <!-- Concept Invention: Create your own Twists -->
 * Devise and publish a `TwistStamped` message that causes the robot to drive in a circle with a radius 
-  of two meters.
+  of 50 centimeters.
 
 ## Motor commands in Python
 
@@ -54,8 +54,7 @@ class DriveNode(Node):
 
 def main():
     rclpy.init()
-    robot = sys.argv[1]
-    node = DriveNode(robot)
+    node = DriveNode(sys.argv[1])
     rclpy.spin(node)
     rclpy.shutdown()
 
@@ -80,7 +79,7 @@ Answer the following questions:
 <!-- Application: cmd_vel from the command line -->
 * How might you modify the `TwistStamped` object so that the robot drives forward?
 * Perform the modification. Continue to experiment until it works as you expect.
-* Modify the program so that the robot drives in a circle of radius two meters, using the 
+* Modify the program so that the robot drives in a circle of radius 50 centimeters, using the 
   command-line `TwistStamped` message you created earlier.
 
 ## Console User Interfaces
