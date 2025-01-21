@@ -178,8 +178,8 @@ for writing the essay, which must be submitted at the end of the class period.
 
 The essays will be commented upon by the instructor and returned. Each student should then
 revise their essay, taking into account the instructor comments. The revised essay should be 
-typed and submitted electronically. The original handwritten essay should also be resubmitted. 
-The revised essay will be due one week after the original essays are returned. 
+typed and submitted electronically. The original handwritten essay should also be resubmitted
+physically. The revised essay will be due one week after the original essays are returned. 
 
 Students are welcome to make use of additional resources when revising their essays; proper
 citation should be included for each resource. Plagiarism, including submitting an essay 
