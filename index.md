@@ -220,15 +220,15 @@ Final course grades are earned based on accumulated credits, as follows:
   * Earn at least 11 out of 12 possible essay credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 24 robot credits
+  * Earn at least 26 robot credits
   * Earn at least 9 essay credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 18 robot credits
+  * Earn at least 22 robot credits
   * Earn at least 7 essay credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 12 robot credits
+  * Earn at least 18 robot credits
   * Earn at least 4 essay credits
 
 ## <a name="equipment">Equipment</a>
