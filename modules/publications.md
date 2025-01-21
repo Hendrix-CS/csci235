@@ -112,6 +112,10 @@ def main(stdscr):
             if str(e) != 'no input':
                 stdscr.addstr(0, 0, traceback.format_exc())
                 stdscr.refresh()
+
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
         
 
 if __name__ == '__main__':
@@ -140,8 +144,8 @@ from std_msgs.msg import String
 from rclpy.executors import MultiThreadedExecutor
 
 class CursesNode(Node):
-    def __init__(self, node_name: str, print_topic: str, first_line: int, stdscr):
-        super().__init__(node_name)
+    def __init__(self, print_topic: str, first_line: int, stdscr):
+        super().__init__(f"CursesNode_{print_topic}")
         self.create_subscription(String, print_topic, self.callback, qos_profile_sensor_data)
         self.first_line = first_line
         self.stdscr = stdscr
@@ -203,7 +207,7 @@ def main(stdscr):
     rclpy.init()
     robot = sys.argv[1]
     node = IrCounterNode(f'{robot}_IrCounterNode', robot)
-    printer = CursesNode(f'{robot}_CursesNode', node.topic_name, 2, stdscr)
+    printer = CursesNode(node.topic_name, 2, stdscr)
     run_curses_nodes(stdscr, [node, printer])
     rclpy.shutdown()
 
@@ -320,8 +324,8 @@ from queue import Queue
 from curses_runner import run_curses_nodes, CursesNode
 
 class KeyNode(Node):
-    def __init__(self, node_name: str, print_topic: str):
-        super().__init__(node_name)
+    def __init__(self, print_topic: str):
+        super().__init__(f"KeyNode_{print_topic}")
         self.topic = self.create_publisher(String, print_topic, qos_profile_sensor_data)
         self.create_timer(0.25, self.timer_callback)
         self.key_queue = Queue()
@@ -339,15 +343,15 @@ def main(stdscr):
     rclpy.init()
     robot = sys.argv[1]
     topic = f"/{robot}_keys"
-    curses_node = CursesNode(f'{robot}_CursesNode', topic, 2, stdscr)
-    key_node = KeyNode(f'{robot}_KeyNode', topic)
+    curses_node = CursesNode(topic, 2, stdscr)
+    key_node = KeyNode(topic)
     run_curses_nodes(stdscr, [curses_node, key_node])
     rclpy.shutdown()
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python3 timer_demo.py robot_name")
+        print("Usage: python3 key_timer_demo.py robot_name")
     else:
         curses.wrapper(main)
 ```
@@ -362,6 +366,7 @@ Examine the program. Then answer the following questions:
 <!-- Application: -->
 Make a copy of `key_timer_demo.py` called `key_motor_demo.py`. Make the following modifications:
 * Add imports for `sys` and `TwistStamped`.
+* Pass in and retain as object state the robot's name.
 * Write two functions `forward()` and `turn()`. Each should return a `TwistStamped`.
 * Add a motor publisher in the constructor.
 * In the timer callback:

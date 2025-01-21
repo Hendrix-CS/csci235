@@ -2,7 +2,7 @@
 layout: work
 type: Module
 num: 1
-worktitle: ROS2 Subscriptions
+worktitle: ROS2 Nodes, Topics, and Subscriptions
 ---
 
 ## Getting Started
