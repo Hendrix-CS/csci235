@@ -164,8 +164,8 @@ Robot credits for projects will be awarded as follows:
     * Submitting a satsifactory project report: 1 robot credit
     * Delivering a satisfactory project presentation: 1 robot credit
 * Asking questions during presentations:
-  * Ask at least one question in every presentation: 2 robot credits
-  * Ask at least one question in two presentations: 1 robot credit
+  * Ask at least one question on each of the four presentation days: 2 robot credits
+  * Ask at least one question on each of two presentation days: 1 robot credit
   
 ## <a name="essays">Essays</a>
 A total of three in-class essays and one take-home essay will be assigned over the course of the semester. 
