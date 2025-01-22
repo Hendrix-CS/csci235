@@ -278,7 +278,7 @@ def startup(stdscr, executor: MultiThreadedExecutor, nodes: List[Node], key_node
 
 Next, copy and paste into `curses_runner.py` this modified version of `run_loop()`:
 ```    
-def run_loop(executor: MultiThreadedExecutor, key_nodes: List[Node]):
+def run_loop(stdscr, executor: MultiThreadedExecutor, key_nodes: List[Node]):
     while True:
         try:
             executor.spin_once()
@@ -299,7 +299,7 @@ def run_curses_nodes(stdscr, nodes: List[Node]):
     executor = MultiThreadedExecutor()
     key_nodes = []
     startup(stdscr, executor, nodes, key_nodes)
-    run_loop(executor, key_nodes)
+    run_loop(stdscr, executor, key_nodes)
     shutdown(stdscr, executor, nodes)
 ```
 
