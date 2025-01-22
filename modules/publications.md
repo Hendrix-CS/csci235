@@ -124,7 +124,10 @@ if __name__ == '__main__':
 
 Run the program. Then answer the following questions:
 * What does the program do?
+* Change the `3` in `stdscr.addstr()` to `2`. Then run the program again. What happens?
+* Change the `5` in `stdscr.addstr()` to `7`. Then run the program again. What happens?
 <!-- Concept Invention: Curses -->
+* What can you conclude about the `curses` coordinate system from this?
 * What is the purpose of the `curses` library?
 * How might the `curses` library be useful for our ROS2 programs? In 
   particular, what advantages might it have over our previous approach to I/O?
