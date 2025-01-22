@@ -162,7 +162,7 @@ class CursesNode(Node):
 def run_curses_nodes(stdscr, nodes: List[Node]):
     executor = MultiThreadedExecutor()
     startup(stdscr, executor, nodes)
-    run_loop(executor)
+    run_loop(stdscr, executor)
     shutdown(stdscr, executor, nodes)
 
 
@@ -174,7 +174,7 @@ def startup(stdscr, executor: MultiThreadedExecutor, nodes: List[Node]):
         executor.add_node(n)
 
 
-def run_loop(executor: MultiThreadedExecutor):
+def run_loop(stdscr, executor: MultiThreadedExecutor):
     while True:
         try:
             executor.spin_once()
@@ -208,8 +208,7 @@ from curses_runner import run_curses_nodes, CursesNode
 
 def main(stdscr):
     rclpy.init()
-    robot = sys.argv[1]
-    node = IrCounterNode(f'{robot}_IrCounterNode', robot)
+    node = IrCounterNode(sys.argv[1])
     printer = CursesNode(node.topic_name, 2, stdscr)
     run_curses_nodes(stdscr, [node, printer])
     rclpy.shutdown()
@@ -234,7 +233,7 @@ Answer the following questions:
   * It creates two ROS2 nodes. How do they interact with each other and with `curses`?
 <!-- Application: Curses Console UI for sensor values -->
 <!-- Application: Modules -->
-* What modifications need to be made to `curses_printer.py` to display 
+* What modifications would need to be made to `curses_printer.py` to display 
   the sensor information from `sensor_messenger.py`?
 * Make a copy of `curses_printer.py` called `curses_sensor.py`. Apply the
   modifications you described above. Then run the program.
