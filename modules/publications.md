@@ -283,11 +283,12 @@ def run_loop(stdscr, executor: MultiThreadedExecutor, key_nodes: List[Node]):
         try:
             executor.spin_once()
             k = stdscr.getch()
-            if k != -1 and chr(k) == 'q':
-                return
-            else:
-                for key_node in key_nodes:
-                    key_node.key_queue.put(k)
+            if k != -1:
+                if chr(k) == 'q':
+                    return
+                else:
+                    for key_node in key_nodes:
+                        key_node.key_queue.put(k)
         except curses.error as e:
             if str(e) != 'no input':
                 stdscr.addstr(0, 0, traceback.format_exc())
@@ -316,6 +317,7 @@ Answer the following questions:
 
 Create a new Python program named `key_timer_demo.py`. Copy and paste the following code into it:
 ```
+import sys
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
@@ -343,8 +345,7 @@ class KeyNode(Node):
 
 def main(stdscr):
     rclpy.init()
-    robot = sys.argv[1]
-    topic = f"/{robot}_keys"
+    topic = f"{sys.argv[1]}_keys"
     curses_node = CursesNode(topic, 2, stdscr)
     key_node = KeyNode(topic)
     run_curses_nodes(stdscr, [curses_node, key_node])
