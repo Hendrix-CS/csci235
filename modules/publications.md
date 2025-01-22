@@ -368,27 +368,32 @@ Examine the program. Then answer the following questions:
 ## Remote controlled robot
 <!-- Application: -->
 Make a copy of `key_timer_demo.py` called `key_motor_demo.py`. Make the following modifications:
-* Add imports for `sys` and `TwistStamped`.
+* Add an import for `TwistStamped`.
+* Write two functions `forward()` and `turn()`. Each should take a motor speed as a 
+  parameter and return a `TwistStamped`.
+  * Don't worry about setting the time stamp in the function - do that later.
 * Pass in and retain as object state the robot's name.
-* Write two functions `forward()` and `turn()`. Each should return a `TwistStamped`.
 * Add a motor publisher in the constructor.
 * In the timer callback:
-  * If the key is a `w`, publish a message so that the robot goes forward.
-  * If the key is an `a`, turn left.
-  * If the key is a `d`, turn right.
+  * If the key is a `w`, publish a message created by the `forward()` function.
+  * If the key is an `a`, turn left by publishing a message created by the `turn()` function.
+  * If the key is a `d`, turn right by publishing a message created by the `turn()` function.
+  * When publishing any of these messages, be sure to set the time stamp.
 * Test out the resulting program.
   * How responsive is the robot to your commands?
-  <!-- I expect that they will need to drain the queue -->
-  * How might you modify the program to address any issues that you observed?
-  * Continue to tinker with the program until it is a satisfactory remote control.
-  
-## Sensing and acting
-<!-- Application: -->
-* Make a copy of `key_motor_demo.py` called `key_motor_sensor.py`. Modify it as follows:
-  * Add an instance of your IR-and-battery-monitoring node.
-  * Set up `CursesNode` to display the sensor information.
-  * When `KeyNode` receives keystrokes, it need not publish them to be viewed by the `CursesNode`.
+* Make the following changes to the program:
+  * Stop publishing the keystroke from `KeyNode`.
+  * Create a `SensorNode` object (from `sensor_messenger.py`) and add it to the node list.
+  * Have the `CursesNode` subscribe to the `SensorNode` topic, as we did in `curses_printer.py`.
+  * When processing key inputs in `KeyNode`, empty the queue completely.
+* How does the behavior of the program and robot change with these modifications?
 * Experiment with the program for a while. Using both your experience experimenting with the program,
-  as well as your IR data from the previous module, what would you say is a level of IR node at which 
-  the robot should stop moving forward and start turning?
+  as well as your IR data from the previous module, with what IR values should the robot stop moving 
+  forward and start turning?
 
+## Autonomous Robot
+Make a copy of `key_motor_demo.py` called `motor_sensor_demo.py`. Modify it as follows:
+* Pass the topic name from the `SensorNode` object as a paramter into the `KeyNode` constructor.
+* Have `KeyNode` create a subscription to that topic.
+* In the callback method for the topic, write code that examines the IR values and implements the policy
+  you described in your earlier answer about the IR values by publishing appropriate motor messages.
