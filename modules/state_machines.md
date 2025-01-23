@@ -10,5 +10,6 @@ worktitle: State Machines
 <!-- outline 
 * Introduce hazard sensors
 * Introduce being in different states based on last obstacle encountered
+* Odometry
 * Patrol task
 -->
