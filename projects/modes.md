@@ -43,7 +43,7 @@ color sensor pointed toward the ground. Then implement the following programs:
 
 ### `Patrol2`
 * Some cardboard will be provided for you to create a patrol track.
-* The robot should patrol along the track. It will drive forthe length of the track, followed
+* The robot should patrol along the track. It will drive for the length of the track, followed
   by a 180 degree turn. If it wanders off the track, as determined by the color
   it scans, it will realign itself to be back on course.
 
