@@ -387,13 +387,24 @@ Make a copy of `key_timer_demo.py` called `key_motor_demo.py`. Make the followin
   * Have the `CursesNode` subscribe to the `SensorNode` topic, as we did in `curses_printer.py`.
   * When processing key inputs in `KeyNode`, empty the queue completely.
 * How does the behavior of the program and robot change with these modifications?
-* Experiment with the program for a while. Using both your experience experimenting with the program,
-  as well as your IR data from the previous module, with what IR values should the robot stop moving 
-  forward and start turning?
+* Experiment with the program for a while. Drive the robot forward as much as you can, turning
+  whenever necessary to avoid hitting something. Using both your experience experimenting with the program,
+  as well as your IR data from the previous module, answer the following questions:
+  * Based exclusively on IR values, when should the robot turn left?
+  * When should it turn right?
+  * When it is it okay for it to drive forward?
 
 ## Autonomous Robot
 Make a copy of `key_motor_demo.py` called `motor_sensor_demo.py`. Modify it as follows:
-* Pass the topic name from the `SensorNode` object as a paramter into the `KeyNode` constructor.
-* Have `KeyNode` create a subscription to that topic.
-* In the callback method for the topic, write code that examines the IR values and implements the policy
-  you described in your earlier answer about the IR values by publishing appropriate motor messages.
+* Have `KeyNode` subscribe to the `ir_intensity` topic.
+* In the callback method for the `ir_intensity` topic, examine the IR values and implement the policy
+  you described at the end of the last section.
+* Let the robot run for 60 seconds.
+  * How often does it successfully avoid hitting obstacles? 
+  * How often, and in what circumstances, does it hit obstacles anyway?
+* Based on your observations, devise two variations of your policy. A variation might involve different
+  thresholds for IR values, using different IR sensors in different ways, and so forth. 
+* Run the robot with each variation for 60 seconds from the 
+  same starting point. Then answer the following questions for each policy variation:
+  * How did it perform in comparison with your original policy?
+  * To what aspects of the variation do you attribute the difference in performance (if any)?
