@@ -1,4 +1,4 @@
-30 Pounds of Human Tissue
+## 30 Pounds of Human Tissue
 * What kind of knowledge base would this spaceship need to have to 
   classify all of the objects it observes in the first part 
   of the story?

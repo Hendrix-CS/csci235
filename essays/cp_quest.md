@@ -1,4 +1,4 @@
-Company Property
+## Company Property
 * Part of the expressed dilemma relates to company property, but it also
   relates to the human passenger. Should the vehicle prioritize passenger
   safety? Why or why not?
