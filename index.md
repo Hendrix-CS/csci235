@@ -40,7 +40,7 @@ Upon completing this course, our goal is for you to be able to:
 | 1/28 | Tue | [Module 1: ROS2 Nodes, Topics, and Subscriptions]({{site.baseurl}}/modules/nodes.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Robots: Fiction and Reality |
 | 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
 |      |
-| 2/4  | Tue | Module 3: State Machines | | Module 2 |
+| 2/4  | Tue | [Module 3: State Machines]({{site.baseurl}}/modules/state_machines.html) | | Module 2 |
 | 2/6  | Thu | Module 4: Fuzzy Logic | | Module 3 |
 |      |
 | 2/11 | Tue | Project 1 |  |  Module 4 |
