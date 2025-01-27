@@ -64,7 +64,7 @@ vcs import --input https://raw.githubusercontent.com/ros2/ros2/iron/ros2.repos s
 ```
 sudo apt upgrade 
 sudo rosdep init 
-rosdep update 
+rosdep update --include-eol-distros
 rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers" --os=ubuntu:jammy --rosdistro=iron 
 ```
  
