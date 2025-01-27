@@ -85,8 +85,9 @@ colcon build --symlink-install
 sudo apt install python3-serial 
 sudo apt install python3-pip  
 mkdir -p ~/ws/src 
-git clone -b 2.1.0  https://github.com/iRobotEducation/irobot_create_msgs.git ~/ws/src/irobot_create_msgs 
-cd ~/ws 
+cd ~/ws
+git clone -b 2.1.0  https://github.com/iRobotEducation/irobot_create_msgs.git src/irobot_create_msgs 
+source ~/ros2_iron/install/local_setup.bash  
 colcon build 
 ```
  
