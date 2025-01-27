@@ -5,7 +5,7 @@
 * Hold both side buttons on the robot to start the hotspot 
 * Connect to the wifi signal starting with “Create” 
 * In your browser, go to 192.168.10.1 
-* Under the update tab, update to the most recent Humble Hawksbill version (H.2.6 as of this writing).  
+* Under the update tab, update to the most recent Iron Irwini version (I.0.0 as of this writing).  
 * Go to Application/Configuration and specify rmw_fastrtps_cpp as the RMW.  
 * Click Restart Application from the application window, even if it was already set in that way.  
 
@@ -53,9 +53,9 @@ sudo apt install -y \
 ## Get ROS2 Code 
 
 ```
-mkdir -p ~/ros2_humble/src 
-cd ~/ros2_humble 
-vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos src 
+mkdir -p ~/ros2_iron/src 
+cd ~/ros2_iron 
+vcs import --input https://raw.githubusercontent.com/ros2/ros2/iron/ros2.repos src 
 ```
  
 
@@ -65,7 +65,7 @@ vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
 sudo apt upgrade 
 sudo rosdep init 
 rosdep update 
-rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers" --os=ubuntu:jammy --rosdistro=humble 
+rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers" --os=ubuntu:jammy --rosdistro=iron 
 ```
  
 
@@ -74,7 +74,7 @@ rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext
 * `nano ~/.bashrc` and ensure that it does not contain `source /opt/ros/${ROS_DISTRO}/setup.bash`
  
 ```
-cd ~/ros2_humble/ 
+cd ~/ros2_iron/ 
 colcon build --symlink-install 
 ```
  
@@ -97,7 +97,7 @@ colcon build
 
 ```
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp 
-source ~/ros2_humble/install/local_setup.bash 
+source ~/ros2_iron/install/local_setup.bash 
 source ~/ws/install/local_setup.bash 
 export PYTHONPATH=$PYTHONPATH:~/ws/src/irobot_create_msgs 
 ```
@@ -127,9 +127,9 @@ sudo adduser [username] dialout
 
 ## Setup configuration files 
 
-`nano /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral`
+`nano /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral` after the line `arm_64bit=1`.
 
-`nano /boot/firmware/cmdline.txt` and add m`odules-load=dwc2,g_ether` after `rootwait`
+`nano /boot/firmware/cmdline.txt` and add `modules-load=dwc2,g_ether` after `rootwait`
 
 `nano /etc/netplan/01-network-manager-all.yaml` and add  
 
