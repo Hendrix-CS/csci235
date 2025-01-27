@@ -237,5 +237,8 @@ an iRobot Create3 robot and a Raspberry Pi controller for that robot. As
 teams shift over the course of the semester, robots will be reassigned to the 
 new teams.
 
+The instructor will handle configuration and setup, but for reference 
+[here are the instructions]({{site.baseurl}}/robot_setup.html).
+
 The robots should be returned to the instructor at the end of the semester.
 Students will be billed for any unreturned equipment.
