@@ -43,6 +43,12 @@ Open a text editor. Copy and paste one message (starting and ending with `---`) 
 
 ## Topics in Python
 
+Create a new folder to contain today's code:
+```
+mkdir module1
+cd module1
+```
+
 <!-- Exploration: Topics in Python -->
 To explore the sensor more systematically, we will write a Python program
 to view the sensor values. I recommend using the `micro` editor from within
