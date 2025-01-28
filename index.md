@@ -91,7 +91,8 @@ will guide you through a learning process on a particular topic. Modules not com
 class time should be completed with your group outside of class. 
 
 Module submissions consist of two parts:
-* Short answers to questions posed within the module.
+* A document containing short answers to questions posed within the module.
+  * This document should also record the total time necessary to complete the module.
 * Python programs to modify or write.
 
 Each student will submit both their answers and the Python programs **individually** via Teams.
