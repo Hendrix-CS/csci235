@@ -60,7 +60,7 @@ sudo apt install ros-iron-irobot-create-msgs
 
 ```
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp 
-source /opt/ros/humble/setup.bash 
+source /opt/ros/iron/setup.bash 
 ```
  
 

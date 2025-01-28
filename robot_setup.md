@@ -49,7 +49,7 @@ vcs import --input https://raw.githubusercontent.com/ros2/ros2/iron/ros2.repos s
 ## Install dependencies using rosdep (~0.5 hours) 
 
 ```
-sudo apt upgrade 
+sudo apt upgrade -y
 sudo rosdep init 
 rosdep update --include-eol-distros
 rosdep install --from-paths src --ignore-src -y --skip-keys "fastcdr rti-connext-dds-6.0.1 urdfdom_headers" --os=ubuntu:jammy --rosdistro=iron 
@@ -69,8 +69,8 @@ colcon build --symlink-install
 ## Install Python Stuff 
 
 ```
-sudo apt install python3-serial 
-sudo apt install python3-pip  
+sudo apt install python3-serial -y
+sudo apt install python3-pip -y
 mkdir -p ~/ws/src 
 cd ~/ws
 git clone -b 2.1.0  https://github.com/iRobotEducation/irobot_create_msgs.git src/irobot_create_msgs 
@@ -115,7 +115,7 @@ sudo adduser [username] dialout
 
 ## Setup configuration files 
 
-`nano /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral` after the line `arm_64bit=1`.
+`nano /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral` under the comment `# Config settings specific to arm64`.
 
 `nano /boot/firmware/cmdline.txt` and add `modules-load=dwc2,g_ether` after `rootwait`
 
