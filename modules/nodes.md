@@ -89,6 +89,8 @@ if __name__ == '__main__':
         main()
 ```
 
+To save your code, type Control-S. To exit `micro`, type Control-Q.
+
 Run the program as described in the `Usage` message.  While the program is 
 running, open a second shell on your machine. Type `ros2 node list` in 
 that shell. After doing so, use Control-C to halt your program. Then answer 

@@ -30,6 +30,12 @@ ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{h
 
 ## Motor commands in Python
 
+Create a new folder to contain today's code:
+```
+mkdir module2
+cd module2
+```
+
 Create a file named `pub_motor.py`, and copy the following code into it:
 ```
 import curses, sys
@@ -235,8 +241,10 @@ Answer the following questions:
 <!-- Application: Modules -->
 * What modifications would need to be made to `curses_printer.py` to display 
   the sensor information from `sensor_messenger.py`?
-* Make a copy of `curses_printer.py` called `curses_sensor.py`. Apply the
-  modifications you described above. Then run the program.
+* Copy `sensor_messenger.py` and `frequency.py` from the `module1` folder into 
+  the `module2` folder. 
+* Make a copy of `curses_printer.py` called `curses_sensor.py`. 
+* Apply the modifications you described above. Then run the program.
 * Compare the experience of running `curses_sensor.py` with 
   `sensor_printer.py`. Which of them is a more usable user interface? Why?
 
