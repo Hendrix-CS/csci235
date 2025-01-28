@@ -148,7 +148,6 @@ import curses, sys
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
-from ir_counter import IrCounterNode
 from std_msgs.msg import String
 from rclpy.executors import MultiThreadedExecutor
 
@@ -404,7 +403,9 @@ Make a copy of `key_timer_demo.py` called `key_motor_demo.py`. Make the followin
 
 ## Autonomous Robot
 Make a copy of `key_motor_demo.py` called `motor_sensor_demo.py`. Modify it as follows:
-* Have `KeyNode` subscribe to the `ir_intensity` topic.
+* Rename `KeyNode` to be `AvoidNode`. Make sure to change both the name of the class as
+  well as its constructor call.
+* Have `AvoidNode` subscribe to the `ir_intensity` topic.
 * In the callback method for the `ir_intensity` topic, examine the IR values and implement the policy
   you described at the end of the last section.
 * Let the robot run for 60 seconds.
