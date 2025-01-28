@@ -139,8 +139,8 @@ Run the program. Then answer the following questions:
   particular, what advantages might it have over our previous approach to I/O?
 
 <!-- Concept Invention: Example Console UI for ROS2 -->
-Create a file called `curses_runner.py` and copy and paste the code below into 
-it:
+Copy `ir_counter.py` from `module1` into `module2`. Then create a file 
+called `curses_runner.py` and copy and paste the code below into it:
 ```
 from typing import List
 import curses, sys
