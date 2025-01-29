@@ -165,7 +165,7 @@ The presentation should include the following:
   
 ### Project Credits
 Robot credits for projects will be awarded as follows:
-* For each project:
+* For each project (not including the final project), you may earn up to 5 robot credits:
     * Achievement of project goals
       * Achieving all agreed-upon project goals: 2 robot credits
         * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
@@ -212,7 +212,14 @@ purpose. A demonstration will be made of the robot's capabilities, and a paper
 reflecting upon lessons learned will be submitted as well. In keeping with the Odyssey 
 Special Project guidelines, the project will require at least 30 hours of work. As with 
 the other course projects, final projects will be undertaken in teams of two or three.
+The project report and presentation should follow the same guidelines as those for the
+regular course projects.
 
+The final project will be graded strictly on a pass-fail basis: it is either completed
+or not completed, including the project report and presentation. It does not contribute
+to robot credits or essay credits. As with the three regular course projects, if a 
+project goal appears unrealistic to achieve, the students and professor may renegotiate 
+the project goals **at least one day prior to the submission deadline**.
 <hr>
 
 ## <a name="grading">Specifications Grading</a>
