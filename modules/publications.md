@@ -400,6 +400,8 @@ Make a copy of `key_timer_demo.py` called `key_motor_demo.py`. Make the followin
   * Based exclusively on IR values, when should the robot turn left?
   * When should it turn right?
   * When it is it okay for it to drive forward?
+  * In answering these questions, assume that the actions you defined for the `w`, `a`, 
+    and `d` keys are the only possible actions for the robot to take.
 
 ## Autonomous Robot
 Make a copy of `key_motor_demo.py` called `motor_sensor_demo.py`. Modify it as follows:
@@ -411,8 +413,9 @@ Make a copy of `key_motor_demo.py` called `motor_sensor_demo.py`. Modify it as f
 * Let the robot run for 60 seconds.
   * How often does it successfully avoid hitting obstacles? 
   * How often, and in what circumstances, does it hit obstacles anyway?
-* Based on your observations, devise two variations of your policy. A variation might involve different
-  thresholds for IR values, using different IR sensors in different ways, and so forth. 
+* Based on your observations, devise two variations of your policy. A variation might involve 
+  different thresholds for IR values, using different IR sensors in different ways, 
+  different motor speeds, and so forth. 
 * Run the robot with each variation for 60 seconds from the 
   same starting point. Then answer the following questions for each policy variation:
   * How did it perform in comparison with your original policy?
