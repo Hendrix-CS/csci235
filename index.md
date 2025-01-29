@@ -166,10 +166,11 @@ The presentation should include the following:
 ### Project Credits
 Robot credits for projects will be awarded as follows:
 * For each project:
-    * Achieving all agreed-upon project goals: 2 robot credits
-      * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
-        and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
-    * Achieving some but not all of the agreed-upon project goals: 1 robot credit
+    * Achievement of project goals
+      * Achieving all agreed-upon project goals: 2 robot credits
+        * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
+          and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
+      * Achieving some but not all of the agreed-upon project goals: 1 robot credit
     * Submitting a satsifactory project report: 1 robot credit
     * Delivering a satisfactory project presentation: 1 robot credit
     * Submitting the project code and report on-time, and delivering the presentation on the assigned day: 1 robot credit
