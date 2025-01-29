@@ -75,7 +75,7 @@ sudo systemctl enable ssh
 sudo systemctl start ssh 
 ```
 
-Find the IP address from the wifi menu. Then, you can connect using `ssh username@ip address` from another computer.  
+Type `hostname -I` to find the IP address. Then, you can connect using `ssh username@ip address` from another computer. 
 
 ## Setup GPIO pins  
 
