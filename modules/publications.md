@@ -241,7 +241,12 @@ Answer the following questions:
 * What modifications would need to be made to `curses_printer.py` to display 
   the sensor information from `sensor_messenger.py`?
 * Copy `sensor_messenger.py` and `frequency.py` from the `module1` folder into 
-  the `module2` folder. 
+  the `module2` folder. If you are in the `module2` folder, the following
+  `cp` commands should work:
+```
+cp ../module1/sensor_messenger.py .
+cp ../module1/frequency.py .
+```  
 * Make a copy of `curses_printer.py` called `curses_sensor.py`. 
 * Apply the modifications you described above. Then run the program.
 * Compare the experience of running `curses_sensor.py` with 
