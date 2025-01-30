@@ -7,10 +7,10 @@ worktitle: ROS2 Publications
 
 ## Publishing motor commands
 
-<!-- Exploration: cmd_vel from the command line -->
+<!-- Exploration: cmd_vel_stamped from the command line -->
 Type the command below into the command line:
 ```
-ros2 topic pub -r 1 archangel/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
+ros2 topic pub -r 1 [your robot name]/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.5}}}"
 ```
 
 * What happens when you run this command?

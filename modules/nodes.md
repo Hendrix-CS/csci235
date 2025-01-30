@@ -321,7 +321,7 @@ if __name__ == '__main__':
 * Create a copy of `sensor_viewer.py` called `timed_sensor_viewer.py`. 
   * To copy a file in the Unix shell, use the `cp` command: `cp sensor_viewer.py timed_sensor_viewer.py`
 * Modify `timed_sensor_viewer.py` as follows:
-  * Add a timer callback, set for executing twice per second.
+  * Add a timer callback to `SensorNode`, set for executing twice per second.
   * Modify the IR callback so that it records the message rather than printing it.
   * Print both the IR message and the battery state message in the timer callback.
     * The format should be identical to the original.
