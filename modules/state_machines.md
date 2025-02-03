@@ -25,6 +25,12 @@ first shell window, and answer the following questions:
   position and orientation?
   
 ## Position and Orientation Calculations
+The next part depends on an external library we will need to install. Run the 
+following command, entering your password when requested:
+```
+sudo apt install ros-iron-tf-transformations
+```
+
 Create a new `module3` folder. Then:
 ```
 cd module3
@@ -41,14 +47,22 @@ from typing import Tuple
 from tf_transformations import euler_from_quaternion
 
 
-def euclidean_distance(p1: Point, p2: Point) -> float:
+def find_goal_heading(p1: Point, p2: Point) -> float:
+    """
+    Given two points, find the heading necessary to aim at the second
+    point from the first point.
+    """
+    return math.atan2(p2.y - p1.y, p2.x - p1.x)
+
+
+def find_euclidean_distance(p1: Point, p2: Point) -> float:
     """
     Given two points, find the distance between them.
     """
     return ((p2.x - p1.x)**2 + (p2.y - p1.y)**2 + (p2.z - p1.z))**(1/2)
 
 
-def roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
+def find_roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
     """
     Given a Quaternion, this returns the following in order:
     - roll: Rotation around the robot's x axis
@@ -64,15 +78,15 @@ def roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
     return euler_from_quaternion([orientation.x, orientation.y, orientation.z, orientation.w])
 
 
-def angle_diff(angle1: float, angle2: float) -> float:
+def find_angle_diff(angle1: float, angle2: float) -> float:
     """
     Find the shortest difference between two angles.
     Parameters should be in radians.
     """
-    return normalize_angle(angle1 - angle2)
+    return find_normalized_angle(angle1 - angle2)
 
 
-def normalize_angle(angle: float) -> float:
+def find_normalized_angle(angle: float) -> float:
     """
     Ensure that the angle in radians lies between -math.pi and math.pi
     """
@@ -89,11 +103,11 @@ class OdometryMathTest(unittest.TestCase):
             p2 = Point()
             p1.x = a
             p1.y = b
-            self.assertEqual(c, euclidean_distance(p1, p2))
+            self.assertEqual(c, find_euclidean_distance(p1, p2))
 
-    def test_normalize_angle(self):
+    def test_normalized_angle(self):
         for theta, normed in [(2 * math.pi, 0.0), (3/2 * math.pi, -math.pi/2), (9 * math.pi, math.pi)]:
-            self.assertEqual(normed, normalize_angle(theta))
+            self.assertEqual(normed, find_normalized_angle(theta))
 
     def test_angle_diff(self):
         for theta1, theta2, diff in [
@@ -104,7 +118,7 @@ class OdometryMathTest(unittest.TestCase):
             ( 1/8 * math.pi, 15/8 * math.pi,  1/4 * math.pi), #5
             ( 9/2 * math.pi, -1/2 * math.pi,        math.pi), #6
         ]:
-            self.assertAlmostEqual(diff, angle_diff(theta1, theta2), places=5)
+            self.assertAlmostEqual(diff, find_angle_diff(theta1, theta2), places=5)
 
 
 if __name__ == '__main__':
@@ -113,6 +127,9 @@ if __name__ == '__main__':
 
 <!-- Exploration: Odometry math -->
 Read over the code. Then answer the following questions:
+* Why is the arctangent used in `find_goal_heading()`?
+* Read the [documentation for `atan` and `atan2`](https://docs.python.org/3/library/math.html#math.atan).
+  Why is it important to use `atan2` rather than `atan` for the purpose of robot navigation? 
 * For each of roll, pitch, and yaw, what is a scenario in which a nonzero value tells you
   something interesting about the robot's position?
 * Examine the test cases for the `angle_diff()` function. Note that each 

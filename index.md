@@ -41,30 +41,30 @@ Upon completing this course, our goal is for you to be able to:
 | 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
 |      |
 | 2/4  | Tue | [Module 3: State Machines]({{site.baseurl}}/modules/state_machines.html) | | Module 2 |
-| 2/6  | Thu | Module 4: Fuzzy Logic | | Module 3 |
+| 2/6  | Thu | Project 1 | | Module 3 |
 |      |
-| 2/11 | Tue | Project 1 |  |  Module 4 |
-| 2/13 | Thu | Project 1 |  |  |  
+| 2/11 | Tue | Project 1 |  |  |  
+| 2/13 | Thu | Project 1 Presentations |  | Project 1 |
 |      |
-| 2/18 | Tue | Project 1 Presentations |  | Project 1 |
-| 2/20 | Thu | In-Class Essay 1  |  |  |  
+| 2/18 | Tue | In-Class Essay 1 | | | 
+| 2/20 | Thu | Module 4: Trajectory Maps | | | 
 |      |
-| 2/25 | Tue | Module 5: Reinforcement Learning  |  |  |
-| 2/27 | Thu | Module 6: Vision 1: Motion |  | Module 5 |  
+| 2/25 | Tue | Module 5: Fuzzy Logic | | Module 4 |
+| 2/27 | Thu | Module 6: Planning | | Module 5 | 
 |      |
-| 3/4  | Tue | Module 7: Vision 2: Recognition |  | Module 6 | 
-| 3/6  | Thu | Project 2  |  | Module 7 |  
+| 3/4  | Tue | Project 2 | | Module 6 |
+| 3/6  | Thu | Project 2 | | |
 |      |
-| 3/11 | Tue | Project 2 |  |  | 
-| 3/13 | Thu | Project 2 Presentations |  | Project 2 |   
+| 3/11 | Tue | Project 2 Presentations |  | Project 2 |   
+| 3/13 | Thu | In-Class Essay 2 |  |  | 
 |      |
-| 3/18 | Tue | In-Class Essay 2 |  |  |  
-| 3/20 | Thu | Module 8: Planning |  |  | 
+| 3/18 | Tue | Module 7: Reinforcement Learning | | |
+| 3/20 | Thu | Module 8: Vision 1: Motion | | Module 7 | 
 |      |
 | 3/25 | Tue | Spring Break |  |  |  
 | 3/27 | Thu | Spring Break |  |  |  
 |      |
-| 4/1  | Tue | Module 9: Mapping |  | Module 8 |  
+| 4/1  | Tue | Module 9: Vision 2: Recognition |  | Module 8 |  
 | 4/3  | Thu | Project 3 |  | Module 9 |  
 |      
 | 4/8  | Tue | Project 3 |  |  |  
