@@ -21,8 +21,155 @@ first shell window, and answer the following questions:
 * Stop the robot. Now write a ROS2 command for it to spin in place. How does the `odom`
   information change as the robot spins?
 <!-- Concept invention: Odometry -->
-* Overall, what information can you obtain from the `odom` topic with respect to the 
-  robot's movement?
+* What fields from the `odom` message are most relevant to determining the robot's
+  position and orientation?
+  
+## Position and Orientation Calculations
+Create a new `module3` folder. Then:
+```
+cd module3
+micro odometry_math.py
+```
+
+Then copy and paste the following program:
+```
+import unittest
+
+import math
+from geometry_msgs.msg import Point, Quaternion
+from typing import Tuple
+from tf_transformations import euler_from_quaternion
+
+
+def euclidean_distance(p1: Point, p2: Point) -> float:
+    """
+    Given two points, find the distance between them.
+    """
+    return ((p2.x - p1.x)**2 + (p2.y - p1.y)**2 + (p2.z - p1.z))**(1/2)
+
+
+def roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
+    """
+    Given a Quaternion, this returns the following in order:
+    - roll: Rotation around the robot's x axis
+      - Since the x axis is the direction of forward motion,
+        this is the amount of left/right tilt
+    - pitch: Rotation around the robot's y axis
+      - Since the y axis is perpendicular to forward motion,
+        this is the amount of forward/backward tilt
+    - yaw: Rotation around the robot's z axis
+      - Since the z axis is perpendicular to the ground,
+        this is the robot's orientation on the ground.
+    """
+    return euler_from_quaternion([orientation.x, orientation.y, orientation.z, orientation.w])
+
+
+def angle_diff(angle1: float, angle2: float) -> float:
+    """
+    Find the shortest difference between two angles.
+    Parameters should be in radians.
+    """
+    return normalize_angle(angle1 - angle2)
+
+
+def normalize_angle(angle: float) -> float:
+    """
+    Ensure that the angle in radians lies between -math.pi and math.pi
+    """
+    angle = angle % (2 * math.pi)
+    if angle > math.pi:
+        angle -= 2 * math.pi
+    return angle
+
+
+class OdometryMathTest(unittest.TestCase):
+    def test_distance(self):
+        for a, b, c in [(3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17), (9, 40, 41)]:
+            p1 = Point()
+            p2 = Point()
+            p1.x = a
+            p1.y = b
+            self.assertEqual(c, euclidean_distance(p1, p2))
+
+    def test_normalize_angle(self):
+        for theta, normed in [(2 * math.pi, 0.0), (3/2 * math.pi, -math.pi/2), (9 * math.pi, math.pi)]:
+            self.assertEqual(normed, normalize_angle(theta))
+
+    def test_angle_diff(self):
+        for theta1, theta2, diff in [
+            ( 3/4 * math.pi,  1/4 * math.pi,  1/2 * math.pi), #1
+            ( 1/4 * math.pi,  3/4 * math.pi, -1/2 * math.pi), #2
+            (-1/3 * math.pi,  1/3 * math.pi, -2/3 * math.pi), #3
+            (15/8 * math.pi,  1/8 * math.pi, -1/4 * math.pi), #4         
+            ( 1/8 * math.pi, 15/8 * math.pi,  1/4 * math.pi), #5
+            ( 9/2 * math.pi, -1/2 * math.pi,        math.pi), #6
+        ]:
+            self.assertAlmostEqual(diff, angle_diff(theta1, theta2), places=5)
+
+
+if __name__ == '__main__':
+    unittest.main()
+```
+
+<!-- Exploration: Odometry math -->
+Read over the code. Then answer the following questions:
+* For each of roll, pitch, and yaw, what is a scenario in which a nonzero value tells you
+  something interesting about the robot's position?
+* Examine the test cases for the `angle_diff()` function. Note that each 
+  test case is numbered to facilitate references.
+<!-- Concept invention: Angular difference -->
+<!-- Application: Robot turns -->
+  * For each test case, imagine that the robot's current orientation is the 
+    first value and its goal orientation is the second value. Remembering how 
+    you programmed the robots to turn left and right, which direction would 
+    the robot turn to reach its goal orientation?
+  * For each test case, does the target difference conflict with your
+    intuition about how subtraction works? 
+  * For each test case that conflicts with your intuition, state why the 
+    conflict exists, and also state why the given difference is correct
+    in the context of angles and headings. Feel free to examine the 
+    implementation of the `angle_diff()` and `normalize_angle()` functions
+    as part of your answer.
+
+## Odometry in Python
+<!-- Application: Odometry Topic, ROS2 subscriptions -->
+```
+cp ../module2/sensor_messenger.py .
+cp ../module2/key_motor_demo.py .
+micro sensor_messenger.py
+```
+
+Within `sensor_messenger.py`, add this import:
+```
+from nav_msgs.msg import Odometry
+```
+
+Then perform the following additional modifications to `sensor_messenger.py`:
+* Add a subscription to the `Odometry` topic. 
+* Define the callback function that you name in the subscription.
+* Add attributes to the `SensorNode` class to store odometry information and
+  frequency. Don't store the entire message; only store information from the 
+  fields you determined to be most pertinent earlier. 
+* Add the odometry information you consider useful to the `String` object 
+  that the `SensorNode` publishes. 
+* Drive the robot around for a while, observing how its location is reported.
+  What are some applications of odometry that would be useful?
+
+## States
+
+<!--
+Patrol task
+* Two states: Drive and turn
+* Two input types: distance from start, alignment to start
+  * close/far, aligned/unaligned
+-->
+
+<!-- outline 
+* Introduce hazard sensors
+* Introduce being in different states based on last obstacle encountered
+* Odometry
+* Patrol task
+-->
 
 ## New Topic: Hazards
 
@@ -47,14 +194,3 @@ ros2 topic echo /[your robot name]/hazard_detection
   on the ground?
   * What are their names?
 
-## Odometry and Hazard Detection in Python
-
-
-## States
-
-<!-- outline 
-* Introduce hazard sensors
-* Introduce being in different states based on last obstacle encountered
-* Odometry
-* Patrol task
--->
