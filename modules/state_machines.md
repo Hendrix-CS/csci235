@@ -162,7 +162,7 @@ from nav_msgs.msg import Odometry
 ```
 
 Then perform the following additional modifications to `sensor_messenger.py`:
-* Add a subscription to the `Odometry` topic. 
+* Add a subscription to the `odom` topic. 
 * Define the callback function that you name in the subscription.
 * Add attributes to the `SensorNode` class to store odometry information and
   frequency. Don't store the entire message; only store information from the 
@@ -238,7 +238,8 @@ yaw: {y:.2f}{' ' * 10}
 ```
 
 
-Examine this program. Then answer the following questions:
+Examine this program. Then answer the following questions with respect to the `input`
+part of the message it will publish:
 * Imagine the `distance_threshold` is 0.5 and the `heading_threshold` is `math.pi / 8`. The 
 robot drives 0.4 meters. What message will the `OdometryNode` publish?
 * Now the robot has driven 0.6 meters. What message will the `OdometryNode` publish?
@@ -254,7 +255,7 @@ robot drives 0.4 meters. What message will the `OdometryNode` publish?
 Create a new file called `state_machine.py`, and copy and paste the following code into it:
 
 ```
-from typing import Callable, Dict
+from typing import Callable, Dict, Tuple
 
 import rclpy
 from rclpy.node import Node
@@ -263,7 +264,7 @@ from rclpy.qos import qos_profile_sensor_data
 
 
 class StateNode(Node):
-    def __init__(self, robot_name: str, input_topic: str, start_state: str, transition_table: Dict[str,Callable[[str],str]]):
+    def __init__(self, robot_name: str, input_topic: str, start_state: str, transition_table: Dict[str,Callable[[Tuple[str,str]],str]]):
         super().__init__(f"StateNode_{robot_name}")
         self.state = start_state
         self.last_input = None
@@ -303,13 +304,12 @@ Examine the program. Imagine that `start_state` has the value `"forward"`. Imagi
 ```
 {'forward': forward_transition,
  'left':    turn_transition,
- 'right':   turn_transition
-}
+ 'right':   turn_transition}
 ```
 
 Also imagine the following function definitions:
 ```
-def forward_transition(input: str) -> str:
+def forward_transition(input: Tuple[str,str]) -> str:
     if input[0] == 'out_of_bounds':
         if input[1] == 'neg_heading':
             return 'left'
@@ -317,7 +317,7 @@ def forward_transition(input: str) -> str:
             return 'right'
 
 
-def turn_transition(input: str) -> str:
+def turn_transition(input: Tuple[str,str]) -> str:
     if input[1] == 'aligned':
         return 'forward'
 ```
@@ -446,6 +446,29 @@ ros2 topic echo /[your robot name]/hazard_detection
 * What else can the iRobot Create3 sense to determine that it is not entirely 
   on the ground?
   * What are their names?
+
+## Hazard Detection in Python
+
+<!-- Application: hazard_detection topic -->
+Add the following import to `sensor_messenger.py`:
+```
+from irobot_create_msgs.msg import HazardDetectionVector
+```
+
+Then perform the following additional modifications to `sensor_messenger.py`:
+* Add a subscription to the `hazard_detection` topic.
+* Define the callback function that you name in the subscription.
+* The `SensorNode` will report the most recent detected hazard along with 
+  the time (in seconds since startup) when it occurred. Add attributes to
+  the `SensorNode` class to enable this.
+* Add attributes to the `SensorNode` class to store hazard information and
+  frequency. Don't store the entire message; only store information from the
+  fields you determined to be most pertinent earlier.
+* Add the stored information you identified above to the `String` object
+  that the `SensorNode` publishes.
+* Drive the robot around for a while, periodically encountering hazards. 
+  Ensure that its hazard reporting corresponds to what it encounters.
+
 
 ## Hazard-avoiding state machine
 <!-- Application: Symbolic inputs and State machines -->
