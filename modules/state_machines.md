@@ -302,9 +302,9 @@ class StateNode(Node):
             output.data = self.state
             self.output.publish(output)
             output.data = f"""
+State: {self.state}{' ' * 10}
 Input: {self.last_input}{' ' * 10}
 Debug: {self.last_debug}
-State: {self.state}{' ' * 10}
 """
             self.debug.publish(output)
             self.last_input = None
@@ -504,16 +504,16 @@ Consider the following desired behavior:
 
 Answer the following questions:
 * What would be a set of states that would comprehensively represent the above behavior?
-  * **Hint**: Do not use more than four states.
+  * **Hint**: There is no need to use more than four states.
 * What motor commands would you associate with each state?
 * What symbolic inputs would you use to represent the situations that cause these states 
   to change? 
-  * **Hint**: Do not use more than five input symbols.
+  * **Hint**: There is no need to use more than four distinct possible inputs.
 * Create a table with a column for each state and a row for each input symbol. In each table
   entry, write the state that the robot will enter when the input for its row is received 
   while in the state of its column. 
-  * **Note**: With no more than four states and five input symbols, your table should have 
-    no more than 20 entries.
+  * **Note**: With no more than four states and four inputs, your table should have 
+    no more than 16 entries.
 * Create two files: `avoid_hazard_input.py` and `hazard_avoider.py`. Model 
   `avoid_hazard_input.py` on `odometry_patrol.py` and model `hazard_avoider.py` on 
   `simple_patrol.py`. Encode your inputs, state transitions, and motor outputs in
