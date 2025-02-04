@@ -9,7 +9,7 @@ For this [project]({{site.baseurl}}/index.html#projects), you may program an iRo
 you like, subject to the following constraints:
 * The program should use four ROS2 nodes, along the lines of the [final part of Module 3]({{site.baseurl}}/modules/state_machines.html#hazard-avoiding-state-machine):
   * A node that encodes inputs into symbolic values and publishes them.
-  * A [`StateMachine`]({{site.baseurl}}/modules/state_machines.html#states) node.
+  * A [`StateNode`]({{site.baseurl}}/modules/state_machines.html#states) node.
   * A node that publishes motor commands corresponding to states.
   * A ['CursesNode']({{site.baseurl}}/modules/publications.html#console-ui-for-ros2) to display useful information.
     * It may also handle keyboard commands.
