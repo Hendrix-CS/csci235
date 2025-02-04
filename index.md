@@ -37,11 +37,11 @@ Upon completing this course, our goal is for you to be able to:
 | 1/21 | Tue | Overview<br>Robots in Science Fiction<br> [Robots: Fiction and Reality]({{site.baseurl}}/essays/robots_sci_fi.html) |  |
 | 1/23 | Thu | [Discussion of Short Stories]({{site.baseurl}}/essays/discussion.html) | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |
 |      |
-| 1/28 | Tue | [Module 1: ROS2 Nodes, Topics, and Subscriptions]({{site.baseurl}}/modules/nodes.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Robots: Fiction and Reality |
+| 1/28 | Tue | [Module 1: ROS2 Nodes, Topics, and Subscriptions]({{site.baseurl}}/modules/nodes.html) |  | Robots: Fiction and Reality |
 | 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
 |      |
 | 2/4  | Tue | [Module 3: State Machines]({{site.baseurl}}/modules/state_machines.html) | | Module 2 |
-| 2/6  | Thu | Project 1 | | Module 3 |
+| 2/6  | Thu | Project 1 | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Module 3 |
 |      |
 | 2/11 | Tue | Project 1 |  |  |  
 | 2/13 | Thu | Project 1 Presentations |  | Project 1 |

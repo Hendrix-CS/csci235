@@ -172,21 +172,261 @@ Then perform the following additional modifications to `sensor_messenger.py`:
 * Drive the robot around for a while, observing how its location is reported.
   What are some applications of odometry that would be useful?
 
+## Encoding numerical inputs as symbols
+
+<!-- Exploration: Encoding inputs symbolically -->
+Create a new file called `odometry_patrol.py`, and copy and paste the following code into it:
+
+```
+import sys, math
+from typing import List, Any
+
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from nav_msgs.msg import Odometry
+from std_msgs.msg import String
+
+from odometry_math import find_euclidean_distance, find_roll_pitch_yaw, find_angle_diff, find_goal_heading
+
+
+def sp(n: int) -> str:
+    return ' ' * n
+
+
+class OdometryNode(Node):
+    def __init__(self, robot_name: str, distance_threshold: float, heading_threshold: float):
+        super().__init__(f'OdometryNode_{robot_name}')
+        self.start = None
+        self.distance_threshold = distance_threshold
+        self.heading_threshold = heading_threshold
+        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.topic_name = f'{robot_name}_odometry_topic'
+        self.output = self.create_publisher(String, self.topic_name, qos_profile_sensor_data)
+
+    def publish(self, data: Any):
+        output = String()
+        output.data = f"{data}{' ' * 50}"
+        self.output.publish(output)
+
+    def odom_callback(self, msg: Odometry):
+        if self.start is None:
+            self.start = msg.pose.pose.position
+        else:
+            d = find_euclidean_distance(self.start, msg.pose.pose.position)
+            if d < self.distance_threshold:
+                in_out = "in_bounds"
+            else:
+                in_out = "out_of_bounds"
+
+            heading_target = find_goal_heading(msg.pose.pose.position, self.start)
+            r, p, y = find_roll_pitch_yaw(msg.pose.pose.orientation)
+            heading_difference = find_angle_diff(y, heading_target)
+            if abs(heading_difference) < self.heading_threshold:
+                alignment = 'aligned'
+            elif heading_difference < 0:
+                alignment = 'neg_heading'
+            else:
+                alignment = 'pos_heading'
+
+            msg = {'input': (in_out, alignment), 
+                   'debug': f"""
+start: {self.start}
+distance: {d:.2f}{sp(10)}
+heading_target: {heading_target:.2f}{sp(10)}
+yaw: {y:.2f}{sp(10)}
+"""
+            }
+
+            self.publish(msg)
+```
+
+
+Examine this program. Then answer the following questions:
+* Imagine the `distance_threshold` is 0.5 and the `heading_threshold` is `math.pi / 8`. The 
+robot drives 0.4 meters. What message will the `OdometryNode` publish?
+* Now the robot has driven 0.6 meters. What message will the `OdometryNode` publish?
+* The robot was facing away from the starting point. It has turned `math.pi/2` radians.
+  What message will the `OdometryNode` publish?
+<!-- Concept invention: symbolic sensor values -->
+* There are six possible combinations of publishable messages from an `OdometryNode`. List
+  those combinations. For each combination, under what circumstances will that message be
+  published?
+
 ## States
 
-<!--
-Patrol task
-* Two states: Drive and turn
-* Two input types: distance from start, alignment to start
-  * close/far, aligned/unaligned
--->
+Create a new file called `state_machine.py`, and copy and paste the following code into it:
 
-<!-- outline 
-* Introduce hazard sensors
-* Introduce being in different states based on last obstacle encountered
-* Odometry
-* Patrol task
--->
+```
+from typing import Callable, Dict
+
+import rclpy
+from rclpy.node import Node
+from std_msgs.msg import String
+from rclpy.qos import qos_profile_sensor_data
+
+
+class StateNode(Node):
+    def __init__(self, robot_name: str, input_topic: str, start_state: str, transition_table: Dict[str,Callable[[str],str]]):
+        super().__init__(f"StateNode_{robot_name}")
+        self.state = start_state
+        self.last_input = None
+        self.last_debug = None
+        self.transition_table = transition_table
+        self.topic_name = f"{robot_name}_state"
+        self.debug_topic = f"{robot_name}_state_debug"
+        self.create_subscription(String, input_topic, self.input_callback, qos_profile_sensor_data) 
+        self.create_timer(0.25, self.timer_callback)
+        self.output = self.create_publisher(String, self.topic_name, qos_profile_sensor_data)
+        self.debug = self.create_publisher(String, self.debug_topic, qos_profile_sensor_data)
+
+    def input_callback(self, msg: String):
+        msg = eval(msg.data)
+        self.last_input = msg['input']
+        self.last_debug = msg['debug']
+
+    def timer_callback(self):
+        if self.last_input is not None:
+            update = self.transition_table[self.state](self.last_input)
+            if update is not None:
+                self.state = update
+            output = String()
+            output.data = self.state
+            self.output.publish(output)
+            output.data = f"""
+Input: {self.last_input}{' ' * 10}
+Debug: {self.last_debug}
+State: {self.state}{' ' * 10}
+"""
+            self.debug.publish(output)
+            self.last_input = None
+```
+
+Examine the program. Imagine that `start_state` has the value `"forward"`. Imagine that
+`transition_table` has the following value:
+```
+{'forward': forward_transition,
+ 'left':    turn_transition,
+ 'right':   turn_transition
+}
+```
+
+Also imagine the following function definitions:
+```
+def forward_transition(input: str) -> str:
+    if input[0] == 'out_of_bounds':
+        if input[1] == 'neg_heading':
+            return 'left'
+        elif input[1] == 'pos_heading':
+            return 'right'
+
+
+def turn_transition(input: str) -> str:
+    if input[1] == 'aligned':
+        return 'forward'
+```
+
+<!-- Exploration: How state machines work -->
+<!-- Application: Symbolic inputs -->
+Imagine as well that it subscribes to the topic published by an `OdometryNode`. 
+Answer the following questions:
+* What would be an input that would transition the `StateMachine` object to the `left` state?
+* What would be an input that would transition the `StateMachine` object in the `left` state
+  back to the `forward` state?
+* What would be a sequence of inputs that would transition the `StateMachine` object through
+  the following state sequence, starting from `forward`: 
+  * `right`, `forward`, `left`, `forward`
+<!-- Concept invention: Emergent behavior of a state machine -->
+* Describe in an abstract way the behavior you would expect of a robot controlled by 
+  this `StateMachine` object.
+
+Now create a file called `simple_patrol.py`, and copy and paste the code below:
+```
+import sys, curses, math
+
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from std_msgs.msg import String
+from geometry_msgs.msg import TwistStamped
+
+from odometry_patrol import OdometryNode
+from state_concept import StateNode
+from curses_runner import CursesNode, run_curses_nodes
+
+
+def forward(speed: float) -> TwistStamped:
+    t = TwistStamped()
+    t.header.frame_id = "base_link"
+    t.twist.linear.x = speed
+    return t
+
+
+def turn(speed: float) -> TwistStamped:
+    t = TwistStamped()
+    t.header.frame_id = "base_link"
+    t.twist.angular.z = speed
+    return t
+
+
+class DriveNode(Node):
+    def __init__(self, robot_name: str, state_topic: str):
+        super().__init__(f"DriveNode_{robot_name}")
+        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
+        self.create_subscription(String, state_topic, self.state_callback, qos_profile_sensor_data)
+
+    def state_callback(self, msg: String):
+        if msg.data == 'forward':
+            self.publish_twist(forward(0.5))
+        elif msg.data == 'left':
+            self.publish_twist(turn(1.0))
+        elif msg.data == 'right':
+            self.publish_twist(turn(-1.0))
+
+    def publish_twist(self, t: TwistStamped):
+        t.header.stamp = self.get_clock().now().to_msg()
+        self.motors.publish(t)
+
+
+def forward_transition(input: str) -> str:
+    if input[0] == 'out_of_bounds':
+        if input[1] == 'neg_heading':
+            return 'left'
+        elif input[1] == 'pos_heading':
+            return 'right'
+
+
+def turn_transition(input: str) -> str:
+    if input[1] == 'aligned':
+        return 'forward'
+
+
+def main(stdscr):
+    rclpy.init()
+    sensor_node = OdometryNode(sys.argv[1], 0.5, math.pi / 32)
+    state_node = StateNode(sys.argv[1], sensor_node.topic_name, 'forward', {
+        'forward': forward_transition,
+        'left': turn_transition,
+        'right': turn_transition
+    })
+    curses_node = CursesNode(state_node.debug_topic, 2, stdscr)
+    drive_node = DriveNode(sys.argv[1], state_node.topic_name)
+    run_curses_nodes(stdscr, [drive_node, state_node, curses_node, sensor_node])
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python3 simple_patrol.py robot_name")
+    else:
+        curses.wrapper(main)
+```
+
+<!-- Concept invention: State machine behavior -->
+Examine the program, and answer the following questions:
+* Based both on the program text above as well as your analysis of `odometry_patrol.py` and
+  `state_machine.py`, what do you expect the robot will do when you run `simple_patrol.py`?
+* Run the program. Did the robot behave as you expected? Were there any surprises?
 
 ## New Topic: Hazards
 
@@ -211,3 +451,34 @@ ros2 topic echo /[your robot name]/hazard_detection
   on the ground?
   * What are their names?
 
+## Hazard-avoiding state machine
+<!-- Application: Symbolic inputs and State machines -->
+
+Consider the following desired behavior:
+* If nothing exceptional occurs, the robot drives forward.
+* If the robot encounters a hazard, the robot turns 90 degrees.
+  * If the hazard is to its left, it turns right.
+  * If the hazard is to its right, it turns left.
+  * If the hazard is in front of it, it turns in the same direction it most recently turned.
+* Once the robot completes its 90 degree turn, it drives forward again.
+
+Answer the following questions:
+* What would be a set of states that would comprehensively represent the above behavior?
+  * **Hint**: Do not use more than four states.
+* What motor commands would you associate with each state?
+* What symbolic inputs would you use to represent the situations that cause these states 
+  to change? 
+  * **Hint**: Do not use more than five input symbols.
+* Create a table with a column for each state and a row for each input symbol. In each table
+  entry, write the state that the robot will enter when the input for its row is received 
+  while in the state of its column. 
+  * **Note**: With no more than four states and five input symbols, your table should have 
+    no more than 20 entries.
+* Create two files: `avoid_hazard_input.py` and `hazard_avoider.py`. Model 
+  `avoid_hazard_input.py` on `odometry_patrol.py` and model `hazard_avoider.py` on 
+  `simple_patrol.py`. Encode your inputs, state transitions, and motor outputs in
+  those two files following the specification you just created.
+* Test your program. Continue to modify it until it matches your specification. Overall,
+  how did the program following your specification perform?
+* What would you say are the benefits and challenges of the state machine approach to 
+  programming a robot?
