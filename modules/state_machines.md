@@ -36,7 +36,7 @@ following command, entering your password when requested:
 sudo apt install ros-iron-tf-transformations
 ```
 
-Create a new `module3` folder. Then:
+Create a `module3` folder using `mkdir module3`. Then:
 ```
 cd module3
 micro odometry_math.py
@@ -44,8 +44,6 @@ micro odometry_math.py
 
 Then copy and paste the following program:
 ```
-# Depends on sudo apt install ros-iron-tf-transformations
-
 import unittest
 
 import math
@@ -161,6 +159,8 @@ Read over the code. Then answer the following questions:
 ```
 cp ../module2/sensor_messenger.py .
 cp ../module2/key_motor_demo.py .
+cp ../module2/frequency.py .
+cp ../module2/curses_runner.py .
 micro sensor_messenger.py
 ```
 
@@ -169,6 +169,8 @@ Within `sensor_messenger.py`, add this import:
 from nav_msgs.msg import Odometry
 ```
 
+Within `curses_runner.py`, **remove** any imports from `ir_counter.py`.
+
 Then perform the following additional modifications to `sensor_messenger.py`:
 * Add a subscription to the `odom` topic. 
 * Define the callback function that you name in the subscription.
@@ -176,7 +178,8 @@ Then perform the following additional modifications to `sensor_messenger.py`:
   frequency. Don't store the entire message; only store information from the 
   fields you determined to be most pertinent earlier. 
 * Add the odometry information you consider useful to the `String` object 
-  that the `SensorNode` publishes. 
+  that the `SensorNode` publishes. Be sure to `import` from `odometry_math`
+  any functions that you might find useful.
 * Drive the robot around for a while, observing how its location is reported.
   What are some applications of odometry that would be useful?
 
