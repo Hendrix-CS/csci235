@@ -202,7 +202,7 @@ class OdometryNode(Node):
 
     def publish(self, data: Any):
         output = String()
-        output.data = f"{data}{' ' * 50}"
+        output.data = f"{data}"
         self.output.publish(output)
 
     def odom_callback(self, msg: Odometry):
