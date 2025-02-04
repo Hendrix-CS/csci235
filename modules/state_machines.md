@@ -252,7 +252,7 @@ yaw: {y:.2f}{' ' * 10}
 Examine this program. Then answer the following questions with respect to the `input`
 part of the message it will publish:
 * Imagine the `distance_threshold` is 0.5 and the `heading_threshold` is `math.pi / 8`. The 
-robot drives 0.4 meters. What message will the `OdometryNode` publish?
+robot drives 0.4 meters from its starting location. What message will the `OdometryNode` publish?
 * Now the robot has driven 0.6 meters. What message will the `OdometryNode` publish?
 * The robot was facing away from the starting point. It has turned `math.pi/2` radians.
   What message will the `OdometryNode` publish?
@@ -314,6 +314,7 @@ Examine the program. Imagine that `start_state` has the value `"forward"`. Imagi
 `transition_table` has the following value:
 ```
 {'forward': forward_transition,
+ 're_enter': re_enter_transition,
  'left':    turn_transition,
  'right':   turn_transition}
 ```
@@ -330,6 +331,11 @@ def forward_transition(input: Tuple[str,str]) -> str:
 
 def turn_transition(input: Tuple[str,str]) -> str:
     if input[1] == 'aligned':
+        return 're_enter'
+
+
+def re_enter_transition(input: Tuple[str,str]) -> str:
+    if input[0] == 'in_bounds':
         return 'forward'
 ```
 
@@ -339,10 +345,12 @@ Imagine as well that it subscribes to the topic published by an `OdometryNode`.
 Answer the following questions:
 * What would be an input that would transition the `StateMachine` object to the `left` state?
 * What would be an input that would transition the `StateMachine` object in the `left` state
-  back to the `forward` state?
+  to the `re_enter` state?
+* What would be an input that would transition the `StateMachine` object in the `re_enter` state
+  to the `forward` state?
 * What would be a sequence of inputs that would transition the `StateMachine` object through
   the following state sequence, starting from `forward`: 
-  * `right`, `forward`, `left`, `forward`
+  * `right`, `re_enter`, `forward`, `left`, `re_enter`, `forward`
 <!-- Concept invention: Emergent behavior of a state machine -->
 * Describe in an abstract way the behavior you would expect of a robot controlled by 
   this `StateMachine` object.
@@ -350,6 +358,7 @@ Answer the following questions:
 Now create a file called `simple_patrol.py`, and copy and paste the code below:
 ```
 import sys, curses, math
+from typing import Tuple
 
 import rclpy
 from rclpy.node import Node
@@ -358,22 +367,8 @@ from std_msgs.msg import String
 from geometry_msgs.msg import TwistStamped
 
 from odometry_patrol import OdometryNode
-from state_concept import StateNode
+from state_machine import StateNode
 from curses_runner import CursesNode, run_curses_nodes
-
-
-def forward(speed: float) -> TwistStamped:
-    t = TwistStamped()
-    t.header.frame_id = "base_link"
-    t.twist.linear.x = speed
-    return t
-
-
-def turn(speed: float) -> TwistStamped:
-    t = TwistStamped()
-    t.header.frame_id = "base_link"
-    t.twist.angular.z = speed
-    return t
 
 
 class DriveNode(Node):
@@ -383,19 +378,31 @@ class DriveNode(Node):
         self.create_subscription(String, state_topic, self.state_callback, qos_profile_sensor_data)
 
     def state_callback(self, msg: String):
-        if msg.data == 'forward':
-            self.publish_twist(forward(0.5))
+        if msg.data in ('forward', 're_enter'):
+            self.publish_forward(0.5)
         elif msg.data == 'left':
-            self.publish_twist(turn(1.0))
+            self.publish_turn(1.0)
         elif msg.data == 'right':
-            self.publish_twist(turn(-1.0))
+            self.publish_turn(-1.0)
 
-    def publish_twist(self, t: TwistStamped):
+    def make_twist(self) -> TwistStamped:
+        t = TwistStamped()
+        t.header.frame_id = "base_link"
         t.header.stamp = self.get_clock().now().to_msg()
+        return t
+
+    def publish_forward(self, speed: float):
+        t = self.make_twist()
+        t.twist.linear.x = speed
+        self.motors.publish(t)
+
+    def publish_turn(self, speed: float):
+        t = self.make_twist()
+        t.twist.angular.z = speed
         self.motors.publish(t)
 
 
-def forward_transition(input: str) -> str:
+def forward_transition(input: Tuple[str,str]) -> str:
     if input[0] == 'out_of_bounds':
         if input[1] == 'neg_heading':
             return 'left'
@@ -403,8 +410,13 @@ def forward_transition(input: str) -> str:
             return 'right'
 
 
-def turn_transition(input: str) -> str:
+def turn_transition(input: Tuple[str,str]) -> str:
     if input[1] == 'aligned':
+        return 're_enter'
+
+
+def re_enter_transition(input: Tuple[str,str]) -> str:
+    if input[0] == 'in_bounds':
         return 'forward'
 
 
@@ -413,6 +425,7 @@ def main(stdscr):
     sensor_node = OdometryNode(sys.argv[1], 0.5, math.pi / 32)
     state_node = StateNode(sys.argv[1], sensor_node.topic_name, 'forward', {
         'forward': forward_transition,
+        're_enter': re_enter_transition,
         'left': turn_transition,
         'right': turn_transition
     })
