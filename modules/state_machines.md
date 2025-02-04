@@ -485,9 +485,6 @@ Then perform the following additional modifications to `sensor_messenger.py`:
 * The `SensorNode` will report the most recent detected hazard along with 
   the time (in seconds since startup) when it occurred. Add attributes to
   the `SensorNode` class to enable this.
-* Add attributes to the `SensorNode` class to store hazard information and
-  frequency. Don't store the entire message; only store information from the
-  fields you determined to be most pertinent earlier.
 * Add the stored information you identified above to the `String` object
   that the `SensorNode` publishes.
 * Drive the robot around for a while, periodically encountering hazards. 
