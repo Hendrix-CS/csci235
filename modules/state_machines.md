@@ -39,6 +39,8 @@ micro odometry_math.py
 
 Then copy and paste the following program:
 ```
+# Depends on sudo apt install ros-iron-tf-transformations
+
 import unittest
 
 import math
@@ -123,6 +125,7 @@ class OdometryMathTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 ```
 
 <!-- Exploration: Odometry math -->
