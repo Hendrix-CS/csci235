@@ -162,7 +162,7 @@ ir_intensity_front_right            3
 ir_intensity_right                  0
 ```
 
-## Battery State
+## Second Topic: Battery State
 <!-- Exploration: Battery State Topic -->
 Next, let's explore some more sensors. Run `ros2 topic list` and examine the 
 output. Then answer the following questions:

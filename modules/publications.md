@@ -138,6 +138,7 @@ Run the program. Then answer the following questions:
 * How might the `curses` library be useful for our ROS2 programs? In 
   particular, what advantages might it have over our previous approach to I/O?
 
+## Console UI for ROS2
 <!-- Concept Invention: Example Console UI for ROS2 -->
 Copy `ir_counter.py` from `module1` into `module2`. Then create a file 
 called `curses_runner.py` and copy and paste the code below into it:

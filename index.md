@@ -41,7 +41,7 @@ Upon completing this course, our goal is for you to be able to:
 | 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
 |      |
 | 2/4  | Tue | [Module 3: State Machines]({{site.baseurl}}/modules/state_machines.html) | | Module 2 |
-| 2/6  | Thu | Project 1 | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Module 3 |
+| 2/6  | Thu | [Project 1]({{site.baseurl}}/projects/project1.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Module 3 |
 |      |
 | 2/11 | Tue | Project 1 |  |  |  
 | 2/13 | Thu | Project 1 Presentations |  | Project 1 |
