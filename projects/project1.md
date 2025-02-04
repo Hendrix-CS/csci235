@@ -11,12 +11,12 @@ you like, subject to the following constraints:
   * A node that encodes inputs into symbolic values and publishes them.
   * A [`StateNode`]({{site.baseurl}}/modules/state_machines.html#states).
   * A node that publishes motor commands corresponding to states.
-  * A ['CursesNode']({{site.baseurl}}/modules/publications.html#console-ui-for-ros2) to display useful information.
+  * A [`CursesNode`]({{site.baseurl}}/modules/publications.html#console-ui-for-ros2) to display useful information.
     * It may also handle keyboard commands.
 * The robot must have at least four distinct states and four distinct inputs. It may have more.
 * The robot's behavior must be influenced in some way by sensor values coming from at least three topics.
   * In Modules 1-3 we explored the [`ir_intensity`]({{site.baseurl}}/modules/nodes.html#first-topic-ir-intensity), 
-  [`battery_state`]({{site.baseurl}}/modules/nodes.html#second-topic-battery-state)
+  [`battery_state`]({{site.baseurl}}/modules/nodes.html#second-topic-battery-state), 
   [`odom`]({{site.baseurl}}/modules/state_machines.html#new-topic-odometry), and 
   [`hazard_detection`]({{site.baseurl}}/modules/state_machines.html#new-topic-hazards) topics.
   * Other topics that might be interesting to employ in this project include:
