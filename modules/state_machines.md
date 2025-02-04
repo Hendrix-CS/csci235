@@ -190,10 +190,6 @@ from std_msgs.msg import String
 from odometry_math import find_euclidean_distance, find_roll_pitch_yaw, find_angle_diff, find_goal_heading
 
 
-def sp(n: int) -> str:
-    return ' ' * n
-
-
 class OdometryNode(Node):
     def __init__(self, robot_name: str, distance_threshold: float, heading_threshold: float):
         super().__init__(f'OdometryNode_{robot_name}')
@@ -232,9 +228,9 @@ class OdometryNode(Node):
             msg = {'input': (in_out, alignment), 
                    'debug': f"""
 start: {self.start}
-distance: {d:.2f}{sp(10)}
-heading_target: {heading_target:.2f}{sp(10)}
-yaw: {y:.2f}{sp(10)}
+distance: {d:.2f}{' ' * 10}
+heading_target: {heading_target:.2f}{' ' * 10}
+yaw: {y:.2f}{' ' * 10}
 """
             }
 
