@@ -1,6 +1,6 @@
 ---
 layout: work
-type: Project 1
+type: Project
 num: 1
 worktitle: A ROS2 Controller
 ---
