@@ -7,19 +7,24 @@ worktitle: State Machines
 
 ## New Topic: Odometry
 <!-- Exploration: odom from the command line -->
-Type the command below into the command line:
+Open two shells on your robot. Type the command below into the first command line:
+
 ```
 ros2 topic echo /[your robot name]/odom
 ```
 
-<!-- Application: ROS motors from command line -->
-Open a second shell. In the second shell, write a ROS2 command to drive the robot forwards.
-Put it at a low speed, and make sure it has some room. While it is running, observe the 
-first shell window, and answer the following questions:
+Type this command into the second command line. Make sure your robot has some room to 
+move before you run this command:
+```
+ros2 topic pub -r 5 /[your robot name]/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}}"
+```
+
+Let it run for a few seconds. Then stop the `odom` command, and after that stop the `cmd_vel_stamped` command.
+Then answer the following questions:
 * What information is published by the `odom` topic?
 * How does that information change as the robot drives forward?
-* Stop the robot. Now write a ROS2 command for it to spin in place. How does the `odom`
-  information change as the robot spins?
+* Now write a ROS2 command for the robot to spin in place. Repeat the above steps. 
+  How does the `odom` information change as the robot spins?
 <!-- Concept invention: Odometry -->
 * What fields from the `odom` message are most relevant to determining the robot's
   position and orientation?
