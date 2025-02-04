@@ -59,7 +59,7 @@ def find_euclidean_distance(p1: Point, p2: Point) -> float:
     """
     Given two points, find the distance between them.
     """
-    return ((p2.x - p1.x)**2 + (p2.y - p1.y)**2 + (p2.z - p1.z))**(1/2)
+    return ((p2.x - p1.x)**2 + (p2.y - p1.y)**2 + (p2.z - p1.z)**2)**(1/2)
 
 
 def find_roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
