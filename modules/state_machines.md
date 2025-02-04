@@ -142,8 +142,8 @@ Read over the code. Then answer the following questions:
   test case is numbered to facilitate references.
 <!-- Concept invention: Angular difference -->
 <!-- Application: Robot turns -->
-  * For each test case, imagine that the robot's current orientation is the 
-    first value and its goal orientation is the second value. Remembering how 
+  * For each test case, imagine that the robot's goal orientation is the 
+    first value and its current orientation is the second value. Remembering how 
     you programmed the robots to turn left and right, which direction would 
     the robot turn to reach its goal orientation?
   * For each test case, does the target difference conflict with your
