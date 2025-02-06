@@ -504,6 +504,10 @@ Then perform the following additional modifications to `sensor_messenger.py`:
   that the `SensorNode` publishes.
 * Drive the robot around for a while, periodically encountering hazards. 
   Ensure that its hazard reporting corresponds to what it encounters.
+  
+  <!-- Future idea -->
+  <!-- Have an exercise where they make the patrol robot stop when it encounters something.
+  It doesn't move again until both hazard and IR are free -->
 
 
 ## Hazard-avoiding state machine
