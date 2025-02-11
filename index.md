@@ -44,34 +44,34 @@ Upon completing this course, our goal is for you to be able to:
 | 2/6  | Thu | [Project 1]({{site.baseurl}}/projects/project1.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Module 3 |
 |      |
 | 2/11 | Tue | Project 1 |  |  |  
-| 2/13 | Thu | Project 1 Presentations |  | Project 1 |
+| 2/13 | Thu | Project 1 |  |  |  
 |      |
-| 2/18 | Tue | In-Class Essay 1 | | | 
-| 2/20 | Thu | Module 4: Trajectory Maps | | | 
+| 2/18 | Tue | Project 1 Presentations |  | Project 1 |
+| 2/20 | Thu | In-Class Essay 1 | | | 
 |      |
-| 2/25 | Tue | Module 5: Fuzzy Logic | | Module 4 |
-| 2/27 | Thu | Module 6: Planning | | Module 5 | 
+| 2/25 | Tue | Module 4: Trajectory Maps | | | 
+| 2/27 | Thu | Module 5: Fuzzy Logic | | Module 4 |
 |      |
-| 3/4  | Tue | Project 2 | | Module 6 |
-| 3/6  | Thu | Project 2 | | |
+| 3/4  | Tue | Module 6: Planning | | Module 5 | 
+| 3/6  | Thu | Project 2 | | Module 6 |
 |      |
-| 3/11 | Tue | Project 2 Presentations |  | Project 2 |   
-| 3/13 | Thu | In-Class Essay 2 |  |  | 
+| 3/11 | Tue | Project 2 | | |
+| 3/13 | Thu | Project 2 Presentations |  | Project 2 |   
 |      |
-| 3/18 | Tue | Module 7: Reinforcement Learning | | |
-| 3/20 | Thu | Module 8: Vision 1: Motion | | Module 7 | 
+| 3/18 | Tue | In-Class Essay 2 |  |  | 
+| 3/20 | Thu | Module 7: Reinforcement Learning | | |
 |      |
 | 3/25 | Tue | Spring Break |  |  |  
 | 3/27 | Thu | Spring Break |  |  |  
 |      |
-| 4/1  | Tue | Module 9: Vision 2: Recognition |  | Module 8 |  
-| 4/3  | Thu | Project 3 |  | Module 9 |  
+| 4/1  | Tue | Module 8: Vision 1: Motion | | Module 7 | 
+| 4/3  | Thu | Module 9: Vision 2: Recognition |  | Module 8 |  
 |      
-| 4/8  | Tue | Project 3 |  |  |  
-| 4/10 | Thu | Project 3 Presentations |  | Project 3 |  
+| 4/8  | Tue | Project 3 |  | Module 9 |  
+| 4/10 | Thu | Project 3 |  |  |  
 |      |
-| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  |  
-| 4/17 | Thu | Final Project work |  |  |
+| 4/15 | Tue | Project 3 Presentations |  | Project 3 |  
+| 4/17 | Thu | [Final Project]({{site.baseurl}}/projects/Final.html) |  |  
 |      |
 | 4/22 | Tue | Final Project proposal presentations |  | Final Project Proposal |
 | 4/24 | Thu | In-Class Essay 3 |  |  |  
