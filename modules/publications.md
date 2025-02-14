@@ -94,7 +94,7 @@ Answer the following questions:
 <!-- Exploration: Curses UI -->
 Create a file called `curses_demo.py` and copy and paste the code below into it:
 ```
-import curses
+import curses, traceback
 
 def main(stdscr):
     curses.cbreak()
@@ -144,7 +144,7 @@ Copy `ir_counter.py` from `module1` into `module2`. Then create a file
 called `curses_runner.py` and copy and paste the code below into it:
 ```
 from typing import List
-import curses, sys
+import curses, traceback, sys
 
 import rclpy
 from rclpy.node import Node
