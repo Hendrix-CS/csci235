@@ -47,7 +47,7 @@ Upon completing this course, our goal is for you to be able to:
 | 2/13 | Thu | Project 1 |  |  |  
 |      |
 | 2/18 | Tue | Project 1 Presentations |  | Project 1 |
-| 2/20 | Thu | In-Class Essay 1 | | | 
+| 2/20 | Thu | [In-Class Essay 1]({{site.baseurl}}/essays/essay1.html) | | | 
 |      |
 | 2/25 | Tue | Module 4: Trajectory Maps | | | 
 | 2/27 | Thu | Module 5: Fuzzy Logic | | Module 4 |
