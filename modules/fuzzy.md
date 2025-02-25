@@ -61,15 +61,15 @@ A correct solution should pass the unit tests below.
 ```
 import unittest
 
-def f_and(v1: float, v2: float):
+def f_and(v1: float, v2: float) -> float:
     # Your code here
 
 
-def f_or(v1: float, v2: float):
+def f_or(v1: float, v2: float) -> float:
     # Your code here
 
 
-def f_not(value: float):
+def f_not(value: float) -> float:
     # Your code here
     
 class FuzzyTest(unittest.TestCase):
@@ -92,7 +92,7 @@ original units to fuzzy values.
 
 Add the following function to `fuzzy.py`, and implement it:
 ```
-def fuzzify(value: float, start: float, end: float):
+def fuzzify(value: float, start: float, end: float) -> float:
     # Your code here.
 ```
 
@@ -130,7 +130,7 @@ the pattern in this table.
 <!-- Application --> 
 Add the `defuzzify()` function below to `fuzzy.py`, and implement it.
 ```
-def defuzzify(value: float, zero: float, one: float):
+def defuzzify(value: float, zero: float, one: float) -> float:
     # Your code here.
 ```
 
@@ -273,10 +273,10 @@ if __name__ == '__main__':
 ```
 
 1. What will a `FuzzyDriveNode` object do when spun?
-2. Based on your experience with the motors sensors, what value would you suggest for `x_limit`?
+2. Based on your experience with the motors, what value would you suggest for `x_limit`?
 3. How about `z_limit`?
 4. Write a command-line invocation of `ir_fuzzy_avoider.py` that will run it with the four values you specified.
-
+(We will test it in a moment.)
 
 ## Running a fuzzy controller
 
@@ -286,14 +286,12 @@ Copy `curses_runner.py` from `module2` into your `module4` folder. Then run `ir_
 command-line arguments you specified.
 
 1. Overall, how well does your robot perform as an obstacle avoider?
-
 <!-- Concept invention -->
 2. Do you think the `ir_fuzzy_start` value enables the robot to start turning when it should?
 3. Do you think the `ir_fuzzy_end` value puts the robot into a sharp turn soon enough to avoid objects?
 4. Do you think the `x_limit` value is fast enough to enable the robot to make progress but slow enough to
    give it ample time to avoid hitting objects?
 5. Do you think the `z_limit` value is a good match to the `x_limit` value?
-
 <!-- Application -->
 6. Based on your observations, experiment with some different values for these four variables. For each variation
 that you try, record its impact on the robot's performance. Create at least three distinct combinations of 
@@ -303,7 +301,8 @@ values. Which combination performed the best?  Why?
 ## Fuzzy navigation
 
 <!-- Exploration -->
-Copy the code below into a new file called `goal_fuzzy_input.py`:
+Copy `odometry_math.py` from `module3` into `module4`. Then 
+copy the code below into a new file called `goal_fuzzy_input.py`:
 ```
 from typing import Any
 
