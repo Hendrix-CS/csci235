@@ -15,6 +15,7 @@ The table below is a **truth table**, describing how logic operators produce the
 | true  | false | false | true  | false   | true   |
 | false | true  | true  | false | false   | true   |
 | false | false | true  | true  | false   | false  |
+
 <!-- Exploration -->
 
 Imagine that a person who is 6' 4" is considered `tall`. Now imagine two people, 
