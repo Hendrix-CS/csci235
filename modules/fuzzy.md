@@ -301,3 +301,202 @@ values. Which combination performed the best?  Why?
 
 ## Fuzzy navigation
 
+<!-- Exploration -->
+Copy the code below into a new file called `goal_fuzzy_input.py`:
+```
+from typing import Any
+
+from rclpy.node import Node
+from rclpy.publisher import Publisher
+from rclpy.qos import qos_profile_sensor_data
+from nav_msgs.msg import Odometry
+from std_msgs.msg import String
+from geometry_msgs.msg import Point
+
+from odometry_math import find_euclidean_distance, find_roll_pitch_yaw, find_angle_diff, find_goal_heading
+import fuzzy
+
+class FuzzyGoalNode(Node):
+    def __init__(self, robot_name: str, goal_x: float, goal_y: float, angle_limit: float):
+        super().__init__(f'FuzzyGoalNode_{robot_name}')
+        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.output_topic = f'{robot_name}_goal_error'
+        self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
+        self.debug_topic = f'{robot_name}_debug_topic'
+        self.debug = self.create_publisher(String, self.debug_topic, qos_profile_sensor_data)
+        self.goal = Point()
+        self.goal.x = goal_x
+        self.goal.y = goal_y
+        self.distance_limit = None
+        self.angle_limit = angle_limit
+
+    def publish(self, publisher: Publisher, data: Any):
+        output = String()
+        output.data = f"{data}"
+        publisher.publish(output)
+
+    def odom_callback(self, msg: Odometry):      
+        distance_diff = find_euclidean_distance(self.goal, msg.pose.pose.position)
+        if self.distance_limit is None:
+            self.distance_limit = distance_diff  
+
+        errors = {}
+        goal_direction = find_goal_heading(msg.pose.pose.position, self.goal)
+        r, p, yaw = find_roll_pitch_yaw(msg.pose.pose.orientation)
+        angle_diff = find_angle_diff(yaw, goal_direction)
+        errors['left'] = errors['right'] = 0.0
+        if angle_diff > 0:
+            errors['right'] = fuzzy.fuzzify(angle_diff, 0.0, self.angle_limit)
+        else:
+            errors['left'] = fuzzy.fuzzify(-angle_diff, 0.0, self.angle_limit)
+
+        dist = fuzzy.fuzzify(distance_diff, 0.0, self.distance_limit)
+        errors['distance'] = dist
+        self.publish(self.output, errors)
+
+        debug = f"{msg.pose.pose.position}{' ' * 10}"
+        debug += f"\ndistance diff: {distance_diff:.2f} ({self.distance_limit}) {' ' * 10}"
+        debug += f"\nyaw: {yaw:.2f} goal_direction: {goal_direction:.2f}{' ' * 10}"
+        debug += f"\nangle diff: {angle_diff:.2f} ({self.angle_limit}){' ' * 10}"
+        debug += f"\ndistance: {errors['distance']:.2f}{' ' * 10}"
+        debug += f"\nleft: {errors['left']:.2f}{' ' * 10}"
+        debug += f"\nright: {errors['right']:.2f}{' ' * 10}"
+        self.publish(self.debug, debug)
+```
+
+1. What will a `FuzzyGoalNode` object do when spun?
+2. What do you think the term **error** means in this context?
+3. Based on your experience with odometry, what might be a good value to use for `angle_limit`?
+4. How is `distance_limit` determined? Why do you think it is determined in this way?
+
+Copy the code below into a new file called `goal_fuzzy_navigator.py`:
+```
+import sys, curses
+from typing import Dict
+
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from std_msgs.msg import String
+from geometry_msgs.msg import TwistStamped
+from irobot_create_msgs.msg import InterfaceButtons
+
+from goal_fuzzy_input import FuzzyGoalNode
+from curses_runner import CursesNode, run_curses_nodes
+import fuzzy
+
+
+class FuzzyDriveNode(Node):
+    def __init__(self, robot_name: str, fuzzy_topic: str, x_limit: float, z_limit: float):
+        super().__init__(f"FuzzyDriveNode_{robot_name}")
+        self.x_limit = x_limit
+        self.z_limit = z_limit
+        self.override_stop = False
+        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
+        self.create_subscription(String, fuzzy_topic, self.fuzzy_callback, qos_profile_sensor_data)
+        self.create_subscription(InterfaceButtons, f"/{robot_name}/interface_buttons", self.button_callback, qos_profile_sensor_data)
+
+    def fuzzy_callback(self, msg: String):
+        fuzzy_values = eval(msg.data)
+
+        t = self.make_twist()
+        if not self.override_stop:
+            t.twist.linear.x = fuzzy.defuzzify(fuzzy_values["distance"], 0, self.x_limit)
+            turn_limit = self.z_limit * (1.0 if fuzzy_values["left"] > fuzzy_values["right"] else -1.0)
+            t.twist.angular.z = fuzzy.defuzzify(fuzzy.f_or(fuzzy_values["left"], fuzzy_values["right"]), 0, turn_limit)
+        self.motors.publish(t)
+            
+    def make_twist(self) -> TwistStamped:
+        t = TwistStamped()
+        t.header.frame_id = "base_link"
+        t.header.stamp = self.get_clock().now().to_msg()
+        return t
+    
+    def button_callback(self, msg: InterfaceButtons):
+        if msg.button_1.is_pressed or msg.button_2.is_pressed or msg.button_power.is_pressed:
+            self.override_stop = True
+
+def main(stdscr):
+    cmd = parse_cmd_line_values()
+    rclpy.init()
+    sensor_node = FuzzyGoalNode(sys.argv[1], cmd['goal_x'], cmd['goal_y'], cmd['angle_limit'])
+    curses_node = CursesNode(sensor_node.debug_topic, 2, stdscr)
+    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'])
+    run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
+    rclpy.shutdown()
+
+
+def parse_cmd_line_values() -> Dict[str,float]:
+    parsed = {}
+    for arg in sys.argv:
+        if '=' in arg:
+            parts = arg.split('=')
+            parsed[parts[0]] = float(parts[1])
+    return parsed
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 5:
+        print("Usage: python3 goal_fuzzy_navigator.py robot_name goal_x=value goal_y=value angle_limit=value x_limit=value z_limit=value")
+        robot_name = sys.argv[1] if len(sys.argv) > 1 else "robot_name"
+        print(f"Odometry reset:\nros2 service call /{robot_name}/reset_pose irobot_create_msgs/srv/ResetPose\n")   
+    else:
+        curses.wrapper(main)
+```
+
+1. What will a `FuzzyDriveNode` object do when spun? 
+2. What similarities and differences do you see between this version of `FuzzyDriveNode` and
+the version we created for use with the IR sensors?
+3. How does pressing an interface button cause the robot to stop moving?
+4. Based on your prior experience with motors, what do you think would be suitable values
+for `x_limit` and `z_limit`? 
+5. Run the program with only the name of the robot as a command-line argument. It will
+print a command you can use to reset the odometry. Run that command before running the program
+again. The second time you run the program, set values for all of its command-line arguments.
+What does the robot do when it runs?
+6. Try the program again, but this time use different values for `x_limit` and `z_limit`.
+If previously the robot was driving quickly, this time, have it drive slowly. If previously
+it was driving slowly, this time, have it drive quickly. How does the change in speed
+affect its performance?
+
+## Triangular fuzzification
+
+Examine the function below, and add it to `fuzzy.py`:
+```
+def triangle(value: float, start: float, peak: float, end: float) -> float:
+    if value <= peak:
+        return fuzzify(value, start, peak)
+    else:
+        return f_not(fuzzify(value, peak, end))
+```
+
+1. What do you think this function will do? 
+2. Why do you think it is named **triangle**?
+
+Now replace the code that calculates `dist` with the following:
+```
+ dist = fuzzy.triangle(distance_diff, 0.0, self.distance_limit, self.distance_limit * 2)
+```
+
+1. How do you expect the behavior of the robot to change?
+2. How does this illustrate the utility of the **triangle** concept for fuzzification?
+3. Run the modified program. How did the behavior of the robot change, if at all?
+4. Is it necessary that the triangle is **symmetrical**? What might be a reason to have
+a non-symmetrical triangle? 
+5. Try a non-symmetrical triangle. How does the robot's behavior change?
+
+
+## One more variation
+
+Replace the code that calculates `dist` with the following:
+```
+either_turn = fuzzy.f_or(errors['left'], errors['right'])
+dist = fuzzy.triangle(distance_diff, 0.0, self.distance_limit, self.distance_limit * 2)
+errors['distance'] = fuzzy.f_and(dist, fuzzy.f_not(either_turn))
+```
+
+1. How do you expect the behavior of the robot to change?
+2. This block of code makes use of all three fuzzy logic operators: **and**, **or**, and **not**.
+Explain in natural language the meaning expressed by this fuzzy logic formulation.
+3. Run the modified program. How did the robot's behavior change, if at all?
+4. Having now explored three variations of this program, which do you prefer? Why?
