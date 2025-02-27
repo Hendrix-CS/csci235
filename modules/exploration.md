@@ -83,9 +83,6 @@ from geometry_msgs.msg import TwistStamped
 from avoid_input import AvoidInputNode, publish_string
 from curses_runner import run_curses_nodes
 
-import subprocess, atexit, time, datetime
-from curses_mapper import CursesMappingNode
-
 
 class DriveNode(Node):
     def __init__(self, robot_name: str, input_topic: str, x_limit: float, z_limit: float):
