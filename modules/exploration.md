@@ -465,15 +465,16 @@ def main(stdscr):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python3 avoid_drive.py robot_name [-width=value] [-height=value]")
+        print("Usage: python3 avoid_drive_map.py robot_name [-width=value] [-height=value]")
     else:
         cmd = parse_cmd_line_values()
         width = cmd.get("-width", 3.0)
         height = cmd.get("-height", 3.0)
+        print("To reset odometry:")
+        print(f"ros2 service call /{sys.argv[1]}/reset_pose irobot_create_msgs/srv/ResetPose\n")
+        input("Type enter once odometry is reset")
         process = subprocess.Popen(['/home/robotics/bin/mapper_node', sys.argv[1], f"-dim={width},{height}"])
         atexit.register(lambda: process.terminate())
-        time.sleep(1)
-        input("Type enter when ready to start")
         curses.wrapper(main)
 ```
 
