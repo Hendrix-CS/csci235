@@ -146,8 +146,8 @@ if __name__ == '__main__':
 2. What will a `DriveNode` object do when spun?
 3. What might be some reasons why a `DriveNode` would publish whether it is driving forward or
    avoiding an obstacle?
-4. Run the program. How does it perform as an obstacle avoider? Experiment with its parameters
-until you are reasonably satisfied with its performance.
+4. Run the program. What are its qualities and limitations compared with prior obstacle-avoiding
+programs you have written?
 
 ## Maps
 
