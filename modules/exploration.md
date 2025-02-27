@@ -233,6 +233,7 @@ import traceback
 
 from binary_grid import BinaryGrid
 from typing import Dict, Tuple, List
+from geometry_msgs.msg import Point
 
 def main(stdscr):
     first_line = 2
@@ -368,14 +369,16 @@ def has_frontier(free_space: BinaryGrid, obstacles: BinaryGrid, col: int, row: i
     return False
 
 
-def find_frontier(map_data: Dict) -> List[Tuple[float, float]]:
+def find_frontier(map_data: Dict) -> List[Point]:
     free_space = BinaryGrid(map_data['free_space_grid'], map_data['columns'], map_data['rows'])
     obstacles = BinaryGrid(map_data['obstacles_grid'], map_data['columns'], map_data['rows'])
     frontier = []
     for col, row in free_space.all_columns_rows():
         if is_frontier_point(free_space, obstacles, col, row):
-            frontier.append(grid2meter(col, row, map_data))
-    return frontier
+            p = Point()
+            p.x, p.y = grid2meter(col, row, map_data)
+            frontier.append(p)
+    return frontier         
     
 ```
 
@@ -500,7 +503,7 @@ Make a copy of `avoid_drive_map.py` called `explorer_drive.py` and a copy of
 * In the `avoid()` method:
   * Call `find_frontier()` from `map_viewer.py` to get a list of frontier points.
   * Traverse the list, finding the frontier point closest to the robot's last 
-    recorded position.
+    recorded position. Use `find_euclidean_distance()` from `odometry_math.py` to help.
   * Save that frontier point as the robot's `target`.
   * If there are no frontier points, the robot should simply stop moving.
     * Publish a suitable message for `DriveNode`.
