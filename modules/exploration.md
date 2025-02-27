@@ -11,9 +11,9 @@ worktitle: Exploration
 Create a new folder called `module5`. Copy `odometry_math.py` from `module3` and 
 `curses_runner.py` from `module2` into it.
 
-Let's examine an obstacle-avoiding robot program that puts together several different
-ideas we have explored recently. First, examine the input-encoding node. Create a file
-called `avoid_input.py`, and copy and paste the code below into it.
+Let's examine a simple obstacle-avoiding robot program. First, examine the 
+input-encoding node. Create a file called `avoid_input.py`, and copy and 
+paste the code below into it.
 
 ```
 from typing import Any
