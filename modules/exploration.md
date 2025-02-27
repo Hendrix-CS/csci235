@@ -346,6 +346,11 @@ First, add the code below to `map_viewer.py`:
                     c = 'F'
                 elif free_square:
                     c = 'o'
+
+
+def is_frontier_point(free_space: BinaryGrid, obstacles: BinaryGrid, col: int, row: int) -> bool:
+    # YOUR CODE HERE
+
                     
 def has_frontier(free_space: BinaryGrid, obstacles: BinaryGrid, col: int, row: int, col_grid_slice: int, row_grid_slice: int) -> bool:
     for r in range(row, row + row_grid_slice):
@@ -364,9 +369,6 @@ def find_frontier(map_data: Dict) -> List[Tuple[float, float]]:
             frontier.append(grid2meter(col, row, map_data))
     return frontier
     
-    
-def is_frontier_point(free_space: BinaryGrid, obstacles: BinaryGrid, col: int, row: int) -> bool:
-    # YOUR CODE HERE
 ```
 
 1. Given the way our maps are defined, how would you define whether a given grid location
@@ -427,7 +429,7 @@ class CursesMappingNode(Node):
         display_curses(self.stdscr, 2, self.msg)
 ```
 
-Next, make a copy of `avoid_drive.py` called `avoid_drive_map.py`, and modify the ]
+Next, make a copy of `avoid_drive.py` called `avoid_drive_map.py`, and modify the 
 copy as follows:
 
 ```
@@ -498,5 +500,5 @@ Make a copy of `avoid_drive_map.py` called `explorer_drive.py` and a copy of
   Continue publishing `avoid` as long as the `x` velocity is zero. Once it is non-zero,
   publish `clear`.
 
-Once your explorer is complete, map three areas. Save the maps and submit them along with
+Once your explorer is complete, map two areas. Save the maps and submit them along with
 the rest of your materials for this module.
