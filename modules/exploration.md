@@ -343,9 +343,7 @@ def display_curses(stdscr, start_row: int, map_data: Dict):
                 obstacle_square = obstacles.any_1_values(grid_col, grid_row, col_grid_slice, row_grid_slice)
                 frontier_square = has_frontier(free_space, obstacles, grid_col, grid_row, col_grid_slice, row_grid_slice)
                 c = '.'
-                if obstacle_square and free_square:
-                    c = '?'
-                elif obstacle_square:
+                if obstacle_square:
                     c = '*'
                 elif frontier_square:
                     c = 'F'
