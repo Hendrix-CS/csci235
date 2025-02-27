@@ -320,7 +320,24 @@ obstacles or the edge of the map. We will call these **frontier** locations.
 
 First, add the code below to `map_viewer.py`:
 ```
-# In display_curses(), replace the `else` with the following:
+# Replace display_curses() with the following:
+def display_curses(stdscr, start_row: int, map_data: Dict):
+    free_space = BinaryGrid(map_data['free_space_grid'], map_data['columns'], map_data['rows'])
+    obstacles = BinaryGrid(map_data['obstacles_grid'], map_data['columns'], map_data['rows'])
+
+    rows, columns = stdscr.getmaxyx()
+    rows -= 2
+    columns -= 2
+    display_rows = rows - start_row
+    row_grid_slice = round_quotient_up(free_space.rows(), display_rows)
+    col_grid_slice = round_quotient_up(free_space.cols(), columns)
+    for row in range(rows):
+        grid_row = row * free_space.rows() // rows
+        for col in range(columns):
+            grid_col = col * free_space.cols() // columns
+            robot_col, robot_row = meter2grid(map_data['x'], map_data['y'], map_data)
+            if grid_col <= robot_col <= grid_col + col_grid_slice and grid_row <= robot_row <= grid_row + row_grid_slice:
+                c = 'X'
             else:
                 free_square = free_space.any_1_values(grid_col, grid_row, col_grid_slice, row_grid_slice)
                 obstacle_square = obstacles.any_1_values(grid_col, grid_row, col_grid_slice, row_grid_slice)
@@ -334,6 +351,7 @@ First, add the code below to `map_viewer.py`:
                     c = 'F'
                 elif free_square:
                     c = 'o'
+            stdscr.addstr(row + start_row, col, c)
 
 
 def is_frontier_point(free_space: BinaryGrid, obstacles: BinaryGrid, col: int, row: int) -> bool:
