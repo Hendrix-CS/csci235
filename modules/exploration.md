@@ -17,7 +17,6 @@ called `avoid_input.py`, and copy and paste the code below into it.
 
 ```
 from typing import Any
-import math
 
 from odometry_math import find_roll_pitch_yaw, find_angle_diff
 from rclpy.node import Node
@@ -27,7 +26,6 @@ from rclpy.qos import qos_profile_sensor_data
 from nav_msgs.msg import Odometry
 from std_msgs.msg import String
 from irobot_create_msgs.msg import HazardDetectionVector
-from irobot_create_msgs.msg import IrIntensityVector
 
 def publish_string(publisher: Publisher, data: Any):
     output = String()
@@ -36,29 +34,23 @@ def publish_string(publisher: Publisher, data: Any):
 
 
 class AvoidInputNode(Node):
-    def __init__(self, robot_name: str, ir_turn: int):
+    def __init__(self, robot_name: str):
         super().__init__(f'AvoidInputNode_{robot_name}')
-        self.create_subscription(IrIntensityVector, f"{robot_name}/ir_intensity", self.ir_callback, qos_profile_sensor_data)
         self.create_subscription(HazardDetectionVector, f"{robot_name}/hazard_detection", self.hazard_callback, qos_profile_sensor_data)
         self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
         self.output_topic = f'{robot_name}_ir_blocked'
         self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
-        self.ir_turn = ir_turn
         self.target = None
+        self.yaw = 0.0
 
     def avoiding(self) -> bool:
         return self.target is not None
     
     def avoid(self):
-        self.target = self.yaw + math.pi/2  
+        self.target = self.yaw + 1.0
     
     def avoid_no_longer(self):
         self.target = None
-
-    def ir_callback(self, msg: IrIntensityVector):
-        for reading in msg.readings:
-            if reading.value >= self.ir_turn:
-                self.avoid()
 
     def hazard_callback(self, msg: HazardDetectionVector):
         for d in msg.detections:
@@ -72,14 +64,11 @@ class AvoidInputNode(Node):
         if self.avoiding() and find_angle_diff(self.yaw, self.target) > 0:
             self.avoid_no_longer()
         
-        msg = {'left_pending': self.avoiding()}
+        msg = {'pending': self.avoiding()}
         publish_string(self.output, msg)
 ```
 
-1. What will an `AvoidInputNode` object do when spun?
-2. Based on your experience with the IR sensors, what value would you suggest for `ir_turn`?
-
-Copy the following code into a new file, `ir_fuzzy_avoider.py`:
+Copy the following code into a new file, `avoid_drive.py`:
 
 ```
 import sys, curses
@@ -92,7 +81,10 @@ from std_msgs.msg import String
 from geometry_msgs.msg import TwistStamped
 
 from avoid_input import AvoidInputNode, publish_string
-from curses_runner import run_curses_nodes, CursesNode
+from curses_runner import run_curses_nodes
+
+import subprocess, atexit, time, datetime
+from curses_mapper import CursesMappingNode
 
 
 class DriveNode(Node):
@@ -110,7 +102,7 @@ class DriveNode(Node):
         t = self.make_twist()
         avoid_msg = "clear"
         sensor_values = eval(msg.data)
-        if sensor_values['left_pending']:
+        if sensor_values['pending']:
             t.twist.angular.z = self.z_limit
             avoid_msg = "avoid"
         else:
@@ -135,26 +127,25 @@ def parse_cmd_line_values() -> Dict[str,float]:
 
 
 def main(stdscr):
-    cmd = parse_cmd_line_values()
     rclpy.init()
-    sensor_node = AvoidInputNode(sys.argv[1], cmd['ir_turn'])
+    sensor_node = AvoidInputNode(sys.argv[1])
     curses_node = CursesNode(sensor_node.output_topic, 2, stdscr)
-    drive_node = DriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'])
+    drive_node = DriveNode(sys.argv[1], sensor_node.output_topic, 0.3, 1.0)
     run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
     rclpy.shutdown()
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 5:
-        print("Usage: python3 avoid_drive.py robot_name ir_turn=value x_limit=value z_limit=value")
+    if len(sys.argv) < 2:
+        print("Usage: python3 avoid_drive.py robot_name")
     else:
         curses.wrapper(main)
 ```
 
-1. What will a `DriveNode` object do when spun?
-2. What might be some reasons why the node would publish whether it is driving forward or
+1. What will an `AvoidInputNode` object do when spun?
+2. What will a `DriveNode` object do when spun?
+3. What might be some reasons why a `DriveNode` would publish whether it is driving forward or
    avoiding an obstacle?
-3. Based on your experience with the motors, what values would you suggest for `x_limit` and `z_limit`?
 4. Run the program. How does it perform as an obstacle avoider? Experiment with its parameters
 until you are reasonably satisfied with its performance.
 
@@ -402,7 +393,14 @@ ros2 topic echo robot_name_trajectory_map
 
 You should see something like this:
 ```
-FILL IN HERE
+data: "{ 'x': 1.2440211772918701, \n'y': -0.18090949952602386, \n'theta': -2.002969721829994, \n'columns': 30, \n'rows': 30, \n'meters_per_c..."
+---
+data: "{ 'x': 1.2440211772918701, \n'y': -0.18090949952602386, \n'theta': -2.002969721829994, \n'columns': 30, \n'rows': 30, \n'meters_per_c..."
+---
+data: "{ 'x': 1.2440211772918701, \n'y': -0.18090949952602386, \n'theta': -2.002969721829994, \n'columns': 30, \n'rows': 30, \n'meters_per_c..."
+---
+data: "{ 'x': 1.2440211772918701, \n'y': -0.18090949952602386, \n'theta': -2.002969721829994, \n'columns': 30, \n'rows': 30, \n'meters_per_c..."
+---
 ```
 
 ## Live mapping
@@ -427,7 +425,7 @@ class CursesMappingNode(Node):
         display_curses(self.stdscr, 2, self.msg)
 ```
 
-Next, make a copy of `avoid_drive.py` called `avoid_drive_map.py`, and modify the ]
+Next, make a copy of `avoid_drive.py` called `avoid_drive_map.py`, and modify the 
 copy as follows:
 
 ```
@@ -437,24 +435,25 @@ from curses_mapper import CursesMappingNode
 
 # Replace main() with the following:
 def main(stdscr):
-    cmd = parse_cmd_line_values()
     rclpy.init()
-    sensor_node = AvoidInputNode(sys.argv[1], cmd['ir_turn'])
+    sensor_node = AvoidInputNode(sys.argv[1])
     curses_node = CursesMappingNode(f"{sys.argv[1]}_trajectory_map", 2, stdscr)
-    drive_node = DriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'])
+    drive_node = DriveNode(sys.argv[1], sensor_node.output_topic, 0.3, 1.0)
     run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
     output_filename = f"map_{datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S')}"
     with open(output_filename, 'w') as map_out:
         map_out.write(f"{curses_node.msg}\n")
-        print(f"Wrote map to {output_filename}")
     rclpy.shutdown()
-    
-    
+
+
 if __name__ == '__main__':
-    if len(sys.argv) < 5:
-        print("Usage: python3 avoid_drive_map.py robot_name ir_turn=value x_limit=value z_limit=value")
+    if len(sys.argv) < 2:
+        print("Usage: python3 avoid_drive.py robot_name [-width=value] [-height=value]")
     else:
-        process = subprocess.Popen(['/home/robotics/bin/mapper_node', sys.argv[1]])
+        cmd = parse_cmd_line_values()
+        width = cmd.get("-width", 3.0)
+        height = cmd.get("-height", 3.0)
+        process = subprocess.Popen(['/home/robotics/bin/mapper_node', sys.argv[1], f"-dim={width},{height}"])
         atexit.register(lambda: process.terminate())
         time.sleep(1)
         input("Type enter when ready to start")
