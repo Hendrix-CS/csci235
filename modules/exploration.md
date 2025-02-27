@@ -81,7 +81,7 @@ from std_msgs.msg import String
 from geometry_msgs.msg import TwistStamped
 
 from avoid_input import AvoidInputNode, publish_string
-from curses_runner import run_curses_nodes
+from curses_runner import run_curses_nodes, CursesNode
 
 
 class DriveNode(Node):
