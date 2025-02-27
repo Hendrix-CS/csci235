@@ -173,7 +173,7 @@ Our maps are encoded as follows:
 * We maintain one grid of locations where the robot was able to move freely.
 * We maintain a second grid of locations where the robot encountered an obstacle.
 
-Create a file called `binary_map.py` and copy and paste the following code into it:
+Create a file called `binary_grid.py` and copy and paste the following code into it:
 ```
 from typing import List, Tuple
 
