@@ -215,8 +215,7 @@ class BinaryGrid:
         return result
     
     def all_columns_rows(self) -> List[Tuple[int, int]]:
-        return [[(col, row) for col in range(self.cols())] for row in range(self.rows())]
-
+        return [(col, row) for col in range(self.cols()) for row in range(self.rows())]
 
 def bit_value(words: List[int], bit: int, width: int) -> int:
     i = bit // width
