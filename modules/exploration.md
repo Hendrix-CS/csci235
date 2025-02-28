@@ -479,6 +479,8 @@ if __name__ == '__main__':
         input("Type enter once odometry is reset")
         process = subprocess.Popen(['/home/robotics/bin/mapper_node', sys.argv[1], f"-dim={width},{height}"])
         atexit.register(lambda: process.terminate())
+        time.sleep(1)
+        input("Type enter for robot to start")
         curses.wrapper(main)
 ```
 
