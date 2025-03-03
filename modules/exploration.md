@@ -195,7 +195,7 @@ class BinaryGrid:
     def any_1_values(self, col: int, row: int, col_slice: int, row_slice: int) -> bool:
         for r in range(row, row + row_slice):
             for c in range(col, col + col_slice):
-                if self.grid[r][c] == 1:
+                if self.is_set(c, r):
                     return True
         return False
     
