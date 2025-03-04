@@ -221,7 +221,8 @@ Copy `goal_fuzzy_navigator.py` from Module 4 and modify it as follows:
             msg = String()
             msg.data = self.goal
             self.navigator.publish(msg)
-        else:
+            self.override_stop = False
+        elif msg.button_1.is_pressed or msg.button_power.is_pressed:
             self.override_stop = True
 ```
 * Replace `main()` with the following:
@@ -247,6 +248,6 @@ if __name__ == '__main__':
         process = subprocess.Popen(['/home/ferrer/bin/navigator_node', sys.argv[1], sys.argv[2]])
         atexit.register(lambda: process.terminate())
         time.sleep(1)
-        input("Type enter for robot to start")        
+        input("Type enter for robot to start; then push button 2 to begin navigating")        
         curses.wrapper(main)
 ```
