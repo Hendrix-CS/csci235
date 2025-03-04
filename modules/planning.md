@@ -7,8 +7,47 @@ worktitle: Planning
 
 ## To the frontier
 
-Have them modify the wanderer to aim for a frontier square in the correct general direction. Then
-compare it to the mappability of the last version. This should hopefully be really easy.
+From Module 5, copy over the following files:
+* `binary_grid.py`
+* `curses_mapper.py`
+* `curses_runner.py`
+* `map_viewer.py`
+* `odometry_math.py`
+* `avoid_input.py` as `explorer_input.py`
+* `avoid_drive_map.py` as `explorer_drive.py`
+
+Modify `explorer_drive.py` as follows:
+* Instead of importing `from avoid_input`, import `from explorer_input`
+* Change the constructor call for `sensor_node` as follows:
+  * `sensor_node = AvoidInputNode(sys.argv[1], f"{sys.argv[1]}_trajectory_map")`
+  
+Modify `explorer_input.py` as follows:
+* Add a `map_topic` parameter to the constructor for `AvoidInputNode`
+* Add instance variables for the `map` and `position`. Initialize both to `None`.
+* Add a subscription to this topic (of type `String`), as well as a callback function for it.
+  * The callback function should use `eval` on the data from the message to create the
+    map dictionary and set `self.map` to it.
+* Add imports of the functions `find_goal_heading` and `find_normalized_angle` from `odometry_math`
+* Modify the odometry handler as follows:
+  * Set `self.position` to the position from the `Odometry` message.
+* Modify `avoid()` as follows:
+  * If either of `map` or `position` are still `None`, maintain the current implementation
+    of setting the target one radian past the `yaw`.
+  * Otherwise:
+    * Our overall strategy is to aim the robot at a frontier space on the map as close
+      as possible to directly behind it. To achieve this strategy:
+      * Use `find_frontier()` to find the frontier of the map.
+      * Set a target heading of the robot's yaw, rotated by 180 degrees (i.e., pi radians). Use
+        `find_normalized_angle()` from `odometry_math` to make sure it is normalized between
+        -pi and pi.
+      * Loop through the frontier:
+        * For each frontier point, use `find_goal_heading()` to see what angle the robot
+          would need to turn towards to be aimed to it.
+        * Use `find_angle_diff` to see if that frontier point is the closest possible to the target heading.
+      * Set `self.target` to the frontier goal heading that is as close as possible.
+
+Test this out to map an area. How does the robot's behavior compare with `avoid_drive_map.py`
+from Module 5? What advantages and disadvantages does each approach have?
 
 ## Improved Map Viewer
 
@@ -123,49 +162,83 @@ class MapDisplay:
                     stdscr.addch(view_row, col, c)
 ```
 
+And also add a revamped `display_curses()`:
+
+```
+def display_curses(stdscr, start_row: int, map_data: Dict):
+    d = MapDisplay(start_row, map_data)
+    d.show(stdscr)
+```
+
 Play around with it a bit using one or more of the maps you developed last time.
+What insights about the map can you obtain from using the cursor to observe various
+points?
 
 ## Navigation
 
-
-
-<!--
-
-No time to debug my solution. Dropping...
-
-
-## Exploration
-
-Make a copy of `avoid_drive_map.py` called `explorer_drive.py` and a copy of
-`avoid_input.py` called `explorer_input.py`. Modify them as follows:
-* In `AvoidInputNode`, add a subscription to the `trajectory_map` topic to which the 
-  `CursesMappingNode` is also subscribed.
-* In the callback for that subscription:
-  * Unpack the message into a Python dictionary using `eval()`.
-  * Store the message in an instance variable set aside for this purpose.
-* In `odom_callback()`:
-  * In addition to storing the yaw, also store the robot's `position` in an instance
-    variable.
-* In the `avoid()` method:
-  * Call `find_frontier()` from `map_viewer.py` to get a list of frontier points.
-  * Traverse the list, finding the frontier point closest to the robot's last 
-    recorded position. Use `find_euclidean_distance()` from `odometry_math.py` to help.
-  * Save that frontier point as the robot's `target`.
-  * If there are no frontier points, the robot should simply stop moving.
-    * Publish a suitable message for `DriveNode`.
-* Copy `fuzzy.py` from `module4` into `module5`.
-* In `odom_callback()`, modify the published message as follows:
-  * If the robot does not have a `target`, send a message that `DriveNode` will interpret
-    as a signal to drive forward.
-  * If the robot does have a target, take inspiration from `FuzzyGoalNode` in `module4`
-    to fuzzify the robot's relationship to that target. Publish the fuzzified input. Once 
-    the robot is within a few centimeters of the target, clear the target and allow the
-    robot to wander once again.
-* In `DriveNode`, rework `input_callback()` to either drive straight or to defuzzify the
-  fuzzified input. Publish `avoid` whenever the robot transitions from going forward.
-  Continue publishing `avoid` as long as the `x` velocity is zero. Once it is non-zero,
-  publish `clear`.
-
-Once your explorer is complete, map two areas. Save the maps and submit them along with
-the rest of your materials for this module.
--->
+Copy `fuzzy.py` and `goal_fuzzy_input.py` from Module 4. Then modify `goal_fuzzy_input.py`
+as follows:
+* Remove the `goal_x` and `goal_y` parameters from the constructor.
+* Remove any lines of code that reference those parameters.
+* Set `self.goal` to `None`.
+* Create the following subscription:
+  * `self.create_subscription(String, f"{robot_name}_waypoints", self.goal_callback, qos_profile_sensor_data)`
+* In `self.goal_callback()`:
+  * The `msg.data` field will contain a dictionary. Use `eval()` to unpack it.
+  * The dictionary will have two entries:
+    * `status` will have either `navigating` or `stopped` as values.
+    * `waypoint` will have value `None` if `status` is `stopped`. Otherwise, it will 
+      contain a pair of (x, y) coordinates towards which the robot should navigate.
+    * If `waypoint` contains (x, y) coordinates, create a `Point()` object (from `geometry_msgs.msg`)
+      and set its `x` and `y` instance variables to those (x, y) coordinates. Make `self.goal`
+      this `Point()` object.
+    * Otherwise, set `self.goal` to `None`.
+* Modify the odometry callback as follows:
+  * Make the first line `errors = {'left': 0.0, 'right': 0.0, 'distance': 0.0}`
+  * Remove the later lines that read `errors = {}` and `errors['left'] = errors['right'] = 0.0`.
+  * Write an `if` statement to ensure that all of the error calculations only occur if
+    `self.goal` is not `None`.
+    
+Copy `goal_fuzzy_navigator.py` from Module 4 and modify it as follows:
+* At the top, add `import subprocess, atexit, time`
+* Add a parameter `goal: str` to the constructor, and then add the line `self.goal = goal`
+  within it.
+* Add the following line in the constructor
+  * `self.navigator = self.create_publisher(String, f"{robot_name}_goal", qos_profile_sensor_data)`
+* Replace `button_callback()` with the following:
+```
+    def button_callback(self, msg: InterfaceButtons):
+        if msg.button_2.is_pressed:
+            msg = String()
+            msg.data = self.goal
+            self.navigator.publish(msg)
+        else:
+            self.override_stop = True
+```
+* Replace `main()` with the following:
+```
+def main(stdscr):
+    cmd = parse_cmd_line_values()
+    rclpy.init()
+    sensor_node = FuzzyGoalNode(sys.argv[1], cmd['angle_limit'])
+    curses_node = CursesNode(sensor_node.debug_topic, 2, stdscr)
+    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'], f"({cmd['goal_x']}, {cmd['goal_y']})")
+    run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
+    rclpy.shutdown()
+```
+* Replace `if __name__ == '__main__'` with the following:
+```
+if __name__ == '__main__':
+    if len(sys.argv) < 8:
+        print("Usage: python3 goal_fuzzy_navigator.py robot_name map_file_name goal_x=value goal_y=value angle_limit=value x_limit=value z_limit=value")
+        robot_name = sys.argv[1]
+        print(f"Odometry reset:\nros2 service call /{robot_name}/reset_pose irobot_create_msgs/srv/ResetPose\n")  
+        input("Type enter once odometry is reset")
+        process = subprocess.Popen(['/home/robotics/bin/navigator_node', sys.argv[1], sys.argv[2]])
+        atexit.register(lambda: process.terminate())
+        time.sleep(1)
+        input("Type enter for robot to start")        
+        curses.wrapper(main)
+    else:
+        curses.wrapper(main)
+```

@@ -335,16 +335,15 @@ class FuzzyGoalNode(Node):
         output.data = f"{data}"
         publisher.publish(output)
 
-    def odom_callback(self, msg: Odometry):      
+    def odom_callback(self, msg: Odometry):     
+        errors = {'left': 0.0, 'right': 0.0, 'distance': 0.0}
         distance_diff = find_euclidean_distance(self.goal, msg.pose.pose.position)
         if self.distance_limit is None:
             self.distance_limit = distance_diff  
 
-        errors = {}
         goal_direction = find_goal_heading(msg.pose.pose.position, self.goal)
         r, p, yaw = find_roll_pitch_yaw(msg.pose.pose.orientation)
         angle_diff = find_angle_diff(yaw, goal_direction)
-        errors['left'] = errors['right'] = 0.0
         if angle_diff > 0:
             errors['right'] = fuzzy.fuzzify(angle_diff, 0.0, self.angle_limit)
         else:
