@@ -251,3 +251,6 @@ if __name__ == '__main__':
         input("Type enter for robot to start; then push button 2 to begin navigating")        
         curses.wrapper(main)
 ```
+
+Using `map_viewer.py`, pick some points to navigate to on the map you created earlier. 
+How does it perform with its navigation?
