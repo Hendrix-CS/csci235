@@ -198,6 +198,14 @@ as follows:
   * Remove the later lines that read `errors = {}` and `errors['left'] = errors['right'] = 0.0`.
   * Write an `if` statement to ensure that all of the error calculations only occur if
     `self.goal` is not `None`.
+  * Replace the debugging code with the following:
+```
+        debug = f"{msg.pose.pose.position}{' ' * 10}"
+        debug += f"\ndistance: {errors['distance']:.2f}{' ' * 10}"
+        debug += f"\nleft: {errors['left']:.2f}{' ' * 10}"
+        debug += f"\nright: {errors['right']:.2f}{' ' * 10}"
+        self.publish(self.debug, debug)
+```
     
 Copy `goal_fuzzy_navigator.py` from Module 4 and modify it as follows:
 * At the top, add `import subprocess, atexit, time`
@@ -231,14 +239,13 @@ def main(stdscr):
 if __name__ == '__main__':
     if len(sys.argv) < 8:
         print("Usage: python3 goal_fuzzy_navigator.py robot_name map_file_name goal_x=value goal_y=value angle_limit=value x_limit=value z_limit=value")
-        robot_name = sys.argv[1]
+    else:
+        robot_name = sys.argv[1] if len(sys.argv) > 1 else "robot_name"
         print(f"Odometry reset:\nros2 service call /{robot_name}/reset_pose irobot_create_msgs/srv/ResetPose\n")  
         input("Type enter once odometry is reset")
-        process = subprocess.Popen(['/home/robotics/bin/navigator_node', sys.argv[1], sys.argv[2]])
+        process = subprocess.Popen(['/home/ferrer/bin/navigator_node', sys.argv[1], sys.argv[2]])
         atexit.register(lambda: process.terminate())
         time.sleep(1)
         input("Type enter for robot to start")        
-        curses.wrapper(main)
-    else:
         curses.wrapper(main)
 ```
