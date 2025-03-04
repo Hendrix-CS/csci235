@@ -204,6 +204,7 @@ as follows:
         debug += f"\ndistance: {errors['distance']:.2f}{' ' * 10}"
         debug += f"\nleft: {errors['left']:.2f}{' ' * 10}"
         debug += f"\nright: {errors['right']:.2f}{' ' * 10}"
+        debug += f"\ngoal: {self.goal}"
         self.publish(self.debug, debug)
 ```
     
