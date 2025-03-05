@@ -5,7 +5,7 @@ num: 6
 worktitle: Planning
 ---
 
-## To the frontier
+## <a name="frontier">To the frontier</a>
 
 From Module 5, copy over the following files:
 * `binary_grid.py`
@@ -174,7 +174,7 @@ Play around with it a bit using one or more of the maps you developed last time.
 What insights about the map can you obtain from using the cursor to observe various
 points?
 
-## Navigation
+## <a name="navigation">Navigation</a>
 
 Copy `fuzzy.py` and `goal_fuzzy_input.py` from Module 4. Then modify `goal_fuzzy_input.py`
 as follows:

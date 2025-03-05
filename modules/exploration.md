@@ -424,7 +424,7 @@ data: "{ 'x': 1.2440211772918701, \n'y': -0.18090949952602386, \n'theta': -2.002
 ---
 ```
 
-## Live mapping
+## <a name="avoid_drive_map">Live mapping</a>
 
 Copy and paste the following code into a new file called `curses_mapper.py`:
 ```
