@@ -61,8 +61,10 @@ class AvoidInputNode(Node):
     def odom_callback(self, msg: Odometry):
         r, p, self.yaw = find_roll_pitch_yaw(msg.pose.pose.orientation)
 
-        if self.avoiding() and find_angle_diff(self.yaw, self.target) > 0:
-            self.avoid_no_longer()
+        if self.avoiding():
+            gap = find_angle_diff(self.yaw, self.target)
+            if abs(gap) < math.pi / 32:
+                self.avoid_no_longer()
         
         msg = {'pending': self.avoiding()}
         publish_string(self.output, msg)

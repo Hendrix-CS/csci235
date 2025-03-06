@@ -44,6 +44,8 @@ Modify `explorer_input.py` as follows:
         * For each frontier point, use `find_goal_heading()` to see what angle the robot
           would need to turn towards to be aimed to it.
         * Use `find_angle_diff` to see if that frontier point is the closest possible to the target heading.
+          Because `find_angle_diff` may return a positive or negative value, be sure to use the
+          `abs()` function to ensure it is the closest possible.
       * Set `self.target` to the frontier goal heading that is as close as possible.
 
 Test this out to map an area. How does the robot's behavior compare with `avoid_drive_map.py`

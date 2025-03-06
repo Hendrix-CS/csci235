@@ -88,8 +88,13 @@ def find_angle_diff(angle1: float, angle2: float) -> float:
     Find the shortest difference between two angles.
     Parameters should be in radians.
     """
-    return min(find_normalized_angle(angle1 - angle2), find_normalized_angle(angle2 - angle1))
-
+    option1 = find_normalized_angle(angle1 - angle2)
+    option2 = find_normalized_angle(angle2 - angle1)
+    if abs(option1) < abs(option2):
+        return option1
+    else:
+        return option2  
+        
 
 def find_normalized_angle(angle: float) -> float:
     """
