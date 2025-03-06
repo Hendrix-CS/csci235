@@ -247,7 +247,7 @@ if __name__ == '__main__':
         robot_name = sys.argv[1] if len(sys.argv) > 1 else "robot_name"
         print(f"Odometry reset:\nros2 service call /{robot_name}/reset_pose irobot_create_msgs/srv/ResetPose\n")  
         input("Type enter once odometry is reset")
-        process = subprocess.Popen(['/home/ferrer/bin/navigator_node', sys.argv[1], sys.argv[2]])
+        process = subprocess.Popen(['/home/robotics/bin/navigator_node', sys.argv[1], sys.argv[2]])
         atexit.register(lambda: process.terminate())
         time.sleep(1)
         input("Type enter for robot to start; then push button 2 to begin navigating")        
