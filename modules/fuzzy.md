@@ -484,6 +484,9 @@ Now replace the code that calculates `dist` with the following:
 a non-symmetrical triangle? 
 5. Try a non-symmetrical triangle. How does the robot's behavior change?
 
+<!-- Future: Add trapezoids. This will model driving fast until halfway or more to the
+goal. As it stands, triangles can't do that. -->
+
 
 ## One more variation
 
