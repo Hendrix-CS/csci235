@@ -49,34 +49,34 @@ Upon completing this course, our goal is for you to be able to:
 | 2/18 | Tue | Project 1 Presentations |  | Project 1 |
 | 2/20 | Thu | [In-Class Essay 1]({{site.baseurl}}/essays/essay1.html) | | | 
 |      |
-| 2/25 | Tue | Module 4: [Fuzzy Logic]({{site.baseurl}}/modules/fuzzy.html) | | | 
-| 2/27 | Thu | Module 5: [Exploration]({{site.baseurl}}/modules/exploration.html) | | Module 4 |
+| 2/25 | Tue | [Module 4: Fuzzy Logic]({{site.baseurl}}/modules/fuzzy.html) | | | 
+| 2/27 | Thu | [Module 5: Exploration]({{site.baseurl}}/modules/exploration.html) | | Module 4 |
 |      |
-| 3/4  | Tue | Module 6: [Planning]({{site.baseurl}}/modules/planning.html) | | Module 5 | 
+| 3/4  | Tue | [Module 6: Planning]({{site.baseurl}}/modules/planning.html) | | Module 5 | 
 | 3/6  | Thu | [Project 2]({{site.baseurl}}/projects/project2.html) | | Module 6 |
 |      |
 | 3/11 | Tue | Project 2 | | |
 | 3/13 | Thu | Project 2 | | |   
 |      |
-| 3/18 | Tue | Project 2 Presentations |  | Project 2  | 
-| 3/20 | Thu | In-Class Essay 2 | | |
+| 3/18 | Tue | Project 2 | | |   
+| 3/20 | Thu | Project 2 Presentations |  | Project 2  | 
 |      |
 | 3/25 | Tue | Spring Break |  |  |  
 | 3/27 | Thu | Spring Break |  |  |  
 |      |
-| 4/1  | Tue | Module 7: Reinforcement Learning | || 
-| 4/3  | Thu | Module 8: Vision 1: Motion |  |  Module 7 |  
+| 4/1  | Tue | [In-Class Essay 2]({{site.baseurl}}/essays/essay2.html) | | |
+| 4/3  | Thu | Module 7: Reinforcement Learning | ||  
 |      
-| 4/8  | Tue | Module 9: Vision 2: Recognition |  | Module 8 |  
-| 4/10 | Thu | Project 3 |  | Module 9  |  
+| 4/8  | Tue | Module 8: Vision 1: Motion |  |  Module 7 |   
+| 4/10 | Thu | Module 9: Vision 2: Recognition |  | Module 8 |
 |      |
-| 4/15 | Tue | Project 3 |  | Project 3 |  
-| 4/17 | Thu | Project 3 Presentations |  |  
+| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | Final Project Proposal |
+| 4/17 | Thu | Final Project proposal presentations |  |  |  
 |      |
-| 4/22 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | Final Project Proposal |
-| 4/24 | Thu | Final Project proposal presentations |  |  |  
+| 4/22 | Tue | Final Project work |  |  |  
+| 4/24 | Thu | In-Class Essay 3 |  |  |  
 |      |
-| 4/29 | Tue | In-Class Essay 3 |  |  |  
+| 4/29 | Tue | Final Project work |  |  |  
 | 5/1  | Thu | Final Project work |  |  |  
 |      |
 | 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
@@ -107,9 +107,9 @@ receive the second robot credit. Modules submitted for the first time after the 
 will receive at most one robot credit.
 
 ## <a name="projects">Projects</a>
-The modules are grouped into three **units**. At the completion of each unit, a project
-will be assigned. In each project, students will devise a creative robotics project applying
-the ideas investigated in the just-completed unit.
+The modules are grouped into three **units**. At the completion of the first two units, a 
+project will be assigned. In each project, students will devise a creative robotics project 
+applying the ideas investigated in the just-completed unit.
 
 The first class day for each project will be a brainstorming session in which students devise
 topics, select project partners, establish project goals, and begin work on the project. The 
@@ -167,16 +167,16 @@ The presentation should include the following:
 Robot credits for projects will be awarded as follows:
 * For each project (not including the final project), you may earn up to 5 robot credits:
     * Achievement of project goals
-      * Achieving all agreed-upon project goals: 2 robot credits
+      * Achieving all agreed-upon project goals: **2 robot credits**
         * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
           and professor may renegotiate the project goals **at least one day prior to the submission deadline**.
-      * Achieving some but not all of the agreed-upon project goals: 1 robot credit
-    * Submitting a satsifactory project report: 1 robot credit
-    * Delivering a satisfactory project presentation: 1 robot credit
-    * Submitting the project code and report on-time, and delivering the presentation on the assigned day: 1 robot credit
+      * Achieving some but not all of the agreed-upon project goals: **1 robot credit**
+    * Submitting a satsifactory project report: **1 robot credit**
+    * Delivering a satisfactory project presentation: **1 robot credit**
+    * Submitting the project code and report on-time, and delivering the presentation on the assigned day: **1 robot credit**
 * Asking questions during presentations:
-  * Ask at least one question on each of the four presentation days: 2 robot credits
-  * Ask at least one question on each of two presentation days: 1 robot credit
+  * Ask at least one question on each of the three presentation days: **2 robot credits**
+  * Ask at least one question on each of two presentation days: **1 robot credit**
   
 ## <a name="essays">Essays</a>
 A total of three in-class essays and one take-home essay will be assigned over the course of the semester. 
@@ -226,19 +226,19 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 32 out of 35 possible robot credits
+  * Earn at least 27 out of 30 possible robot credits
   * Earn at least 11 out of 12 possible essay credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 28 robot credits
+  * Earn at least 23 robot credits
   * Earn at least 9 essay credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 24 robot credits
+  * Earn at least 19 robot credits
   * Earn at least 7 essay credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 20 robot credits
+  * Earn at least 15 robot credits
   * Earn at least 4 essay credits
 
 ## <a name="equipment">Equipment</a>

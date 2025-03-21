@@ -5,6 +5,15 @@ num: 1
 worktitle: ROS2 Nodes, Topics, and Subscriptions
 ---
 
+<!-- Ideas for the future
+* Biggest problem - they forgot Python before starting the course.
+  * Solution: Create some Python exercises for the first week to get them ready
+    for these modules.
+* Start with subscribing to the buttons.
+* Then immediately start publishing motor commands that move (and stop!) in 
+  response to the buttons.
+-->
+
 ## Getting Started
 
 We will be programming our robots from their attached Raspberry Pi computers.
