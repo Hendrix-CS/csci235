@@ -109,7 +109,7 @@ In Q-Learning, we calculate an update of expected rewards using the following fo
 ## Encoding States
 
 The Python program below will be important for converting ROS2 odometry values
-into Q-learning states.
+into Q-learning states. Copy and paste it into `grid.py`:
 
 ```
 from geometry_msgs.msg import Point
@@ -121,35 +121,37 @@ class GridConverter:
         self.cols = int(width / cell_size)
         self.rows = int(height / cell_size)
         self.cell_size = cell_size
-        self.width = width
-        self.height = height
-        self.x_bound = width / 2.0
-        self.y_bound = height / 2.0
+        self.max_x = width / 2.0
+        self.max_y = height / 2.0
 
     def square_within_grid(self, grid_square: Tuple[int, int]) -> bool:
         return 0 <= grid_square[0] < self.cols and 0 <= grid_square[1] < self.rows
 
-    def from_odometry(self, position: Point) -> Tuple[int, int]:
-        col = int((position.x + self.x_bound) / self.cell_size)
-        row = int((position.y + self.y_bound) / self.cell_size)
+    def odom_to_grid(self, position: Point) -> Tuple[int, int]:
+        col = int((position.x + self.max_x) / self.cell_size)
+        row = int((position.y + self.max_y) / self.cell_size)
         return col, row
     
-    def from_grid(self, grid_square: Tuple[int, int]) -> Point:
+    def grid_to_odom(self, grid_square: Tuple[int, int]) -> Point:
         col, row = grid_square
         p = Point()
-        p.x = col * self.cell_size - self.x_bound + self.cell_size / 2.0
-        p.y = row * self.cell_size - self.y_bound + self.cell_size / 2.0
+        p.x = col * self.cell_size - self.max_x + self.cell_size / 2.0
+        p.y = row * self.cell_size - self.max_y + self.cell_size / 2.0
         return p
     
     def num_states(self) -> int:
         return self.cols * self.rows
     
-    def state_num_for(self, grid_square: Tuple[int, int]) -> int:
+    def grid_to_state(self, grid_square: Tuple[int, int]) -> int:
         col, row = grid_square
         return row * self.cols + col
     
-    def grid_square_for(self, state_num: int) -> Tuple[int, int]:
+    def state_to_grid(self, state_num: int) -> Tuple[int, int]:
         return state_num % self.cols, state_num // self.cols
+    
+
+def add_squares(sq1: Tuple[int, int], sq2: Tuple[int, int]) -> Tuple[int, int]:
+    return sq1[0] + sq2[0], sq1[1] + sq2[1]
 
 
 class GridConverterTest(unittest.TestCase):
@@ -159,9 +161,9 @@ class GridConverterTest(unittest.TestCase):
         self.assertEqual(conv.rows, 3)
         expected = [(x, y) for y in range(3) for x in range(3)]
         for state in range(9):
-            grid_square = conv.grid_square_for(state)
+            grid_square = conv.state_to_grid(state)
             self.assertEqual(expected[state], grid_square)
-            self.assertEqual(conv.state_num_for(grid_square), state)
+            self.assertEqual(conv.grid_to_state(grid_square), state)
 
     def test_from_odom(self):
         conv = GridConverter(10.0, 10.0, 2.0)
@@ -175,7 +177,7 @@ class GridConverterTest(unittest.TestCase):
             p = Point()
             p.x = odom_x
             p.y = odom_y
-            col, row = conv.from_odometry(p)
+            col, row = conv.odom_to_grid(p)
             self.assertEqual(expected_col, col)
             self.assertEqual(expected_row, row)
 
@@ -187,7 +189,7 @@ class GridConverterTest(unittest.TestCase):
             (2, 2, 0.0, 0.0),
             (3, 3, 2.0, 2.0)
         ]:
-            odom = conv.from_grid((col, row))
+            odom = conv.grid_to_odom((col, row))
             self.assertAlmostEqual(odom.x, expected_odom_x, 5)
             self.assertAlmostEqual(odom.y, expected_odom_y, 5)
 
@@ -196,7 +198,385 @@ if __name__ == '__main__':
     unittest.main()
 ```
 
+Examine the code and the unit tests. Then answer the following questions:
+* Why do we need to add `self.max_x` and `self.max_y` when converting from
+odometry to grid squares?
+* How do we ensure that every grid square corresponds to a unique state
+  number?
+* Why might it be helpful to add `self.cell_size / 2.0` when converting grid squares
+to odometry? 
+
 ## A Q-Learning implementation
+
+Examine the Python implementation of Q-Learning below. Copy and paste it
+into `qlearning.py`:
+```
+import random
+from typing import Sequence, Tuple
+
+
+class QParameters:
+    def __init__(self, target_visits: int=2, epsilon: float=0.0, discount: float=0.5, rate_constant: int=10, num_states: int=2, num_actions: int=2):
+        self.target_visits = target_visits
+        self.epsilon = epsilon
+        self.discount = discount
+        self.rate_constant = rate_constant
+        self.set_num_states_actions(num_states, num_actions)
+
+    def set_num_states_actions(self, num_states: int, num_actions: int):
+        self.num_states = num_states
+        self.num_actions = num_actions
+        self.state_actions = {state: [act for act in range(num_actions)] for state in range(num_states)}
+
+    def forbid_state_actions(self, forbidden_state_actions: Sequence[Tuple[int,int]]):
+        for (state, action) in forbidden_state_actions:
+            if state in self.state_actions and action in self.state_actions[state]:
+                self.state_actions[state].remove(action)
+
+
+class QTable:
+    def __init__(self, params: QParameters):
+        self.q = [[0.0] * params.num_actions for i in range(params.num_states)]
+        self.visits = [[0] * params.num_actions for i in range(params.num_states)]
+        self.target_visits = params.target_visits
+        self.epsilon = params.epsilon
+        self.discount = params.discount
+        self.rate_constant = params.rate_constant
+        self.last_state = 0
+        self.last_action = 0
+        self.state_actions = params.state_actions
+        self.total_updates = 0
+
+    def num_states(self) -> int:
+        return len(self.q)
+    
+    def num_actions(self) -> int:
+        return len(self.q[0])
+
+    def sense_act_learn(self, new_state: int, reward: float) -> int:
+        assert 0 <= new_state < self.num_states()
+        alpha = self.learning_rate(self.last_state, self.last_action)
+        update = alpha * (self.discount * self.q[new_state][self.best_action(new_state)] + reward)
+        self.q[self.last_state][self.last_action] *= 1.0 - alpha
+        self.q[self.last_state][self.last_action] += update
+
+        self.visits[self.last_state][self.last_action] += 1
+        if self.is_exploring(new_state):
+            new_action = self.least_visited_action(new_state)
+        else:
+            new_action = self.best_action(new_state)
+
+        self.last_state = new_state
+        self.last_action = new_action
+        self.total_updates += 1
+        return new_action
+
+    def learning_rate(self, state: int, action: int) -> float:
+        return self.rate_constant / (self.rate_constant + self.visits[state][action])
+
+    def best_action(self, state: int) -> int:
+        best = self.state_actions[state][0]
+        for action in self.state_actions[state]:
+            if self.q[state][best] < self.q[state][action]:
+                best = action
+        assert 0 <= best < len(self.q[state])
+        return best
+
+    def is_exploring(self, state: int) -> bool:
+        below_target = False
+        for action in self.state_actions[state]:
+            if self.visits[state][action] < self.target_visits:
+                below_target = True
+        return below_target or random.random() < self.epsilon
+
+    def least_visited_action(self, state: int) -> int:
+        least_visited = self.state_actions[state][0]
+        for action in self.state_actions[state]:
+            if self.visits[state][least_visited] > self.visits[state][action]:
+                least_visited = action
+        return least_visited
+```
+
+Answer the following questions:
+* What data structure represents the table of Q values?
+* How is the learning rate determined from the number of times an
+  action is attempted from a given state?
+* From how the code is written, what do you think it means to **explore**?
+* Why do you think we might want to forbid some actions in certain states?
+
+## A Q-Learning Node
+
+### Preliminary code
+Our implementation relies on our previous implementations of fuzzy logic. 
+Copy over `fuzzy.py` and `curses_runner.py` from previous modules. Use
+the simplified `goal_fuzzy_input.py` and `goal_fuzzy_navigator.py` provided below:
+
+`goal_fuzzy_input.py`:
+
+```
+from typing import Any, Dict
+
+from rclpy.node import Node
+from rclpy.publisher import Publisher
+from rclpy.qos import qos_profile_sensor_data
+from nav_msgs.msg import Odometry
+from std_msgs.msg import String
+from geometry_msgs.msg import Point
+
+from odometry_math import find_euclidean_distance, find_yaw, find_normalized_angle, find_goal_heading
+import fuzzy
+
+def compute_fuzzy_errors(goal: Point, position: Point, yaw: float, angle_limit: float, distance_limit: float) -> Dict[str, float]:
+    errors = {'left': 0.0, 'right': 0.0, 'distance': 0.0}
+    distance_diff = find_euclidean_distance(goal, position)
+    goal_direction = find_goal_heading(position, goal)
+    angle_diff = find_normalized_angle(goal_direction - yaw)
+
+    if angle_diff > 0:
+        errors['left'] = fuzzy.fuzzify(angle_diff, 0.0, angle_limit)
+    else:
+        errors['right'] = fuzzy.fuzzify(-angle_diff, 0.0, angle_limit)
+
+    either_turn = fuzzy.f_or(errors['left'], errors['right'])
+    dist = fuzzy.fuzzify(distance_diff, 0.0, distance_limit / 2.0)
+    errors['distance'] = fuzzy.f_and(dist, fuzzy.f_not(either_turn))
+
+    return errors
+
+class FuzzyGoalNode(Node):
+    def __init__(self, robot_name: str, goal_topic: str, angle_limit: float=0.2, distance_limit: float=0.25):
+        super().__init__(f'FuzzyGoalNode_{robot_name}')
+        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.create_subscription(String, goal_topic, self.goal_callback, qos_profile_sensor_data)
+        self.output_topic = f'{robot_name}_goal_error'
+        self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
+        self.goal = None
+        self.angle_limit = angle_limit
+        self.distance_limit = distance_limit
+
+    def publish(self, publisher: Publisher, data: Any):
+        output = String()
+        output.data = f"{data}"
+        publisher.publish(output)
+
+    def goal_callback(self, msg: String):
+        value = eval(msg.data)
+        if value is None:
+            self.goal = None
+        else:
+            x, y = value
+            self.goal = Point()
+            self.goal.x = x
+            self.goal.y = y
+
+    def odom_callback(self, msg: Odometry):     
+        if self.goal is None: 
+            self.publish(self.output, None)
+        else:
+            yaw = find_yaw(msg.pose.pose.orientation)
+            errors = compute_fuzzy_errors(self.goal, msg.pose.pose.position, yaw, self.angle_limit, self.distance_limit)
+            self.publish(self.output, errors)
+```
+
+`goal_fuzzy_navigator.py`:
+
+```
+from typing import Dict, Tuple
+
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from std_msgs.msg import String
+from geometry_msgs.msg import TwistStamped
+
+import fuzzy
+
+
+class FuzzyDriveNode(Node):
+    def __init__(self, robot_name: str, fuzzy_topic: str, x_limit: float=0.5, z_limit: float=1.0):
+        super().__init__(f"FuzzyDriveNode_{robot_name}")
+        self.x_limit = x_limit
+        self.z_limit = z_limit
+        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
+        self.create_subscription(String, fuzzy_topic, self.fuzzy_callback, qos_profile_sensor_data)
+
+    def fuzzy_callback(self, msg: String):
+        fuzzy_values = eval(msg.data)
+        t = self.make_twist()
+        if fuzzy_values is not None:
+            t.twist.linear.x, t.twist.angular.z = defuzzify_x_z(fuzzy_values, self.x_limit, self.z_limit)
+            self.motors.publish(t)
+            
+    def make_twist(self) -> TwistStamped:
+        t = TwistStamped()
+        t.header.frame_id = "base_link"
+        t.header.stamp = self.get_clock().now().to_msg()
+        return t
+
+
+def defuzzify_x_z(fuzzy_values: Dict[str, float], x_limit: float, z_limit: float) -> Tuple[float, float]:
+    x = fuzzy.defuzzify(fuzzy_values["distance"], 0, x_limit)
+    turn_limit = z_limit * (1.0 if fuzzy_values["left"] > fuzzy_values["right"] else -1.0)
+    z = fuzzy.defuzzify(fuzzy.f_or(fuzzy_values["left"], fuzzy_values["right"]), 0, turn_limit)
+    return x, z
+```
+
+### Q-Learning Node Code
+
+Examine the Python implementation of a Q-Learning ROS2 node. Copy and paste it
+into `qrunner.py`:
+
+```
+from grid import GridConverter, add_squares
+from qlearning import QTable, QParameters
+from goal_fuzzy_input import FuzzyGoalNode
+from goal_fuzzy_navigator import FuzzyDriveNode
+from curses_runner import CursesNode, run_curses_nodes
+
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from nav_msgs.msg import Odometry
+from std_msgs.msg import String
+from geometry_msgs.msg import Point
+from irobot_create_msgs.msg import InterfaceButtons
+
+from typing import Tuple
+import random
+import sys
+import curses
+
+ACTIONS = [(0, -1), (0, 1), (1, 0), (-1, 0)]
+BUTTON_1_REWARD = 1.0
+BUTTON_2_REWARD = -1.0
+
+
+class QRunningNode(Node):
+    def __init__(self, robot_name: str, params: QParameters, conv: GridConverter):
+        super().__init__(f"{robot_name}_q_runner")
+        self.conv = conv
+        params.set_num_states_actions(conv.num_states(), len(ACTIONS))
+        forbidden = []
+        for state in range(params.num_states):
+            col, row = conv.state_to_grid(state)
+            for action in range(params.num_actions):
+                act_col = col + ACTIONS[action][0]
+                act_row = row + ACTIONS[action][1]
+                if not conv.square_within_grid((act_col, act_row)):
+                    forbidden.append((state, action))
+        params.forbid_state_actions(forbidden)
+        self.q_table = QTable(params)
+
+        self.position_topic_name = f"{robot_name}_q_goal"
+        self.position_topic = self.create_publisher(String, self.position_topic_name, qos_profile_sensor_data)
+        self.info_topic_name = f"{robot_name}_q_info"
+        self.info_topic = self.create_publisher(String, self.info_topic_name, qos_profile_sensor_data)
+        self.create_subscription(Odometry, f"/{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.create_subscription(InterfaceButtons, f"/{robot_name}/interface_buttons", self.button_callback, qos_profile_sensor_data)
+
+        self.position = Point()
+        square = self.conv.odom_to_grid(Point())
+        self.current_state = self.conv.grid_to_state(square)
+        self.action_message = self.make_action_message(square, random.choice(ACTIONS))
+
+    def make_action_message(self, sq1: Tuple[int, int], sq2: Tuple[int, int]) -> str:
+        updated_square = add_squares(sq1, sq2)
+        odom = self.conv.grid_to_odom(updated_square)
+        return f"({odom.x}, {odom.y})"
+    
+    def button_callback(self, msg: InterfaceButtons):
+        if self.action_message == "None":
+            reward = None
+            if msg.button_1.is_pressed:
+                reward = BUTTON_1_REWARD
+            elif msg.button_2.is_pressed:
+                reward = BUTTON_2_REWARD
+            elif msg.button_power.is_pressed:
+                reward = 0.0
+
+            if reward is not None:
+                action = self.q_table.sense_act_learn(self.current_state, reward)
+                self.action_message = self.make_action_message(self.conv.state_to_grid(self.current_state), ACTIONS[action])
+                out = String()
+                out.data = f"""After {self.q_table.total_updates} updates:
+position: ({self.position.x:.2f}, {self.position.y:.2f}) {self.conv.odom_to_grid(self.position)}
+state: {self.current_state}
+reward: {reward:.2f}
+action: {action} ({ACTIONS[action]}) {self.action_message}
+"""
+                for state in range(self.q_table.num_states()):
+                    sq = self.conv.state_to_grid(state)
+                    out.data += f"{state} {sq}:"
+                    for action in range(self.q_table.num_actions()):
+                        aq = (sq[0] + ACTIONS[action][0], sq[1] + ACTIONS[action][1])
+                        if not self.conv.square_within_grid(aq):
+                            aq = "Undef "
+                        out.data += f" act:{action} {aq} ({self.q_table.q[state][action]:6.2f} {self.q_table.visits[state][action]:3d})"
+                    out.data += "\n"
+                self.info_topic.publish(out)
+
+    def odom_callback(self, msg: Odometry):
+        self.position = msg.pose.pose.position
+        state = self.conv.grid_to_state(self.conv.odom_to_grid(self.position))
+        if state != self.current_state:
+            self.action_message = "None"
+            self.current_state = state
+        out = String()
+        out.data = self.action_message 
+        self.position_topic.publish(out)
+
+        
+def main(stdscr):
+    rclpy.init()
+    q_node = QRunningNode(sys.argv[1], QParameters(), GridConverter(width=1.5, height=1.5, cell_size=0.5))
+    sensor_node = FuzzyGoalNode(sys.argv[1], q_node.position_topic_name)
+    curses_node = CursesNode(q_node.info_topic_name, 2, stdscr)
+    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic)
+    run_curses_nodes(stdscr, [q_node, drive_node, curses_node, sensor_node])
+    rclpy.shutdown()
+            
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python3 qmapper.py robot_name")
+    else:
+        print(f"Odometry reset:\nros2 service call /{sys.argv[1]}/reset_pose irobot_create_msgs/srv/ResetPose\n")  
+        input("Type enter once odometry is reset")
+        curses.wrapper(main)
+```
+
+Answer the following questions:
+* In what states are certain actions forbidden? How would you characterize
+those states and actions?
+* How does the node determine the robot's current state?
+* How does the Q-Table get updated? What data is necessary for the 
+update, and how is this data acquired?
+* How do the actions selected by Q-learning get transformed into 
+  ROS2 commands?
+* When the program runs, what is the overall structure of interactions
+between the robot and the human determining its rewards?
+  
+  
+## Experimentation
+* Test the program. Experiment with giving the robot rewards. Overall, how
+does the robot behave? Do you observe its behavior being impacted by 
+rewards?
+* Having played around with the program informally, design a more formal
+experiment. For your experiment, determine the following:
+  * Total number of Q-Learning updates.
+  * Policy for determining how rewards will be administered.
+  * Values to use for the following parameters:
+    * Discount
+    * Target visits
+    * Rate constant
+    * Epsilon
+    * Size of grid and cells, in turn determining the number of states.
+* Plan to run three experiments. Each experiment should involve a variation
+  of one or more of the above parameters. Write down hypotheses about what
+  you expect to happen with regard to these variations.
+* Run your experiments and record the results. How closely did your observations
+  match what you hypothesized?
+* Describe two possible applications of this concept in a practical 
+  context of robot programming.
 
 <!-- From here
 * Go over formula
