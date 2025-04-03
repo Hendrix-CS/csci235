@@ -62,7 +62,7 @@ For the first set of exercises, consider the following states and actions:
 
 ### Example
 * Imagine the robot starts in state `4` and takes the following actions:
-  * North, West, South, South, East, East, North, North, South, West, West, South, West, East
+  * North, West, South, South, East, East, North, North, South, West, West, South, East, West
 * At each step, record the state and the **current** and **total** rewards the robot has
 earned.
 * For each state:
