@@ -55,3 +55,37 @@ For the first set of exercises, consider the following states and actions:
   * From `B`, `E`, or `H`, go to `A`, `D`, or `G`
   * From `C`, `F`, or `I`, go to `B`, `E`, or `H`
 
+### Rewards
+* In states `G`, `H`, and `B`, the robot receives a reward of 5.
+* In states `A`, `F`, and `I`, the robot receives a reward of -4.
+* In states `C`, `D`, and `E`, the robot receives a reward of zero.
+
+### Example
+* Imagine the robot starts in state `E` and takes the following actions:
+  * North, West, South, South, East, East, North, North, South, East, East, South, West, East
+* At each step, record the state and the **current** and **total** rewards the robot has
+earned.
+* For each state:
+  * How many times did the robot visit the state?
+  * What is the **best** action the robot could take from that state, in 
+    terms of maximizing rewards?
+  * What is the **worst** action the robot could take from that state?
+* When visiting a state, there may be a trade-off between immediate rewards
+and future rewards. Among these nine states, which ones have the most striking
+trade-off between immediate and future rewards? Why?
+* Should the expected reward for taking an action in a state depend more
+on the immediate or future reward? Why or why not? 
+* What might be a way of balancing immediate and future rewards?
+
+## Q-Learning
+
+In Q-Learning, we update expected rewards using the following formula:
+* discount * self.q[new_state][self.best_action(new_state)] + reward
+
+<!-- From here
+* Go over formula
+* Go over learning rate
+* Have them do some hand-calculation
+* Then do an implementation with Button 1 as positive reward and 
+  Button 2 as negative reward.
+-->
