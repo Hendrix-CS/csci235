@@ -564,6 +564,8 @@ rewards?
 experiment. For your experiment, determine the following:
   * Total number of Q-Learning updates.
   * Policy for determining how rewards will be administered.
+    * This policy need not be consistent - the same state could receive
+      different rewards at different times.
   * Values to use for the following parameters:
     * Discount
     * Target visits
