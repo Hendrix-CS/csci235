@@ -65,7 +65,7 @@ Upon completing this course, our goal is for you to be able to:
 | 3/27 | Thu | Spring Break |  |  |  
 |      |
 | 4/1  | Tue | [In-Class Essay 2]({{site.baseurl}}/essays/essay2.html) | | |
-| 4/3  | Thu | Module 7: Reinforcement Learning | ||  
+| 4/3  | Thu | [Module 7: Reinforcement Learning](({{site.baseurl}}/modules/qlearning.html)) | ||  
 |      
 | 4/8  | Tue | Module 8: Vision 1: Motion |  |  Module 7 |   
 | 4/10 | Thu | Module 9: Vision 2: Recognition |  | Module 8 |
