@@ -13,6 +13,17 @@ Run the `photographer` program as follows:
 photographer proj1 clear blocked
 ```
 
+If, when you run the program, you see an error like this:
+```
+Error: Could not open device 0: V4L2 Error: Permission denied (os error 13)
+```
+
+Type this into the command prompt:
+```
+sudo chmod 666 /dev/video*
+```
+and enter your password when requested.
+
 Position the robot in four locations that are clear of obstacles, and four
 locations that are filled with obstacles. Take a picture with the appropriate
 label at each location. (To take a picture, type the Enter key.)
@@ -37,10 +48,18 @@ You may find that it doesn't classify images quite the way you had in mind.
 Continue to add training samples for underrepresented labels until you find
 its performance reasonably satisfactory.
 
+The `photographer` program saves the images in folders as follows:
+* Top-level folder: Name of your project
+* Subfolders: Each label
+* Files within subfolders: The images, in PNG format.
+
+You can view the images using the MobaXTerm file browser, or you can copy them onto
+your own computer as well.
+
 ## Rewarding images
 
 Copy all of the files from Module 7 except `qrunner.py`, which you will replace
-with the following:
+with the following slightly modified version:
 
 ```
 from grid import GridConverter, add_squares
@@ -111,6 +130,7 @@ class QRunningNode(Node):
             out = String()
             out.data = f"""After {self.q_table.total_updates} updates:
 position: ({self.position.x:.2f}, {self.position.y:.2f}) {self.conv.odom_to_grid(self.position)}
+label: {msg.data}
 state: {self.current_state}
 reward: {reward:.2f}
 action: {action} ({ACTIONS[action]}) {self.action_message}
@@ -161,36 +181,33 @@ if __name__ == '__main__':
 ```
 
 Try it out for a while. How does the robot perform at heading towards cells with
-"good" images and avoiding cells with "bad" images? Construct some experiments
-(as you did in Module 7) to assess its performance.
+"good" images and avoiding cells with "bad" images? 
+
+Having played around with the program informally, design a more formal
+experiment. For your experiment, determine the following:
+  * Total number of Q-Learning updates.
+  * Values to use for the following parameters:
+    * Discount
+    * Target visits
+    * Rate constant
+    * Epsilon
+    * Size of grid and cells, in turn determining the number of states.
+* Plan to run three experiments. Each experiment should involve a variation
+  of one or more of the above parameters. Write down hypotheses about what
+  you expect to happen with regard to these variations.
+* Run your experiments and record the results. How closely did your observations
+  match what you hypothesized?
+
 
 ## Further application
 
 Devise a scenario involving **three** categories of images. Build a suitable image
 database and test out the q-learner. Modify `qrunner.py` to give appropriate rewards
-to the appropriate labels. Construct some experiments
-(as you did in Module 7) to assess its performance.
+to the appropriate labels. Construct an experiment with three total variations
+as you did above to assess its performance.
 
-<!-- Concept 
-
-* Students are given a program that takes pictures and annotates them
-with labels. We can also view the pictures.
-* Students specify rewards associated with each picture.
-* Then we run Q-Learning
-  * At each time step, we ask the image database for our current reward.
-  * We then observe the emergent behavior.
-  
-TODO list:
-* Write a program to take the pictures.
-  * Start program with a list of labels.
-  * During program, current label is highlighted.
-  * Take a picture by pressing a key.
-* Write a program to view the pictures.
-  * Pick a label.
-  * Then you can scan through all the pictures with that label.
-  * You can hit a key to change a picture's label.
-* Write a ROS2 node that monitors incoming images, publishing the 
-  best-matching label at each image acquisition.
-* Put together the q-learner.
--->
-
+In your final document for the module, include the following:
+* Overall strategy for collecting and labeling pictures in the image database.
+* Intuitive observations about the performance of labeling.
+* Setup, observations, and results from the two-label experiments.
+* Setup, observations, and results from the three-label experiments.

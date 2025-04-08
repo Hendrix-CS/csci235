@@ -699,11 +699,3 @@ experiment. For your experiment, determine the following:
   match what you hypothesized?
 * Describe two possible applications of this concept in a practical 
   context of robot programming.
-
-<!-- From here
-* Go over formula
-* Go over learning rate
-* Have them do some hand-calculation
-* Then do an implementation with Button 1 as positive reward and 
-  Button 2 as negative reward.
--->
