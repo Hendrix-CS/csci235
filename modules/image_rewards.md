@@ -86,7 +86,7 @@ ACTIONS = [(0, -1), (0, 1), (1, 0), (-1, 0)]
 
 rewards = {
     'proj1/clear': 1.0,
-    'proj1/blocked': 1.0
+    'proj1/blocked': -1.0
 }
 
 class QRunningNode(Node):
