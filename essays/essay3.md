@@ -13,11 +13,13 @@ along the following lines:
 7, 8, and 9.
 2. Based on your experiences with those assignments, what do you think are
 some best practices for producing effective robot behavior through machine
-learning? Give specific examples from your experiences with Q-learning and
-the k-nearest-neighbor classifier for images. Discuss challenges you 
-encountered as well as strategies you employed to address those challenges.
-Discuss circumstances that lead to successful deployment of a machine-learning
-system as well as circumstances that may hinder a successful deployment.
+learning? 
+  * Give specific examples from your experiences with Q-learning and
+the k-nearest-neighbor classifier for images. 
+  * Discuss challenges you encountered as well as strategies you employed to 
+  address those challenges.
+  * Discuss circumstances that lead to successful deployment of a machine-learning
+  system as well as circumstances that may hinder a successful deployment.
 3. Given the issues you recounted above with employing machine learning,
 what do you think are the most appropriate situations in which machine 
 learning should be employed as part of a robot control program? Supply 
