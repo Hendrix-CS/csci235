@@ -5,7 +5,7 @@ num: 3
 worktitle: Learning
 ---
 
-At this point in the semester, you have learned how to program a robot
+At this point in the semester, you have studied how to program a robot
 that learns from experience. Drawing upon this experience, write an essay 
 along the following lines:
 
@@ -16,7 +16,9 @@ some best practices for producing effective robot behavior through machine
 learning? Give specific examples from your experiences with Q-learning and
 the k-nearest-neighbor classifier for images. Discuss challenges you 
 encountered as well as strategies you employed to address those challenges.
-3. Given the issues you recount in part 2 with employing machine learning,
+Discuss circumstances that lead to successful deployment of a machine-learning
+system as well as circumstances that may hinder a successful deployment.
+3. Given the issues you recounted above with employing machine learning,
 what do you think are the most appropriate situations in which machine 
 learning should be employed as part of a robot control program? Supply 
 details from both Modules 7, 8, and 9 as well as your experience throughout
