@@ -74,7 +74,7 @@ Upon completing this course, our goal is for you to be able to:
 | 4/17 | Thu | Final Project proposal presentations |  |  |  
 |      |
 | 4/22 | Tue | Final Project work |  |  |  
-| 4/24 | Thu | In-Class Essay 3 |  |  |  
+| 4/24 | Thu | [In-Class Essay 3]({{site.baseurl}}/essays/essay3.html) |  |  |  
 |      |
 | 4/29 | Tue | Final Project work |  |  |  
 | 5/1  | Thu | Final Project work |  |  |  
