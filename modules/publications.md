@@ -222,7 +222,7 @@ def main(stdscr):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python3 curses_runner.py robot_name")
+        print("Usage: python3 curses_printer.py robot_name")
     else:
         curses.wrapper(main)
 ```
