@@ -17,12 +17,63 @@ Upon completing this course, our goal is for you to be able to:
   * Control motors and process sensor information by publishing and subscribing to topics.
   * Create new topics and publish to them to enable building robust, modular controllers.
 * Quantitatively and qualitatively assess the performance of a mobile robot for a given task.
-* Describe both orally and in writing:
-  * The design and performance of a mobile robot.
-  * Assessments of deployed and fictional robots.
 * Employ computer vision techniques to inform the behavior of a mobile robot.
 * Employ appropriate machine learning algorithms to improve the performance of a mobile robot.
 * Employ planning and odometry to navigate a mobile robot.
+
+<!-- 
+Ideas for this semester:
+
+Grading criteria:
+* Attendance
+* Journal
+* Technical interviews
+* Modules
+* Projects
+
+Module 0
+* Python review
+* Python classes
+* curses in Python
+
+Module 1
+* Publishing messages
+  * Motors
+* Subscribing
+  * Battery
+  * Hazards
+
+Module 2
+* Subscribing
+  * IR
+  * Odometry
+  
+Module 3
+* State machines
+
+Module 4
+* Fuzzy logic
+
+Module 5
+* Mapping
+
+Module 6
+* Path Planning
+
+Module 7
+* Reinforcement Learning
+
+Module 8
+* Vision I
+
+Module 9
+* Vision II
+
+Module 10
+* HTN Planning
+
+
+-->
 
 ## <a name="resources">Resources</a>
 
@@ -32,54 +83,54 @@ Upon completing this course, our goal is for you to be able to:
 
 # <a name="calendar">Calendar</a>
 
-|Date  |Day  |Topic/Module |Reading |Due |
-| ---  | --- | ---         | ---    | --- |
-| 1/21 | Tue | Overview<br>Robots in Science Fiction<br> [Robots: Fiction and Reality]({{site.baseurl}}/essays/robots_sci_fi.html) |  |
-| 1/23 | Thu | [Discussion of Short Stories]({{site.baseurl}}/essays/discussion.html) | [Homework](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/philip-apps/homework)<br>[Company Property](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/john-albertson/company-property)<br>[Domotica Berserker](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/paul-g-di-filippo/domotica-berserker)<br>[30 Pounds of Human Tissue](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/jennifer-campbell-hicks/30-pounds-of-human-tissue)<br>[How I Saved the Galaxy on a Limited Budget](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/aidan-doyle/how-i-saved-the-galaxy-on-a-limited-budget)<br>[Memo From the Lab of the Moral Weapon](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/h-baumgardt/memo-from-the-lab-of-the-moral-weapon)<br>[Under My Thumb](https://web.archive.org/web/20240423181154/https://dailysciencefiction.com/science-fiction/robots-and-computers/laura-ansara/under-my-thumb) |  |
-|      |
-| 1/28 | Tue | [Module 1: ROS2 Nodes, Topics, and Subscriptions]({{site.baseurl}}/modules/nodes.html) |  | Robots: Fiction and Reality |
-| 1/30 | Thu | [Module 2: ROS2 Publications]({{site.baseurl}}/modules/publications.html) |  | Module 1 |
-|      |
-| 2/4  | Tue | [Module 3: State Machines]({{site.baseurl}}/modules/state_machines.html) | | Module 2 |
-| 2/6  | Thu | [Project 1]({{site.baseurl}}/projects/project1.html) | [A Robust Layered Control System for a Mobile Robot]({{site.baseurl}}/readings/Robust_Control.pdf) | Module 3 |
-|      |
-| 2/11 | Tue | Project 1 |  |  |  
-| 2/13 | Thu | Project 1 |  |  |  
-|      |
-| 2/18 | Tue | Project 1 Presentations |  | Project 1 |
-| 2/20 | Thu | [In-Class Essay 1]({{site.baseurl}}/essays/essay1.html) | | | 
-|      |
-| 2/25 | Tue | [Module 4: Fuzzy Logic]({{site.baseurl}}/modules/fuzzy.html) | | | 
-| 2/27 | Thu | [Module 5: Exploration]({{site.baseurl}}/modules/exploration.html) | | Module 4 |
-|      |
-| 3/4  | Tue | [Module 6: Planning]({{site.baseurl}}/modules/planning.html) | | Module 5 | 
-| 3/6  | Thu | [Project 2]({{site.baseurl}}/projects/project2.html) | | Module 6 |
-|      |
-| 3/11 | Tue | Project 2 | | |
-| 3/13 | Thu | Project 2 | | |   
-|      |
-| 3/18 | Tue | Project 2 | | |   
-| 3/20 | Thu | Project 2 Presentations |  | Project 2  | 
-|      |
-| 3/25 | Tue | Spring Break |  |  |  
-| 3/27 | Thu | Spring Break |  |  |  
-|      |
-| 4/1  | Tue | [In-Class Essay 2]({{site.baseurl}}/essays/essay2.html) | | |
-| 4/3  | Thu | [Module 7: Reinforcement Learning]({{site.baseurl}}/modules/qlearning.html) | ||  
+|Date  |Day  | Module | Due |
+| ---  | --- | ------ | --- | 
+|  8/25 | Tue | Module 1: Python classes |  |
+|  8/27 | Thu | Module 2: Curses | Module 1 |
+|       |
+|  9/1  | Tue | Module 3: ROS2 nodes, Motor Publications | Module 2 | 
+|  9/3  | Thu | Module 4: Subscriptions | Module 3 |
+|       |
+|  9/8  | Tue | Project 1 | Module 4 |
+|  9/10 | Thu | Project 1 | Interview 1: Modules 1-4 (Fri 9/11) |
+|       |
+|  9/15 | Tue | Project 1 Presentations | Project 1 |  
+|  9/17 | Thu | Module 5: State Machines |  |  
+|       |
+|  9/22 | Tue | Module 6: Fuzzy Logic | Module 5 | 
+|  9/24 | Thu | Module 7: Computer Vision 1 | Module 6<br>Interview 2: Project 1 (Fri 9/25) | 
+|       |
+|  9/29 | Tue | **Conference: No class<br>Work on Project 2** | Module 7 | 
+| 10/1  | Thu | **Conference: No class<br>Work on Project 2** | |
+|       |
+| 10/6  | Tue | Project 2 Presentations | Project 2 | 
+| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Modules 5-7 (Fri 10/9) |
+|       |
+| 10/13 | Tue | Module 9: SLAM 2 | Module 8 |
+| 10/15 | Thu | **Fall Break: No class** |  |   
+|       |
+| 10/20 | Tue | Module 10: Path Planning | Module 9 |   
+| 10/22 | Thu | Module 11: HTN Planning | Module 10<br>Interview 4: Project 2 (Fri 10/23) | 
+|       |
+| 10/27 | Tue | Project 3 | Module 11 |  
+| 10/29 | Thu | Project 3 | Interview 5: Modules 8-11 (Mon 11/2)|  
+|       |
+| 11/3  | Tue | Project 3 Presentations | Project 3 |
+| 11/5  | Thu | [Module 12: Reinforcement Learning]({{site.baseurl}}/modules/qlearning.html) | Interview 6: Project 3 (Mon 11/9) |
 |      
-| 4/8  | Tue | [Module 8: Vision 1: Rewards from Images]({{site.baseurl}}/modules/image_rewards.html) |  |  Module 7 |   
-| 4/10 | Thu | [Module 9: Vision 2: Image-Driven Behavior]({{site.baseurl}}/modules/image_behavior.html) |  | Module 8 |
-|      |
-| 4/15 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  | Final Project Proposal |
-| 4/17 | Thu | Final Project proposal presentations |  |  |  
-|      |
-| 4/22 | Tue | Final Project work |  |  |  
-| 4/24 | Thu | [In-Class Essay 3]({{site.baseurl}}/essays/essay3.html) |  |  |  
-|      |
-| 4/29 | Tue | Final Project work |  |  |  
-| 5/1  | Thu | Final Project work |  |  |  
-|      |
-| 5/6  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
+| 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
+|       |
+| 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  Final Project Proposal |
+| 11/19 | Thu | Final Project proposal presentations | Interview 7: Modules 12-14 (Fri 11/20) |  
+|       |
+| 11/24 | Tue | Final Project work |  |  
+| 11/26 | Thu | **Thanksgiving: No class** |  |  
+|       |
+| 12/1  | Tue | Final Project work |  |  |  
+| 12/3  | Thu | Final Project work |  |  |  
+|       |
+| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
 
 <hr>
 # <a name="assessment">Assessment</a>

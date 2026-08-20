@@ -23,7 +23,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 number: CSCI 235
 title: Intelligent Robotics
-semester: Spring 2025
+semester: Fall 2026
 
 navigation:
   - title: Overview
@@ -58,7 +58,7 @@ instructors:
     name: Dr. Gabriel Ferrer
     email: ferrer@hendrix.edu
     web: https://gjf2a.github.io/
-    officehours: https://drferrer.youcanbook.me/
+    officehours: W 4:10-4:45<br>https://drferrer.youcanbook.me/
 
 offerings:
   - name: LECTURE 01
