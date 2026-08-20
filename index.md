@@ -83,8 +83,12 @@ Module 10
 
 # <a name="calendar">Calendar</a>
 
-|Date  |Day  | Module | Due |
-| ---  | --- | ------ | --- | 
+Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/)):
+* Wednesdays 4:10-4:45
+* Anytime my door is open
+
+|Date   |Day  | Module | Due |
+| ---   | --- | ------ | --- | 
 |  8/25 | Tue | Module 1: Python classes |  |
 |  8/27 | Thu | Module 2: Curses | Module 1 |
 |       |
