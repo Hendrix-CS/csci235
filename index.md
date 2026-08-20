@@ -31,48 +31,6 @@ Grading criteria:
 * Modules
 * Projects
 
-Module 0
-* Python review
-* Python classes
-* curses in Python
-
-Module 1
-* Publishing messages
-  * Motors
-* Subscribing
-  * Battery
-  * Hazards
-
-Module 2
-* Subscribing
-  * IR
-  * Odometry
-  
-Module 3
-* State machines
-
-Module 4
-* Fuzzy logic
-
-Module 5
-* Mapping
-
-Module 6
-* Path Planning
-
-Module 7
-* Reinforcement Learning
-
-Module 8
-* Vision I
-
-Module 9
-* Vision II
-
-Module 10
-* HTN Planning
-
-
 -->
 
 ## <a name="resources">Resources</a>
@@ -85,6 +43,7 @@ Module 10
 
 Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/)):
 * Wednesdays 4:10-4:45
+  * Except September 9, September 30, November 11, November 25, December 2
 * Anytime my door is open
 
 |Date   |Day  | Module | Due |
@@ -128,16 +87,53 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  Final Project Proposal |
 | 11/19 | Thu | Final Project proposal presentations | Interview 7: Modules 12-14 (Fri 11/20) |  
 |       |
-| 11/24 | Tue | Final Project work |  |  
+| 11/24 | Tue | Final Project work day (**optional**) |  |  
 | 11/26 | Thu | **Thanksgiving: No class** |  |  
 |       |
 | 12/1  | Tue | Final Project work |  |  |  
 | 12/3  | Thu | Final Project work |  |  |  
 |       |
-| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html) |
+| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 8: Final Project (Mon 12/14) |
 
 <hr>
 # <a name="assessment">Assessment</a>
+
+## Attendance
+Most of our work in this course requires **teamwork**. Furthermore, robotics is a 
+challenging topic - success as a roboticist requires consistent engagement. For these 
+reasons, class attendance is **mandatory** on all class days, except those marked 
+**optional** or **no class**. If a student misses class, the following steps are required 
+to make up the credit:
+* Notify the instructor of the reason for the absence by 5 pm on the day of the missed 
+class.
+* Speak to at least one other student in the class about the content of the class period.
+* Write a summary of the missed class in your journal before the start of the next class
+  period. This summary should mention the students with whom you spoke about the missed 
+  class. Discussion of the missed class should include not only the lecture material but
+  key lessons learned from that day's module or presentations.
+* This also applies to any student who adds the class after the first day - those prior days
+  should be made up in this same fashion.
+
+Including the final exam period, there are 24 required class meetings, from which students
+may earn up to 24 **participation credits**.
+
+## Journal
+
+Every student is expected to maintain a journal as a Word document stored in Microsoft Teams. 
+Each student has a private channel in Teams, in which their journal document is stored. For
+every working session, the student should record the following in their journal:
+* Time when work started
+* Goals for the work session
+* Discussion of the robot programming process
+  * What was your approach to writing code to achieve the session goals?
+  * What went well? 
+  * What were some challenges you overcame?
+* Records of observations
+  * How did the robot perform for the session's tasks?
+  * Record any quantitative data to support your claims about its performance.
+* Time when work ended, including total duration of the work session 
+* Journal entries are assessed as part of assessing each module and project. Journal
+  entries may also serve as conversation items during interviews.
 
 ## <a name="modules">Modules</a>
 The primary means by which you be introduced to the course material is through nine 
@@ -146,12 +142,10 @@ will guide you through a learning process on a particular topic. Modules not com
 class time should be completed with your group outside of class. 
 
 Module submissions consist of two parts:
-* A document containing short answers to questions posed within the module.
-  * This document should also record the total time necessary to complete the module.
-* Python programs to modify or write.
-
-Each student will submit both their answers and the Python programs **individually** via Teams.
-As the modules are a key aspect of how students learn the course material, this ensures that
+* Each module contains questions expecting short answers. Those questions and answers should
+  be included in your journal.
+* Python programs to modify or write. These should be submitted via Teams **individually** by
+  each student. As the modules are a key aspect of how students learn the course material, this ensures that
 every student has a record of what was learned.
 
 Modules submitted by the start of the next class period will receive one robot credit for a
@@ -162,8 +156,8 @@ receive the second robot credit. Modules submitted for the first time after the 
 will receive at most one robot credit.
 
 ## <a name="projects">Projects</a>
-The modules are grouped into three **units**. At the completion of the first two units, a 
-project will be assigned. In each project, students will devise a creative robotics project 
+The modules are grouped into four **units**. At the completion of each of the first three units,
+I will assign a project. In each project, students will devise a creative robotics project 
 applying the ideas investigated in the just-completed unit.
 
 The first class day for each project will be a brainstorming session in which students devise
