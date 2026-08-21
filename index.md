@@ -235,7 +235,7 @@ Robot credits for projects will be awarded as follows:
     * Delivering a satisfactory project presentation: **1 robot credit**
     * Submitting the project code and report on-time, and delivering the presentation on the assigned day: **1 robot credit**
 * Asking questions during presentations:
-  * Ask at least one question on each of the three presentation days: **2 robot credits**
+  * Ask at least one question on each of the four presentation days: **2 robot credits**
   * Ask at least one question on each of two presentation days: **1 robot credit**
   
 ## <a name="interviews">Interviews</a>
@@ -272,22 +272,22 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 40 out of 43 possible robot credits
+  * Earn at least 42 out of 45 possible robot credits
   * Earn at least 22 out of 24 possible interview credits
   * Earn at least 23 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 32 robot credits
+  * Earn at least 34 robot credits
   * Earn at least 17 interview credits
   * Earn at least 20 participation credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 24 robot credits
+  * Earn at least 26 robot credits
   * Earn at least 12 interview credits
   * Earn at least 16 participation credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 16 robot credits
+  * Earn at least 18 robot credits
   * Earn at least 7 interview credits
   * Earn at least 12 participation credits
 
