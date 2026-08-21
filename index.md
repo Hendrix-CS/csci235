@@ -13,6 +13,7 @@ layout: course-single
 
 Upon completing this course, our goal is for you to be able to:
 * Program a mobile robot to interact with a realistic environment with natural timing.
+* Employ classes and modules to structure Python programs.
 * Create ROS2 nodes that: 
   * Control motors and process sensor information by publishing and subscribing to topics.
   * Create new topics and publish to them to enable building robust, modular controllers.
@@ -21,17 +22,6 @@ Upon completing this course, our goal is for you to be able to:
 * Employ appropriate machine learning algorithms to improve the performance of a mobile robot.
 * Employ planning and odometry to navigate a mobile robot.
 
-<!-- 
-Ideas for this semester:
-
-Grading criteria:
-* Attendance
-* Journal
-* Technical interviews
-* Modules
-* Projects
-
--->
 
 ## <a name="resources">Resources</a>
 
@@ -84,8 +74,8 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
 | 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
 |       |
-| 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) |  Final Project Proposal |
-| 11/19 | Thu | Final Project proposal presentations | Interview 7: Modules 12-14 (Fri 11/20) |  
+| 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) | Module 14 |
+| 11/19 | Thu | Final Project proposal presentations | Final Project Proposal<br>Interview 7: Modules 12-14 (Fri 11/20) |  
 |       |
 | 11/24 | Tue | Final Project work day (**optional**) |  |  
 | 11/26 | Thu | **Thanksgiving: No class** |  |  
@@ -94,6 +84,24 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 12/3  | Thu | Final Project work |  |  |  
 |       |
 | 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 8: Final Project (Mon 12/14) |
+
+<hr>
+# <a name="ai">AI Policy</a>
+
+Learning to write computer programs doesn't only develop programming skill - it also 
+develops broader skills in formal reasoning. Using AI coding assistants disrupts the
+development of these essential formal reasoning skills. As one of the goals of this course
+is for you to further develop your programming and formal reasoning skills, the use of
+AI coding assistants is prohibited for all programming assignments submitted for credit 
+in this course.
+
+Learning to write prose is also an essential skill that we seek to develop in this course
+through writing reflections on modules and projects. Your prose need not be perfect - I 
+want to read your own authentic voice, not that of an AI writing assistant. I want you to
+develop your own authentic voice, not that of a machine. Thus, the use of generative AI
+writing assistants is also prohibited for all writing assignments submitted for credit
+in this course.
+
 
 <hr>
 # <a name="assessment">Assessment</a>
@@ -266,18 +274,22 @@ Final course grades are earned based on accumulated credits, as follows:
 * To earn an A in the course, a student will:
   * Earn at least 40 out of 43 possible robot credits
   * Earn at least 22 out of 24 possible interview credits
+  * Earn at least 23 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
   * Earn at least 32 robot credits
   * Earn at least 17 interview credits
+  * Earn at least 20 participation credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
   * Earn at least 24 robot credits
   * Earn at least 12 interview credits
+  * Earn at least 16 participation credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
   * Earn at least 16 robot credits
   * Earn at least 7 interview credits
+  * Earn at least 12 participation credits
 
 ## <a name="equipment">Equipment</a>
 During the second week of the semester, each student team will be assigned
