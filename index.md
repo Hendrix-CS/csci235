@@ -98,7 +98,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 <hr>
 # <a name="assessment">Assessment</a>
 
-## Attendance
+## <a name="attendance">Attendance</a>
 Most of our work in this course requires **teamwork**. Furthermore, robotics is a 
 challenging topic - success as a roboticist requires consistent engagement. For these 
 reasons, class attendance is **mandatory** on all class days, except those marked 
@@ -117,7 +117,7 @@ class.
 Including the final exam period, there are 24 required class meetings, from which students
 may earn up to 24 **participation credits**.
 
-## Journal
+## <a name="journal">Journal</a>
 
 Every student is expected to maintain a journal as a Word document stored in Microsoft Teams. 
 Each student has a private channel in Teams, in which their journal document is stored. For
@@ -133,7 +133,7 @@ every working session, the student should record the following in their journal:
   * Record any quantitative data to support your claims about its performance.
 * Time when work ended, including total duration of the work session 
 * Journal entries are assessed as part of assessing each module and project. Journal
-  entries may also serve as conversation items during interviews.
+  entries may also serve as discussion items during interviews.
 
 ## <a name="modules">Modules</a>
 The primary means by which you be introduced to the course material is through nine 
@@ -161,31 +161,34 @@ I will assign a project. In each project, students will devise a creative roboti
 applying the ideas investigated in the just-completed unit.
 
 The first class day for each project will be a brainstorming session in which students devise
-topics, select project partners, establish project goals, and begin work on the project. The 
-second class day will be a working session for the project. On the third class day, each group 
-will give a presentation to the class about their project.
+topics, select project partners, establish project goals, and begin work on the project. 
+The second class day will be a working session for the project, including a brief oral 
+presentation of current project progress. On the third class day, each group will give 
+a presentation to the class about their project.
 
 ### Project Reports
-For each project, each student (even if part of a team) should submit an individual project
-report. Each report includes the following:
+For each project, each student (even if part of a team) should write a project
+report entry in their journal. Each project report entry includes the following:
 * Description of the project goals
-* A project log, which includes the following for every work session:
-  * Date of the work session, including start and end times.
-  * Goals for the session.
-  * Brief descriptions of activities undertaken.
-  * Observations of activities.
-  * Assessment of the degree to which session goals were met.
 * A discussion of each ROS2 node created for the project.
   * For each node, discuss the following:
     * To what does it subscribe?
     * To where does it publish?
     * How does it determine what to publish?
     * What other interactions with the environment does it have?
+* A discussion of how the ROS2 nodes worked together to enable
+  the robot to achieve the project goals.
 * A conclusion detailing the degree of success of the project and
   describing future work, that is, the next steps to take if the
   project were to continue.
 
 ### Project Presentations
+
+On project work days prior to the due date of each project, each team will give a 
+brief project update. The project update should include three slides:
+* A title slide, including the name of the project and team participants.
+* A slide describing the project goals.
+* A slide discussing the current status of the project.
 
 On the due date of each project, each team will give a presentation about their project.
 The presentation should include the following:
@@ -227,32 +230,18 @@ Robot credits for projects will be awarded as follows:
   * Ask at least one question on each of the three presentation days: **2 robot credits**
   * Ask at least one question on each of two presentation days: **1 robot credit**
   
-## <a name="essays">Essays</a>
-A total of three in-class essays and one take-home essay will be assigned over the course of the semester. 
-Each essay topic is posted on the course web page. In preparing for each in-class essay, each student may
-make use of whatever resources they would like - readings, assignments, classmates, anything on
-the Internet, or any other resource. 
-
-Each in-class essay itself is closed-book, closed-note, and closed-device. Paper will be provided
-for writing the essay, which must be submitted at the end of the class period. 
-
-The essays will be commented upon by the instructor and returned. Each student should then
-revise their essay, taking into account the instructor comments. The revised essay should be 
-typed and submitted electronically. The original handwritten essay should also be resubmitted
-physically. The revised essay will be due one week after the original essays are returned. 
-
-Students are welcome to make use of additional resources when revising their essays; proper
-citation should be included for each resource. Plagiarism, including submitting an essay 
-rewritten by a generative AI, is strictly prohibited. Each revised essay will then be 
-assessed as **Level 1** or **Level 2**, depending on the quality of the essay. Quality will 
-be assessed according to the following criteria:
-* Writing quality, including proper spelling, usage, and grammar.
-* Demonstrated depth of understanding the essay topic.
-* Appropriate use of examples from course projects.
+## <a name="interviews">Interviews</a>
+After each module unit and after each project, each student will 
+[schedule an interview](https://drferrer.youcanbook.me/) to discuss the completed
+work and demonstrate mastery of the concepts behind the completed work. 
+* A Level 1 interview demonstrates some understanding of the topic but with significant gaps.
+* A Level 2 assessment demonstrates full expected understanding of the topic.
  
-### Essay Credits 
-* One essay credit will be awarded per level.
-* One additional essay credit will be awarded for on-time submissions of the final essays.
+### Interview Credits 
+* One interview credit will be awarded per level.
+* One additional interview credit will be awarded for completing the interview by the deadline.
+* If a student is unsatisfied by their interview credit, they may schedule a follow-up 
+  interview to demonstrate stronger understanding. 
 
 ## <a name="finalproject">Final Project</a>
 In the last three weeks of the semester, each student will undertake a final project. 
@@ -266,7 +255,7 @@ regular course projects.
 
 The final project will be graded strictly on a pass-fail basis: it is either completed
 or not completed, including the project report and presentation. It does not contribute
-to robot credits or essay credits. As with the three regular course projects, if a 
+to robot credits or interview credits. As with the three regular course projects, if a 
 project goal appears unrealistic to achieve, the students and professor may renegotiate 
 the project goals **at least one day prior to the submission deadline**.
 <hr>
@@ -275,20 +264,20 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 27 out of 30 possible robot credits
-  * Earn at least 11 out of 12 possible essay credits
+  * Earn at least 40 out of 43 possible robot credits
+  * Earn at least 22 out of 24 possible interview credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 23 robot credits
-  * Earn at least 9 essay credits
+  * Earn at least 32 robot credits
+  * Earn at least 17 interview credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 19 robot credits
-  * Earn at least 7 essay credits
+  * Earn at least 24 robot credits
+  * Earn at least 12 interview credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 15 robot credits
-  * Earn at least 4 essay credits
+  * Earn at least 16 robot credits
+  * Earn at least 7 interview credits
 
 ## <a name="equipment">Equipment</a>
 During the second week of the semester, each student team will be assigned
