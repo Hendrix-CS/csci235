@@ -106,6 +106,24 @@ in this course.
 <hr>
 # <a name="assessment">Assessment</a>
 
+## <a name="journal">Journal</a>
+
+Every student is expected to maintain a journal as a Word document stored in Microsoft Teams. 
+Each student has a private channel in Teams, in which their journal document is stored. For
+every working session, the student should record the following in their journal:
+* Time when work started
+* Goals for the work session
+* Discussion of the robot programming process
+  * What was your approach to writing code to achieve the session goals?
+  * What went well? 
+  * What were some challenges you overcame?
+* Records of observations
+  * How did the robot perform for the session's tasks?
+  * Record any quantitative data to support your claims about its performance.
+* Time when work ended, including total duration of the work session 
+* Journal entries are assessed as part of assessing each module and project. Journal
+  entries may also serve as discussion items during interviews.
+
 ## <a name="attendance">Attendance</a>
 Most of our work in this course requires **teamwork**. Furthermore, robotics is a 
 challenging topic - success as a roboticist requires consistent engagement. For these 
@@ -125,26 +143,8 @@ class.
 Including the final exam period, there are 24 required class meetings, from which students
 may earn up to 24 **participation credits**.
 
-## <a name="journal">Journal</a>
-
-Every student is expected to maintain a journal as a Word document stored in Microsoft Teams. 
-Each student has a private channel in Teams, in which their journal document is stored. For
-every working session, the student should record the following in their journal:
-* Time when work started
-* Goals for the work session
-* Discussion of the robot programming process
-  * What was your approach to writing code to achieve the session goals?
-  * What went well? 
-  * What were some challenges you overcame?
-* Records of observations
-  * How did the robot perform for the session's tasks?
-  * Record any quantitative data to support your claims about its performance.
-* Time when work ended, including total duration of the work session 
-* Journal entries are assessed as part of assessing each module and project. Journal
-  entries may also serve as discussion items during interviews.
-
 ## <a name="modules">Modules</a>
-The primary means by which you be introduced to the course material is through nine 
+The primary means by which you be introduced to the course material is through 14 
 **modules**. Each module will be started during class time in teams of 2 or 3. Each module 
 will guide you through a learning process on a particular topic. Modules not completed during 
 class time should be completed with your group outside of class. 
