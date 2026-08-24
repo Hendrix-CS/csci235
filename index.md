@@ -7,7 +7,9 @@ layout: course-single
 
 # <a name="description">Overview</a>
 
+<p class="course-desc">
 {{ site.description }}
+</p>
 
 ## <a name="goals">Learning Goals</a>
 
@@ -26,8 +28,6 @@ Upon completing this course, our goal is for you to be able to:
 ## <a name="resources">Resources</a>
 
 {% include resources.html content=site.resources %}
-
-<hr>
 
 # <a name="calendar">Calendar</a>
 
@@ -85,7 +85,18 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |       |
 | 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 8: Final Project (Mon 12/14) |
 
-<hr>
+# <a name="integrity">Academic Integricy</a>
+
+Hendrix College is committed to high standards of honesty and fairness in academic pursuits. Such standards are central to the process of intellectual inquiry, the development of character, and the preservation of the integrity of the community.
+
+This commitment can be understood in the following ways:
+
+* A student should not gain an unfair advantage or violate other students’ commitment to honest work and genuine effort.  The amount of cooperation undertaken with other students, the consistency and accuracy of work, and the test-taking procedure should adhere to the guidelines that the classroom teacher provides.
+* Members of the Hendrix community value and uphold academic integrity because we recognize that scholarly pursuits are aimed at increasing the shared body of knowledge.  The full disclosure of sources is the most effective way to ensure accountability to both ourselves and our colleagues.
+
+More details can be found in the [Hendrix Academic Integrity Policy](https://www.hendrix.edu/Catalog/2026-2027/Academic_Policies_and_Regulations/Policies_and_Appeals/D_6_c__Academic_Integrity/) and the [Hendrix
+Computer Science Academic Integrity Policy](http://ozark.hendrix.edu/~yorgey/ac-integrity-policy.html).
+
 # <a name="ai">AI Policy</a>
 
 Learning to write computer programs doesn't only develop programming skill - it also 
@@ -102,8 +113,6 @@ develop your own authentic voice, not that of a machine. Thus, the use of genera
 writing assistants is also prohibited for all writing assignments submitted for credit
 in this course.
 
-
-<hr>
 # <a name="assessment">Assessment</a>
 
 ## <a name="journal">Journal</a>
