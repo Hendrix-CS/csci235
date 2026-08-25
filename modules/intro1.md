@@ -118,7 +118,7 @@ for a given angle in a right triangle, the sine of that angle is the
 length of the opposite side over the hypotenuse, and the cosine is 
 the length of the adjacent side over the hypotenuse.
 
-<img src="{{site.baseurl}}/assets/images/triangle.jpeg"></img>
+<img src="{{site.baseurl}}/assets/images/triangle.jpeg" style="width: 60vm; min-width: 330px;"/>
 
 So in the triangle depicted in the image, sin θ = y/d and cos θ = x/d.
 
