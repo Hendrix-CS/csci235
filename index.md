@@ -69,7 +69,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 10/29 | Thu | Project 3 | Interview 5: Modules 8-11 (Mon 11/2)|  
 |       |
 | 11/3  | Tue | Project 3 Presentations | Project 3 |
-| 11/5  | Thu | [Module 12: Reinforcement Learning]({{site.baseurl}}/modules/qlearning.html) | Interview 6: Project 3 (Mon 11/9) |
+| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 6: Project 3 (Mon 11/9) |
 |      
 | 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
 | 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
