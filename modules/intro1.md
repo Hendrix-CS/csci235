@@ -204,4 +204,4 @@ facing by one square.
 
 ## Programs to submit
 * `robot_pose.py`
-* `grid_world.py
+* `grid_world.py`
