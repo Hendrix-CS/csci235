@@ -26,10 +26,10 @@ Because, for any given angle, there are an infinite number of possible
 representations, we want to **normalize** angles to fall in a particular
 range. As we want 0 radians to represent going straight, by using positive
 and negative radians we can represent different turn directions. So it is
-to our advantage to use the interval (-&pi;, &pi]. 
+to our advantage to use the interval (-&pi;, &pi;]. 
 
 Read the Python program below. The function `find_normalized_angle()` needs 
-to return an angle in the interval  (-&pi;, &pi]. The provided unit test
+to return an angle in the interval  (-&pi;, &pi;]. The provided unit test
 checks to make sure it has this property.
 
 Copy this code into a Python editor. Save it in a file entitled 
@@ -79,7 +79,7 @@ class RobotPose:
         self.theta = find_normalized_angle(theta)
 
     def __repr__(self):
-        return f"({self.x},{self.y},{self.theta})"
+        return f"RobotPose({self.x},{self.y},{self.theta})"
 
     def turn(self, angle: float):
 	"""
