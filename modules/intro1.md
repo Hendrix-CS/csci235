@@ -118,6 +118,10 @@ for a given angle in a right triangle, the sine of that angle is the
 length of the opposite side over the hypotenuse, and the cosine is 
 the length of the adjacent side over the hypotenuse.
 
+<img src="assets/images/triangle.jpeg"></img>
+
+So in the triangle depicted in the image, sin θ = y/d and cos θ = x/d.
+
 Based on this model, use `math.sin()` and `math.cos()` to help implement
 the `move()` method. Also implement the `turn()` method, and ensure that
 your solution passes the `test_move()` unit test.
