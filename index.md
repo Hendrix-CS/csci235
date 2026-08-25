@@ -234,7 +234,7 @@ The presentation should include the following:
   
 ### Project Credits
 Robot credits for projects will be awarded as follows:
-* For each project (not including the final project), you may earn up to 5 robot credits:
+* For each project (not including the final project), you may earn up to 6 robot credits:
     * Achievement of project goals
       * Achieving all agreed-upon project goals: **2 robot credits**
         * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
@@ -242,7 +242,8 @@ Robot credits for projects will be awarded as follows:
       * Achieving some but not all of the agreed-upon project goals: **1 robot credit**
     * Submitting a satsifactory project report: **1 robot credit**
     * Delivering a satisfactory project presentation: **1 robot credit**
-    * Submitting the project code and report on-time, and delivering the presentation on the assigned day: **1 robot credit**
+    * Submitting the project code and report on-time: **1 robot credit**
+    * Delivering the presentation on the assigned day: **1 robot credit**
 * Asking questions during presentations:
   * Ask at least one question on each of the four presentation days: **2 robot credits**
   * Ask at least one question on each of two presentation days: **1 robot credit**
@@ -281,22 +282,22 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 42 out of 45 possible robot credits
+  * Earn at least 45 out of 48 possible robot credits
   * Earn at least 22 out of 24 possible interview credits
   * Earn at least 23 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 34 robot credits
+  * Earn at least 37 robot credits
   * Earn at least 17 interview credits
   * Earn at least 20 participation credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 26 robot credits
+  * Earn at least 29 robot credits
   * Earn at least 12 interview credits
   * Earn at least 16 participation credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 18 robot credits
+  * Earn at least 21 robot credits
   * Earn at least 7 interview credits
   * Earn at least 12 participation credits
 
