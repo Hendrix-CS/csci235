@@ -49,8 +49,9 @@ def blocked_ahead(pose: RobotPose, grid_map: GridMap) -> bool:
     """
     # Your code here
 ```
-  * One possible strategy is to copy the `pose` object, move it one square,
-    and see if this copied pose location is blocked.
+  * One possible strategy is to copy the `pose` object, move it one square
+    using the `RobotPose` `move` method, and see if this copied pose location 
+    is blocked.
   * To copy an object in Python, `import copy` and pass the object to copy to
     `copy.deepcopy()`
 * Modify the implementation of the `w` key to call `blocked_ahead()` before 
