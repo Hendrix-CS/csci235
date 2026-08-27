@@ -39,7 +39,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |Date   |Day  | Module | Due |
 | ---   | --- | ------ | --- | 
 |  8/25 | Tue | Module 1: [Robot pose](modules/intro1.html) |  |
-|  8/27 | Thu | Module 2: Autonomy | Module 1 |
+|  8/27 | Thu | Module 2: [Autonomy](modules/intro2.html) | Module 1 |
 |       |
 |  9/1  | Tue | Module 3: ROS2 nodes, Motor Publications | Module 2 | 
 |  9/3  | Thu | Module 4: Subscriptions | Module 3 |
