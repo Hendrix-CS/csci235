@@ -284,7 +284,7 @@ if __name__ == '__main__':
   handles each type of event.
 * Run the program. Drive the robot around a bit. Push the buttons. Did the
   program behave how you expected when you read the code?
-* How might you modify this program to have the following features:
+* How might you modify this program to have the following features?
   * When the user presses the `u` key, the robot's **forward** speed **increases**.
   * When the user presses the `j` key, the robot's **forward** speed **decreases**.
   * When the user presses the `i` key, the robot's **turning** speed **increases**.
@@ -292,7 +292,7 @@ if __name__ == '__main__':
   * The robot's current forward and turning speeds should be displayed via curses.
   * In your answer, discuss both where the key presses will be handled and how 
     the current speeds will be stored and accessed.
-* Implement this new feature and test it out. How did it work? Fix any bugs
+* Implement these new features and test them out. How did it work? Fix any bugs
   you encounter and make sure the program works properly.
 
 ## To submit
