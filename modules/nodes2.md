@@ -119,6 +119,21 @@ program called `bump_turn_90.py` with the following features:
 * The robot normally drives straight.
 * However, if it encounters a hazard, it turns 90 degrees, then resumes
   driving forward.
+* Implement this approach as follows:
+  * The node has a `bool` instance variable indicating whether it saw a 
+    hazard. Initally, this variable is `False`.
+  * The node has a `float` instance variable indicating the robot's goal
+    heading. Initially, this variable is `None`.
+  * Set this variable to `True` in the hazard detection callback whenever
+    a genuine hazard is encountered.
+  * In the odometry callback:
+    * If a hazard was encountered, set the goal heading to be the current
+      heading minus &pi;/2, being sure to normalize the result. 
+    * If the goal heading is defined (i.e. is not `None`):
+      * Tell the robot to turn with a negative angular velocity.
+      * If the current heading minus the goal heading is less than zero,
+        reset the goal heading to `None`.
+    * Otherwise, tell the robot to go straight.
 * The program has a `curses` UI:
   * It displays its current odometry and whether it is contacting a hazard.
   * If you press the `q` key, the program ends.
@@ -126,5 +141,45 @@ program called `bump_turn_90.py` with the following features:
 
 ## Infrared sensors
 
-<!-- Bring back lots of stuff from my original module -->
-<!-- Invite them to enhance obstacle avoiders -->
+### IR on the command line
+
+Open a command line and type
+```
+ros2 topic echo /[your robot name]/ir_intensity
+```
+* Examine the output
+  * What information is contained in the output?
+  * How many IR sensors does the robot have?
+
+<!-- Exploration: Values from IR Topic -->
+Now run the same line again:
+* Let it run for a while
+* Wave your hand or foot in front of the robot.
+* Hold it close to the robot, then move it further away slowly.
+* How do the `value` entries change in response to motion?
+
+Continuing to run the same line:
+* Move the robot close to a wall. How do the `value` entries change?
+* Now move the robot close to a door. Again, how do the `value` entries 
+  change?
+
+### IR in Python
+
+Add the following import to `curses_motor.py`:
+```
+from irobot_create_msgs.msg import IrIntensityVector
+```
+
+* Add a subscription to the `ir_intensity` topic.
+* In your callback function, display the IR values on the curses UI.
+* Run `curses_motor.py` and test the IR values extensively by driving
+  it close to a variety of objects. Then answer the following questions:
+  * What range of IR values do we see when:
+    * No object is close to the robot.
+    * An object is close to the robot.
+  * What impact is there of the **color** of an object close to the robot?
+* In light of these observations, what would be a good condition to write,
+  in terms of IR values, to indicate that there is an object near the robot?
+* Modify `bump_turn_90.py` to incorporate your observation about the IR 
+  sensors detecting an object. Test it out. How often does it avoid an 
+  obstacle without hitting it?
