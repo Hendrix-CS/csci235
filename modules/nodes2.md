@@ -31,8 +31,11 @@ Then answer the following questions:
 * What fields from the `odom` message are most relevant to determining the robot's
   position and orientation?
 <!-- odometry resets -->
-* Open a third command line. Type `ros2 service call /[your robot name]/reset_pose irobot_create_msgs/srv/ResetPose`. 
-How does this affect the odometry messages being published?
+* Open a third command line. Type 
+```
+ros2 service call /[your robot name]/reset_pose irobot_create_msgs/srv/ResetPose
+``` 
+* How does this affect the odometry messages being published?
 
 ### Odometry in Python
 
@@ -110,6 +113,16 @@ from irobot_create_msgs.msg import HazardDetectionVector
 
 <!-- Students write some simple obstacle avoiders -->
 <!-- Then an advanced one, using odometry -->
+Having built a program to display sensor values while driving the robot, let's
+adapt these ideas to building a more autonomous robot. Create a new Python
+program called `bump_turn_90.py` with the following features:
+* The robot normally drives straight.
+* However, if it encounters a hazard, it turns 90 degrees, then resumes
+  driving forward.
+* The program has a `curses` UI:
+  * It displays its current odometry and whether it is contacting a hazard.
+  * If you press the `q` key, the program ends.
+  * There are no other controls for the robot.
 
 ## Infrared sensors
 
