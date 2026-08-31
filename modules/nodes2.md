@@ -115,7 +115,7 @@ from irobot_create_msgs.msg import HazardDetectionVector
 <!-- Then an advanced one, using odometry -->
 Having built a program to display sensor values while driving the robot, let's
 adapt these ideas to building a more autonomous robot. Create a new Python
-program called `bump_turn_90.py` with the following features:
+program called `bump_turn_45.py` with the following features:
 * The robot normally drives straight.
 * However, if it encounters a hazard, it turns 90 degrees, then resumes
   driving forward.
@@ -128,7 +128,7 @@ program called `bump_turn_90.py` with the following features:
     a genuine hazard is encountered.
   * In the odometry callback:
     * If a hazard was encountered, set the goal heading to be the current
-      heading minus &pi;/2, being sure to normalize the result. 
+      heading minus &pi;/4, being sure to normalize the result. 
     * If the goal heading is defined (i.e. is not `None`):
       * Tell the robot to turn with a negative angular velocity.
       * If the current heading minus the goal heading is less than zero,
@@ -180,6 +180,13 @@ from irobot_create_msgs.msg import IrIntensityVector
   * What impact is there of the **color** of an object close to the robot?
 * In light of these observations, what would be a good condition to write,
   in terms of IR values, to indicate that there is an object near the robot?
-* Modify `bump_turn_90.py` to incorporate your observation about the IR 
+* Modify `bump_turn_45.py` to incorporate your observation about the IR 
   sensors detecting an object. Test it out. How often does it avoid an 
   obstacle without hitting it?
+* Overall, how well does the IR-enhanced version of `bump_turn_45.py` work
+  in comparison to the original.
+
+## To submit
+Final versions of:
+* `curses_motor.py`
+* `bump_turn_45.py`

@@ -41,8 +41,8 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  8/25 | Tue | Module 1: [Robot pose](modules/intro1.html) |  |
 |  8/27 | Thu | Module 2: [Autonomy](modules/intro2.html) | Module 1 |
 |       |
-|  9/1  | Tue | Module 3: ROS2 nodes, Motor Publications | Module 2 | 
-|  9/3  | Thu | Module 4: Subscriptions | Module 3 |
+|  9/1  | Tue | Module 3: [ROS2 nodes, topics, publications, and subscriptions](modules/nodes1.html) | Module 2 | 
+|  9/3  | Thu | Module 4: iRobot Create3 Sensors | Module 3 |
 |       |
 |  9/8  | Tue | Project 1 | Module 4 |
 |  9/10 | Thu | Project 1 | Interview 1: Modules 1-4 (Fri 9/11) |
