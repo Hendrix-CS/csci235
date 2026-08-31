@@ -7,6 +7,7 @@ worktitle: iRobot Create3 Sensors
 
 ## Odometry
 
+### Odometry on the command line
 Open two shells on your robot. Type the command below into the first command line:
 ```
 ros2 topic echo /[your robot name]/odom
@@ -22,12 +23,18 @@ Let it run for a few seconds. Then stop the `odom` command, and after that stop 
 Then answer the following questions:
 * What information is published by the `odom` topic?
 * How does that information change as the robot drives forward?
+* Why do you think it has both `pose` and `twist` fields? In light of your 
+  answer to the previous question, what distinct roles do they play?
 * Now write a ROS2 command for the robot to spin in place. Repeat the above steps.
   How does the `odom` information change as the robot spins?
 <!-- Concept invention: Odometry -->
 * What fields from the `odom` message are most relevant to determining the robot's
   position and orientation?
 <!-- odometry resets -->
+* Open a third command line. Type `ros2 service call /[your robot name]/reset_pose irobot_create_msgs/srv/ResetPose`. 
+How does this affect the odometry messages being published?
+
+### Odometry in Python
 
 Make sure you have a copy of `robot_pose.py` in the current directory. Then
 add the following import at the top:
@@ -35,7 +42,7 @@ add the following import at the top:
 from nav_msgs.msg import Odometry
 ```
 
-Then add the following function:
+Then add the following function after the `RobotPose` class definition:
 ```
 def odom2pose(odom: Odometry) -> RobotPose:
     p = odom.pose.pose.position
@@ -45,13 +52,20 @@ def odom2pose(odom: Odometry) -> RobotPose:
     return RobotPose(p.x, p.y, math.atan2(qy, qx))
 ```
 
-Then add `from RobotPose import RobotPose, odom2pose` at the top of 
-`curses_motor.py`. Then modify the program as follows:
+Then add `from robot_pose import RobotPose, odom2pose` and `from nav_msgs.msg 
+import Odometry` at the top of `curses_motor.py`. Then modify the program as 
+follows:
+* Add `stdscr` as a parameter to `__init__`, and set up an instance variable
+  to store the `stdscr` reference. This will enable us to display messages
+  in the cursor window.
 * Add a subscription to the `odom` topic.
 * In the callback function for the subscription, write code that calls 
-  `odom2pose()` to convert the `Odometry` message to a `RobotPose` object,
-  then display the `RobotPose` object in a suitable part of the `curses`
-  window.
+  `odom2pose()` to convert the `Odometry` message to a `RobotPose` object.
+  * Display the `x`, `y`, and `theta` coordinates in the `curses` window.
+    Use format strings to show only the first two decimal places. 
+  * For review, if you have a Python assignment `x = 2.345` and you only want
+    to display the first two decimal places, you can use a format string like
+    this: `f"{x:.2f}"`
 * Drive the robot around a bit. How does the coordinate space of a `RobotPose`
   correspond to the Euclidean plane? Relative to the robot's starting 
   position, where are the four Euclidean quadrants? How does this compare
@@ -60,6 +74,7 @@ Then add `from RobotPose import RobotPose, odom2pose` at the top of
 
 ## Hazards
 
+### Hazards on the command line
 Open a shell on your robot and type the following command:
 ```
 ros2 topic echo /[your robot name]/hazard_detection
@@ -80,6 +95,9 @@ ros2 topic echo /[your robot name]/hazard_detection
 * What else can the iRobot Create3 sense to determine that it is not entirely
   on the ground?
   * What are their names?
+* Exit the topic echo.
+
+### Hazards in Python
 * Add this import to `curses_motor.py`:
 ```
 from irobot_create_msgs.msg import HazardDetectionVector
