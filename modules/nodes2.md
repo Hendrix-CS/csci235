@@ -14,7 +14,8 @@ ros2 topic echo /[your robot name]/odom
 
 Type this command into the second command line. Make sure your robot has some 
 room to move before you run this command:
-```                                                                                                                     ros2 topic pub -r 5 /[your robot name]/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}}"
+```
+ros2 topic pub -r 5 /[your robot name]/cmd_vel_stamped geometry_msgs/msg/TwistStamped "{header: {stamp: {sec: 0, nanosec: 0}, frame_id: ''}, twist: {linear: {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}}"
 ```
 
 Let it run for a few seconds. Then stop the `odom` command, and after that stop the `cmd_vel_stamped` command.
