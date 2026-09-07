@@ -91,7 +91,9 @@ interact with ROS2. Examine the program and answer the following questions:
 * How often do you think `timer_callback()` is called?
 <!-- Exploration: Python TwistStamped -->
 * What do you think will happen on each call to `timer_callback()`?
-* Run the program. What did it do? Did it meet your expectations?
+* Run the program by typing `python3 pub_motor.py robot_name`. (Be sure to 
+  employ your robot's specific name in place of `robot_name`.) What did it 
+  do? Did it meet your expectations?
 <!-- Concept invention: direction of rotation from a TwistStamped -->
 * Replace `t.twist.angular.z = 1.0` with `t.twist.angular.z = -1.0`.
   * What do you expect will happen when it runs?
