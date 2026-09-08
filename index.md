@@ -65,11 +65,11 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 10/20 | Tue | Module 10: Path Planning | Module 9 |   
 | 10/22 | Thu | Module 11: HTN Planning | Module 10 | 
 |       |
-| 10/27 | Tue | Project 3 | Module 11 |  
-| 10/29 | Thu | Project 3 | Interview 4: Modules 8-11 (Mon 11/2)|  
+| 10/27 | Tue | Project 2 | Module 11 |  
+| 10/29 | Thu | Project 2 | Interview 4: Modules 8-11 (Mon 11/2)|  
 |       |
-| 11/3  | Tue | Project 3 Presentations | Project 3 |
-| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 5: Project 3 (Mon 11/9) |
+| 11/3  | Tue | Project 2 Presentations | Project 2 |
+| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 5: Project 2 (Mon 11/9) |
 |      
 | 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
 | 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
