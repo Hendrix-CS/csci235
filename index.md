@@ -41,41 +41,41 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  8/25 | Tue | Module 1: [Robot pose](modules/intro1.html) |  |
 |  8/27 | Thu | Module 2: [Autonomy](modules/intro2.html) | Module 1 |
 |       |
-|  9/1  | Tue | Module 3: [ROS2 nodes, topics, publications, and subscriptions](modules/nodes1.html) | Module 2 | 
-|  9/3  | Thu | Module 4: [iRobot Create3 Sensors](modules/nodes2.html) | Module 3 |
+|  9/1  | Tue | Technical problems | 
+|  9/3  | Thu | Module 3: [ROS2 nodes, topics, publications, and subscriptions](modules/nodes1.html) | Module 2 | 
 |       |
-|  9/8  | Tue | Project 1 | Module 4 |
-|  9/10 | Thu | Project 1 | Interview 1: Modules 1-4 (Fri 9/11) |
+|  9/8  | Tue | Module 4: [iRobot Create3 Sensors](modules/nodes2.html) | Module 3 |
+|  9/10 | Thu | Module 5: Fuzzy Logic | Module 4 |
 |       |
-|  9/15 | Tue | Project 1 Presentations | Project 1 |  
-|  9/17 | Thu | Module 5: State Machines |  |  
+|  9/15 | Tue | Module 6: State Machines | Module 5 |
+|  9/17 | Thu | Module 7: Computer Vision 1 | Module 6<br>Interview 1: Modules 1-4 (Fri 9/18) | 
+|       | 
+|  9/22 | Tue | Project 1 topics | Module 7|
+|  9/24 | Thu | Project 1 work  | Interview 2: Modules 5-7 (Fri 9/25) 
 |       |
-|  9/22 | Tue | Module 6: Fuzzy Logic | Module 5 | 
-|  9/24 | Thu | Module 7: Computer Vision 1 | Module 6<br>Interview 2: Project 1 (Fri 9/25) | 
+|  9/29 | Tue | **Conference: No class<br>Work on Project 1** | Module 7 | 
+| 10/1  | Thu | **Conference: No class<br>Work on Project 1** | |
 |       |
-|  9/29 | Tue | **Conference: No class<br>Work on Project 2** | Module 7 | 
-| 10/1  | Thu | **Conference: No class<br>Work on Project 2** | |
-|       |
-| 10/6  | Tue | Project 2 Presentations | Project 2 | 
-| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Modules 5-7 (Fri 10/9) |
+| 10/6  | Tue | Project 1 Presentations | Project 1 | 
+| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Project 1 |
 |       |
 | 10/13 | Tue | Module 9: SLAM 2 | Module 8 |
 | 10/15 | Thu | **Fall Break: No class** |  |   
 |       |
 | 10/20 | Tue | Module 10: Path Planning | Module 9 |   
-| 10/22 | Thu | Module 11: HTN Planning | Module 10<br>Interview 4: Project 2 (Fri 10/23) | 
+| 10/22 | Thu | Module 11: HTN Planning | Module 10 | 
 |       |
 | 10/27 | Tue | Project 3 | Module 11 |  
-| 10/29 | Thu | Project 3 | Interview 5: Modules 8-11 (Mon 11/2)|  
+| 10/29 | Thu | Project 3 | Interview 4: Modules 8-11 (Mon 11/2)|  
 |       |
 | 11/3  | Tue | Project 3 Presentations | Project 3 |
-| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 6: Project 3 (Mon 11/9) |
+| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 5: Project 3 (Mon 11/9) |
 |      
 | 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
 | 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
 |       |
 | 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) | Module 14 |
-| 11/19 | Thu | Final Project proposal presentations | Final Project Proposal<br>Interview 7: Modules 12-14 (Fri 11/20) |  
+| 11/19 | Thu | Final Project proposal presentations | Final Project Proposal<br>Interview 6: Modules 12-14 (Fri 11/20) |  
 |       |
 | 11/24 | Tue | Final Project work day (**optional**) |  |  
 | 11/26 | Thu | **Thanksgiving: No class** |  |  
@@ -83,7 +83,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 12/1  | Tue | Final Project work |  |  |  
 | 12/3  | Thu | Final Project work |  |  |  
 |       |
-| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 8: Final Project (Mon 12/14) |
+| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 7: Final Project (Mon 12/14) |
 
 # <a name="integrity">Academic Integricy</a>
 
@@ -173,7 +173,7 @@ receive the second robot credit. Modules submitted for the first time after the 
 will receive at most one robot credit.
 
 ## <a name="projects">Projects</a>
-The modules are grouped into four **units**. At the completion of each of the first three units,
+The modules are grouped into three **units**. At the completion of each of the first two units,
 I will assign a project. In each project, students will devise a creative robotics project 
 applying the ideas investigated in the just-completed unit.
 
@@ -282,23 +282,23 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 45 out of 48 possible robot credits
-  * Earn at least 22 out of 24 possible interview credits
+  * Earn at least 39 out of 42 possible robot credits
+  * Earn at least 19 out of 21 possible interview credits
   * Earn at least 23 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 37 robot credits
-  * Earn at least 17 interview credits
+  * Earn at least 31 robot credits
+  * Earn at least 15 interview credits
   * Earn at least 20 participation credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 29 robot credits
-  * Earn at least 12 interview credits
+  * Earn at least 23 robot credits
+  * Earn at least 11 interview credits
   * Earn at least 16 participation credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 21 robot credits
-  * Earn at least 7 interview credits
+  * Earn at least 15 robot credits
+  * Earn at least 6 interview credits
   * Earn at least 12 participation credits
 
 ## <a name="equipment">Equipment</a>
