@@ -144,6 +144,39 @@ Also add this unit-testing method to `FuzzyTest`:
 
 A correct solution should pass this additional unit test.
 
+<!-- TODO List 
+* In general, each program should be a single node.
+  * We want abstractions, but nodes are architectural.
+  * Let's introduce functions for various components.
+* Write a function to calculate a fuzzy value from
+  a single IR value, where the fuzzy value represents
+  the proposition "space is free".
+* Write a function to fuzzy-and all the IR values
+  in a particular span of the IR value list.
+* Write a node that displays those values in curses,
+  based on the earlier curses IR node.
+* Write a function to defuzzify to the motors, returning
+  a TwistStamped.
+* Modify the IR node to be a fuzzy avoider.
+  * Test the node by altering which span of the IR 
+    list is used.
+* Write a function to calculate three fuzzy values from 
+  the difference between an Odometry value and a
+  goal location.
+  * One value: "I am at the goal"
+  * Second value: "I am left of the goal"
+  * Third value: "I am right of the goal"
+* Write a node to display these values in curses, based
+  on the earlier curses odometry node. (?)
+  * Also apply fuzzy-not to show "I am not at the goal"
+* Using our defuzzify to motors function, defuzzify
+  "I am not at the goal" to the twist distance, and
+  left/right to the twist angle. 
+* Test the resulting node.
+
+
+
+<!-- Old stuff below here -->
 
 ## Fuzzy IR Input Node
 
