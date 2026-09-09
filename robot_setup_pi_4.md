@@ -11,24 +11,25 @@
 
 ## Install Ubuntu on the Raspberry Pi  
 * Go to https://www.raspberrypi.com/software/ and download the Raspberry Pi Imager.  
-* Select Ubuntu 22 from the imager.  
+* Select Ubuntu 24 from the imager.  
 * Save it to the microUSB, then boot the Raspberry Pi.  
 * In the Raspberry Pi terminal, ensure that the output from locale contains “UTF-8” 
 * Add the ROS2 Repository 
 
+## Enable Ubuntu Universe repository
 ```
-# enable ubuntu universe repository 
-sudo apt install software-properties-common 
+sudo apt install -y software-properties-common 
 sudo add-apt-repository universe 
-# add ROS2 GPG key 
-sudo apt update && sudo apt install curl -y 
-sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg 
-# Add repository to sources list 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo jammy) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null 
+```
+
+## Enable `ros-apt-source` packages
+```
+sudo apt update && sudo apt install curl -y
+export ROS_APT_SOURCE_VERSION=$(curl -s https://api.github.com/repos/ros-infrastructure/ros-apt-source/releases/latest | grep -F "tag_name" | awk -F'"' '{print $4}')
+curl -L -o /tmp/ros2-apt-source.deb "https://github.com/ros-infrastructure/ros-apt-source/releases/download/${ROS_APT_SOURCE_VERSION}/ros2-apt-source_${ROS_APT_SOURCE_VERSION}.$(. /etc/os-release && echo ${UBUNTU_CODENAME:-${VERSION_CODENAME}})_all.deb"
+sudo dpkg -i /tmp/ros2-apt-source.deb
 ```
  
-**Note**: If you get a warning that the public key is not available, run `sudo apt-key del` followed by the key number given in the message. Then, go back to `#add ROS2 GPG key` and continue the process. 
-
 ## Install development and ROS tools 
 
 ```
@@ -36,27 +37,37 @@ sudo apt update && sudo apt install -y ros-dev-tools
 ```
  
 
-## Install ROS2 
+## Install ROS2 Jazzy 
+* We are using Jazzy because Iron (running on the robots) is no longer
+supported.
+* Jazzy, running on a Raspberry Pi, is compatible with Iron running on
+the iRobot Create3.
 
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install ros-iron-desktop
+sudo apt install -y ros-jazzy-ros-base
 ```
  
 
 ## Install Python Stuff 
 
 ```
-sudo apt install python3-serial 
-sudo apt install python3-pip  
-sudo apt install ros-iron-irobot-create-msgs 
+sudo apt install -y python3-serial 
+sudo apt install -y python3-pip  
+sudo apt install -y ros-jazzy-irobot-create-msgs 
+```
+
+## Install `micro`
+
+```
+sudo apt install -y micro
 ```
  
 
 ## Update .bashrc 
 
-`nano ~/.bashrc` and add the following lines 
+`micro ~/.bashrc` and add the following lines 
 
 ```
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp 
@@ -70,7 +81,7 @@ source /opt/ros/iron/setup.bash
 
 ```
 sudo apt update 
-sudo apt install openssh-server 
+sudo apt install -y openssh-server 
 sudo systemctl enable ssh 
 sudo systemctl start ssh 
 ```
@@ -81,18 +92,18 @@ Type `hostname -I` to find the IP address. Then, you can connect using `ssh user
 
 ```
 sudo apt update 
-sudo apt install python3-gpiozero 
+sudo apt install -y python3-gpiozero 
 sudo adduser [username] dialout  
 ```
  
 
 ## Setup configuration files 
 
-`nano /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral` after the line `arm_64bit=1`.
+`sudo micro /boot/firmware/config.txt` and add `dtoverlay=dwc2,dr_mode=peripheral` after the line `arm_64bit=1`.
 
-`nano /boot/firmware/cmdline.txt` and add `modules-load=dwc2,g_ether` after `rootwait`
+`sudo micro /boot/firmware/cmdline.txt` and add `modules-load=dwc2,g_ether` after `rootwait`
 
-`nano /etc/netplan/01-network-manager-all.yaml` and add  
+`sudo micro /etc/netplan/01-network-manager-all.yaml` and add  
 
 ```
 network: 
