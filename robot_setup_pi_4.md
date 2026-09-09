@@ -45,7 +45,7 @@ the iRobot Create3.
 
 ```
 sudo apt update
-sudo apt upgrade
+sudo apt upgrade -y
 sudo apt install -y ros-jazzy-ros-base
 ```
  
