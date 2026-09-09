@@ -71,7 +71,7 @@ sudo apt install -y micro
 
 ```
 export RMW_IMPLEMENTATION=rmw_fastrtps_cpp 
-source /opt/ros/iron/setup.bash 
+source /opt/ros/jazzy/setup.bash 
 ```
  
 
