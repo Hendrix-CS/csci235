@@ -13,8 +13,10 @@
 * Go to https://www.raspberrypi.com/software/ and download the Raspberry Pi Imager.  
 * Select Ubuntu 24 from the imager.  
 * Save it to the microUSB, then boot the Raspberry Pi.  
+* When booted, set the user name to "Robotics Student".
+
+# Locale
 * In the Raspberry Pi terminal, ensure that the output from locale contains “UTF-8” 
-* Add the ROS2 Repository 
 
 ## Enable Ubuntu Universe repository
 ```
@@ -93,7 +95,7 @@ Type `hostname -I` to find the IP address. Then, you can connect using `ssh user
 ```
 sudo apt update 
 sudo apt install -y python3-gpiozero 
-sudo adduser [username] dialout  
+sudo adduser robotics dialout  
 ```
  
 

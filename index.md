@@ -45,19 +45,19 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  9/3  | Thu | Module 3: [ROS2 nodes, topics, publications, and subscriptions](modules/nodes1.html) | Module 2 | 
 |       |
 |  9/8  | Tue | Module 4: [iRobot Create3 Sensors](modules/nodes2.html) | Module 3 |
-|  9/10 | Thu | Module 5: Fuzzy Logic | Module 4 |
-|       |
-|  9/15 | Tue | Module 6: State Machines | Module 5 |
-|  9/17 | Thu | Module 7: Computer Vision 1 | Module 6<br>Interview 1: Modules 1-4 (Fri 9/18) | 
+|  9/10 | Thu | Catch-up day |
+|
+|  9/15 | Thu | Module 5: Fuzzy Logic | Module 4 |
+|  9/17 | Thu | Module 6: Computer Vision 1 | Module 5<br>Interview 1: Modules 1-4 (Mon 9/21) | 
 |       | 
-|  9/22 | Tue | Project 1 topics | Module 7|
-|  9/24 | Thu | Project 1 work  | Interview 2: Modules 5-7 (Fri 9/25) 
+|  9/22 | Tue | Project 1 topics | Module 6|
+|  9/24 | Thu | Project 1 work  | Interview 2: Modules 5-6 (Fri 9/25) 
 |       |
-|  9/29 | Tue | **Conference: No class<br>Work on Project 1** | Module 7 | 
+|  9/29 | Tue | **Conference: No class<br>Work on Project 1** | | 
 | 10/1  | Thu | **Conference: No class<br>Work on Project 1** | |
 |       |
 | 10/6  | Tue | Project 1 Presentations | Project 1 | 
-| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Project 1 |
+| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Project 1 | <!-- Maybe put State Machines here?-->
 |       |
 | 10/13 | Tue | Module 9: SLAM 2 | Module 8 |
 | 10/15 | Thu | **Fall Break: No class** |  |   
@@ -308,8 +308,7 @@ teams shift over the course of the semester, robots will be reassigned to the
 new teams.
 
 The instructor will handle configuration and setup, but for reference here
-are the [Raspberry Pi 5 instructions]({{site.baseurl}}/robot_setup.html) and 
-[Raspberry Pi 4 instructions]({{site.baseurl}}/robot_setup_pi_4.html).
+are the [Raspberry Pi 4 instructions]({{site.baseurl}}/robot_setup_pi_4.html).
 
 The robots should be returned to the instructor at the end of the semester.
 Students will be billed for any unreturned equipment.
