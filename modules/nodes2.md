@@ -117,7 +117,7 @@ Having built a program to display sensor values while driving the robot, let's
 adapt these ideas to building a more autonomous robot. Create a new Python
 program called `bump_turn_45.py` with the following features:
 * The robot normally drives straight.
-* However, if it encounters a hazard, it turns 90 degrees, then resumes
+* However, if it encounters a hazard, it turns 45 degrees, then resumes
   driving forward.
 * Implement this approach as follows:
   * The node has a `bool` instance variable indicating whether it saw a 
