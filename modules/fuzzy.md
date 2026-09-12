@@ -172,6 +172,30 @@ Consider the following table for a fuzzy value for **short**:
 
 ## Fuzzy Distance Values
 
+When thinking about navigating a robot from one location to another,
+we define an **error** as the gap between where the robot is and where
+we want it to be. There are two types of errors to consider:
+1. The distance between the robot's current location and goal location.
+2. The angular distance between the robot's current heading and a heading
+that, if the robot were to drive straight, would take the robot to the 
+goal location.
+
+Answer the following questions:
+1. We will say the robot has **arrived** at its target when it is ``close
+enough''. What do you think is the largest distance error that would allow one
+to say that the robot has arrived at its target? Why?
+2. We will say that the robot is **aligned** with its target when the heading
+error is ``small enough''. What do you think is the largest heading error that 
+would allow one to say that the robot is aligned with its target? Why?
+
+|              | Aligned | Not Aligned |
+| -----------: | ------: | ----------: |
+| Arrived      |         |             |
+| Not Arrived  |         |             |
+
+To navigate a robot from one location to another, we identify two types
+of **errors**
+
 Consider the following algorithm for navigating a robot from one location
 to another:
 
