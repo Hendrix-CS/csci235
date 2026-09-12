@@ -175,10 +175,50 @@ Consider the following table for a fuzzy value for **short**:
 When thinking about navigating a robot from one location to another,
 we define an **error** as the gap between where the robot is and where
 we want it to be. There are two types of errors to consider:
-1. The distance between the robot's current location and goal location.
-2. The angular distance between the robot's current heading and a heading
-that, if the robot were to drive straight, would take the robot to the 
-goal location.
+1. The **distance error** is the distance between the robot's current 
+location and goal location.
+2. The **heading error** is the angular distance between the robot's 
+current heading and a heading that, if the robot were to drive straight, 
+would take the robot to the goal location.
+
+Let's augment the `RobotPose` class to enable us to calculate these errors.
+First, add the `distance_to()` method, which will calculate the distance error.
+Use the Euclidean distance formula derived from the Pythagorean theorem:
+
+```
+    def distance_to(self, goal_x: float, goal_y: float) -> float:
+        # Your code here
+```
+
+Next, let's add the `turn_to()` method, which will calculate the heading error.
+Note that this is a two-part calculation:
+* First, use `math.atan2()` to determine the heading offset between the robot's
+  position and the goal position.
+* Then, subtract the robot's heading and normalize the result to determine how
+  far the robot needs to turn to correct the error.
+
+```
+    def turn_to(self, goal_x: float, goal_y: float) -> float:
+        # Your code here
+```
+
+Here are unit tests to add:
+
+```
+    def test_distance_to(self):
+        pose = RobotPose(1.0, -1.0, 0.0)
+        for (gx, gy, d) in [(1.0, -1.0, 0.0), (4.0, 3.0, 5.0), (-4.0, -13.0, 13.0)]:
+            self.assertAlmostEqual(pose.distance_to(gx, gy), d, places=3)
+
+    def test_turn_to(self):
+        pose = RobotPose(1.0, -1.0, math.pi / 2)
+        for (gx, gy, d) in [(0.0,  0.0, math.pi / 4),
+                            (0.0, -1.0, math.pi / 2),
+                            (1.0,  0.0, 0.0),
+                            (2.0,  0.0, -math.pi / 4),
+                            (0.0, -2.0, 3 * math.pi / 4)]:
+            self.assertAlmostEqual(pose.turn_to(gx, gy), d, places=3)
+```
 
 Answer the following questions:
 1. We will say the robot has **arrived** at its target when it is ``close
@@ -187,53 +227,75 @@ to say that the robot has arrived at its target? Why?
 2. We will say that the robot is **aligned** with its target when the heading
 error is ``small enough''. What do you think is the largest heading error that 
 would allow one to say that the robot is aligned with its target? Why?
+3. Examine the table below. It contains every possible combination of values
+for **aligned** and **arrived**. For each of those combinations, what should 
+be the (linear) **x** and (angular) **z** values for the motors?
 
-|              | Aligned | Not Aligned |
-| -----------: | ------: | ----------: |
-| Arrived      |         |             |
-| Not Arrived  |         |             |
+|              | Aligned        | Not Aligned    |
+| -----------: | -------------: | -------------: |
+| Arrived      | x: ___ z: ___  | x: ___ z: ___  |
+| Not Arrived  | x: ___ z: ___  | x: ___ z: ___  |
 
-To navigate a robot from one location to another, we identify two types
-of **errors**
-
-Consider the following algorithm for navigating a robot from one location
-to another:
-
-```
-if the robot is not aligned with its goal
-  Set angular-z velocity to turn towards the goal
-if the robot is not at its goal and is aligned with its goal
-  Set linear-x velocity to drive towards the goal
-```
-
-1. What is a good definition for whether a robot is **aligned with its 
-   goal**? Explain why.
-2. What is a good definition for whether a robot is **at its goal**? 
-   Explain why.
-3. Express your answers to the previous two questions using Python code,
-   specifically employing `RobotPose` objects.
-4. Create a ROS2 node that implements the above algorithm in a program
-   called `align_go.py`. You'll need to subscribe to the `odom` topic 
-   and publish to the `twist_stamped` topic. The node's constructor 
-   should have the goal as a parameter. The goal itself should be 
-   specified on the command line. 
-5. Test the program with a few different goals. What are the most 
-   positive aspects of how it works? What are some drawbacks?
-6. Based on your observations of how the program works, develop a 
-   fuzzy-logic definition of the concept of **aligned-with-its-goal**.
-   Express this definition in Python code, employing `RobotPose`
-   objects and the `fuzzify()` function.
-7. Based on your observations of how the program works, develop a
-   fuzzy-logic definition of the concept of **at-its-goal**. Express
-   this definition in Python code, employing `RobotPose` objects and 
-   the `fuzzify()` function.
-8. Make a copy of `align_go.py` called `fuzzy_align_go.py`. It should
-   implement a fuzzy-logic version of our earlier algorithm:
+Create a new file (`align_go.py`) and copy the following code into it.
+Write Python code to express your definitions of **arrived** and **aligned**,
+as well as the motor settings you determined.
 
 ```
-Set angular-z velocity to defuzzify whether the robot is not aimed to its goal
-Set linear-x velocity to defuzzify whether the robot is not at its goal and is aimed at its goal
+import sys
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from geometry_msgs.msg import TwistStamped
+from robot_pose import RobotPose, odom2pose
+from nav_msgs.msg import Odometry
+
+
+class DriveNode(Node):
+    def __init__(self, robot_name: str, goal_x: float, goal_y: float):
+        super().__init__(f"{robot_name}_DriveNode")
+        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
+        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.goal_x = goal_x
+        self.goal_y = goal_y
+
+    def odom_callback(self, odom: Odometry):
+        t = TwistStamped()
+        t.header.frame_id = "base_link"
+        t.header.stamp = self.get_clock().now().to_msg()
+
+        pose = odom2pose(odom)
+        aligned = # Write a boolean expression for alignment
+        arrived = # Write a boolean expression for arrival
+    
+        if arrived:
+            if aligned:
+                # Your twist settings here
+            else:
+                # Your twist settings here
+        else:
+            if aligned:
+                # Your twist settings here
+            else:
+                # Your twist settings here
+
+        self.motors.publish(t)
+
+
+def main():
+    rclpy.init()
+    node = DriveNode(sys.argv[1], float(sys.argv[2]), float(sys.argv[3]))
+    rclpy.spin(node)
+    rclpy.shutdown()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 4:
+        print("Usage: python3 align_go.py robot_name goal_x goal_y")
+    else:
+        main()
+
 ```
+
 
 ## Fuzzy IR values
 
