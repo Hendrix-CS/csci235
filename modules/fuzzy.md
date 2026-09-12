@@ -195,6 +195,7 @@ from a robot running live. Create a new Python program
 called `fuzzify_sensors.py` and copy and paste the code below into it. Then
 complete the `__init__()` and `blocked()` methods of `IrBlockingFuzzifier`, 
 making sure that they pass the unit test.
+
 ```
 from irobot_create_msgs.msg import IrIntensityVector, IrIntensity
 import irobot_create_msgs
