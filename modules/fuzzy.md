@@ -170,6 +170,47 @@ Consider the following table for a fuzzy value for **short**:
 4. Run the additional test and make sure it works as expected.
 
 
+## Fuzzy Distance Values
+
+Consider the following algorithm for navigating a robot from one location
+to another:
+
+```
+if the robot is not aligned with its goal
+  Set angular-z velocity to turn towards the goal
+if the robot is not at its goal and is aligned with its goal
+  Set linear-x velocity to drive towards the goal
+```
+
+1. What is a good definition for whether a robot is **aligned with its 
+   goal**? Explain why.
+2. What is a good definition for whether a robot is **at its goal**? 
+   Explain why.
+3. Express your answers to the previous two questions using Python code,
+   specifically employing `RobotPose` objects.
+4. Create a ROS2 node that implements the above algorithm in a program
+   called `align_go.py`. You'll need to subscribe to the `odom` topic 
+   and publish to the `twist_stamped` topic. The node's constructor 
+   should have the goal as a parameter. The goal itself should be 
+   specified on the command line. 
+5. Test the program with a few different goals. What are the most 
+   positive aspects of how it works? What are some drawbacks?
+6. Based on your observations of how the program works, develop a 
+   fuzzy-logic definition of the concept of **aligned-with-its-goal**.
+   Express this definition in Python code, employing `RobotPose`
+   objects and the `fuzzify()` function.
+7. Based on your observations of how the program works, develop a
+   fuzzy-logic definition of the concept of **at-its-goal**. Express
+   this definition in Python code, employing `RobotPose` objects and 
+   the `fuzzify()` function.
+8. Make a copy of `align_go.py` called `fuzzy_align_go.py`. It should
+   implement a fuzzy-logic version of our earlier algorithm:
+
+```
+Set angular-z velocity to defuzzify whether the robot is not aimed to its goal
+Set linear-x velocity to defuzzify whether the robot is not at its goal and is aimed at its goal
+```
+
 ## Fuzzy IR values
 
 1. There are seven IR sensors aboard the iRobot Create3. Let's define the 
@@ -246,6 +287,9 @@ ROS2 node with the following features:
     `IrBlockingFuzzifier` object to determine the linear velocity for a 
     `TwistStamped`. The angular velocity is always zero. Use `defuzzify`
     to translate the fuzzified IR value into a linear velocity.
+
+Answer the following questions:
+1. 
 * WRITE SOME DISCUSSION QUESTIONS
 
 ## Fuzzy adjustment of angular velocity
