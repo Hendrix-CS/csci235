@@ -170,7 +170,7 @@ Consider the following table for a fuzzy value for **short**:
 4. Run the additional test and make sure it works as expected.
 
 
-## Fuzzy Distance Values
+## Distance Values
 
 When thinking about navigating a robot from one location to another,
 we define an **error** as the gap between where the robot is and where
@@ -221,24 +221,30 @@ Here are unit tests to add:
 ```
 
 Answer the following questions:
-1. We will say the robot has **arrived** at its target when it is ``close
-enough''. What do you think is the largest distance error that would allow one
-to say that the robot has arrived at its target? Why?
-2. We will say that the robot is **aligned** with its target when the heading
-error is ``small enough''. What do you think is the largest heading error that 
-would allow one to say that the robot is aligned with its target? Why?
-3. Examine the table below. It contains every possible combination of values
-for **aligned** and **arrived**. For each of those combinations, what should 
-be the (linear) **x** and (angular) **z** values for the motors?
-
-|              | Aligned        | Not Aligned    |
-| -----------: | -------------: | -------------: |
-| Arrived      | x: ___ z: ___  | x: ___ z: ___  |
-| Not Arrived  | x: ___ z: ___  | x: ___ z: ___  |
+1. We will say that the robot is **traveling** to its target when it has
+not reached it. How would you define whether the robot is still traveling?
+Why?
+2. We will say that the robot is **left** of its target when turning with
+a **positive** angular velocity will make the robot more closely aligned with its
+target. How would you define whether the robot is left of its target? Why?
+3. We will say that the robot is **right** of its target when turning with a
+**negative** angular velocity will make the robot more closely aligned with its
+target. How would you define whether the robot is right of its target? Why?
+4. According to your definitions, is it ever possible for **left** and **right**
+to **both** be true? Why or why not?
+5. In terms of **left**, **right**, and **traveling**:
+   * Under what circumstances should the linear x velocity be:
+     * Zero? 
+     * A positive number? 
+   * Under what circumstances should the angular z velocity be:
+     * Zero?
+     * A positive number?
+     * A negative number?
+   * Explain all of your above answers
 
 Create a new file (`align_go.py`) and copy the following code into it.
-Write Python code to express your definitions of **arrived** and **aligned**,
-as well as the motor settings you determined.
+Write Python code to express your definitions of **traveling**, **left**,
+and **right**, and assign the motor settings accordingly.
 
 ```
 import sys
@@ -264,19 +270,13 @@ class DriveNode(Node):
         t.header.stamp = self.get_clock().now().to_msg()
 
         pose = odom2pose(odom)
-        aligned = # Write a boolean expression for alignment
-        arrived = # Write a boolean expression for arrival
-    
-        if arrived:
-            if aligned:
-                # Your twist settings here
-            else:
-                # Your twist settings here
-        else:
-            if aligned:
-                # Your twist settings here
-            else:
-                # Your twist settings here
+        traveling = # Write a boolean expression from your answer above
+        left = # Write a boolean expression from your answer above
+        right = # Write a boolean expression from your answer above
+
+        # Using your definitions, write some `if` statements to assign
+        # values for t.twist.linear.x and t.twist.angular.z that follow
+        # your answers above.
 
         self.motors.publish(t)
 
@@ -296,478 +296,22 @@ if __name__ == '__main__':
 
 ```
 
+## Fuzzy Distance Values
+* Recall that in fuzzy logic, concepts may be true, false, or partially true,
+with true concepts having a value of 1.0, false concepts 0.0, and partially
+true concepts between 0.0 and 1.0.
+* What might be a useful fuzzy definition of **traveling**? Why?
+* How about fuzzy definitions of **left** and **right**? Why?
+* Make a copy of `align_go.py` called `fuzzy_align_go.py`.
+  * To make a copy on the Linux command line, type `cp align_go.py fuzzy_align_go.py`.
+* Add `from fuzzy import fuzzify, defuzzify, f_and, f_or, f_not` to the top.
+* Replace your boolean definitions of **traveling**, **left**, and **right** with 
+  calls to `fuzzify()` to create fuzzy-logic definitions of those terms.
+* Write an assignment of a value to `t.twist.linear.x` in which you translate the
+boolean logic you employed earlier into fuzzy logic, using `f_and`, `f_or`, and
+`f_not` as appropriate.
+* Write an assignment of a value to `t.twist.angular.z` in which you translate the
+boolean logic you employed earlier into fuzzy logic, using `f_and`, `f_or`, and
+`f_not` as appropriate.
+* Test the resulting program. How does the robot's perfomance compare to `align_go.py`?
 
-## Fuzzy IR values
-
-1. There are seven IR sensors aboard the iRobot Create3. Let's define the 
-**span** to be the number of sensor values we wish to employ, centered on
-the central sensor. If I have a span of **5**, what are the starting and 
-ending indices in the list of readings? What if the span is **3**?
-2. What was the most effective IR threshold you found for
-obstacle identification [when we studied this previously?](modules/nodes2.html)
-3. Let's define a fuzzy variable `blocked`. We can say that the robot is
-fully blocked when the IR sensor reports a value at or above the threshold
-you identified in the previous question. What is the **highest** IR value for
-which the robot is not blocked at all? Use `curses_motor.py` to experimentally
-determine a suitable value.
-4. Is it preferable to consider an area `blocked` if **any** of the reported
-IR values are high or if **all** of the reported IR values are high? Why?
-5. Which fuzzy operator would you use to combine the fuzzified IR values into
-a single `blocked` fuzzy value? Explain why, with reference to your answer to 
-the previous question.
-6. We're now ready to create a class to represent `blocked` variables. Each
-instance needs a span and an IR sensor range. The partially completed program
-below includes unit tests with actual `IrIntensityVector` objects obtained
-from a robot running live. Create a new Python program 
-called `fuzzify_sensors.py` and copy and paste the code below into it. Then
-complete the `__init__()` and `blocked()` methods of `IrBlockingFuzzifier`, 
-making sure that they pass the unit test.
-
-```
-from irobot_create_msgs.msg import IrIntensityVector, IrIntensity
-import irobot_create_msgs
-import std_msgs
-import std_msgs.msg
-import builtin_interfaces
-import builtin_interfaces.msg
-import fuzzy
-import unittest
-
-
-class IrBlockingFuzzifier:
-    def __init__(self, ir_lo: int, ir_hi: int, span: int):
-        # Your code here
-
-    def blocked(self, irs: IrIntensityVector) -> float:
-        # Your code here
-
-
-class IrTest(unittest.TestCase):
-    def test_examples(self):
-        irf1 = IrFuzzifier(0, 400, 7)      
-        irf2 = IrFuzzifier(0, 400, 5)      
-        irf3 = IrFuzzifier(0, 400, 3)      
-
-        example1 = irobot_create_msgs.msg.IrIntensityVector(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='base_link'), readings=[irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_side_left'), value=1), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_left'), value=13), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_front_left'), value=41), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_front_center_left'), value=42), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_front_center_right'), value=11), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_front_right'), value=441), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55541602, nanosec=449138096), frame_id='ir_intensity_right'), value=0)])
-        example2 = irobot_create_msgs.msg.IrIntensityVector(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='base_link'), readings=[irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_side_left'), value=0), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_left'), value=3), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_front_left'), value=8), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_front_center_left'), value=10), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_front_center_right'), value=8), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_front_right'), value=217), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553057, nanosec=157440512), frame_id='ir_intensity_right'), value=482)])
-        example3 = irobot_create_msgs.msg.IrIntensityVector(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='base_link'), readings=[irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_side_left'), value=3), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_left'), value=0), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_front_left'), value=17), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_front_center_left'), value=14), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_front_center_right'), value=12), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_front_right'), value=2), irobot_create_msgs.msg.IrIntensity(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=55553783, nanosec=947102639), frame_id='ir_intensity_right'), value=0)])
-        
-        for (example, fs) in [
-            (example1, (1.0, 1.0, 0.105)), 
-            (example2, (1.0, 0.5425, 0.025)), 
-            (example3, (0.0425, 0.0425, 0.0425))]:
-            for irf, f in zip([irf1, irf2, irf3], fs):
-                print(f"span: {len(irf.span)}; expecting {f}")
-                self.assertEqual(irf.blocked(example), f)
-
-if __name__ == '__main__':
-    unittest.main()
-```
-
-## Fuzzy adjustment of linear velocity
-
-* Create a new Python file called `fuzzy_spacer.py`. In that file, create a 
-ROS2 node with the following features:
-  * It subscribes to the `ir_intensity` topic.
-  * Every time the callback for `ir_intensity` is invoked, it uses an
-    `IrBlockingFuzzifier` object to determine the linear velocity for a 
-    `TwistStamped`. The angular velocity is always zero. Use `defuzzify`
-    to translate the fuzzified IR value into a linear velocity.
-
-Answer the following questions:
-1. 
-* WRITE SOME DISCUSSION QUESTIONS
-
-## Fuzzy adjustment of angular velocity
-
-<!-- TODO List 
-* In general, each program should be a single node.
-  * We want abstractions, but nodes are architectural.
-  * Let's introduce functions for various components.
-* Write a function to calculate a fuzzy value from
-  a single IR value, where the fuzzy value represents
-  the proposition "space is free".
-* Write a function to fuzzy-and all the IR values
-  in a particular span of the IR value list.
-* Write a node that displays those values in curses,
-  based on the earlier curses IR node.
-* Write a function to defuzzify to the motors, returning
-  a TwistStamped.
-* Modify the IR node to be a fuzzy avoider.
-  * Test the node by altering which span of the IR 
-    list is used.
-* Write a function to calculate three fuzzy values from 
-  the difference between an Odometry value and a
-  goal location.
-  * One value: "I am at the goal"
-  * Second value: "I am left of the goal"
-  * Third value: "I am right of the goal"
-* Write a node to display these values in curses, based
-  on the earlier curses odometry node. (?)
-  * Also apply fuzzy-not to show "I am not at the goal"
-* Using our defuzzify to motors function, defuzzify
-  "I am not at the goal" to the twist distance, and
-  left/right to the twist angle. 
-* Test the resulting node.
-
-
-
-<!-- Old stuff below here -->
-
-## Fuzzy IR Input Node
-
-<!-- Application --> 
-
-Copy the following code into a new file, `ir_fuzzy_input.py`. 
-
-```
-from typing import Any
-
-from rclpy.node import Node
-from rclpy.publisher import Publisher
-from rclpy.qos import qos_profile_sensor_data
-from std_msgs.msg import String
-
-from irobot_create_msgs.msg import IrIntensityVector
-import fuzzy
-
-
-class FuzzyIrNode(Node):
-    def __init__(self, robot_name: str, ir_fuzzy_start: int, ir_fuzzy_end: int):
-        super().__init__(f'FuzzyIrNode_{robot_name}')
-        self.create_subscription(IrIntensityVector, f"{robot_name}/ir_intensity", 
-                                 self.ir_callback, qos_profile_sensor_data)
-        self.output_topic = f'{robot_name}_ir_blocked'
-        self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
-        self.debug_topic = f'{robot_name}_debug_topic'
-        self.debug = self.create_publisher(String, self.debug_topic, qos_profile_sensor_data)
-        self.ir_fuzzy_start = ir_fuzzy_start
-        self.ir_fuzzy_end = ir_fuzzy_end
-
-    def publish(self, publisher: Publisher, data: Any):
-        output = String()
-        output.data = f"{data}"
-        publisher.publish(output)
-
-    def ir_callback(self, msg: IrIntensityVector):
-        out_msg = {}
-        debug_msg = ""
-        for reading in msg.readings:
-            f = fuzzy.fuzzify(reading.value, self.ir_fuzzy_start, self.ir_fuzzy_end)
-            out_msg[reading.header.frame_id] = f
-            debug_msg += f"{reading.header.frame_id:32}{reading.value:>4}  {f:>.2f} {' ' * 10}\n"
-        self.publish(self.output, out_msg)
-        self.publish(self.debug, debug_msg)
-```
-
-1. What will a `FuzzyIrNode` object do when spun?
-2. Based on your experience with the IR sensors, what value would you suggest for `ir_fuzzy_start`?
-3. How about `ir_fuzzy_end`?
-
-
-## Defuzzified motor controller node
-
-<!-- Application --> 
-
-Copy the following code into a new file, `ir_fuzzy_avoider.py`:
-
-```
-import sys, curses
-from typing import Dict
-
-import rclpy
-from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
-from std_msgs.msg import String
-from geometry_msgs.msg import TwistStamped
-
-from ir_fuzzy_input import FuzzyIrNode
-from curses_runner import CursesNode, run_curses_nodes
-import fuzzy
-
-
-class FuzzyDriveNode(Node):
-    def __init__(self, robot_name: str, fuzzy_topic: str, x_limit: float, z_limit: float):
-        super().__init__(f"FuzzyDriveNode_{robot_name}")
-        self.x_limit = x_limit
-        self.z_limit = z_limit
-        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
-        self.create_subscription(String, fuzzy_topic, self.fuzzy_callback, qos_profile_sensor_data)
-
-    def fuzzy_callback(self, msg: String):
-        fuzzy_values = eval(msg.data)
-        blocked = {"left": 0.0, "right": 0.0, "ir_intensity": 0.0}
-        for ir, value in fuzzy_values.items():
-            for area in blocked:
-                if area in ir:
-                    blocked[area] = fuzzy.f_or(blocked[area], value)
-
-        t = self.make_twist()
-        t.twist.linear.x = fuzzy.defuzzify(fuzzy.f_not(blocked["ir_intensity"]), 0, self.x_limit)
-        turn_limit = self.z_limit * (-1.0 if blocked["left"] > blocked["right"] else 1.0)
-        t.twist.angular.z = fuzzy.defuzzify(fuzzy.f_or(blocked["left"], blocked["right"]), 0, turn_limit)
-        self.motors.publish(t)
-            
-    def make_twist(self) -> TwistStamped:
-        t = TwistStamped()
-        t.header.frame_id = "base_link"
-        t.header.stamp = self.get_clock().now().to_msg()
-        return t
-
-
-def main(stdscr):
-    cmd = parse_cmd_line_values()
-    rclpy.init()
-    sensor_node = FuzzyIrNode(sys.argv[1], cmd['min_ir'], cmd['max_ir'])
-    curses_node = CursesNode(sensor_node.debug_topic, 2, stdscr)
-    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'])
-    run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
-    rclpy.shutdown()
-
-
-def parse_cmd_line_values() -> Dict[str,float]:
-    parsed = {}
-    for arg in sys.argv:
-        if '=' in arg:
-            parts = arg.split('=')
-            parsed[parts[0]] = float(parts[1])
-    return parsed
-
-
-if __name__ == '__main__':
-    if len(sys.argv) < 6:
-        print("Usage: python3 ir_fuzzy_avoider.py robot_name min_ir=value max_ir=value x_limit=value z_limit=value")
-    else:
-        curses.wrapper(main)
-```
-
-1. What will a `FuzzyDriveNode` object do when spun?
-2. Based on your experience with the motors, what value would you suggest for `x_limit`?
-3. How about `z_limit`?
-4. Write a command-line invocation of `ir_fuzzy_avoider.py` that will run it with the four values you specified.
-(We will test it in a moment.)
-
-## Running a fuzzy controller
-
-<!-- Exploration -->
-
-Copy `curses_runner.py` from `module2` into your `module4` folder. Then run `ir_fuzzy_avoider` with the
-command-line arguments you specified.
-
-1. Overall, how well does your robot perform as an obstacle avoider?
-<!-- Concept invention -->
-2. Do you think the `ir_fuzzy_start` value enables the robot to start turning when it should?
-3. Do you think the `ir_fuzzy_end` value puts the robot into a sharp turn soon enough to avoid objects?
-4. Do you think the `x_limit` value is fast enough to enable the robot to make progress but slow enough to
-   give it ample time to avoid hitting objects?
-5. Do you think the `z_limit` value is a good match to the `x_limit` value?
-<!-- Application -->
-6. Based on your observations, experiment with some different values for these four variables. For each variation
-that you try, record its impact on the robot's performance. Create at least three distinct combinations of 
-values. Which combination performed the best?  Why?
-
-
-## Fuzzy navigation
-
-<!-- Exploration -->
-Copy `odometry_math.py` from `module3` into `module4`. Then 
-copy the code below into a new file called `goal_fuzzy_input.py`:
-```
-from typing import Any
-
-from rclpy.node import Node
-from rclpy.publisher import Publisher
-from rclpy.qos import qos_profile_sensor_data
-from nav_msgs.msg import Odometry
-from std_msgs.msg import String
-from geometry_msgs.msg import Point
-
-from odometry_math import find_euclidean_distance, find_roll_pitch_yaw, find_angle_diff, find_goal_heading
-import fuzzy
-
-class FuzzyGoalNode(Node):
-    def __init__(self, robot_name: str, goal_x: float, goal_y: float, angle_limit: float):
-        super().__init__(f'FuzzyGoalNode_{robot_name}')
-        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
-        self.output_topic = f'{robot_name}_goal_error'
-        self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
-        self.debug_topic = f'{robot_name}_debug_topic'
-        self.debug = self.create_publisher(String, self.debug_topic, qos_profile_sensor_data)
-        self.goal = Point()
-        self.goal.x = goal_x
-        self.goal.y = goal_y
-        self.distance_limit = None
-        self.angle_limit = angle_limit
-
-    def publish(self, publisher: Publisher, data: Any):
-        output = String()
-        output.data = f"{data}"
-        publisher.publish(output)
-
-    def odom_callback(self, msg: Odometry):     
-        errors = {'left': 0.0, 'right': 0.0, 'distance': 0.0}
-        distance_diff = find_euclidean_distance(self.goal, msg.pose.pose.position)
-        if self.distance_limit is None:
-            self.distance_limit = distance_diff  
-
-        goal_direction = find_goal_heading(msg.pose.pose.position, self.goal)
-        r, p, yaw = find_roll_pitch_yaw(msg.pose.pose.orientation)
-        angle_diff = find_angle_diff(yaw, goal_direction)
-        if angle_diff > 0:
-            errors['right'] = fuzzy.fuzzify(angle_diff, 0.0, self.angle_limit)
-        else:
-            errors['left'] = fuzzy.fuzzify(-angle_diff, 0.0, self.angle_limit)
-
-        dist = fuzzy.fuzzify(distance_diff, 0.0, self.distance_limit)
-        errors['distance'] = dist
-        self.publish(self.output, errors)
-
-        debug = f"{msg.pose.pose.position}{' ' * 10}"
-        debug += f"\ndistance diff: {distance_diff:.2f} ({self.distance_limit}) {' ' * 10}"
-        debug += f"\nyaw: {yaw:.2f} goal_direction: {goal_direction:.2f}{' ' * 10}"
-        debug += f"\nangle diff: {angle_diff:.2f} ({self.angle_limit}){' ' * 10}"
-        debug += f"\ndistance: {errors['distance']:.2f}{' ' * 10}"
-        debug += f"\nleft: {errors['left']:.2f}{' ' * 10}"
-        debug += f"\nright: {errors['right']:.2f}{' ' * 10}"
-        self.publish(self.debug, debug)
-```
-
-1. What will a `FuzzyGoalNode` object do when spun?
-2. What do you think the term **error** means in this context?
-3. Based on your experience with odometry, what might be a good value to use for `angle_limit`?
-4. How is `distance_limit` determined? Why do you think it is determined in this way?
-
-Copy the code below into a new file called `goal_fuzzy_navigator.py`:
-```
-import sys, curses
-from typing import Dict
-
-import rclpy
-from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
-from std_msgs.msg import String
-from geometry_msgs.msg import TwistStamped
-from irobot_create_msgs.msg import InterfaceButtons
-
-from goal_fuzzy_input import FuzzyGoalNode
-from curses_runner import CursesNode, run_curses_nodes
-import fuzzy
-
-
-class FuzzyDriveNode(Node):
-    def __init__(self, robot_name: str, fuzzy_topic: str, x_limit: float, z_limit: float):
-        super().__init__(f"FuzzyDriveNode_{robot_name}")
-        self.x_limit = x_limit
-        self.z_limit = z_limit
-        self.override_stop = False
-        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
-        self.create_subscription(String, fuzzy_topic, self.fuzzy_callback, qos_profile_sensor_data)
-        self.create_subscription(InterfaceButtons, f"/{robot_name}/interface_buttons", self.button_callback, qos_profile_sensor_data)
-
-    def fuzzy_callback(self, msg: String):
-        fuzzy_values = eval(msg.data)
-
-        t = self.make_twist()
-        if not self.override_stop:
-            t.twist.linear.x = fuzzy.defuzzify(fuzzy_values["distance"], 0, self.x_limit)
-            turn_limit = self.z_limit * (1.0 if fuzzy_values["left"] > fuzzy_values["right"] else -1.0)
-            t.twist.angular.z = fuzzy.defuzzify(fuzzy.f_or(fuzzy_values["left"], fuzzy_values["right"]), 0, turn_limit)
-        self.motors.publish(t)
-            
-    def make_twist(self) -> TwistStamped:
-        t = TwistStamped()
-        t.header.frame_id = "base_link"
-        t.header.stamp = self.get_clock().now().to_msg()
-        return t
-    
-    def button_callback(self, msg: InterfaceButtons):
-        if msg.button_1.is_pressed or msg.button_2.is_pressed or msg.button_power.is_pressed:
-            self.override_stop = True
-
-def main(stdscr):
-    cmd = parse_cmd_line_values()
-    rclpy.init()
-    sensor_node = FuzzyGoalNode(sys.argv[1], cmd['goal_x'], cmd['goal_y'], cmd['angle_limit'])
-    curses_node = CursesNode(sensor_node.debug_topic, 2, stdscr)
-    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic, cmd['x_limit'], cmd['z_limit'])
-    run_curses_nodes(stdscr, [drive_node, curses_node, sensor_node])
-    rclpy.shutdown()
-
-
-def parse_cmd_line_values() -> Dict[str,float]:
-    parsed = {}
-    for arg in sys.argv:
-        if '=' in arg:
-            parts = arg.split('=')
-            parsed[parts[0]] = float(parts[1])
-    return parsed
-
-
-if __name__ == '__main__':
-    if len(sys.argv) < 5:
-        print("Usage: python3 goal_fuzzy_navigator.py robot_name goal_x=value goal_y=value angle_limit=value x_limit=value z_limit=value")
-        robot_name = sys.argv[1] if len(sys.argv) > 1 else "robot_name"
-        print(f"Odometry reset:\nros2 service call /{robot_name}/reset_pose irobot_create_msgs/srv/ResetPose\n")   
-    else:
-        curses.wrapper(main)
-```
-
-1. What will a `FuzzyDriveNode` object do when spun? 
-2. What similarities and differences do you see between this version of `FuzzyDriveNode` and
-the version we created for use with the IR sensors?
-3. How does pressing an interface button cause the robot to stop moving?
-4. Based on your prior experience with motors, what do you think would be suitable values
-for `x_limit` and `z_limit`? 
-5. Run the program with only the name of the robot as a command-line argument. It will
-print a command you can use to reset the odometry. Run that command before running the program
-again. The second time you run the program, set values for all of its command-line arguments.
-What does the robot do when it runs?
-6. Try the program again, but this time use different values for `x_limit` and `z_limit`.
-If previously the robot was driving quickly, this time, have it drive slowly. If previously
-it was driving slowly, this time, have it drive quickly. How does the change in speed
-affect its performance?
-
-## Triangular fuzzification
-
-Examine the function below, and add it to `fuzzy.py`:
-```
-def triangle(value: float, start: float, peak: float, end: float) -> float:
-    if value <= peak:
-        return fuzzify(value, start, peak)
-    else:
-        return f_not(fuzzify(value, peak, end))
-```
-
-1. What do you think this function will do? 
-2. Why do you think it is named **triangle**?
-
-Now replace the code that calculates `dist` with the following:
-```
- dist = fuzzy.triangle(distance_diff, 0.0, self.distance_limit, self.distance_limit * 2)
-```
-
-1. How do you expect the behavior of the robot to change?
-2. How does this illustrate the utility of the **triangle** concept for fuzzification?
-3. Run the modified program. How did the behavior of the robot change, if at all?
-4. Is it necessary that the triangle is **symmetrical**? What might be a reason to have
-a non-symmetrical triangle? 
-5. Try a non-symmetrical triangle. How does the robot's behavior change?
-
-<!-- Future: Add trapezoids. This will model driving fast until halfway or more to the
-goal. As it stands, triangles can't do that. -->
-
-
-## One more variation
-
-Replace the code that calculates `dist` with the following:
-```
-either_turn = fuzzy.f_or(errors['left'], errors['right'])
-dist = fuzzy.triangle(distance_diff, 0.0, self.distance_limit, self.distance_limit * 2)
-errors['distance'] = fuzzy.f_and(dist, fuzzy.f_not(either_turn))
-```
-
-1. How do you expect the behavior of the robot to change?
-2. This block of code makes use of all three fuzzy logic operators: **and**, **or**, and **not**.
-Explain in natural language the meaning expressed by this fuzzy logic formulation.
-3. Run the modified program. How did the robot's behavior change, if at all?
-4. Having now explored three variations of this program, which do you prefer? Why?
