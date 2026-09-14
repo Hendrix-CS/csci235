@@ -243,11 +243,19 @@ to **both** be true? Why or why not?
    * Explain all of your above answers
 
 Create a new file (`align_go.py`) and copy the following code into it.
+Examine the code and answer the following questions:
+* What are the state variables assigned in `__init__()`?
+* For each state variable assigned in `__init__()`, why is it a state variable
+  and not a local variable? To answer this question, examine the rest of the
+  code to see how each state variable is employed.
+* Why might it be useful to display all of these state variables?
+* Why might it be useful to have a pause button?
+
 Write Python code to express your definitions of **traveling**, **left**,
 and **right**, and assign the motor settings accordingly.
 
 ```
-import sys
+import sys, curses, math
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
@@ -259,42 +267,88 @@ from nav_msgs.msg import Odometry
 class DriveNode(Node):
     def __init__(self, robot_name: str, goal_x: float, goal_y: float):
         super().__init__(f"{robot_name}_DriveNode")
-        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
         self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
+        self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
         self.goal_x = goal_x
         self.goal_y = goal_y
+        self.running = True
+        self.paused = False
+        self.pose = None
+        self.distance_to = None
+        self.turn_to = None
+        self.traveling = True
+        self.left = False
+        self.right = False
 
     def odom_callback(self, odom: Odometry):
         t = TwistStamped()
         t.header.frame_id = "base_link"
         t.header.stamp = self.get_clock().now().to_msg()
 
-        pose = odom2pose(odom)
-        traveling = # Write a boolean expression from your answer above
-        left = # Write a boolean expression from your answer above
-        right = # Write a boolean expression from your answer above
+        self.pose = odom2pose(odom)
+        self.distance_to = self.pose.distance_to(self.goal_x, self.goal_y)
+        self.turn_to = self.pose.turn_to(self.goal_x, self.goal_y)  
 
-        # Using your definitions, write some `if` statements to assign
-        # values for t.twist.linear.x and t.twist.angular.z that follow
-        # your answers above.
+        self.traveling = # Write a boolean expression from your answer above
+        self.left = # Write a boolean expression from your answer above
+        self.right = # Write a boolean expression from your answer above
+
+		if not self.paused:
+        	# Using your definitions, write some `if` statements to assign
+        	# values for t.twist.linear.x and t.twist.angular.z that follow
+        	# your answers above.
 
         self.motors.publish(t)
 
+    def process_keystroke(self, k: str):
+        if k == 'q':
+            self.running = False
+        elif k == 'p':
+            self.paused = not self.paused
 
-def main():
+
+def main(stdscr):
     rclpy.init()
     node = DriveNode(sys.argv[1], float(sys.argv[2]), float(sys.argv[3]))
-    rclpy.spin(node)
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.clear()
+    while node.running:
+        try:
+            k = stdscr.getch()
+            if k != -1:
+                k = chr(k)
+                stdscr.addstr(2, 0, k)
+                node.process_keystroke(k)
+            if node.pose is not None:
+                stdscr.addstr(0, 0, f"({node.pose.x:.2f}, {node.pose.y:.2f}): {node.pose.theta:.2f}   ")
+                stdscr.addstr(1, 0, f"goal: {node.goal_x:.2f} {node.goal_y:.2f}")
+                stdscr.addstr(2, 0, f"distance error: {node.distance_to:.2f}")
+                stdscr.addstr(3, 0, f"heading error: {node.turn_to:.2f}")
+                stdscr.addstr(4, 0, f"traveling? {node.traveling}  ")
+                stdscr.addstr(5, 0, f"left? {node.left}  ")
+                stdscr.addstr(6, 0, f"right? {node.right}  ")
+            rclpy.spin_once(node, timeout_sec=0.0)
+        except curses.error as e:
+            if str(e) != 'no input':
+                stdscr.addstr(0, 0, traceback.format_exc())
+
     rclpy.shutdown()
+    node.destroy_node()
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
 
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
         print("Usage: python3 align_go.py robot_name goal_x goal_y")
     else:
-        main()
+        curses.wrapper(main)
 
 ```
+
+* Test `align_go.py`. 
 
 ## Fuzzy Distance Values
 * Recall that in fuzzy logic, concepts may be true, false, or partially true,
