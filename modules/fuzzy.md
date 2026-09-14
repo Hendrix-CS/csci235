@@ -357,15 +357,25 @@ true concepts between 0.0 and 1.0.
 * What might be a useful fuzzy definition of **traveling**? Why?
 * How about fuzzy definitions of **left** and **right**? Why?
 * Make a copy of `align_go.py` called `fuzzy_align_go.py`.
-  * To make a copy on the Linux command line, type `cp align_go.py fuzzy_align_go.py`.
+  * To make a copy on the Linux command line, type 
+  `cp align_go.py fuzzy_align_go.py`.
 * Add `from fuzzy import fuzzify, defuzzify, f_and, f_or, f_not` to the top.
-* Replace your boolean definitions of **traveling**, **left**, and **right** with 
-  calls to `fuzzify()` to create fuzzy-logic definitions of those terms.
-* Write an assignment of a value to `t.twist.linear.x` in which you translate the
-boolean logic you employed earlier into fuzzy logic, using `f_and`, `f_or`, and
-`f_not` as appropriate.
-* Write an assignment of a value to `t.twist.angular.z` in which you translate the
-boolean logic you employed earlier into fuzzy logic, using `f_and`, `f_or`, and
-`f_not` as appropriate.
-* Test the resulting program. How does the robot's perfomance compare to `align_go.py`?
+* Replace your boolean definitions of **traveling**, **left**, and **right** 
+  with calls to `fuzzify()` to create fuzzy-logic definitions of those terms.
+* Write an assignment of a value to `t.twist.linear.x` in which you translate 
+  the boolean logic you employed earlier into fuzzy logic, using `f_and`, 
+  `f_or`, and `f_not`, and defuzzify it to a linear motion value using 
+  `defuzzify()`.
+* Write an assignment of a value to `t.twist.angular.z` in which you translate 
+  the boolean logic you employed earlier into fuzzy logic, using `f_and`, 
+  `f_or`, and `f_not`, and defuzzify it to a linear motion value using 
+  `defuzzify()`.
+* **NOTE**: Not all of your boolean logic will necessarily be translateable
+  into fuzzy logic. In some cases you will need to retain the original 
+  boolean logic. 
+* How translateable was your boolean logic into fuzzy logic? And how do you
+  anticipate changes to the robot's behavior from this translation?
+* Test the resulting program. How does the robot's perfomance compare to 
+  `align_go.py`? How accurately did you predict the changed behavior?
+  
 
