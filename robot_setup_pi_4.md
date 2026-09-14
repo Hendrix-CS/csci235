@@ -65,7 +65,9 @@ sudo apt install -y ros-jazzy-irobot-create-msgs
 ```
 sudo apt install -y micro
 ```
- 
+
+Then invoke `micro ~/.config/micro/settings.json` and add the line 
+`"tabstospaces": true` between the curly braces.
 
 ## Update .bashrc 
 
