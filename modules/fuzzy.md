@@ -348,6 +348,10 @@ if __name__ == '__main__':
 
 ```
 
+* Before running `align_go.py`, be sure to reset the odometry to (0, 0). 
+  Use the command 
+  `ros2 service call /[robot name]/reset_pose irobot_create_msgs/srv/ResetPose`
+  to do so, substituting the name of your robot prior to `reset_pose`
 * Test `align_go.py`. How well does it work? Do you need to momdify any of your
   definitions? If so, make a note of your modifications and their rationale in
   your journal.
