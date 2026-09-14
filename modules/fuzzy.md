@@ -293,10 +293,10 @@ class DriveNode(Node):
         self.left = # Write a boolean expression from your answer above
         self.right = # Write a boolean expression from your answer above
 
-		if not self.paused:
-        	# Using your definitions, write some `if` statements to assign
-        	# values for t.twist.linear.x and t.twist.angular.z that follow
-        	# your answers above.
+        if not self.paused:
+            # Using your definitions, write some `if` statements to assign
+            # values for t.twist.linear.x and t.twist.angular.z that follow
+            # your answers above.
 
         self.motors.publish(t)
 
@@ -348,7 +348,9 @@ if __name__ == '__main__':
 
 ```
 
-* Test `align_go.py`. 
+* Test `align_go.py`. How well does it work? Do you need to momdify any of your
+  definitions? If so, make a note of your modifications and their rationale in
+  your journal.
 
 ## Fuzzy Distance Values
 * Recall that in fuzzy logic, concepts may be true, false, or partially true,
