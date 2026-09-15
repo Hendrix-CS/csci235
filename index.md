@@ -47,7 +47,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  9/8  | Tue | Module 4: [iRobot Create3 Sensors](modules/nodes2.html) | Module 3 |
 |  9/10 | Thu | Catch-up day |
 |
-|  9/15 | Thu | Module 5: Fuzzy Logic | Module 4 |
+|  9/15 | Thu | Module 5: [Fuzzy Logic](modules/fuzzy.html) | Module 4 |
 |  9/17 | Thu | Module 6: Computer Vision 1 | Module 5<br>Interview 1: Modules 1-4 (Mon 9/21) | 
 |       | 
 |  9/22 | Tue | Project 1 topics | Module 6|
