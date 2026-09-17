@@ -118,6 +118,7 @@ from std_msgs.msg import String
 from floor_region import FloorRegion, find_regions
 
 SCREEN_WIDTH = 160
+SCREEN_HEIGHT = 120
 MIN_WIDTH = 16
 MIN_HEIGHT = 30
 
