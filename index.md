@@ -48,10 +48,10 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  9/10 | Thu | Catch-up day |
 |
 |  9/15 | Thu | Module 5: [Fuzzy Logic](modules/fuzzy.html) | Module 4 |
-|  9/17 | Thu | Module 6: Computer Vision 1 | Module 5<br>Interview 1: Modules 1-4 (Mon 9/21) | 
+|  9/17 | Thu | Module 6: [Computer Vision 1: Groundline](modules/groundline.html) | Module 5 | 
 |       | 
 |  9/22 | Tue | Project 1 topics | Module 6|
-|  9/24 | Thu | Project 1 work  |  
+|  9/24 | Thu | Project 1 work | Interview 1: Modules 1-4 (Fri 9/25) |
 |       |
 |  9/29 | Tue | **Conference: No class<br>Work on Project 1** | | 
 | 10/1  | Thu | Project 1 work | Interview 2: Modules 5-6 (Fri 10/2) |
