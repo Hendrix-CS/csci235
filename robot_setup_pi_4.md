@@ -119,4 +119,10 @@ network:
       optional: true 
       addresses: [192.168.186.3/24] 
 ```
+
+## Install Rust and dependencies
+
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+`sudo apt install -y libclang-dev clang` 
  
