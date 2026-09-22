@@ -12,7 +12,7 @@ objects resting on the ground. When you run `groundline_node`, it fills
 its window with an image showing where the ground is located. A sample
 image is given below.
 
-<img src="{{site.baseurl}}/assets/images/groundline.jpg" />
+<img src="{{site.baseurl}}/assets/images/groundline.png" />
 
 The groundline itself represents, for each `x` coordinate, the number
 of pixels of ground that are present. When an object is close to the 
