@@ -39,16 +39,22 @@ navigation:
     url: '#calendar'
   - title: Assessment
     subfolderitems:
+    - page: AI Policy
+      url: '#ai'
+    - page: Journal
+      url: '#journal'
+    - page: Attendance
+      url: '#attendance'
+    - page: Modules
+      url: '#modules'
     - page: Projects
       url: '#projects'
+    - page: Interviews
+      url: '#interviews'
     - page: Final Project
       url: '#finalproject'
-    - page: Participation
-      url: '#participation'
     - page: Specifications Grading
       url: '#grading'
-    - page: Tokens
-      url: '#tokens'
   - page: Equipment
     url: '#equipment'
   - page: Commitments
