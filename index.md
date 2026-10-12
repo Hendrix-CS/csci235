@@ -56,26 +56,26 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |  9/29 | Tue | **Conference: No class<br>Work on Project 1** | | 
 | 10/1  | Thu | Project 1 work | Interview 2: Modules 5-6 (Fri 10/2) |
 |       |
-| 10/6  | Tue | Project 1 Presentations | Project 1 | 
-| 10/8  | Thu | Module 8: SLAM 1 | Interview 3: Project 1 | <!-- Maybe put State Machines here?-->
-|       |
-| 10/13 | Tue | Module 9: SLAM 2 | Module 8 |
+| 10/6  | Tue | Project 1 Presentations |  | 
+| 10/8  | Tue | Project 1 Presentations<br>Introduction to Reinforcement Learning | Project 1 | 
+|
+| 10/13 | Tue | Module 7: Reinforcement Learning | Interview 3: Project 1 | <!-- Maybe put State Machines here?-->
 | 10/15 | Thu | **Fall Break: No class** |  |   
-|       |
-| 10/20 | Tue | Module 10: Path Planning | Module 9 |   
-| 10/22 | Thu | Module 11: HTN Planning | Module 10 | 
-|       |
-| 10/27 | Tue | Project 2 | Module 11 |  
-| 10/29 | Thu | Project 2 | Interview 4: Modules 8-11 (Mon 11/2)|  
+|
+| 10/20 | Tue | Module 8: HTN Planning | Module 7 |
+| 10/22 | Thu | Module 9: SLAM | Module 8 |   
+|
+| 10/27 | Thu | Project 2 topics | Module 9 | 
+| 10/29 | Thu | Project 2 | Interview 4: Modules 7-9 (Mon 11/2)|  
 |       |
 | 11/3  | Tue | Project 2 Presentations | Project 2 |
-| 11/5  | Thu | Module 12: Reinforcement Learning | Interview 5: Project 2 (Mon 11/9) |
+| 11/5  | Thu | Module 10: State Machines | Interview 5: Project 2 (Mon 11/9) |
 |      
-| 11/10 | Tue | Module 13: Computer Vision 2  | Module 12 |   
-| 11/12 | Thu | Module 14: Computer Vision 3  | Module 13 |
+| 11/10 | Tue | Module 11: Computer Vision 2  | Module 10 |   
+| 11/12 | Thu | Module 12: Computer Vision 3  | Module 11 |
 |       |
-| 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) | Module 14 |
-| 11/19 | Thu | Final Project proposal presentations | Final Project Proposal<br>Interview 6: Modules 12-14 (Fri 11/20) |  
+| 11/17 | Tue | [Final Project]({{site.baseurl}}/projects/Final.html) | Module 12 |
+| 11/19 | Thu | Final Project proposal presentations | Final Project Proposal<br>Interview 6: Modules 10-12 (Fri 11/20) |  
 |       |
 | 11/24 | Tue | Final Project work day (**optional**) |  |  
 | 11/26 | Thu | **Thanksgiving: No class** |  |  
@@ -83,7 +83,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 12/1  | Tue | Final Project work |  |  |  
 | 12/3  | Thu | Final Project work |  |  |  
 |       |
-| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 7: Final Project (Mon 12/14) |
+| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects]({{site.baseurl}}/projects/Final.html)<br>Interview 6: Final Project (Mon 12/14) |
 
 # <a name="integrity">Academic Integricy</a>
 
@@ -153,7 +153,7 @@ Including the final exam period, there are 24 required class meetings, from whic
 may earn up to 24 **participation credits**.
 
 ## <a name="modules">Modules</a>
-The primary means by which you be introduced to the course material is through 14 
+The primary means by which you be introduced to the course material is through 12 
 **modules**. Each module will be started during class time in teams of 2 or 3. Each module 
 will guide you through a learning process on a particular topic. Modules not completed during 
 class time should be completed with your group outside of class. 
@@ -162,15 +162,17 @@ Module submissions consist of two parts:
 * Each module contains questions expecting short answers. Those questions and answers should
   be included in your journal.
 * Python programs to modify or write. These should be submitted via Teams **individually** by
-  each student. As the modules are a key aspect of how students learn the course material, this ensures that
-every student has a record of what was learned.
+  each student. As the modules are a key aspect of how students learn the course material, this 
+  ensures that every student has a record of what was learned.
 
 Modules submitted by the start of the next class period will receive one robot credit for a
 sincere, on-time attempt. Submissions which are complete and correct will receive two
 robot credits. Modules not deemed complete and correct may be revised and resubmitted after a 
 conversation with the professor to address the issues of concern, whereupon they will
 receive the second robot credit. Modules submitted for the first time after the deadline
-will receive at most one robot credit.
+will receive at most one robot credit. A total of **24 robot credits** are available from 
+completing modules.
+
 
 ## <a name="projects">Projects</a>
 The modules are grouped into three **units**. At the completion of each of the first two units,
@@ -182,6 +184,15 @@ topics, select project partners, establish project goals, and begin work on the 
 The second class day will be a working session for the project, including a brief oral 
 presentation of current project progress. On the third class day, each group will give 
 a presentation to the class about their project.
+
+### Project Proposals
+For each project, each group will write a proposal. The proposal should be approximately 
+one page in length. It should include:
+* The name of the project and the team participants.
+* The project goals. 
+* A discussion of how meeting the project goals will meet the constraints for the project.
+
+Submitting a good project proposal earns **1 robot credit**.
 
 ### Project Reports
 For each project, each student (even if part of a team) should write a project
@@ -200,12 +211,12 @@ report entry in their journal. Each project report entry includes the following:
   project were to continue.
 
 ### Project Presentations
-
 On project work days prior to the due date of each project, each team will give a 
 brief project update. The project update should include three slides:
 * A title slide, including the name of the project and team participants.
 * A slide describing the project goals.
 * A slide discussing the current status of the project.
+* Completing a project update presentation earns **1 robot credit**.
 
 On the due date of each project, each team will give a presentation about their project.
 The presentation should include the following:
@@ -234,7 +245,9 @@ The presentation should include the following:
   
 ### Project Credits
 Robot credits for projects will be awarded as follows:
-* For each project (not including the final project), you may earn up to 6 robot credits:
+* For each project (not including the final project), you may earn up to 8 robot credits:
+    * Project proposal: **1 robot credit**
+    * Progress report: **1 robot credit**
     * Achievement of project goals
       * Achieving all agreed-upon project goals: **2 robot credits**
         * **Note**: If, as the project develops, a project goal appears unrealistic to achieve, the students
@@ -245,8 +258,10 @@ Robot credits for projects will be awarded as follows:
     * Submitting the project code and report on-time: **1 robot credit**
     * Delivering the presentation on the assigned day: **1 robot credit**
 * Asking questions during presentations:
-  * Ask at least one question on each of the four presentation days: **2 robot credits**
-  * Ask at least one question on each of two presentation days: **1 robot credit**
+  * **1 robot credit** for the first question asked on a presentation day
+  * With presentation days for Projects 1 and 2 and the final project, **3 robot credits**
+    are available for asking questions.
+* In total, **19 robot credits** are available from projects
   
 ## <a name="interviews">Interviews</a>
 After each module unit and after each project, each student will 
@@ -271,9 +286,10 @@ the other course projects, final projects will be undertaken in teams of two or 
 The project report and presentation should follow the same guidelines as those for the
 regular course projects.
 
-The final project will be graded strictly on a pass-fail basis: it is either completed
-or not completed, including the project report and presentation. It does not contribute
-to robot credits or interview credits. As with the three regular course projects, if a 
+The final project will be graded **strictly on a pass-fail basis**: it is either completed
+or not completed, including the project report and presentation. Final project work days
+will be credited as participation days. The final project does not contribute
+to robot credits or interview credits. As with the two regular course projects, if a 
 project goal appears unrealistic to achieve, the students and professor may renegotiate 
 the project goals **at least one day prior to the submission deadline**.
 <hr>
@@ -282,22 +298,22 @@ the project goals **at least one day prior to the submission deadline**.
 Final course grades are earned based on accumulated credits, as follows:
 
 * To earn an A in the course, a student will:
-  * Earn at least 39 out of 42 possible robot credits
-  * Earn at least 19 out of 21 possible interview credits
-  * Earn at least 23 out of 24 possible participation credits
+  * Earn at least 39 out of 43 possible robot credits
+  * Earn at least 16 out of 18 possible interview credits
+  * Earn at least 22 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
-  * Earn at least 31 robot credits
-  * Earn at least 15 interview credits
-  * Earn at least 20 participation credits
+  * Earn at least 33 robot credits
+  * Earn at least 13 interview credits
+  * Earn at least 19 participation credits
   * Complete and present the final project
 * To earn a C in the course, a student will:
-  * Earn at least 23 robot credits
-  * Earn at least 11 interview credits
+  * Earn at least 27 robot credits
+  * Earn at least 10 interview credits
   * Earn at least 16 participation credits
   * Complete and present the final project
 * To earn a D in the course, a student will:
-  * Earn at least 15 robot credits
+  * Earn at least 20 robot credits
   * Earn at least 6 interview credits
   * Earn at least 12 participation credits
 
