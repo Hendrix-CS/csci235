@@ -300,7 +300,7 @@ Final course grades are earned based on accumulated credits, as follows:
 * To earn an A in the course, a student will:
   * Earn at least 39 out of 43 possible robot credits
   * Earn at least 16 out of 18 possible interview credits
-  * Earn at least 22 out of 24 possible participation credits
+  * Earn at least 21 out of 24 possible participation credits
   * Complete and present the final project
 * To earn a B in the course, a student will: 
   * Earn at least 33 robot credits
