@@ -5,17 +5,6 @@ num: 7
 worktitle: Reinforcement Learning
 ---
 
-<!-- Concept 
-
-Q-learning states are squares based on odometry.
-Positive rewards for low IR values.
-Small positive reward for maintaining the current direction of movement.
-Negative rewards for high IR values.
-Negative rewards for hitting things.
-
-One could then path-plan by using BFS or A* on the Q-states.
-
--->
 
 ## Reinforcement Learning
 
@@ -56,7 +45,7 @@ For the first set of exercises, consider the following states and actions:
   * From `2`, `5`, or `8`, go to `1`, `4`, or `7`
 
 ### Rewards
-* In states `6`, `7`, and `1`, the robot receives a reward of 1.
+* In states `6`, `7`, and `1`, the robot receives a reward of 0.25.
 * In states `0`, `5`, and `8`, the robot receives a reward of -1.
 * In states `2`, `3`, and `4`, the robot receives a reward of zero.
 
@@ -108,63 +97,123 @@ In Q-Learning, we calculate an update of expected rewards using the following fo
 
 ## Encoding States
 
-The Python program below will be important for converting ROS2 odometry values
-into Q-learning states. Copy and paste it into `grid.py`:
-
+Copy and paste the following Python code into `grid.py`:
 ```
 from geometry_msgs.msg import Point
-from typing import Tuple
 import unittest
+
 
 class GridConverter:
     def __init__(self, width: float, height: float, cell_size: float):
         self.cols = int(width / cell_size)
         self.rows = int(height / cell_size)
-        self.cell_size = cell_size
-        self.max_x = width / 2.0
-        self.max_y = height / 2.0
-
-    def square_within_grid(self, grid_square: Tuple[int, int]) -> bool:
-        return 0 <= grid_square[0] < self.cols and 0 <= grid_square[1] < self.rows
-
-    def odom_to_grid(self, position: Point) -> Tuple[int, int]:
-        col = int((position.x + self.max_x) / self.cell_size)
-        row = int((position.y + self.max_y) / self.cell_size)
-        return col, row
-    
-    def grid_to_odom(self, grid_square: Tuple[int, int]) -> Point:
-        col, row = grid_square
-        p = Point()
-        p.x = col * self.cell_size - self.max_x + self.cell_size / 2.0
-        p.y = row * self.cell_size - self.max_y + self.cell_size / 2.0
-        return p
-    
+        
     def num_states(self) -> int:
         return self.cols * self.rows
-    
-    def grid_to_state(self, grid_square: Tuple[int, int]) -> int:
+	
+    def grid_to_state(self, grid_square: tuple[int, int]) -> int:
         col, row = grid_square
-        return row * self.cols + col
+        return # YOUR CODE HERE 
     
-    def state_to_grid(self, state_num: int) -> Tuple[int, int]:
-        return state_num % self.cols, state_num // self.cols
-    
-
-def add_squares(sq1: Tuple[int, int], sq2: Tuple[int, int]) -> Tuple[int, int]:
-    return sq1[0] + sq2[0], sq1[1] + sq2[1]
+    def state_to_grid(self, state_num: int) -> tuple[int, int]:
+        return # YOUR CODE HERE
+```
 
 
+Considering anew the state-encoding table we saw earlier, complete the 
+implementations of `grid_to_state()` and `state_to_grid()` so that they 
+work correctly for the nine-state example given in the table.
+
+|       | Column 0 | Column 1 | Column 2 |
+| ----  | -------- | -------- | -------- |
+| Row 0 | 0 (0, 0) | 1 (1, 0) | 2 (2, 0) |
+| Row 1 | 3 (0, 1) | 4 (1, 1) | 5 (2, 1) |
+| Row 2 | 6 (0, 2) | 7 (1, 2) | 8 (2, 2) |
+
+Test them with the following test code:
+
+```
 class GridConverterTest(unittest.TestCase):
     def test_state_to_square(self):
         conv = GridConverter(1.5, 1.5, 0.5)
         self.assertEqual(conv.cols, 3)
         self.assertEqual(conv.rows, 3)
-        expected = [(x, y) for y in range(3) for x in range(3)]
+        expected = [
+            (0, 0), (1, 0), (2, 0), 
+            (0, 1), (1, 1), (2, 1), 
+            (0, 2), (1, 2), (2, 2)
+        ]
         for state in range(9):
             grid_square = conv.state_to_grid(state)
             self.assertEqual(expected[state], grid_square)
             self.assertEqual(conv.grid_to_state(grid_square), state)
+			
 
+if __name__ == '__main__':
+    unittest.main()
+```
+
+Now that we can convert grid positions to and from Q-states, we will next work 
+out how to transform odometry readings to and from grid positions. Let's begin
+by adding three lines to the constructor so that it looks like the following:
+
+```
+    def __init__(self, width: float, height: float, cell_size: float):
+        self.cols = int(width / cell_size)
+        self.rows = int(height / cell_size)
+        self.cell_size = cell_size
+        self.max_odom_x = width / 2.0
+        self.max_odom_y = height / 2.0
+```
+
+* Imagine that the `width` and `height` are both `10.0` and `cell_size` is 
+  `2.0`. What are:
+  * `self.cols`?
+  * `self.rows`?
+  * `self.max_odom_x`?
+  * `self.max_odom_y`?
+* In what cell column and cell row would you expect the odometry origin 
+(position (0.0, 0.0)) to land? Why?
+* In which cell columns and rows would you expect the following odometry
+positions to land?
+  * (4.5, 2.0) 
+  * (-3.1, -0.5)
+  * (0.0, 0.0)
+  * (0.8, -0.8) 
+  * (1.0, 1.0) 
+  * (-1.0, -1.0)
+* If we start with a given cell column and row, is there exactly one 
+  corresponding pair of odometry values or are there many possible pairs?
+  Explain your answer.
+* For each of the following pairs of cell columns and rows, state the
+  odometry value you would want to produce, with reference to your previous
+  answer:
+  * (4, 3)
+  * (0, 2)
+  * (2, 2)
+  * (3, 3)
+* Based on your previous answers, what is your understanding of the 
+  relationship between odometry coordinates and grid coordinates in this 
+  implementation?
+
+Based on your answers to the above questions, complete the implementations of
+the `odom_to_grid()` and `grid_to_odom()` methods:
+```
+    def odom_to_grid(self, position: Point) -> tuple[int, int]:
+        col = # YOUR CODE HERE
+        row = # YOUR CODE HERE
+        return col, row
+    
+    def grid_to_odom(self, grid_square: tuple[int, int]) -> Point:
+        col, row = grid_square
+        p = Point()
+        p.x = # YOUR CODE HERE
+        p.y = # YOUR CODE HERE
+        return p
+```
+
+Add these tests in order to assess your implementations:
+```
     def test_from_odom(self):
         conv = GridConverter(10.0, 10.0, 2.0)
         for (odom_x, odom_y, expected_col, expected_row) in [
@@ -192,19 +241,8 @@ class GridConverterTest(unittest.TestCase):
             odom = conv.grid_to_odom((col, row))
             self.assertAlmostEqual(odom.x, expected_odom_x, 5)
             self.assertAlmostEqual(odom.y, expected_odom_y, 5)
-
-
-if __name__ == '__main__':
-    unittest.main()
 ```
 
-Examine the code and the unit tests. Then answer the following questions:
-* Why do we need to add `self.max_x` and `self.max_y` when converting from
-odometry to grid squares?
-* How do we ensure that every grid square corresponds to a unique state
-  number?
-* Why might it be helpful to add `self.cell_size / 2.0` when converting grid squares
-to odometry? 
 
 ## A Q-Learning implementation
 
@@ -216,14 +254,9 @@ from typing import Sequence, Tuple
 
 
 class QParameters:
-    def __init__(self, target_visits: int=2, epsilon: float=0.0, discount: float=0.5, rate_constant: int=10, num_states: int=2, num_actions: int=2):
+    def __init__(self, target_visits: int=2, discount: float=0.5, num_states: int=2, num_actions: int=2):
         self.target_visits = target_visits
-        self.epsilon = epsilon
         self.discount = discount
-        self.rate_constant = rate_constant
-        self.set_num_states_actions(num_states, num_actions)
-
-    def set_num_states_actions(self, num_states: int, num_actions: int):
         self.num_states = num_states
         self.num_actions = num_actions
         self.state_actions = {state: [act for act in range(num_actions)] for state in range(num_states)}
@@ -239,9 +272,7 @@ class QTable:
         self.q = [[0.0] * params.num_actions for i in range(params.num_states)]
         self.visits = [[0] * params.num_actions for i in range(params.num_states)]
         self.target_visits = params.target_visits
-        self.epsilon = params.epsilon
         self.discount = params.discount
-        self.rate_constant = params.rate_constant
         self.last_state = 0
         self.last_action = 0
         self.state_actions = params.state_actions
@@ -272,7 +303,7 @@ class QTable:
         return new_action
 
     def learning_rate(self, state: int, action: int) -> float:
-        return self.rate_constant / (self.rate_constant + self.visits[state][action])
+        return 1 / (1 + self.visits[state][action])
 
     def best_action(self, state: int) -> int:
         best = self.state_actions[state][0]
@@ -287,7 +318,7 @@ class QTable:
         for action in self.state_actions[state]:
             if self.visits[state][action] < self.target_visits:
                 below_target = True
-        return below_target or random.random() < self.epsilon
+        return below_target
 
     def least_visited_action(self, state: int) -> int:
         least_visited = self.state_actions[state][0]
@@ -301,370 +332,264 @@ Answer the following questions:
 * What data structure represents the table of Q values?
 * How is the learning rate determined from the number of times an
   action is attempted from a given state?
+* Walk through the implementation of the `sense_act_learn()` method. How does
+  this method implement the update function given earlier?
 * From how the code is written, what do you think it means to **explore**?
+* For each of the two alternatives for action selection presented earlier:
+  * Which method implements this alternative?
+  * How does that method implement this alternative?
+* How does the program's approach to action selection compare with what you
+discussed as a possible option for combining the two alternative approaches?
 * Why do you think we might want to forbid some actions in certain states?
 
 ## A Q-Learning Node
 
-### Preliminary code
-Our implementation relies on our previous implementations of fuzzy logic. 
-Copy over `fuzzy.py` and `curses_runner.py` from previous modules. Use
-the simplified `odometry_math.py`, `goal_fuzzy_input.py` and `goal_fuzzy_navigator.py` provided below:
-
-`odometry_math.py`:
-
-```
-import unittest
-
-import math
-from geometry_msgs.msg import Point, Quaternion
-from typing import Tuple
-
-
-def find_goal_heading(p1: Point, p2: Point) -> float:
-    """
-    Given two points, find the heading necessary to aim at the second
-    point from the first point.
-    """
-    return math.atan2(p2.y - p1.y, p2.x - p1.x)
-
-
-def find_euclidean_distance(p1: Point, p2: Point) -> float:
-    """
-    Given two points, find the distance between them.
-    """
-    return ((p2.x - p1.x)**2 + (p2.y - p1.y)**2 + (p2.z - p1.z)**2)**(1/2)
-
-
-def find_roll_pitch_yaw(orientation: Quaternion) -> Tuple[float, float, float]:
-    """
-    Given a Quaternion, this returns the following in order:
-    - roll: Rotation around the robot's x axis
-      - Since the x axis is the direction of forward motion,
-        this is the amount of left/right tilt
-    - pitch: Rotation around the robot's y axis
-      - Since the y axis is perpendicular to forward motion,
-        this is the amount of forward/backward tilt
-    - yaw: Rotation around the robot's z axis
-      - Since the z axis is perpendicular to the ground,
-        this is the robot's orientation on the ground.
-    """
-    q1, q2, q3, q0 = orientation.x, orientation.y, orientation.z, orientation.w
-    
-    roll = math.atan2(2 * (q0 * q1 + q2 * q3), q0**2 - q1**2 - q2**2 + q3**2)
-    pitch = math.asin(2 * (q0 * q2 - q1 * q3))
-    yaw = math.atan2(2 * (q0 * q3 + q1 * q2), q0**2 + q1**2 - q2**2 - q3**2)
-
-    return roll, pitch, yaw
-
-
-def find_yaw(orientation: Quaternion) -> float:
-    """
-    Given a Quaternion, this returns the yaw, that is, rotation
-    around the robot's z axis. Since the z axis is perpendicular 
-    to the ground, this is the robot's orientation on the ground.
-    """
-    return find_roll_pitch_yaw(orientation)[-1]
-
-
-def find_angle_diff(target_angle: float, current_angle: float) -> float:
-    """
-    Find the shortest difference between two angles.
-    Parameters should be in radians.
-    If the target turn direction is left, result will be positive.
-    If the target turn direction is right, result will be negative.
-    """
-    return find_normalized_angle(target_angle - current_angle)
-
-
-def find_normalized_angle(angle: float) -> float:
-    """
-    Ensure that the angle in radians lies between -math.pi and math.pi
-    """
-    angle = angle % (2 * math.pi)
-    if angle > math.pi:
-        angle -= 2 * math.pi
-    return angle
-
-
-class OdometryMathTest(unittest.TestCase):
-    def test_distance(self):
-        for a, b, c in [(3, 4, 5), (5, 12, 13), (7, 24, 25), (8, 15, 17), (9, 40, 41)]:
-            p1 = Point()
-            p2 = Point()
-            p1.x = a
-            p1.y = b
-            self.assertEqual(c, find_euclidean_distance(p1, p2))
-
-    def test_normalized_angle(self):
-        for theta, normed in [(2 * math.pi, 0.0), (3/2 * math.pi, -math.pi/2), (9 * math.pi, math.pi)]:
-            self.assertEqual(normed, find_normalized_angle(theta))
-
-    def test_angle_diff(self):
-        for theta1, theta2, diff in [
-            ( 3/4 * math.pi,  1/4 * math.pi,  1/2 * math.pi), #1
-            ( 1/4 * math.pi,  3/4 * math.pi, -1/2 * math.pi), #2
-            (-1/3 * math.pi,  1/3 * math.pi, -2/3 * math.pi), #3
-            (15/8 * math.pi,  1/8 * math.pi, -1/4 * math.pi), #4         
-            ( 1/8 * math.pi, 15/8 * math.pi,  1/4 * math.pi), #5
-            ( 9/2 * math.pi, -1/2 * math.pi,        math.pi), #6
-        ]:
-            self.assertAlmostEqual(diff, find_angle_diff(theta1, theta2), places=5)
-
-    def test_roll_pitch_yaw(self):
-        for x, y, z, w, rpw in [
-            (-0.0031924284994602203, 0.005276054609566927, -0.8277794122695923, 0.561019778251648, 
-             (-0.012317164052438935, 0.0006346888584906615, -1.9503363787472408)),
-            (-0.002063487656414509,  0.0034074627328664064, -0.9837535619735718, 0.17948013544082642,
-             (-0.007445015587338619, -0.002836786557391314, -2.7806632489220133))
-        ]:
-            q = Quaternion()
-            q.x, q.y, q.z, q.w = x, y, z, w
-            roll, pitch, yaw = find_roll_pitch_yaw(q)
-            print(roll, pitch, yaw)
-            self.assertAlmostEqual(rpw[0], roll,  places=5)
-            self.assertAlmostEqual(rpw[1], pitch, places=5)
-            self.assertAlmostEqual(rpw[2], yaw,   places=5)
-
-
-if __name__ == '__main__':
-    unittest.main()
-```
-
-`goal_fuzzy_input.py`:
+### The GridNode class
+We will start by creating a node that navigates between squares. The code 
+below relies upon `grid.py` that we completed above, `robot_pose.py` from
+[Module 1]({{site.baseurl}}/modules/intro1.html), and `fuzzy.py` from 
+[Module 5]({{site.baseurl}}/modules/fuzzy.html). It employs a fuzzy logic
+controller to navigate the robot from one grid square to another. Create
+a file named `grid_node.py` and copy the code below into it:
 
 ```
-from typing import Any, Dict
-
-from rclpy.node import Node
-from rclpy.publisher import Publisher
-from rclpy.qos import qos_profile_sensor_data
-from nav_msgs.msg import Odometry
-from std_msgs.msg import String
-from geometry_msgs.msg import Point
-
-from odometry_math import find_euclidean_distance, find_yaw, find_normalized_angle, find_goal_heading
-import fuzzy
-
-def compute_fuzzy_errors(goal: Point, position: Point, yaw: float, angle_limit: float, distance_limit: float) -> Dict[str, float]:
-    errors = {'left': 0.0, 'right': 0.0, 'distance': 0.0}
-    distance_diff = find_euclidean_distance(goal, position)
-    goal_direction = find_goal_heading(position, goal)
-    angle_diff = find_normalized_angle(goal_direction - yaw)
-
-    if angle_diff > 0:
-        errors['left'] = fuzzy.fuzzify(angle_diff, 0.0, angle_limit)
-    else:
-        errors['right'] = fuzzy.fuzzify(-angle_diff, 0.0, angle_limit)
-
-    either_turn = fuzzy.f_or(errors['left'], errors['right'])
-    dist = fuzzy.fuzzify(distance_diff, 0.0, distance_limit / 2.0)
-    errors['distance'] = fuzzy.f_and(dist, fuzzy.f_not(either_turn))
-
-    return errors
-
-class FuzzyGoalNode(Node):
-    def __init__(self, robot_name: str, goal_topic: str, angle_limit: float=0.2, distance_limit: float=0.25):
-        super().__init__(f'FuzzyGoalNode_{robot_name}')
-        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
-        self.create_subscription(String, goal_topic, self.goal_callback, qos_profile_sensor_data)
-        self.output_topic = f'{robot_name}_goal_error'
-        self.output = self.create_publisher(String, self.output_topic, qos_profile_sensor_data)
-        self.goal = None
-        self.angle_limit = angle_limit
-        self.distance_limit = distance_limit
-
-    def publish(self, publisher: Publisher, data: Any):
-        output = String()
-        output.data = f"{data}"
-        publisher.publish(output)
-
-    def goal_callback(self, msg: String):
-        value = eval(msg.data)
-        if value is None:
-            self.goal = None
-        else:
-            x, y = value
-            self.goal = Point()
-            self.goal.x = x
-            self.goal.y = y
-
-    def odom_callback(self, msg: Odometry):     
-        if self.goal is None: 
-            self.publish(self.output, None)
-        else:
-            yaw = find_yaw(msg.pose.pose.orientation)
-            errors = compute_fuzzy_errors(self.goal, msg.pose.pose.position, yaw, self.angle_limit, self.distance_limit)
-            self.publish(self.output, errors)
-```
-
-`goal_fuzzy_navigator.py`:
-
-```
-from typing import Dict, Tuple
-
+import sys, curses, math, random, copy
+import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
-from std_msgs.msg import String
 from geometry_msgs.msg import TwistStamped
+from robot_pose import RobotPose, odom2pose, turn_from_to
+from nav_msgs.msg import Odometry
+from irobot_create_msgs.msg import InterfaceButtons
+from grid import GridConverter, UP, DOWN, LEFT, RIGHT, HEADINGS
+from fuzzy import fuzzify, defuzzify, f_and, f_or, f_not
 
-import fuzzy
+
+ANGLE_TOLERANCE = math.pi/24
+DISTANCE_TOLERANCE = 0.05
+MAX_FORWARD = 0.25
+MAX_TURN = 0.5
+MAX_ALIGN = math.pi/8
 
 
-class FuzzyDriveNode(Node):
-    def __init__(self, robot_name: str, fuzzy_topic: str, x_limit: float=0.5, z_limit: float=1.0):
-        super().__init__(f"FuzzyDriveNode_{robot_name}")
-        self.x_limit = x_limit
-        self.z_limit = z_limit
+class GridNode(Node):
+    def __init__(self, robot_name: str, width: float, height: float, cell_size: float):
+        super().__init__(f"{robot_name}_QNode")
+        self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
         self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
-        self.create_subscription(String, fuzzy_topic, self.fuzzy_callback, qos_profile_sensor_data)
+        self.grid = GridConverter(width, height, cell_size) 
 
-    def fuzzy_callback(self, msg: String):
-        fuzzy_values = eval(msg.data)
-        t = self.make_twist()
-        if fuzzy_values is not None:
-            t.twist.linear.x, t.twist.angular.z = defuzzify_x_z(fuzzy_values, self.x_limit, self.z_limit)
-            self.motors.publish(t)
-            
+        self.current_action = None
+        self.pose = None
+        self.goal_pose = None
+
+        self.last_key = None
+
+    def grid_col_row(self) -> tuple[int, int]:
+        if self.pose is not None:
+            return self.grid.odom_to_grid(self.pose.point())
+
+    def state(self):
+        col_row = self.grid_col_row()
+        if col_row is not None:
+            return self.grid.grid_to_state(col_row)
+
+    def odom_callback(self, odom: Odometry):    
+        self.pose = odom2pose(odom)
+        if self.goal_pose is not None:
+            self.head_for_goal()
+
     def make_twist(self) -> TwistStamped:
         t = TwistStamped()
         t.header.frame_id = "base_link"
         t.header.stamp = self.get_clock().now().to_msg()
         return t
 
+    def update_goal(self, action: int):
+        self.current_action = action
+        self.goal_pose = copy.copy(self.pose)
+        self.goal_pose.theta = HEADINGS[self.current_action]        
+        self.goal_pose.move(self.grid.cell_size)
 
-def defuzzify_x_z(fuzzy_values: Dict[str, float], x_limit: float, z_limit: float) -> Tuple[float, float]:
-    x = fuzzy.defuzzify(fuzzy_values["distance"], 0, x_limit)
-    turn_limit = z_limit * (1.0 if fuzzy_values["left"] > fuzzy_values["right"] else -1.0)
-    z = fuzzy.defuzzify(fuzzy.f_or(fuzzy_values["left"], fuzzy_values["right"]), 0, turn_limit)
-    return x, z
+    def head_for_goal(self):
+        target_angle = self.pose.turn_to(self.goal_pose.x, self.goal_pose.y)
+        distance = self.pose.distance_to(self.goal_pose.x, self.goal_pose.y)
+        if distance < DISTANCE_TOLERANCE:
+            self.final_heading_align()        
+        else:
+            self.go_to_goal(target_angle, distance)    
+
+    def final_heading_align(self):
+        offset = turn_from_to(self.pose.theta, self.goal_pose.theta)
+        if abs(offset) < ANGLE_TOLERANCE:
+            self.goal_pose = None
+        else:
+            t = self.make_twist()
+            offset_left, offset_right = fuzzy_angle_left_right(offset)
+            t.twist.angular.z = defuzzy_angle(offset_left, offset_right)
+            self.motors.publish(t)
+
+    def go_to_goal(self, target_angle: float, distance: float):
+        fuzzy_left, fuzzy_right = fuzzy_angle_left_right(target_angle)
+        fuzzy_distance = f_and(fuzzify(distance, 0.0, self.grid.cell_size), 
+                               f_not(f_or(fuzzy_left, fuzzy_right)))
+        t = self.make_twist()
+        t.twist.angular.z = defuzzy_angle(fuzzy_left, fuzzy_right)
+        t.twist.linear.x = defuzzify(fuzzy_distance, 0.0, MAX_FORWARD)
+        self.motors.publish(t)
+
+    def process_keystroke(self, k: str):
+        self.last_key = k
+        if k.isdigit():
+            self.update_goal(int(k))
+
+    def running(self) -> bool:
+        return self.last_key != 'q'
+
+    def display(self, stdscr):
+        stdscr.addstr(0, 0, "0: up, 1: right, 2: down, 3: left")
+        if self.last_key is not None:
+            stdscr.addstr(1, 0, self.last_key)
+        display_padded(stdscr, 2, f"pose     : {self.pose}")
+        display_padded(stdscr, 3, f"goal_pose: {self.goal_pose}")
+        display_padded(stdscr, 4, f"action   : {self.current_action}")
+        if self.pose is not None:
+            display_padded(stdscr, 5, f"state    : {self.state()}; ({self.grid_col_row()})")
+
+
+def display_padded(stdscr, row: int, s: str):
+    height, width = stdscr.getmaxyx()
+    stdscr.addstr(row, 0, f"{s}{' ' * (width - len(s) - 1)}")
+
+
+def fuzzy_angle_left_right(angle: float) -> tuple[float, float]:
+    fuzzy_left = fuzzify(angle, ANGLE_TOLERANCE, MAX_ALIGN)
+    fuzzy_right = fuzzify(-angle, ANGLE_TOLERANCE, MAX_ALIGN)
+    return fuzzy_left, fuzzy_right
+    
+
+def defuzzy_angle(fuzzy_left: float, fuzzy_right: float) -> float:
+    if fuzzy_left > fuzzy_right:
+        return defuzzify(fuzzy_left, 0.0, MAX_TURN)
+    else:
+        return defuzzify(fuzzy_right, 0.0, -MAX_TURN)
+
+
+def main(stdscr):
+    rclpy.init()
+    node = GridNode(sys.argv[1], float(sys.argv[2]), float(sys.argv[3]), float(sys.argv[4]))
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.clear()
+    while node.running():
+        try:
+            k = stdscr.getch()
+            if k != -1:
+                node.process_keystroke(chr(k))
+            node.display(stdscr)
+            rclpy.spin_once(node, timeout_sec=0.0)
+        except curses.error as e:
+            if str(e) != 'no input':
+                stdscr.addstr(0, 0, traceback.format_exc())
+
+    rclpy.shutdown()
+    node.destroy_node()
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 5:
+        print("Usage: python3 grid_node.py robot_name width height cell_size")
+    else:
+        curses.wrapper(main)
 ```
 
 ### Q-Learning Node Code
 
 Examine the Python implementation of a Q-Learning ROS2 node. Copy and paste it
-into `qrunner.py`:
+into `qnode.py`:
 
 ```
-from grid import GridConverter, add_squares
-from qlearning import QTable, QParameters
-from goal_fuzzy_input import FuzzyGoalNode
-from goal_fuzzy_navigator import FuzzyDriveNode
-from curses_runner import CursesNode, run_curses_nodes
-
+import sys, curses, math, random, copy
 import rclpy
-from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
-from nav_msgs.msg import Odometry
-from std_msgs.msg import String
-from geometry_msgs.msg import Point
+from robot_pose import RobotPose, odom2pose, turn_from_to
 from irobot_create_msgs.msg import InterfaceButtons
-
-from typing import Tuple
-import random
-import sys
-import curses
-
-ACTIONS = [(0, -1), (0, 1), (1, 0), (-1, 0)]
-BUTTON_1_REWARD = 1.0
-BUTTON_2_REWARD = -1.0
+from qlearning import QParameters, QTable
+from grid import HEADINGS
+import grid_node
 
 
-class QRunningNode(Node):
-    def __init__(self, robot_name: str, params: QParameters, conv: GridConverter):
-        super().__init__(f"{robot_name}_q_runner")
-        self.conv = conv
-        params.set_num_states_actions(conv.num_states(), len(ACTIONS))
-        forbidden = []
-        for state in range(params.num_states):
-            col, row = conv.state_to_grid(state)
-            for action in range(params.num_actions):
-                act_col = col + ACTIONS[action][0]
-                act_row = row + ACTIONS[action][1]
-                if not conv.square_within_grid((act_col, act_row)):
-                    forbidden.append((state, action))
-        params.forbid_state_actions(forbidden)
-        self.q_table = QTable(params)
+class QNode(grid_node.GridNode):
+    def __init__(self, robot_name: str, target_visits: int, discount: float):
+        super().__init__(robot_name, 1.2, 1.2, 0.4)
+        self.create_subscription(InterfaceButtons, f"{robot_name}/interface_buttons", self.button_callback, qos_profile_sensor_data)
 
-        self.position_topic_name = f"{robot_name}_q_goal"
-        self.position_topic = self.create_publisher(String, self.position_topic_name, qos_profile_sensor_data)
-        self.info_topic_name = f"{robot_name}_q_info"
-        self.info_topic = self.create_publisher(String, self.info_topic_name, qos_profile_sensor_data)
-        self.create_subscription(Odometry, f"/{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
-        self.create_subscription(InterfaceButtons, f"/{robot_name}/interface_buttons", self.button_callback, qos_profile_sensor_data)
+        params = QParameters(target_visits, discount, num_states=self.grid.num_states(), num_actions=len(HEADINGS))
+        params.forbid_state_actions(self.grid.forbidden_actions())
+        self.qtable = QTable(params)
+        self.started = False
 
-        self.position = Point()
-        square = self.conv.odom_to_grid(Point())
-        self.current_state = self.conv.grid_to_state(square)
-        self.action_message = self.make_action_message(square, random.choice(ACTIONS))
+    def button_callback(self, buttons: InterfaceButtons):
+        if self.started:
+            if self.goal_pose is None:
+                reward = None
+                if buttons.button_1.is_pressed:
+                    reward = -1.0
+                elif buttons.button_2.is_pressed:
+                    reward = 0.25
+                elif buttons.button_power.is_pressed:
+                    reward = 0.0
+                if reward is not None:
+                    action = self.qtable.sense_act_learn(self.state(), reward)
+                    self.update_goal(action)
+        elif self.pose is not None and (buttons.button_1.is_pressed or buttons.button_2.is_pressed or buttons.button_power.is_pressed):
+            self.started = True
+            self.update_goal(random.randint(0, len(HEADINGS) - 1)) 
 
-    def make_action_message(self, sq1: Tuple[int, int], sq2: Tuple[int, int]) -> str:
-        updated_square = add_squares(sq1, sq2)
-        odom = self.conv.grid_to_odom(updated_square)
-        return f"({odom.x}, {odom.y})"
-    
-    def button_callback(self, msg: InterfaceButtons):
-        if self.action_message == "None":
-            reward = None
-            if msg.button_1.is_pressed:
-                reward = BUTTON_1_REWARD
-            elif msg.button_2.is_pressed:
-                reward = BUTTON_2_REWARD
-            elif msg.button_power.is_pressed:
-                reward = 0.0
+    def display(self, stdscr):
+        super().display(stdscr)
+        for state in range(self.qtable.num_states()):
+            col, row = self.grid.state_to_grid(state)    
+            values = [round(v, 2) for v in self.qtable.q[state]]
+            stdscr.addstr(6 + self.grid.rows + state, 0, f"state {state} ({col}, {row}): qs: {values} visits:  {self.qtable.visits[state]}")
 
-            if reward is not None:
-                action = self.q_table.sense_act_learn(self.current_state, reward)
-                self.action_message = self.make_action_message(self.conv.state_to_grid(self.current_state), ACTIONS[action])
-                out = String()
-                out.data = f"""After {self.q_table.total_updates} updates:
-position: ({self.position.x:.2f}, {self.position.y:.2f}) {self.conv.odom_to_grid(self.position)}
-state: {self.current_state}
-reward: {reward:.2f}
-action: {action} ({ACTIONS[action]}) {self.action_message}
-"""
-                for state in range(self.q_table.num_states()):
-                    sq = self.conv.state_to_grid(state)
-                    out.data += f"{state} {sq}:"
-                    for action in range(self.q_table.num_actions()):
-                        aq = (sq[0] + ACTIONS[action][0], sq[1] + ACTIONS[action][1])
-                        if not self.conv.square_within_grid(aq):
-                            aq = "Undef "
-                        out.data += f" act:{action} {aq} ({self.q_table.q[state][action]:6.2f} {self.q_table.visits[state][action]:3d})"
-                    out.data += "\n"
-                self.info_topic.publish(out)
 
-    def odom_callback(self, msg: Odometry):
-        self.position = msg.pose.pose.position
-        state = self.conv.grid_to_state(self.conv.odom_to_grid(self.position))
-        if state != self.current_state:
-            self.action_message = "None"
-            self.current_state = state
-        out = String()
-        out.data = self.action_message 
-        self.position_topic.publish(out)
-
-        
 def main(stdscr):
     rclpy.init()
-    q_node = QRunningNode(sys.argv[1], QParameters(), GridConverter(width=1.5, height=1.5, cell_size=0.5))
-    sensor_node = FuzzyGoalNode(sys.argv[1], q_node.position_topic_name)
-    curses_node = CursesNode(q_node.info_topic_name, 2, stdscr)
-    drive_node = FuzzyDriveNode(sys.argv[1], sensor_node.output_topic)
-    run_curses_nodes(stdscr, [q_node, drive_node, curses_node, sensor_node])
+    node = QNode(sys.argv[1], int(sys.argv[2]), float(sys.argv[3]))
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.clear()
+    while node.running():
+        try:
+            k = stdscr.getch()
+            if k != -1:
+                node.process_keystroke(chr(k))
+            node.display(stdscr)
+            rclpy.spin_once(node, timeout_sec=0.0)
+        except curses.error as e:
+            if str(e) != 'no input':
+                stdscr.addstr(0, 0, traceback.format_exc())
+
     rclpy.shutdown()
-            
+    node.destroy_node()
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
+
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: python3 qmapper.py robot_name")
+    if len(sys.argv) < 4:
+        print("Usage: python3 qnode.py robot_name target_visits discount")
     else:
-        print(f"Odometry reset:\nros2 service call /{sys.argv[1]}/reset_pose irobot_create_msgs/srv/ResetPose\n")  
-        input("Type enter once odometry is reset")
         curses.wrapper(main)
 ```
 
-Answer the following questions:
+Answer the following questions. Note that you may have to consult 
+`grid_node.py` in addition to `qnode.py` to answer some of them:
 * In what states are certain actions forbidden? How would you characterize
 those states and actions?
 * How does the node determine the robot's current state?
@@ -689,8 +614,6 @@ experiment. For your experiment, determine the following:
   * Values to use for the following parameters:
     * Discount
     * Target visits
-    * Rate constant
-    * Epsilon
     * Size of grid and cells, in turn determining the number of states.
 * Plan to run three experiments. Each experiment should involve a variation
   of one or more of the above parameters. Write down hypotheses about what

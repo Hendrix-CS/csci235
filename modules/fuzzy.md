@@ -5,6 +5,12 @@ num: 5
 worktitle: Fuzzy Logic
 ---
 
+<!-- TODO
+* Add a section about converging on a heading.
+* Note that with traditional logic it is easy to overshoot.
+* Then use fuzzy logic to hit it more precisely.
+-->
+
 ## Boolean Logic
 
 The table below is a **truth table**, describing how logic operators produce their results:
@@ -181,6 +187,100 @@ location and goal location.
 current heading and a heading that, if the robot were to drive straight, 
 would take the robot to the goal location.
 
+As calculating the heading error is a multi-step process, we will first write
+a couple of functions that will enable this to happen. The first function
+is `shortest_angle_diff()`. To prepare for writing it, answer the following
+questions:
+* What is 3/4 &pi; - 1/4 &pi;, normalized to be positive (i.e., in the range 0 to 2 &pi;)?
+* What is 1/4 &pi; - 3/4 &pi;, again normalized to be positive?
+* Given the angles 3/4 &pi; and 1/4 &pi;, what are two possible angular 
+distances between them?
+* Which of the two distances is smaller?
+* Repeat the above exercise with the angles -7/8 &pi; and 7/8 &pi;
+* What would be a general algorithm for returning the shortest angle 
+  difference between two angles?
+* Complete `shortest_angle_diff()` below. Be sure to use 
+`normalize_angle_positive()` from 
+[Module 1]({{site.baseurl}}/modules/intro1.html) in your solution.
+
+
+```
+def shortest_angle_diff(angle1: float, angle2: float) -> float:
+    """
+    Find the shortest distance between two angles.
+    Parameters will be in radians.
+    Result will be in the range [0, math.pi]
+    """
+    # Your code here
+```
+
+Add the following unit test to ensure that your solution works:
+```
+    def test_angle_diff(self):
+        for theta1, theta2, diff in [
+            ( 3/4 * math.pi,  1/4 * math.pi, 1/2 * math.pi), 
+            ( 1/4 * math.pi,  3/4 * math.pi, 1/2 * math.pi), 
+            (-1/3 * math.pi,  1/3 * math.pi, 2/3 * math.pi), 
+            (15/8 * math.pi,  1/8 * math.pi, 1/4 * math.pi), 
+            ( 1/8 * math.pi, 15/8 * math.pi, 1/4 * math.pi), 
+            ( 9/2 * math.pi, -1/2 * math.pi,       math.pi), 
+            (       math.pi, -2/3 * math.pi, 1/3 * math.pi),
+            (      -math.pi, -2/3 * math.pi, 1/3 * math.pi), 
+            (       math.pi,  2/3 * math.pi, 1/3 * math.pi),
+            (      -math.pi,  2/3 * math.pi, 1/3 * math.pi),
+        ]:
+            self.assertAlmostEqual(diff, shortest_angle_diff(theta1, theta2), places=5)
+```
+
+Having found the shortest angle between two angles, we must now determine the 
+proper sign for the angle that will enable us to correct the error. Given that 
+our robot is facing a particular direction, we want to find out the angle it
+would need to turn to reach a target heading. 
+* Call `shortest_angle_diff(3/4 * math.pi, 1/4 * math.pi)` and record the
+  answer.
+* What is 3/4 &pi; + the answer - 1/4 &pi;?
+* What is 3/4 &pi; - the answer - 1/4 &pi;?
+* If 3/4 &pi; is the starting angle and 1/4 &pi; is the target heading, 
+  would it be preferable to add or subtract the answer?
+* If 1/4 &pi; is the starting angle and 3/4 &pi; is the target heading,
+  would it be preferable to add or subtract the answer?
+* Repeat this exercise with -7/8 &pi; and 7/8 &pi;. 
+* Based on these answers, what would be a general algorithm for determining
+whether one should make a left turn (positive angle) or a right turn 
+(negative angle)?
+* Complete `turn_from_to()` below:
+
+```
+def turn_from_to(starting_angle: float, goal_angle: float) -> float:
+    """
+    Return an angle that, if you were to add it to the starting angle,
+    would produce the goal angle.
+    The returned angle should be the smallest possible angle to 
+    return in terms of absolute value.
+    Parameters will be in radians.
+    """
+    # Your code here
+```
+
+Make sure it passes the following unit tests:
+```
+    def test_turn_from_to(self):
+        for theta1, theta2, diff in [
+            ( 3/4 * math.pi,  1/4 * math.pi, -1/2 * math.pi), 
+            ( 1/4 * math.pi,  3/4 * math.pi,  1/2 * math.pi), 
+            (-1/3 * math.pi,  1/3 * math.pi,  2/3 * math.pi), 
+            (-1/8 * math.pi,  1/8 * math.pi,  1/4 * math.pi),
+            (15/8 * math.pi,  1/8 * math.pi,  1/4 * math.pi), 
+            ( 1/8 * math.pi, 15/8 * math.pi, -1/4 * math.pi), 
+            ( 9/2 * math.pi, -1/2 * math.pi,        math.pi), 
+            (       math.pi, -2/3 * math.pi,  1/3 * math.pi),
+            (      -math.pi, -2/3 * math.pi,  1/3 * math.pi), 
+            (       math.pi,  2/3 * math.pi, -1/3 * math.pi),
+            (      -math.pi,  2/3 * math.pi, -1/3 * math.pi),
+        ]:
+            self.assertAlmostEqual(diff, turn_from_to(theta1, theta2), places=5)
+```
+
 Let's augment the `RobotPose` class to enable us to calculate these errors.
 First, add the `distance_to()` method, which will calculate the distance error.
 Use the Euclidean distance formula derived from the Pythagorean theorem:
@@ -190,12 +290,15 @@ Use the Euclidean distance formula derived from the Pythagorean theorem:
         # Your code here
 ```
 
+Calculating heading error is a multi-step process. First, we need to calculate
+the difference between two angles. 
+
 Next, let's add the `turn_to()` method, which will calculate the heading error.
 Note that this is a two-part calculation:
 * First, use `math.atan2()` to determine the heading offset between the robot's
   position and the goal position.
-* Then, subtract the robot's heading and normalize the result to determine how
-  far the robot needs to turn to correct the error.
+* Then, call `turn_from_to()` to determine how far and in what direction 
+  the robot needs to turn to correct the error.
 
 ```
     def turn_to(self, goal_x: float, goal_y: float) -> float:

@@ -24,23 +24,40 @@ Examine each pair of angles in radians. Which ones are the same angle?
 
 Because, for any given angle, there are an infinite number of possible 
 representations, we want to **normalize** angles to fall in a particular
-range. As we want 0 radians to represent going straight, by using positive
-and negative radians we can represent different turn directions. So it is
-to our advantage to use the interval (-&pi;, &pi;]. 
+range. There are two such ranges that are useful for our purposes:
+* Positive angles in the interval [0, 2&pi;)
+  * For every pair of angles, there are two possible distances between
+    them.
+  * By normalizing to the positive interval, we can determine which distance
+    is smaller and which is larger.
+* Symmetric angles in the interval (-&pi;, &pi;]
+  * As we want 0 radians to represent going straight, by using positive
+    and negative radians we can represent different turn directions. 
 
-Read the Python program below. The function `find_normalized_angle()` needs 
-to return an angle in the interval  (-&pi;, &pi;]. The provided unit test
-checks to make sure it has this property.
+Read the Python program below. The function `normalize_angle_positive()`
+needs to return an angle in the interval (-&pi;, &pi;].  The function 
+`normalize_angle_symmetric()` needs to return an angle in the interval  
+(-&pi;, &pi;]. The provided unit tests check to make sure they have these 
+properties.
 
 Copy this code into a Python editor. Save it in a file entitled 
-`robot_pose.py`. Implement a solution to `find_normalized_angle()` 
-that passes the unit tests.
+`robot_pose.py`. Implement solutions to `normalize_angle_positive()` and
+`normalize_angle_symmetric()` that pass the unit tests. It may be a useful
+strategy to implement `normalize_angle_positive()` first and call it as
+part of the implementation of `normalize_angle_symmetric()`. 
 
 ```
 import unittest, math
 
 
-def find_normalized_angle(angle: float) -> float:
+def normalize_angle_positive(angle: float) -> float:
+    """
+    Ensure that the angle in radians lies between 0 and 2 * math.pi 
+    """
+    pass
+    
+
+def normalize_angle_symmetric(angle: float) -> float:
     """
     Ensure that the angle in radians lies between -math.pi and math.pi
     """
@@ -48,7 +65,21 @@ def find_normalized_angle(angle: float) -> float:
 
 
 class AngleMathTest(unittest.TestCase):
-    def test_normalized_angle(self):
+    def test_normalize_angle_positive(self):
+        for theta, normed in [
+            (-math.pi, math.pi),
+            (-math.pi/2, 3/2 * math.pi),
+            (-3/4 * math.pi, 5/4 * math.pi),
+            (-7/8 * math.pi, 9/8 * math.pi),
+            (2 * math.pi, 0.0), 
+            (3/2 * math.pi, 3/2 * math.pi), 
+            (9 * math.pi, math.pi),
+            (-3 * math.pi, math.pi),
+            (5/2 * math.pi, math.pi/2),
+        ]:
+            self.assertEqual(normed, normalize_angle_positive(theta))
+
+    def test_normalize_angle_symmetric(self):
         for theta, normed in [
             (-math.pi, math.pi),
             (2 * math.pi, 0.0), 
@@ -57,8 +88,8 @@ class AngleMathTest(unittest.TestCase):
             (-3 * math.pi, math.pi),
             (5/2 * math.pi, math.pi/2),
         ]:
-            self.assertEqual(normed, find_normalized_angle(theta))
-
+            self.assertEqual(normed, normalize_angle_symmetric(theta))
+            
 
 if __name__ == '__main__':
     unittest.main()
@@ -76,7 +107,7 @@ class RobotPose:
     def __init__(self, x: float, y: float, theta: float):
         self.x = x
         self.y = y
-        self.theta = find_normalized_angle(theta)
+        self.theta = normalize_angle_symmetric(theta)
 
     def __repr__(self):
         return f"RobotPose({self.x},{self.y},{self.theta})"
@@ -124,7 +155,9 @@ So in the triangle depicted in the image, sin θ = y/d and cos θ = x/d.
 
 Based on this model, use `math.sin()` and `math.cos()` to help implement
 the `move()` method. Also implement the `turn()` method, and ensure that
-your solution passes the `test_move()` unit test.
+your solution passes the `test_move()` unit test. You'll want to use 
+`normalize_angle_symmetric()` as part of your implementation of the `turn()`
+method.
 
 ## Command-line user interfaces
 

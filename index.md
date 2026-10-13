@@ -59,7 +59,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 10/6  | Tue | Project 1 Presentations |  | 
 | 10/8  | Tue | Project 1 Presentations<br>Introduction to Reinforcement Learning | Project 1 | 
 |
-| 10/13 | Tue | Module 7: Reinforcement Learning | Interview 3: Project 1 | <!-- Maybe put State Machines here?-->
+| 10/13 | Tue | Module 7: [Reinforcement Learning](modules/qlearning.html) | Interview 3: Project 1 | 
 | 10/15 | Thu | **Fall Break: No class** |  |   
 |
 | 10/20 | Tue | Module 8: HTN Planning | Module 7 |
