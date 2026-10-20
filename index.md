@@ -62,7 +62,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 10/13 | Tue | Module 7: [Reinforcement Learning](modules/qlearning.html) | Interview 3: Project 1 | 
 | 10/15 | Thu | **Fall Break: No class** |  |   
 |
-| 10/20 | Tue | Module 8: HTN Planning | Module 7 |
+| 10/20 | Tue | Module 8: [HTN Planning](modules/htn_planning.html) | Module 7 |
 | 10/22 | Thu | Module 9: SLAM | Module 8 |   
 |
 | 10/27 | Thu | Project 2 topics | Module 9 | 
