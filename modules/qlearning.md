@@ -102,6 +102,12 @@ Copy and paste the following Python code into `grid.py`:
 from geometry_msgs.msg import Point
 import unittest
 
+UP = 0
+RIGHT = 1
+DOWN = 2
+LEFT = 3
+
+HEADINGS = [math.pi/2, 0, -math.pi/2, -math.pi]
 
 class GridConverter:
     def __init__(self, width: float, height: float, cell_size: float):
@@ -117,6 +123,16 @@ class GridConverter:
     
     def state_to_grid(self, state_num: int) -> tuple[int, int]:
         return # YOUR CODE HERE
+        
+    def forbidden_actions(self) -> list[tuple[int, int]]:
+        forbidden = []
+        for i in range(self.cols):
+            forbidden.append((self.grid_to_state((i, 0)), DOWN))
+            forbidden.append((self.grid_to_state((i, self.rows - 1)), UP))
+        for i in range(self.rows):
+            forbidden.append((self.grid_to_state((0, i)), LEFT))
+            forbidden.append((self.grid_to_state((self.cols - 1, i)), RIGHT))
+        return forbidden
 ```
 
 
@@ -374,7 +390,7 @@ MAX_ALIGN = math.pi/8
 
 class GridNode(Node):
     def __init__(self, robot_name: str, width: float, height: float, cell_size: float):
-        super().__init__(f"{robot_name}_QNode")
+        super().__init__(f"{robot_name}_GridNode")
         self.create_subscription(Odometry, f"{robot_name}/odom", self.odom_callback, qos_profile_sensor_data)
         self.motors = self.create_publisher(TwistStamped, f"{robot_name}/cmd_vel_stamped", qos_profile_sensor_data)
         self.grid = GridConverter(width, height, cell_size) 
