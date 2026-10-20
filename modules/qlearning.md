@@ -111,8 +111,8 @@ HEADINGS = [math.pi/2, 0, -math.pi/2, -math.pi]
 
 class GridConverter:
     def __init__(self, width: float, height: float, cell_size: float):
-        self.cols = int(width / cell_size)
-        self.rows = int(height / cell_size)
+        self.cols = math.ceil(width / cell_size)
+        self.rows = math.ceil(height / cell_size)
         
     def num_states(self) -> int:
         return self.cols * self.rows
