@@ -277,6 +277,8 @@ Make sure it passes the following unit tests:
             (      -math.pi, -2/3 * math.pi,  1/3 * math.pi), 
             (       math.pi,  2/3 * math.pi, -1/3 * math.pi),
             (      -math.pi,  2/3 * math.pi, -1/3 * math.pi),
+            (-0.51623311853, -0.05063084481, 0.465602273719),
+            (-0.58370492313, -0.01613905879, 0.56756586434)
         ]:
             self.assertAlmostEqual(diff, turn_from_to(theta1, theta2), places=5)
 ```
