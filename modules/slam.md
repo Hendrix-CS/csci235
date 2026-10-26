@@ -38,4 +38,22 @@ The node publishes useful information on the following topics:
 
 ## An obstacle avoider
 
-Create a ROS2 node that 
+Examine `bump_turn_45.py` from [Module 4](modules/nodes2.html). Make a copy
+called `bump_turn_slam.py` with the following modifications:
+* Each time it receives an `odom` message, it should publish a JSON message
+  to `bitslam_obstacles` in the following format:
+```
+
+```
+* Each time it receives a hazard message, it should publish a JSON message
+  to `bitslam_obstacles` in the following format:
+```
+```
+* Whenever it publishes either message on `bitslam_obstacles`, save the 
+  message in a Python list.
+* When it is turning to avoid an obstacle, instead of turning 45 degrees it
+  should turn until it receives an `on_path` message from `bitslam_on_path`.
+* When the user hits the `q` key to exit:
+  * It should publish a suitable message on `bitslam_save`
+  * It should write a transcript file where each published JSON message is
+    on a separate line of the file
