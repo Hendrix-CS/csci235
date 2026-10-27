@@ -26,10 +26,8 @@ Topics where this node publishes useful information include:
   * `Finished` if the SLAM algorithm has completed a map
   * `Failed` if the SLAM algorithm is unable to create a map
 * `bitslam_occupancy_grid`
-  * Read the documentation for the ROS2 [Occupancy Grid]
-    (https://docs.ros.org/en/jazzy/p/nav_msgs/msg/OccupancyGrid.html)
-  * Also read the documentation for [MapMetaData]
-    (https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaData.html)
+  * Read the documentation for the ROS2 [Occupancy Grid](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/OccupancyGrid.html)
+  * Also read the documentation for [MapMetaData](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaData.html)
 * **Note**: All of the `bitslam` topic messages are ROS2 `String` objects,
   except for `bitslam_occupancy_grid`, which is a ROS2 `OccupancyGrid` object.
 
@@ -45,6 +43,12 @@ and use `json.dumps()` to encode a JSON object as a string. All of these
 objects have two top-level fields: `header` and `data`. The `header` field
 will contain a copy of the `header` of the source message. The `data` field
 will contain the main JSON object.
+
+To convert a Header to JSON, we can use this function:
+```
+def header_json(header: Header) -> dict:
+    return {"stamp": {"sec": header.stamp.sec, "nanosec": header.stamp.nanosec}, "frame_id": header.frame_id}
+```
 
 To build a `Pose` message from an `Odometry` message:
 * Convert the `Odometry` message to a [`RobotPose`](modules/intro1.html) 
@@ -74,6 +78,8 @@ To build a `Collision` message from a `HazardDetection` message:
 {"header": header_json(h.header), "data": f"(collision,0.2032,0.0,0.01,0.39269908169872414)"}
 ```
 * What would the JSON objects look like for the other four bump sensors?
+* When you are ready to encode a JSON object as a string, use `json.dumps()` and pass
+in the JSON object.
 
 ## Exploring
 
@@ -176,9 +182,9 @@ sure it reaches the end of your file.
 
 Write another Python program called `curses_map.py`. This program will
 subscribe to `bitslam_occupancy_grid` and display the occupancy grid on
-the screen using `curses`. Carefully study [the OccupancyGrid data type]
-(https://docs.ros.org/en/jazzy/p/nav_msgs/msg/OccupancyGrid.html) as well as
-[MapMetaData](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaData.html).
+the screen using `curses`. Carefully study 
+[the OccupancyGrid data type](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/OccupancyGrid.html) 
+as well as [MapMetaData](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaData.html).
 
 * How is a map represented as an occupancy grid?
 * To visualize the map, we need to determine which occupancy grid cell to
