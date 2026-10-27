@@ -17,18 +17,10 @@ information about the robot's poses and the obstacles it encounters. The
 topic is posed in the robot's namespace; for example, if the robot's name 
 is `elrond`, the topic would be `/elrond/bitslam_obstacles`. 
 
-The node publishes useful information on the following topics:
+Topics where this node publishes useful information include:
 * `bitslam_pose`
   * Current estimated pose for the robot, correcting the `odom` topic 
     readings with the map
-* `bitslam_on_path` 
-  * The `bitslam_on_path` topic publishes the following messages:
-    * `on_path: 1.1 meters`
-      * Distance to unvisited space in line with the robot's heading - it may be 
-        any value, not just 1.1 meters
-    * `obstacle: 1.1 meters`
-      * Distance to an obstacle from the map in line with the robot's heading - 
-        it may be any value, not just 1.1 meters
 * `bitslam_status` 
   * `Mapping` if the SLAM algorithm is in the process of creating a map
   * `Finished` if the SLAM algorithm has completed a map
@@ -60,17 +52,10 @@ object using [`odom2pose`](modules/nodes2.html)
 * Imagine a `RobotPose` object at `(1.0, 2.0)` with heading `1.57`. Its JSON
 representation will be:
 ```
-{"Pose":{"pos":{"coords":[1.0,2.0]},"theta":1.57}}
+{"header": header_json(odom.header), "data": f"(pose,1.0,2.0,1.57)"}
 ```
 * Based on the above structure, how would you encode a `RobotPose` object 
-named `pose`?
-* If the `Odometry` object is named `odom`, the full JSON object would look
-like this: 
-```
-{"header": odom.header, "data": {"Pose":{"pos}":{"coords":[1.0,2.0]},"theta":1.57}}}
-```
-* What will the full JSON object look like for a `RobotPose` object named
-`pose`?
+named `pose`? *Hint: I recommend using an f-string.*
 
 To build a `Collision` message from a `HazardDetection` message:
 * The sensor headings are:
@@ -80,125 +65,40 @@ To build a `Collision` message from a `HazardDetection` message:
   * Left bump sensor: &pi;/2
   * Right bump sensor: -&pi;/2
   * The left and right bump sensor headings are &pi;/2 and -&pi;/2
+* Other information includes:
+  * Distance to the collision: we will use `0.2032`, which is the robot's radius in meters
+  * Distance noise: we will estimate the noise for the collision distance as +/- 1 cm
+  * Heading noise: we will estimate the noise for the collision heading as +/- `0.39269908169872414` radians
 * The JSON object for the front bump sensor is:
 ```
-{"Collision":{"distance":0.2032,"heading":0.0,"noise":{"stdev_distance":0.01,"stdev_heading":0.39269908169872414}}}
+{"header": header_json(h.header), "data": f"(collision,0.2032,0.0,0.01,0.39269908169872414)"}
 ```
 * What would the JSON objects look like for the other four bump sensors?
 
 ## Exploring
 
-Here is a skeleton of a program called `slam_bump_turn.py`:
-```
-import sys, curses, math, time, json
-import rclpy
-from rclpy.node import Node
-from rclpy.qos import qos_profile_sensor_data
-from geometry_msgs.msg import TwistStamped
-from nav_msgs.msg import Odometry
-from std_msgs.msg import String
-from irobot_create_msgs.msg import HazardDetectionVector
-from robot_pose import RobotPose, odom2pose
-
-
-class ExplorerNode(Node):
-    def __init__(self, robot_name: str, stdscr):
-        super().__init__(f"{robot_name}_ExplorerNode")
-        self.running = True
-        self.paused = False
-
-        # YOUR CODE HERE
-        #
-        # Create publishers for:
-        #   cmd_vel_stamped
-        #   bitslam_obstacles
-        #
-        # Subscribe to:
-        #   odom
-        #   hazard_detection
-        #   bitslam_on_path
-
-    def odom_callback(self, odom: Odometry):
-        # YOUR CODE HERE
-        #
-        # Publish a Pose message on bitslam_obstacles based on odom
-        # If the robot has not encountered a hazard, go straight
-        # Otherwise, rotate right
-
-    def hazard_callback(self, hazards: HazardDetectionVector):
-        # YOUR CODE HERE
-        #
-        # For each detected hazard
-        #   If it is a bump
-        #     Publish a Collision message on bitslam_obstacles
-        #     Record that the robot needs to turn
-
-    def on_path_callback(self, on_path: String):
-        # YOUR CODE HERE
-        # 
-        # If the robot is turning, and is on a path to unvisited space,
-        # mark the robot as not turning anymore.        
-
-    def handle_key(self, k: str):
-        if k == 'q':
-            self.running = False
-        if k == 'p':
-            self.paused = not self.paused
-
-
-def main(stdscr):
-    rclpy.init()
-    node = ExplorerNode(sys.argv[1], stdscr)
-    curses.cbreak()
-    stdscr.nodelay(True)
-    stdscr.clear()
-    while node.running:
-        try:
-            k = stdscr.getch()
-            if k != -1:
-                k = chr(k)
-                node.handle_key(k)
-            rclpy.spin_once(node, timeout_sec=0.0)
-        except curses.error as e:
-            if str(e) != 'no input':
-                stdscr.addstr(0, 0, traceback.format_exc())
-    rclpy.shutdown()
-    node.destroy_node()
-    curses.nocbreak()
-    curses.echo()
-    stdscr.refresh()
-
-
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print("Usage: python3 slam_bump_turn.py robot_name")
-    else:
-        curses.wrapper(main)
-```
-
-To run this program, you first need to run the BitSLAM node. Run it as
-follows:
-```
-bit_slam_node --robot=robot_name
-```
-
-Once it is running, start up `slam_bump_turn.py`. Observe it running for
-a while, and answer the following questions:
-* How thoroughly does it seem to be exploring the room in which it is
-  running? 
-  
-## Saving the observations
-
-Modify `slam_bump_turn.py` so that, as it publishes each message to 
-`bitslam_obstacles`, it will also append the message to a file. To ensure
-a unique filename for each run, use `time.time()` as part of the filename.
-(The function `time.time()` returns the number of seconds since January 1, 
-1970, and is useful for creating unique identifiers.) Remember that to 
-append to a file in Python, you can use the following syntax:
+Make a copy of your favorite obstacle-avoiding program (e.g. `bump_turn_45.py`) as 
+`slam_bump_turn.py`. Augment it as follows:
+* Add a publisher for `bitslam_obstacles`
+* Make sure it subscribes to `odom` and `hazard_detection` at a minimum.
+  * In the callback for `odom`, publish a `pose` message, as defined 
+    above, to `bitslam_obstacles`
+  * In the callback for `hazard_detection`, publish a `collision` message, 
+    as defined above, to `bitslam_obstacles`
+* As it publishes each message to `bitslam_obstacles`, it will also append 
+  the message to a file. To ensure a unique filename for each run, use 
+  `import time` to use the `time` module and then use `time.time()` as part 
+  of the filename. (The function `time.time()` returns the number of seconds 
+  since January 1, 1970, and is useful for creating unique identifiers.) 
+  Remember that to append to a file in Python, you can use the following syntax:
 ```
 with open(filename, 'a') as f:
     f.write("An additional line.\n")
 ```
+* Reset the odometry: `ros2 service call /robot_name/reset_pose irobot_create_msgs/srv/ResetPose`
+* Run your program for a while. 
+* Echo the `bitslam_obstacles` topic to see what it is publishing, and make sure 
+  those values make sense.
 
 ## Publishing the observations
 
@@ -268,6 +168,9 @@ if __name__ == '__main__':
     else:
         curses.wrapper(main)
 ```
+
+Run this program and make sure it is publishing the messages correctly. Make
+sure it reaches the end of your file.
     
 ## Visualizing the map
 
@@ -278,14 +181,80 @@ the screen using `curses`. Carefully study [the OccupancyGrid data type]
 [MapMetaData](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaData.html).
 
 * How is a map represented as an occupancy grid?
-* What would need to be done to represent an occupancy grid visually in
-  `curses` if the map size fits completely within the `curses` window?
-  * What if the map size does not fit within the `curses` window?
+* To visualize the map, we need to determine which occupancy grid cell to
+  use for each curses cell. How should we determine this?
+  
+Here is a skeleton for `curses_map.py`:
+```
+import sys, curses
+import rclpy
+from rclpy.node import Node
+from rclpy.qos import qos_profile_sensor_data
+from nav_msgs.msg import OccupancyGrid
+from nav_msgs.msg import MapMetaData
 
-## Testing the visualization
 
-* Run `slam_transcript_node.py`, `bit_slam_node`, and `curses_map.py` in 
-tandem. How effective is the map visualization?
-* Now run `slam_bump_turn.py`, `bit_slam_node`, and `curses_map.py` in tandem.
-How effectively are you able to visualize the incremental construction of the
-map?
+class ShowGridNode(Node):
+    def __init__(self, robot_name: str, stdscr):
+        super().__init__(f"{robot_name}_ShowGridNode")
+        self.running = True
+        self.stdscr = stdscr
+        self.create_subscription(OccupancyGrid, f"/{robot_name}/bitslam_occupancy_grid", self.grid_callback, qos_profile_sensor_data)
+
+    def grid_callback(self, grid: OccupancyGrid):
+        # YOUR CODE HERE
+        #
+        # Use your answers above to write this method
+
+    def handle_key(self, k: str):
+        if k == 'q':
+            self.running = False
+
+
+def main(stdscr):
+    rclpy.init()
+    node = ShowGridNode(sys.argv[1], stdscr)
+    curses.cbreak()
+    stdscr.nodelay(True)
+    stdscr.clear()
+    while node.running:
+        try:
+            k = stdscr.getch()
+            if k != -1:
+                k = chr(k)
+                node.handle_key(k)
+            rclpy.spin_once(node, timeout_sec=0.0)
+        except curses.error as e:
+            if str(e) != 'no input':
+                stdscr.addstr(0, 0, traceback.format_exc())
+    rclpy.shutdown()
+    node.destroy_node()
+    curses.nocbreak()
+    curses.echo()
+    stdscr.refresh()
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print("Usage: python3 curses_map.py robot_name")
+    else:
+        curses.wrapper(main)
+```
+  
+To test this out, you need to do the following:
+* Reset the odometry: `ros2 service call /robot_name/reset_pose irobot_create_msgs/srv/ResetPose`
+* Run `bit_slam_node`: `bit_slam_node --robot=robot_name`
+* Run `curses_map.py`
+* Run `slam_transcript_node.py`
+
+
+## Final testing
+
+To see the robot mapping live:
+* Reset the odometry: `ros2 service call /robot_name/reset_pose irobot_create_msgs/srv/ResetPose`
+* Run `bit_slam_node`: `bit_slam_node --robot=robot_name`
+* Run `curses_map.py`
+* Run `slam_bump_turn.py` 
+
+## Final thoughts
+* In your journal, write down three idea about how you might use these maps in a larger project.
