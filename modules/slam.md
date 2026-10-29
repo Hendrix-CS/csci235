@@ -121,7 +121,7 @@ the transcript of messages saved in the previous step and publish them to
 without actively driving the robot. Below is a skeleton of the implementation:
 
 ```
-import sys, curses
+import sys, curses, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
@@ -199,7 +199,7 @@ as well as [MapMetaData](https://docs.ros.org/en/jazzy/p/nav_msgs/msg/MapMetaDat
   
 Here is a skeleton for `curses_map.py`:
 ```
-import sys, curses
+import sys, curses, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data

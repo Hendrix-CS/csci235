@@ -109,7 +109,7 @@ if __name__ == '__main__':
 
 Create a new file `groundline.py` and copy and paste the code below into it:
 ```
-import sys, curses, math
+import sys, curses, math, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data

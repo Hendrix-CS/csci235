@@ -155,7 +155,7 @@ Create a new program called `run_plan_node.py`. Below is a skeleton of
 the program, with parts for you to fill in based on the design above:
 
 ```
-import sys, curses
+import sys, curses, traceback
 import grid_node, grid
 import rclpy
 from pyhop_anytime.grid import Facing

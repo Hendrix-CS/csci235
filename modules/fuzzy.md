@@ -360,7 +360,7 @@ Write Python code to express your definitions of **traveling**, **left**,
 and **right**, and assign the motor settings accordingly.
 
 ```
-import sys, curses, math
+import sys, curses, math, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data

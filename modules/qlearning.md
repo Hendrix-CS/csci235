@@ -369,7 +369,7 @@ controller to navigate the robot from one grid square to another. Create
 a file named `grid_node.py` and copy the code below into it:
 
 ```
-import sys, curses, math, random, copy
+import sys, curses, math, random, copy, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
@@ -528,7 +528,7 @@ Examine the Python implementation of a Q-Learning ROS2 node. Copy and paste it
 into `qnode.py`:
 
 ```
-import sys, curses, math, random, copy
+import sys, curses, math, random, copy, traceback
 import rclpy
 from rclpy.qos import qos_profile_sensor_data
 from robot_pose import RobotPose, odom2pose, turn_from_to

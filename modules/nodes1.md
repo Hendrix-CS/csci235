@@ -208,7 +208,7 @@ the event loop atop `curses`, invoking `rclpy.spin_once()` to run the
 Read the code below, then answer the questions that follow.
 
 ```
-import sys, curses
+import sys, curses, traceback
 import rclpy
 from rclpy.node import Node
 from rclpy.qos import qos_profile_sensor_data
