@@ -56,7 +56,7 @@ object using [`odom2pose`](modules/nodes2.html)
 * Imagine a `RobotPose` object at `(1.0, 2.0)` with heading `1.57`. Its JSON
 representation will be:
 ```
-{"header": header_json(odom.header), "data": f"(pose,1.0,2.0,1.57)"}
+{"header": header_json(odom.header), "data": "(pose,1.0,2.0,1.57)"}
 ```
 * Based on the above structure, how would you encode a `RobotPose` object 
 named `pose`? *Hint: I recommend using an f-string.*
@@ -85,7 +85,9 @@ in the JSON object.
 
 Make a copy of your favorite obstacle-avoiding program (e.g. `bump_turn_45.py`) as 
 `slam_bump_turn.py`. Augment it as follows:
-* Add a publisher for `bitslam_obstacles`
+* Add the import `from std_msgs.msg import String` in order to be able to
+  publish `String` messages.
+* Add a publisher for `bitslam_obstacles` that publishes `String` messages.
 * Make sure it subscribes to `odom` and `hazard_detection` at a minimum.
   * In the callback for `odom`, publish a `pose` message, as defined 
     above, to `bitslam_obstacles`
@@ -105,6 +107,11 @@ with open(filename, 'a') as f:
 * Run your program for a while. 
 * Echo the `bitslam_obstacles` topic to see what it is publishing, and make sure 
   those values make sense.
+  
+### Incorporating IR sensors (optional)
+* If you would also like to incorporate obstacles observed by the IR sensors,
+  you can use [this map](https://iroboteducation.github.io/create3_docs/hw/mechanical/#ir-proximity-sensors)
+  to obtain their headings.
 
 ## Publishing the observations
 
