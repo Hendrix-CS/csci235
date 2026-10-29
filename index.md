@@ -66,7 +66,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 10/22 | Thu | Catch-up day |  |   
 |
 | 10/27 | Thu | Module 9: [SLAM](modules/slam.html) | Modules 7 & 8 | 
-| 10/29 | Thu | Project 2 topics | Module 9|  
+| 10/29 | Thu | [Project 2 topics](projects/project2.html) | Module 9|  
 |       |
 | 11/3  | Tue | Project 2 |  |
 | 11/5  | Thu | Project 2 Presentations | Project 2<br>Interview 4: Modules 7-9 (Fri 11/6) |
