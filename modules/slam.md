@@ -110,7 +110,7 @@ with open(filename, 'a') as f:
   
 ### Incorporating IR sensors (optional)
 * If you would also like to incorporate obstacles observed by the IR sensors,
-  you can use [this map](https://iroboteducation.github.io/create3_docs/hw/mechanical/#ir-proximity-sensors)
+  you can use [this diagram](https://iroboteducation.github.io/create3_docs/hw/mechanical/#ir-proximity-sensors)
   to obtain their headings.
 
 ## Publishing the observations
