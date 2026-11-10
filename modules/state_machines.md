@@ -265,8 +265,11 @@ any problems that arose previously?
 `patrol_machine_3.py`? 
 6. Make a copy of `patrol_node_2.py` called `patrol_node_3.py`. Make the
 modifications you described. Run it. Does it work as you expected?
-7. What advantages does State Diagram 3 have over State Diagrams 2A and 2B?
-8. What drawbacks does State Diagram 3 compared with State Diagrams 2A and 2B?
+7. What additional modifications would be needed to `patrol_node_3.py` so it
+would work with `allow_event_without_transition = False`? 
+8. What advantages does State Diagram 3 have over State Diagrams 2A and 2B?
+9. What drawbacks does State Diagram 3 compared with State Diagrams 2A and 2B?
+10. Overall, which approach do you prefer? Why? 
 
 # Hazard-avoiding State Machine
 <!-- Application: Symbolic inputs and State machines -->
