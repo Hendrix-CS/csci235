@@ -95,7 +95,6 @@ from rclpy.qos import qos_profile_sensor_data
 from geometry_msgs.msg import TwistStamped
 from robot_pose import RobotPose, odom2pose, normalize_angle_symmetric
 from nav_msgs.msg import Odometry
-from irobot_create_msgs.msg import HazardDetectionVector
 
 
 ANGULAR_VELOCITY = 0.5
