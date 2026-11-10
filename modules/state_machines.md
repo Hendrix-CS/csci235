@@ -8,6 +8,9 @@ worktitle: State Machines
 # A Simple State Machine
 
 The diagram below describes a **state machine** for controlling a robot.
+We will use the 
+[python-statemachine](https://python-statemachine.readthedocs.io/en/latest/#)
+to implement state machines for robot control.
 
 ## State Diagram 1
 
