@@ -84,7 +84,7 @@ works.
 
 # A ROS2 State Machine Node
 
-Create a new program called `state_patrol_1.py`, and copy the code below
+Create a new program called `patrol_node_1.py`, and copy the code below
 into it:
 ```
 from patrol_machine_1 import BoundedPatrol
@@ -193,7 +193,7 @@ def main(stdscr):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print("Usage: python3 state_patrol_1.py robot_name")
+        print("Usage: python3 patrol_node_1.py robot_name")
     else:
         curses.wrapper(main)
 ```
@@ -229,18 +229,18 @@ Modify the states and transitions to conform to your preferred diagram
 (2A or 2B). Test `patrol_machine_2.py` and make sure it works as you 
 expect. Were there any changes you made that you found surprising or 
 noteworthy?
-6. Imagine modifying `state_patrol_1.py` to support your preferred diagram
+6. Imagine modifying `patrol_node_1.py` to support your preferred diagram
 (2A or 2B). What modifications would you need to make?
-7. Make a copy of `state_patrol_1.py` called `state_patrol_2.py`. Modify
+7. Make a copy of `patrol_node_1.py` called `patrol_node_2.py`. Modify
 as necessary to support your preferred diagram. Try it out and observe how
 your robot behaves. Did it behave as you expected?  
 8. Make a copy of `patrol_machine_2.py` called `patrol_machine_2_other.py`. 
 Modify `patrol_machine_2_other.py` to reflect the diagram you preferred 
 less. What were the modifications? 
-9. How would `state_patrol_2.py` also need to be modified to accommodate
-the other diagram? Make a copy of `state_patrol_2.py` called 
-`state_patrol_2_other.py` with the necessary modifications.
-10. Try out `state_patrol_2_other.py` and observe how your robot behaves. 
+9. How would `patrol_node_2.py` also need to be modified to accommodate
+the other diagram? Make a copy of `patrol_node_2.py` called 
+`patrol_node_2_other.py` with the necessary modifications.
+10. Try out `patrol_node_2_other.py` and observe how your robot behaves. 
 Did it behave as you expected?
 11. Do you think your choice of preferred diagram was warranted? Why or why 
 not?
@@ -267,7 +267,7 @@ Answer the following questions:
 4. Create a file `hazard_machine.py` that defines a state machine using
 your states and transitions. Test it and modify it until it works as you
 expect. 
-5. Create a file `state_hazard.py` that defines a ROS2 node that implements
+5. Create a file `hazard_node.py` that defines a ROS2 node that implements
 the state machine from `hazard_machine.py`. Test it and observe the robot's
 behavior, modifying both programs until the robot behaves as specified 
 above. 
