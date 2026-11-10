@@ -250,16 +250,16 @@ not?
 
 Consider the following desired behavior:
 * If nothing exceptional occurs, the robot drives forward.
-* If the robot encounters a hazard, the robot turns 90 degrees.
+* If the robot encounters a hazard, the robot turns 45 degrees.
   * If the hazard is to its left, it turns right.
   * If the hazard is to its right, it turns left.
   * If the hazard is in front of it, it turns in the same direction it most recently turned.
-* Once the robot completes its 90 degree turn, it drives forward again.
+* Once the robot completes its 45 degree turn, it drives forward again.
 
 Answer the following questions:
 1. What would be a set of states that would comprehensively represent the 
   above behavior?
-  * **Hint**: There is no need to use more than four states.
+  * **Hint**: There is no need to use more than five states.
 2. What motor commands would you associate with each state?
 3. What transitions would you use to represent the situations that cause 
   these states to change? 
