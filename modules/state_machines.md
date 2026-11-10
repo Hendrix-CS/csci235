@@ -244,6 +244,30 @@ Did it behave as you expected?
 11. Do you think your choice of preferred diagram was warranted? Why or why 
 not?
 
+# Simplifying the State Machine
+
+Consider the state diagram below:
+
+## State Diagram 3
+
+<img src="{{site.baseurl}}/assets/images/state3.png" />
+
+1. In what ways is this similar to State Diagrams 2A and 2B? In what ways
+does it differ?
+2. Is its functionality equivalent to one of 2A or 2B? Why or why not?
+3. Make a copy of `patrol_machine_2.py` called `patrol_machine_3.py`. Modify 
+it so that it matches State Diagram 3. Test it out. Do any problems arise 
+when testing? If so, what?
+4. Change `allow_event_without_transition = False` to 
+`allow_event_without_transition = True`. Then test it again. Does this fix
+any problems that arose previously?
+5. What modifications would be needed for `patrol_node_2.py` to work with
+`patrol_machine_3.py`? 
+6. Make a copy of `patrol_node_2.py` called `patrol_node_3.py`. Make the
+modifications you described. Run it. Does it work as you expected?
+7. What advantages does State Diagram 3 have over State Diagrams 2A and 2B?
+8. What drawbacks does State Diagram 3 compared with State Diagrams 2A and 2B?
+
 # Hazard-avoiding State Machine
 <!-- Application: Symbolic inputs and State machines -->
 
