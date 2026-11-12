@@ -9,28 +9,61 @@ worktitle: Image-Driven Behavior
 
 We have two sets of training images. Examine each set below.
 
-## First label
+## Blocked Images
 
-## Second label
+### Image 1
+
+<img src="{{site.baseurl}}/assets/images/blocked/photo_1.png" />
+
+### Image 2
+
+<img src="{{site.baseurl}}/assets/images/blocked/photo_2.png" />
+
+### Image 3
+
+<img src="{{site.baseurl}}/assets/images/blocked/photo_3.png" />
+
+## Clear Images
+
+### Image 1
+
+<img src="{{site.baseurl}}/assets/images/clear/photo_1.png" />
+
+### Image 2
+
+<img src="{{site.baseurl}}/assets/images/clear/photo_2.png" />
+
+### Image 3
+
+<img src="{{site.baseurl}}/assets/images/clear/photo_3.png" />
 
 We also have two images to classify:
 
 ## First test image
 
+<img src="{{site.baseurl}}/assets/images/clear/photo_4.png" />
+
 ## Second test image
+
+<img src="{{site.baseurl}}/assets/images/blocked/photo_4.png" />
 
 ## Image Similarity
 
-1. Which three images from the **combined** set of training images would
+1. Which image from the **combined** set of training images would
+you say is **most** similar to the **first** test image?
+2. Does that image belong to the **clear** or **blocked** label?
+3. Which image from the **combined** set of training images would
+you say is **most** similar to the **second** test image?
+4. Does that image belong to the **clear** or **blocked** label?
+5. Which **three** images from the **combined** set of training images would
 you say are **most** similar to the **first** test image?
-2. How many of those three images belong to the set with the first label?
-How about the second label?
-3. Which three images from the **combined** set of training images would
+6. How many of those three images belong to the **clear** set?
+How about the **blocked** set?
+7. Which **three** images from the **combined** set of training images would
 you say are **most** similar to the **second** test image?
-4. How many of those three images belong to the set with the first label?
-How about the second label?
-5. Repeat questions 1-4 using five images instead of three images.
-6. What led to more accurate classifications: three images or five images?
+8. How many of those three images belong to the **clear** set?
+How about the **blocked** set?
+9. What led to more accurate classifications: one images or three images?
 
 This classification algorithm is known as **k nearest neighbor** 
 (abbreviated **kNN**). To classify an image:
