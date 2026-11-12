@@ -13,39 +13,39 @@ We have two sets of training images. Examine each set below.
 
 ### Image 1
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_1.png" />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_1.png" width=400 />
 
 ### Image 2
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_2.png" />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_2.png" width=400 />
 
 ### Image 3
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_3.png" />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_3.png" width=400 />
 
 ## Clear Images
 
 ### Image 1
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_1.png" />
+<img src="{{site.baseurl}}/assets/images/clear/photo_1.png" width=400 />
 
 ### Image 2
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_2.png" />
+<img src="{{site.baseurl}}/assets/images/clear/photo_2.png" width=400 />
 
 ### Image 3
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_3.png" />
+<img src="{{site.baseurl}}/assets/images/clear/photo_3.png" width=400 />
 
 We also have two images to classify:
 
 ## First test image
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_4.png" />
+<img src="{{site.baseurl}}/assets/images/clear/photo_4.png" width=400 />
 
 ## Second test image
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_4.png" />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_4.png" width=400 />
 
 ## Image Similarity
 
