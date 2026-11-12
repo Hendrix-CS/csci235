@@ -72,9 +72,9 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 11/5  | Thu | Project 2 Presentations | Project 2<br>Interview 4: Modules 7-9 (Fri 11/6) |
 |      
 | 11/10 | Tue | Module 10: [State Machines](modules/state_machines.html)  | |   
-| 11/12 | Thu | Module 11: Computer Vision 2 | Module 10<br>Interview 5: Project 2 (Fri 11/13) |
+| 11/12 | Thu | Module 11: [Computer Vision 2: Image-driven behavior](modules/image_behavior.html) | Module 10<br>Interview 5: Project 2 (Fri 11/13) |
 |       |
-| 11/17 | Tue | Module 12: Computer Vision 3 | Module 11 |
+| 11/17 | Tue | Module 12: Computer Vision 3: Image-driven rewards | Module 11 |
 | 11/19 | Thu | [Final Project](projects/Final.html) | Module 12<br>Interview 6: Modules 10-12 (Fri 11/20) |  
 |       |
 | 11/24 | Tue | Final Project work day (**optional**) | Final Project Proposal |  
