@@ -13,7 +13,7 @@ We have two sets of training images. Examine each set below.
 
 ### Image 1
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_1.png" width=400 />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_4.png" width=400 />
 
 ### Image 2
 
@@ -27,7 +27,7 @@ We have two sets of training images. Examine each set below.
 
 ### Image 1
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_1.png" width=400 />
+<img src="{{site.baseurl}}/assets/images/clear/photo_4.png" width=400 />
 
 ### Image 2
 
@@ -41,11 +41,11 @@ We also have two images to classify:
 
 ## First test image
 
-<img src="{{site.baseurl}}/assets/images/clear/photo_4.png" width=400 />
+<img src="{{site.baseurl}}/assets/images/clear/photo_1.png" width=400 />
 
 ## Second test image
 
-<img src="{{site.baseurl}}/assets/images/blocked/photo_4.png" width=400 />
+<img src="{{site.baseurl}}/assets/images/blocked/photo_1.png" width=400 />
 
 ## Image Similarity
 
