@@ -75,13 +75,13 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 11/12 | Thu | Module 11: [Computer Vision 2: Image-driven behavior](modules/image_behavior.html) | Module 10<br>Interview 5: Project 2 (Fri 11/13) |
 |       |
 | 11/17 | Tue | Module 12: [Computer Vision 3: Image-driven rewards](modules/image_rewards.html) | Module 11 |
-| 11/19 | Thu | [Final Project](projects/Final.html) | Module 12<br>Interview 6: Modules 10-12 (Fri 11/20) |  
+| 11/19 | Thu | [Final Project](projects/Final.html) | Module 12|
 |       |
 | 11/24 | Tue | Final Project work day (**optional**) | Final Project Proposal |  
 | 11/26 | Thu | **Thanksgiving: No class** |  |  
 |       |
 | 12/1  | Tue | Final Project work |  |  |  
-| 12/3  | Thu | Final Project work |  |  |  
+| 12/3  | Thu | Final Project work |  | Interview 6: Modules 10-12 (Fri 12/4) |  
 |       |
 | 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects](projects/Final.html)<br>Interview 6: Final Project (Mon 12/14) |
 
