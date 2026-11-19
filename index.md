@@ -83,7 +83,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 | 12/1  | Tue | Final Project work |  |  |  
 | 12/3  | Thu | Final Project work |  | Interview 6: Modules 10-12 (Fri 12/4) |  
 |       |
-| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects](projects/Final.html)<br>Interview 6: Final Project (Mon 12/14) |
+| 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects](projects/Final.html)<br>Interview 7: Final Project (Mon 12/14) |
 
 # <a name="integrity">Academic Integricy</a>
 

@@ -62,5 +62,9 @@ team will deliver an oral presentation as follows:
 * Tuesday, December 8
   * Final project presentations
   * Final papers due
+* Monday, December 14
+  * Final project interview must be completed by 5 pm
+  * This doesn't count towards interview credits, but is necessary to earn 
+    credit for the final project.
 * Tuesday, December 15
   * All makeup work due by 5 pm
