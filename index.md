@@ -85,7 +85,7 @@ Open office hours (in addition to [appointments](https://drferrer.youcanbook.me/
 |       |
 | 12/8  | Tue 8:30-11:30 am | Final Project Presentations | | [Final Projects](projects/Final.html)<br>Interview 7: Final Project (Mon 12/14) |
 
-# <a name="integrity">Academic Integricy</a>
+# <a name="integrity">Academic Integrity</a>
 
 Hendrix College is committed to high standards of honesty and fairness in academic pursuits. Such standards are central to the process of intellectual inquiry, the development of character, and the preservation of the integrity of the community.
 
