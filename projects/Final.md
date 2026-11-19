@@ -52,7 +52,9 @@ team will deliver an oral presentation as follows:
 * Degree of completion of goals
 * Description of challenges encountered and how they were addressed
 * Presentation of video recordings of the robot in action.
+  * The video may be from 60 to 240 seconds in length.
 * Conclusion summarizing the project.
+* Total length: 10-15 minutes, including the video.
 
 ## Timeline
 * Tuesday, November 24
